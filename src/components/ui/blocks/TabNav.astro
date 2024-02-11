@@ -1,0 +1,44 @@
+---
+const { aria, dataTab, id, heading, paragraph, first } = Astro.props;
+
+interface Props {
+  dataTab: string;
+  id: string;
+  aria: string;
+  heading?: string;
+  paragraph?: string;
+  first?: boolean;
+}
+
+/*
+first: This prop should be set to true for the initial TabNav component in your list to ensure that it's visible when the page first loads. All subsequent TabNav components should omit this prop or set it to false.
+
+Example:
+<TabNav id="" dataTab="" aria="" heading="" paragraph="" first={true} />
+<TabNav id="" dataTab="" aria="" heading="" paragraph="" />
+<TabNav id="" dataTab="" aria="" heading="" paragraph="" />
+*/
+---
+
+<button
+  type="button"
+  class={`${first ? "active dark:hover:bg-neutral-700dark:focus:ring-neutral-600 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none dark:focus:ring-1 dark:hs-tab-active:bg-neutral-700/60 md:p-5" : "dark:hover:bg-neutral-700dark:focus:ring-neutral-600 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none dark:focus:ring-1 dark:hs-tab-active:bg-neutral-700/60 md:p-5"}`}
+  id={id}
+  data-hs-tab={dataTab}
+  aria-controls={aria}
+  role="tab"
+>
+  <span class="flex">
+    <slot />
+    <span class="ms-6 grow">
+      <span
+        class="block text-lg font-semibold text-neutral-800 hs-tab-active:text-[#fa5a15] dark:text-neutral-200 dark:hs-tab-active:text-[#fb713b]"
+        >{heading}</span
+      >
+      <span
+        class="mt-1 block text-neutral-500 hs-tab-active:text-neutral-600 dark:text-neutral-400 dark:hs-tab-active:text-neutral-200"
+        >{paragraph}</span
+      >
+    </span>
+  </span>
+</button>

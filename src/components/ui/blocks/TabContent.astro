@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+
+const { id, aria, src, alt, first, second } = Astro.props;
+
+interface Props {
+  id: string;
+  aria: string;
+  src?: any;
+  alt: string;
+  first?: boolean;
+  second?: boolean;
+}
+
+/*
+first: This prop should be set to true for the initial TabContent component in your list to ensure that it's visible when the page first loads. All subsequent TabContent components should omit this prop or set it to false.
+
+second: This prop allows to control changes in the look of the Image. If it is set to true, the Image will have different aspect ratio and background color. If this prop is not provided or is set to false, the Image will use default styling. You can enable this for any TabContent component you want to apply these changes to.
+
+Example:
+<TabContent id="" aria="" src="" alt="" first={true}/>
+<TabContent id="" aria="" src="" alt="" second={true}/>
+<TabContent id="" aria="" src="" alt="" />
+*/
+---
+
+<div
+  id={id}
+  role="tabpanel"
+  class={`${first ? "" : "hidden"}`}
+  aria-labelledby={aria}
+>
+  <Image
+    src={src}
+    alt={alt}
+    class={`${second ? "shadow-xl aspect-[5/3] bg-neutral-300 dark:bg-neutral-600 object-cover p-3 lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]" : "shadow-xl aspect-[3/2] object-cover lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]"}`}
+    draggable={"false"}
+  />
+</div>
