@@ -1,16 +1,22 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import HeroSection from "../components/HeroSection.astro";
+import Clients from "../components/Clients.astro";
+import FeaturesGeneral from "../components/FeaturesGeneral.astro";
+import FeaturesNavs from "../components/FeaturesNavs.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Pricing from "../components/Pricing.astro";
+import FAQ from "../components/FAQ.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <Navbar />
+  <HeroSection />
+  <Clients />
+  <FeaturesGeneral />
+  <FeaturesNavs />
+  <Testimonials />
+  <Pricing />
+  <FAQ />
+</MainLayout>
