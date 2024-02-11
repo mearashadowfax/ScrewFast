@@ -1,0 +1,14 @@
+---
+const { src, alt = "Image Description" } = Astro.props;
+
+interface Props {
+  src?: string;
+  alt?: string;
+}
+---
+
+<img
+  class="inline-block h-8 w-8 rounded-full ring-2 ring-neutral-50 dark:ring-zinc-800"
+  src={src}
+  alt={alt}
+/>
