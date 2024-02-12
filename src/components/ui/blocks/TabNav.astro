@@ -1,12 +1,12 @@
 ---
-const { aria, dataTab, id, heading, paragraph, first } = Astro.props;
+const { aria, dataTab, id, heading, content, first } = Astro.props;
 
 interface Props {
   dataTab: string;
   id: string;
   aria: string;
   heading?: string;
-  paragraph?: string;
+  content?: string;
   first?: boolean;
 }
 
@@ -22,7 +22,7 @@ Example:
 
 <button
   type="button"
-  class={`${first ? "active dark:hover:bg-neutral-700dark:focus:ring-neutral-600 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none dark:focus:ring-1 dark:hs-tab-active:bg-neutral-700/60 md:p-5" : "dark:hover:bg-neutral-700dark:focus:ring-neutral-600 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none dark:focus:ring-1 dark:hs-tab-active:bg-neutral-700/60 md:p-5"}`}
+  class={`${first ? "active dark:hover:bg-neutral-700 dark:focus:ring-neutral-600 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none dark:focus:ring-1 dark:hs-tab-active:bg-neutral-700/60 md:p-5" : "dark:hover:bg-neutral-700 dark:focus:ring-neutral-600 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none dark:focus:ring-1 dark:hs-tab-active:bg-neutral-700/60 md:p-5"}`}
   id={id}
   data-hs-tab={dataTab}
   aria-controls={aria}
@@ -37,7 +37,7 @@ Example:
       >
       <span
         class="mt-1 block text-neutral-500 hs-tab-active:text-neutral-600 dark:text-neutral-400 dark:hs-tab-active:text-neutral-200"
-        >{paragraph}</span
+        >{content}</span
       >
     </span>
   </span>

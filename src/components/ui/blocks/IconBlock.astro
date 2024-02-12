@@ -1,9 +1,9 @@
 ---
-const { heading, paragraph } = Astro.props;
+const { heading, content } = Astro.props;
 
 interface Props {
   heading?: string;
-  paragraph?: string;
+  content?: string;
 }
 ---
 
@@ -16,7 +16,7 @@ interface Props {
       {heading}
     </h3>
     <p class="mt-1 text-pretty text-neutral-700 dark:text-neutral-300">
-      {paragraph}
+      {content}
     </p>
   </div>
 </div>
