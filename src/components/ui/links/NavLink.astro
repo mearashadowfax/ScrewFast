@@ -1,0 +1,40 @@
+---
+const { url, name } = Astro.props;
+
+interface Props {
+  url: string;
+  name: string;
+}
+---
+<!--
+Re-usable link component for navigation bar. Highlights the active link
+by comparing the current URL with the href of each link.
+We assign an ID matching the URL for easy reference in our script.
+If URL is '/' (home page), assign ID as 'home' 
+-->
+<a
+  id={url === "/" ? "home" : url.split("/")[1]}
+  href={url}
+  class="font-medium text-neutral-500 hover:text-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-neutral-600 md:py-6"
+>
+  {name}
+</a>
+
+<script>
+  window.onload = function () {
+    let url = window.location.pathname.slice(1);
+    url = url ? url : "home";
+    let nav = document.getElementById(url);
+    if (nav) {
+      // If a matching link found, update its styles and set aria-current attribute
+      nav.classList.remove(
+        "text-neutral-500",
+        "dark:text-neutral-400",
+        "hover:text-neutral-400",
+        "dark:hover:text-neutral-500",
+      );
+      nav.classList.add("text-[#fa5a15]", "dark:text-[#fa5a15]");
+      nav.setAttribute("aria-current", "page");
+    }
+  };
+</script>
