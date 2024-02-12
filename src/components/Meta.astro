@@ -1,0 +1,56 @@
+---
+const title: string = "ScrewFast";
+const author:string = "Emil Gulamov"
+const description:string = "";
+const URL:string = "";
+const socialImage:string = "";
+---
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{title}",
+        "url": "{URL}",
+        "description": "{description}"
+    }
+</script>
+
+<meta
+        content={description}
+        name="description"
+/>
+<meta name="web_author" content={author}/>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={URL}>
+<meta property="og:type" content="website">
+<meta property="og:title" content={title}>
+<meta property="og:site_name" content={title}/>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={socialImage}>
+<meta content="1200" property="og:image:width"/>
+<meta content="600" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content={URL}>
+<meta property="twitter:url" content={URL}>
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={socialImage}>
+
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon"/>
+<link href="/icon.svg" rel="icon" type="image/svg+xml" sizes="any"/>
+<meta name="mobile-web-app-capable" content="yes">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/apple-touch-icon.png" rel="shortcut icon"/>
+<meta name="theme-color" content="#facc15">
