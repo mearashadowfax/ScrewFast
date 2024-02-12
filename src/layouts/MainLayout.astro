@@ -1,0 +1,79 @@
+---
+const { title = "ScrewFast" } = Astro.props;
+
+interface Props {
+  title?: string;
+}
+---
+
+<html lang="en" class="scrollbar-hide">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <script is:inline>
+      // This script is to handle theme according to user preference or system setting
+      if (
+        localStorage.getItem("hs_theme") === "dark" ||
+        (!("hs_theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body
+    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
+  >
+    <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+      <slot />
+    </div>
+    <style>
+      // These css rules are for the page scrollbar and scrolling experience with lenis library
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      html.lenis {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+    <script is:inline src="/assets/vendor/lenis/lenis.js"></script>
+    <script is:inline>
+      // This script is to handle lenis library settings and behaviors, like the smooth scrolling
+      const lenis = new Lenis();
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    </script>
+    <script is:inline src="/assets/vendor/preline/preline.js"></script>
+  </body>
+</html>
