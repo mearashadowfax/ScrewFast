@@ -1,0 +1,58 @@
+---
+const { id, collapseId, heading, content, first } = Astro.props;
+
+interface Props {
+  id: string;
+  collapseId: string;
+  heading: string;
+  content: string;
+  first?: boolean;
+}
+---
+
+<div
+  class=`${first ? "hs-accordion pb-3 active" : "hs-accordion pt-6 pb-3"}`
+  id={id}
+>
+  <button
+    class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-neutral-800 outline-none ring-zinc-500 transition hover:text-neutral-500 focus-visible:ring dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:outline-none md:text-lg"
+    aria-controls={collapseId}
+  >
+    {heading}
+    <svg
+      class="block h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:hidden dark:text-neutral-400"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+    >
+    <svg
+      class="hidden h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:block dark:text-neutral-400"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+    >
+  </button>
+  <div
+    aria-labelledby={id}
+    class=`${first
+      ? "hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+      : "hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"}`
+    id={collapseId}
+    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+    aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+  >
+    <p class="text-neutral-600 dark:text-neutral-400">
+      {content}
+    </p>
+  </div>
+</div>
