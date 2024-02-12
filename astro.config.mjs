@@ -11,6 +11,8 @@ export default defineConfig({
   adapter: vercelStatic({
     imagesConfig: {
       sizes: [400, 600, 800, 1000, 1200, 1600, 2000],
+      domains: [],
+      formats: ["image/avif", "image/webp"],
     },
     imageService: true,
   }),
