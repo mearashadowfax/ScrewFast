@@ -1,19 +1,15 @@
 ---
-// import necessary dependencies
+// Import the necessary dependencies from individual component files
 import { Image } from "astro:assets";
 import featureImage from "../images/features-image.avif";
 import IconBlock from "./ui/blocks/IconBlock.astro";
 
-/* `title` variable used to customise the heading. */
+// Main heading
 const title: string = "Meeting Industry Demands";
 
-/* `subTitle` variable used to customise the sub-heading text. */
+// Sub-heading text
 const subTitle: string =
   "At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals.";
-
-/*
-  In the above, the title and subTitle attributes are variables part of the FeaturesGeneral component.
-*/
 ---
 
 <div
@@ -34,7 +30,7 @@ const subTitle: string =
     <div class="lg:col-span-1">
       <!-- Title Block -->
       <h2
-        class="text-balanced text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
+        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
       >
         {title}
       </h2>

@@ -1,19 +1,22 @@
 ---
-const title: string = "ScrewFast";
-const author:string = "Emil Gulamov"
-const description:string = "";
-const URL:string = "https://screw-fast.vercel.app";
-const socialImage:string = "https://screw-fast.vercel.app/social.png";
+// Customize the following metadata for your landing page
+
+const title: string = "ScrewFast"; // Replace with your website title
+const ogTitle: string = "ScrewFast: Hardware Tools & Construction Services"; // Replace with your Open Graph title
+const author:string = "Emil Gulamov" // Replace with the author's name
+const description:string = "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."; // Replace with your site description
+const URL:string = "https://screw-fast.vercel.app"; // Replace with your website URL
+const socialImage:string = "https://screw-fast.vercel.app/social.png"; // Replace with the URL to your social media image
 ---
 
 <script type="application/ld+json">
-    {
+    {{
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "{title}",
-        "url": "{URL}",
-        "description": "{description}"
-    }
+        "name": title,
+        "url": URL,
+        "description": description
+    }}
 </script>
 
 <meta
@@ -29,7 +32,7 @@ const socialImage:string = "https://screw-fast.vercel.app/social.png";
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content={URL}>
 <meta property="og:type" content="website">
-<meta property="og:title" content={title}>
+<meta property="og:title" content={ogTitle}>
 <meta property="og:site_name" content={title}/>
 <meta property="og:description" content={description}>
 <meta property="og:image" content={socialImage}>
@@ -41,13 +44,16 @@ const socialImage:string = "https://screw-fast.vercel.app/social.png";
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content={URL}>
 <meta property="twitter:url" content={URL}>
-<meta name="twitter:title" content={title}>
+<meta name="twitter:title" content={ogTitle}>
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={socialImage}>
 
 <link rel="manifest" href="/manifest.webmanifest" />
+
+<!-- https://docs.astro.build/en/guides/integrations-guide/sitemap/ -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 
+<!-- Add your favicon and apple touch icon links -->
 <link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon"/>
 <link href="/icon.svg" rel="icon" type="image/svg+xml" sizes="any"/>
 <meta name="mobile-web-app-capable" content="yes">

@@ -6,6 +6,7 @@ interface Props {
   name: string;
 }
 ---
+
 <!--
 Re-usable link component for navigation bar. Highlights the active link
 by comparing the current URL with the href of each link.
@@ -15,7 +16,7 @@ If URL is '/' (home page), assign ID as 'home'
 <a
   id={url === "/" ? "home" : url.split("/")[1]}
   href={url}
-  class="font-medium text-neutral-500 hover:text-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-neutral-600 md:py-6"
+  class="rounded-lg font-medium text-neutral-600 outline-none ring-zinc-500 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-none md:py-3 2xl:text-base"
 >
   {name}
 </a>
@@ -28,9 +29,9 @@ If URL is '/' (home page), assign ID as 'home'
     if (nav) {
       // If a matching link found, update its styles and set aria-current attribute
       nav.classList.remove(
-        "text-neutral-500",
+        "text-neutral-600",
         "dark:text-neutral-400",
-        "hover:text-neutral-400",
+        "hover:text-neutral-500",
         "dark:hover:text-neutral-500",
       );
       nav.classList.add("text-[#fa5a15]", "dark:text-[#fa5a15]");

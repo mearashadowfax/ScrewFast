@@ -1,17 +1,13 @@
 ---
+// Import the necessary dependencies from individual component files
 import TabNav from "./ui/blocks/TabNav.astro";
 import TabContent from "./ui/blocks/TabContent.astro";
-import { Image } from "astro:assets";
 import construction from "../images/construction-image.avif";
 import tools from "../images/automated-tools.avif";
 import dashboard from "../images/dashboard-image.avif";
 
-/* `title` variable used to customise the heading. */
+// Main heading
 const title: string = `Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`;
-
-/*
-  In the above, the title attribute is a variable part of the FeaturesNavs component.
-*/
 ---
 
 <div

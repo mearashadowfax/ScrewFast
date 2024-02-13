@@ -1,5 +1,8 @@
 ---
 import Meta from "../components/Meta.astro";
+import Navbar from "../components/Navbar.astro";
+import FooterSection from "../components/FooterSection.astro";
+
 const { title = "ScrewFast" } = Astro.props;
 
 interface Props {
@@ -31,8 +34,10 @@ interface Props {
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+      <Navbar />
       <slot />
     </div>
+    <FooterSection />
     <style>
       // These css rules are for the page scrollbar and scrolling experience with lenis library
       .scrollbar-hide::-webkit-scrollbar {

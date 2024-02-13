@@ -18,11 +18,11 @@ const subTitle:string =
 
 /* `primaryBtn` and `primaryBtnURL` variables used to customise the text and target link of the primary button. */
 const primaryBtn:string = "Start Exploring";
-const primaryBtnURL:string = "#";
+const primaryBtnURL:string = "/products";
 
 /* `secondaryBtn` and `secondaryBtnURL` variables used to customise the text and target link of the secondary button. */
 const secondaryBtn:string = "Contact Sales Team";
-const secondaryBtnURL:string = "#";
+const secondaryBtnURL:string = "/contact";
 
 /* `rating` variable used to customise the rating. */
 const rating:number = 4.8;
@@ -44,7 +44,7 @@ const reviews:string = "12.8k";
   <!-- Title and description -->
   <div>
     <h1
-      class="text-balanced block text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
+      class="text-balance block text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
     >
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
@@ -126,9 +126,11 @@ const reviews:string = "12.8k";
     <div class="top-12 overflow-hidden">
       <Image
         src={heroImage}
-        alt=""
+        alt="Stack of ScrewFast product boxes containing assorted hardware tools"
         class="h-full w-full scale-110 object-cover object-center"
         draggable={"false"}
+        loading={"eager"}
+        format={"avif"}
       />
     </div>
   </div>

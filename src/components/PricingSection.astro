@@ -1,16 +1,14 @@
 ---
-// import necessary dependencies
+// Import the necessary dependencies from individual component files
 import SecondaryCTA from "./ui/buttons/SecondaryCTA.astro";
-/* `title` variable used to customise the heading. */
+
+// Variables for customization of the LoginModal Component
+// Main heading
 const title: string = "Simple, Transparent Pricing";
 
-/* `subTitle` variable used to customise the sub-heading text. */
+// Sub-heading text
 const subTitle: string =
   "Boost efficiency with ScrewFast's clear, value-driven plans.";
-
-/*
-  In the above, the title and subTitle attributes are variables part of the PricingSection component.
-*/
 
 /* TypeScript type for product. */
 type Product = {
@@ -62,7 +60,7 @@ const professionalToolbox: Product = {
   <!-- Title and description -->
   <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
     <h2
-      class="text-balanced text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+      class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
     >
       {title}
     </h2>
