@@ -1,0 +1,29 @@
+---
+const { label = "Search", title = "Subscribe" } = Astro.props;
+
+interface Props {
+  label?: string;
+  title?: string;
+}
+---
+
+<div
+  class="mt-4 flex flex-col items-center gap-2 rounded-lg bg-neutral-200 p-2 dark:bg-neutral-800 sm:flex-row sm:gap-3"
+>
+  <div class="w-full">
+    <label for="hero-input" class="sr-only">{label}</label>
+    <input
+      type="text"
+      id="hero-input"
+      name="hero-input"
+      class="block w-full rounded-lg border-transparent bg-neutral-100 px-4 py-3 text-sm text-neutral-600 focus:border-[#fa5a15] focus:ring-[#fa5a15] disabled:pointer-events-none disabled:opacity-50 dark:border-transparent dark:bg-neutral-700 dark:text-gray-300"
+      placeholder="Enter your email"
+    />
+  </div>
+  <a
+    class="inline-flex w-full items-center justify-center gap-x-2 whitespace-nowrap rounded-lg border border-transparent bg-[#fa5a15] p-3 text-sm font-semibold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none dark:focus:ring-1 sm:w-auto"
+    href="#"
+  >
+    {title}
+  </a>
+</div>

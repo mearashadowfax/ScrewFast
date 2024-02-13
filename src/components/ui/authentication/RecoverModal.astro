@@ -1,0 +1,64 @@
+---
+// Import the necessary dependencies from individual component files
+import AuthBtn from "../buttons/AuthBtn.astro";
+import EmailInput from "./input/EmailInput.astro";
+
+// Variables to customize the RecoverModal Component
+
+// Modal identifier
+const id = "hs-toggle-between-modals-recover-modal";
+
+// Main heading
+const title: string = "Forgot password?";
+
+// Sub-heading text
+const subTitle: string = "Remember your password?";
+
+// Text and target link for the login button
+const loginBtn: string = "Sign in here";
+const loginBtnDataHS: string = "#hs-toggle-between-modals-login-modal";
+---
+
+<div
+  id={id}
+  class="hs-overlay absolute start-0 top-0 z-50 hidden h-full w-full hs-overlay-backdrop-open:bg-neutral-900/90"
+>
+  <div
+    class="m-3 mt-0 opacity-0 transition-all ease-out hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 sm:mx-auto sm:w-full sm:max-w-lg"
+  >
+    <div class="mx-auto w-full max-w-md p-6">
+      <div
+        class="mt-7 rounded-xl border border-neutral-200 bg-neutral-100 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+      >
+        <div class="p-4 sm:p-7">
+          <div class="text-center">
+            <h1
+              class="block text-2xl font-bold text-neutral-800 dark:text-neutral-200"
+            >
+              {title}
+            </h1>
+            <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+              {subTitle}
+              <button
+                class="rounded-lg p-1 font-medium text-[#fa5a15] decoration-2 outline-none ring-zinc-500 hover:underline focus-visible:ring dark:text-[#fa5a15] dark:ring-zinc-200 dark:focus:outline-none"
+                data-hs-overlay={loginBtnDataHS}
+              >
+                {loginBtn}
+              </button>
+            </p>
+          </div>
+
+          <div class="mt-5">
+            <!-- Form -->
+            <form>
+              <div class="grid gap-y-4">
+                <EmailInput />
+                <AuthBtn title="Reset password" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

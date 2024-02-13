@@ -1,0 +1,128 @@
+---
+// Import the necessary dependencies from individual component files
+import GithubBtn from "./ui/buttons/GithubBtn.astro";
+
+// Variables for customization of the LoginModal Component
+// Main heading
+const title: string = "Let's Build Together";
+
+// Sub-heading text
+const subTitle: string =
+  "ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks.";
+
+---
+
+<div class="relative mx-auto max-w-[85rem] px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+  <div class="absolute left-[10%] top-[25%] scale-90">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="64"
+      height="64"
+      fill="none"
+      stroke-width="1.5"
+      color="#ea580c"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="#ea580c"
+        stroke="#ea580c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 23a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM3 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM3 18a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+      ></path>
+      <path
+        stroke="#ea580c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21 7.353v9.294a.6.6 0 0 1-.309.525l-8.4 4.666a.6.6 0 0 1-.582 0l-8.4-4.666A.6.6 0 0 1 3 16.647V7.353a.6.6 0 0 1 .309-.524l8.4-4.667a.6.6 0 0 1 .582 0l8.4 4.667a.6.6 0 0 1 .309.524Z"
+      ></path>
+      <path
+        stroke="#ea580c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m3.528 7.294 8.18 4.544a.6.6 0 0 0 .583 0l8.209-4.56M12 21v-9"
+      ></path>
+    </svg>
+  </div>
+  <div class="absolute left-[85%] top-0 scale-75">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="64"
+      height="64"
+      fill="none"
+      stroke-width="1.5"
+      color="#fbbf24"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="#fbbf24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"
+      ></path>
+      <path
+        fill="#fbbf24"
+        stroke="#fbbf24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+      <path
+        stroke="#fbbf24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M5 10.5V9M5 15v-1.5"></path>
+      <path
+        fill="#fbbf24"
+        stroke="#fbbf24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M5 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM19 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+      ></path>
+      <path
+        stroke="#fbbf24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M10.5 19H9M15 19h-1.5"></path>
+    </svg>
+  </div>
+  <div class="absolute bottom-[15%] left-[35%] scale-[.6]">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="64"
+      height="64"
+      fill="none"
+      stroke-width="1.5"
+      color="#a3a3a3"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="#a3a3a3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M5.164 17c.29-1.049.67-2.052 1.132-3M11.5 7.794A16.838 16.838 0 0 1 14 6.296M4.5 22a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
+      ></path>
+      <path
+        stroke="#a3a3a3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M9.5 12a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5ZM19.5 7a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
+      ></path>
+    </svg>
+  </div>
+
+  <div class="mx-auto mt-5 max-w-xl text-center">
+    <h1
+      class="block text-balance text-4xl font-bold leading-tight tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
+    >
+      {title}
+    </h1>
+  </div>
+
+  <div class="mx-auto mt-5 max-w-3xl text-center">
+    <p class="text-lg text-neutral-600 dark:text-neutral-400">{subTitle}</p>
+  </div>
+
+  <div class="mt-8 flex justify-center gap-3">
+    <GithubBtn url="https://github.com/mearashadowfax/ScrewFast" />
+  </div>
+</div>
