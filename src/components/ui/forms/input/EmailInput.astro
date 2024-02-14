@@ -1,0 +1,44 @@
+---
+const { label = "Email address", id } = Astro.props;
+
+interface Props {
+  label?: string;
+  id: string;
+}
+---
+
+<div>
+  <label
+    for={id}
+    class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200"
+    >{label}</label
+  >
+  <div class="relative">
+    <input
+      type="email"
+      id={id}
+      name="email"
+      autocomplete="email"
+      class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:outline-none focus:ring focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1"
+      required
+      aria-describedby="email-error"
+    />
+    <div class="pointer-events-none absolute inset-y-0 end-0 hidden pe-3">
+      <svg
+        class="h-5 w-5 text-red-500"
+        width="16"
+        height="16"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+        aria-hidden="true"
+      >
+        <path
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+  <p class="mt-2 hidden text-xs text-red-600" id="email-error">
+    Please include a valid email address so we can get back to you
+  </p>
+</div>
