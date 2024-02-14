@@ -12,13 +12,10 @@ interface Props {
 
 <html lang="en" class="scrollbar-hide">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
     <Meta />
+    <title>{title}</title>
     <script is:inline>
-      // This script is to handle theme according to user preference or system setting
+      // This script is to handle theme according to user preference
       if (
         localStorage.getItem("hs_theme") === "dark" ||
         (!("hs_theme" in localStorage) &&
@@ -71,14 +68,13 @@ interface Props {
     <script is:inline src="/assets/vendor/lenis/lenis.js"></script>
     <script is:inline>
       // This script is to handle lenis library settings and behaviors, like the smooth scrolling
-      const lenis = new Lenis();
-      lenis.on("scroll", (e) => {
-        console.log(e);
-      });
+      const lenis = new Lenis({ smooth: true, smoothTouch: false });
+
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
       }
+
       requestAnimationFrame(raf);
     </script>
     <script is:inline src="/assets/vendor/preline/preline.js"></script>

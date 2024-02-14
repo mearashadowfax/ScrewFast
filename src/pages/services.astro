@@ -1,0 +1,75 @@
+---
+// Import section components
+import MainLayout from "../layouts/MainLayout.astro";
+import MainSection from "../components/ui/blocks/MainSection.astro";
+import LeftSection from "../components/ui/blocks/LeftSection.astro";
+import RightSection from "../components/ui/blocks/RightSection.astro";
+import FeaturesStats from "../components/FeaturesStats.astro";
+
+import blueprints from "../images/blueprints-image.avif";
+import personWorking from "../images/person-working.avif";
+import beforeAfter from "../images/before-after.avif";
+import constructionWorkers from "../images/construction-workers.avif";
+import aerialView from "../images/aerial-view.avif";
+import usingTools from "../images/using-tools.avif";
+import progressBuilding from "../images/progress-building.avif";
+import underConstruction from "../images/under-construction.avif";
+---
+
+<MainLayout>
+  <MainSection
+    title="Uniting Expertise with Your Vision"
+    subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
+    btn={true}
+    btnTitle="Schedule a Consultation"
+    btnURL="#"
+  />
+
+  <RightSection
+    title="Delivering Expert Guidance"
+    subTitle="Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations."
+    imgOne={blueprints}
+    imgOneAlt={"Blueprints and digital tablet with construction plans."}
+    imgTwo={personWorking}
+    imgTwoAlt={"Person working in the office"}
+  />
+  <LeftSection
+    title="Transforming Designs into Reality"
+    subTitle="Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory."
+    btn={true}
+    btnTitle="Learn More"
+    btnURL="#"
+    img={beforeAfter}
+    imgAlt={"Construction site before and after"}
+  />
+  <RightSection
+    title="Navigating Projects with Professional Oversight"
+    subTitle="Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision."
+    imgOne={constructionWorkers}
+    imgOneAlt={"Construction workers orchestrating a project"}
+    imgTwo={aerialView}
+    imgTwoAlt={"Aerial view of managed construction"}
+  />
+  <LeftSection
+    title="Ensuring Long-lasting Performance"
+    subTitle="Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support."
+    img={usingTools}
+    imgAlt={"Man in orange and black vest wearing white helmet holding yellow and black power tool"}
+  />
+  <RightSection
+    title="Crafting Bespoke Strategies for Unique Challenges"
+    subTitle="For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward."
+    btn={true}
+    btnTitle="Read more"
+    btnURL="#"
+    imgOne={progressBuilding}
+    imgOneAlt={"In progress building structure"}
+    imgTwo={underConstruction}
+    imgTwoAlt={"Brown and gray building under construction"}
+  />
+
+  <FeaturesStats
+    title="By the Numbers"
+    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+  />
+</MainLayout>
