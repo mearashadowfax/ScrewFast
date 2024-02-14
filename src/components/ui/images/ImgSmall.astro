@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+const { title, src, alt, url } = Astro.props;
+
+interface Props {
+  title?: string;
+  src: any;
+  alt: string;
+  url: string;
+}
+
+const imageClass = "absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
+const AnchorSVG = `
+    <svg fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="ml-0.5 w-3 h-3 md:w-4 md:h-4 inline pb-0.5">
+<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>`;
+---
+
+<a
+  href={url}
+  class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg md:h-80"
+>
+  <Image
+    src={src}
+    alt={alt}
+    class={imageClass}
+    draggable={"false"}
+    format={"avif"}
+  />
+
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-800 via-transparent to-transparent opacity-50 dark:from-neutral-700"
+  >
+  </div>
+
+  <span
+    class="relative mb-3 ml-4 inline-block text-sm font-bold text-neutral-50 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-5 md:text-lg"
+    >{title} <Fragment set:html={AnchorSVG} />
+      </span
+  >
+</a>
