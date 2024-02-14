@@ -11,10 +11,19 @@ interface Props {
 const ACCORDION_CLASS_DEFAULT = "hs-accordion pb-3 active";
 const ACCORDION_CLASS_COLLAPSED = "hs-accordion pt-6 pb-3";
 const ACCORDION_CONTENT_CLASS = "hs-accordion-content w-full overflow-hidden transition-[height] duration-300";
-function getAccordionClass(first: boolean) {
+function getAccordionClass(first: boolean = false) {
   return first ? ACCORDION_CLASS_DEFAULT : ACCORDION_CLASS_COLLAPSED;
 }
-const SVG_PARAMS = { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", "stroke": "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" };
+const SVG_PARAMS = {
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+};
 ---
 
 <div

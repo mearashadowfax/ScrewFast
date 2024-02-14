@@ -5,18 +5,19 @@ interface Props {
   heading?: string;
   content?: string;
 }
+
+const headingClasses = "text-balance text-lg font-bold text-gray-800 dark:text-neutral-200";
+const contentClasses = "mt-1 text-pretty text-neutral-700 dark:text-neutral-300";
 ---
 
 <div class="flex gap-x-5">
   <slot />
   <div class="grow">
     <h3
-      class="text-balance text-lg font-bold text-gray-800 dark:text-neutral-200"
-    >
+      class={headingClasses}>
       {heading}
     </h3>
-    <p class="mt-1 text-pretty text-neutral-700 dark:text-neutral-300">
-      {content}
+    <p class={contentClasses}>{content}
     </p>
   </div>
 </div>

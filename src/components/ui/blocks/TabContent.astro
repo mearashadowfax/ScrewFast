@@ -12,6 +12,10 @@ interface Props {
   second?: boolean;
 }
 
+const firstClass = first ? "" : "hidden";
+const secondClass = second ? "shadow-xl aspect-[5/4] bg-neutral-300 dark:bg-neutral-600 object-cover p-3 lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]" :
+    "shadow-xl aspect-[3/2] object-cover lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]";
+
 /*
 first: This prop should be set to true for the initial TabContent component in your list to ensure that it's visible when the page first loads. All subsequent TabContent components should omit this prop or set it to false.
 
@@ -27,13 +31,13 @@ Example:
 <div
   id={id}
   role="tabpanel"
-  class={`${first ? "" : "hidden"}`}
+  class={firstClass}
   aria-labelledby={aria}
 >
   <Image
     src={src}
     alt={alt}
-    class={`${second ? "shadow-xl aspect-[5/4] bg-neutral-300 dark:bg-neutral-600 object-cover p-3 lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]" : "shadow-xl aspect-[3/2] object-cover lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]"}`}
+    class={secondClass}
     draggable={"false"}
     format={"avif"}
   />

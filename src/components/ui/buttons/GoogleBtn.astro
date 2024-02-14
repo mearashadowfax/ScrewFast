@@ -4,13 +4,13 @@ const { title } = Astro.props;
 interface Props {
   title: string;
 }
----
 
-<button
-  type="button"
-  class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm font-medium text-neutral-600 shadow-sm transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400  dark:hover:bg-neutral-900 focus-visible:ring outline-none ring-zinc-500 dark:ring-zinc-200"
->
-  <svg
+const baseClasses = "inline-flex w-full items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm dark:text-neutral-400 font-medium text-neutral-600 shadow-sm transition duration-300 focus-visible:ring outline-none";
+const borderClasses = "border border-neutral-200 dark:border-neutral-700";
+const bgColorClasses = "bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-900";
+const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
+const ringClasses = "ring-zinc-500 dark:ring-zinc-200";
+const googleSVG = `<svg
     class="h-auto w-4"
     width="46"
     height="47"
@@ -29,6 +29,13 @@ interface Props {
     <path
       d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z"
       fill="#EB4335"></path>
-  </svg>
+  </svg>`;
+---
+
+<button
+  type="button"
+  class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${ringClasses}`}
+>
+  <Fragment set:html={googleSVG} />
   {title}
 </button>

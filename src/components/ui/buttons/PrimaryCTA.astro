@@ -2,27 +2,38 @@
 const { title, url, noArrow } = Astro.props;
 
 interface Props {
-  title?: string;
-  url?: string;
-  noArrow?: boolean;
+    title?: string;
+    url?: string;
+    noArrow?: boolean;
 }
+
+const baseClasses = "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-semibold text-neutral-50 ring-zinc-500 transition duration-300 outline-none";
+const borderClasses = "border border-transparent";
+const bgColorClasses = "bg-[#fa5a15] hover:bg-[#e14d0b] active:bg-[#e14d0b] dark:focus:outline-none";
+const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
+const fontSizeClasses = "2xl:text-base";
+const ringClasses = "dark:ring-zinc-200";
+const arrowSVG = `<svg
+                    class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+            >
+                <path d="m9 18 6-6-6-6"></path>
+            </svg>`;
 ---
 
 <a
-  class="group inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-semibold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
-  href={url}
+        class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
+        href={url}
 >
-  {title}
-  {noArrow ? null : (
-    <svg
-      class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
-    >) }
+    {title}
+    {noArrow ? null :
+            <Fragment set:html={arrowSVG} />
+    }
 </a>

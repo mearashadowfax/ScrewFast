@@ -5,7 +5,7 @@ import PrimaryCTA from "../buttons/PrimaryCTA.astro";
 const {
   title,
   subTitle,
-  btn,
+  btnExists,
   btnTitle,
   btnURL,
   single,
@@ -18,7 +18,7 @@ const {
 interface Props {
   title: string;
   subTitle: string;
-  btn?: boolean;
+  btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
   single?: boolean;
@@ -43,7 +43,7 @@ interface Props {
     >
       {subTitle}
     </p>
-    {btn ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
+    {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
   </div>
   {
     single ? (

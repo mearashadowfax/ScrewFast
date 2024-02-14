@@ -1,12 +1,12 @@
 ---
 import PrimaryCTA from "../buttons/PrimaryCTA.astro";
 
-const { title, subTitle, btn, btnTitle, btnURL } = Astro.props;
+const { title, subTitle, btnExists, btnTitle, btnURL } = Astro.props;
 
 interface Props {
   title: string;
   subTitle: string;
-  btn?: boolean;
+  btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
 }
@@ -27,7 +27,7 @@ interface Props {
       {subTitle}
     </p>
     {
-      btn ? (
+      btnExists ? (
         <div class="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
           <PrimaryCTA title={btnTitle} url={btnURL} />
         </div>

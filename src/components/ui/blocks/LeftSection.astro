@@ -2,13 +2,13 @@
 import { Image } from "astro:assets";
 import PrimaryCTA from "../buttons/PrimaryCTA.astro";
 
-const { title, subTitle, btn, btnTitle, btnURL, img, imgAlt } =
+const { title, subTitle, btnExists, btnTitle, btnURL, img, imgAlt } =
   Astro.props;
 
 interface Props {
   title: string;
   subTitle: string;
-  btn?: boolean;
+  btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
   img: any;
@@ -37,6 +37,6 @@ interface Props {
     >
       {subTitle}
     </p>
-    {btn ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
+    {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
   </div>
 </section>
