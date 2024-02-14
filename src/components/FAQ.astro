@@ -1,55 +1,42 @@
 ---
-// import necessary dependencies
+
 import AccordionItem from "./ui/blocks/AccordionItem.astro";
 
-/* `subTitle` variable used to customise the sub-heading text. */
+
 const subTitle: string =
   "Ask us anything about our brand and products, and get factual responses.";
 
-/*
-  In the above, the subTitle attribute is a variables part of the FAQ component.
-*/
+// Define a helper function to generate ids
+const makeId = (base, index) => `${base}${index + 1}`;
 
 const faqs = [
   {
-    id: "hs-basic-with-title-and-arrow-stretched-heading-one",
-    collapseId: "hs-basic-with-title-and-arrow-stretched-collapse-one",
     heading: "What types of tools are included in the Starter Kit?",
     content:
       "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks.",
   },
   {
-    id: "hs-basic-with-title-and-arrow-stretched-heading-two",
-    collapseId: "hs-basic-with-title-and-arrow-stretched-collapse-two",
     heading: "Can I upgrade from the Starter Kit to the Professional Toolbox?",
     content:
       "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition.",
   },
   {
-    id: "hs-basic-with-title-and-arrow-stretched-heading-three",
-    collapseId: "hs-basic-with-title-and-arrow-stretched-collapse-three",
     heading:
       "What discounts are available for bulk orders through the Professional Toolbox plan?",
     content:
       "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure.",
   },
   {
-    id: "hs-basic-with-title-and-arrow-stretched-heading-four",
-    collapseId: "hs-basic-with-title-and-arrow-stretched-collapse-four",
     heading: "What kind of customer support can I expect?",
     content:
       "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance.",
   },
   {
-    id: "hs-basic-with-title-and-arrow-stretched-heading-five",
-    collapseId: "hs-basic-with-title-and-arrow-stretched-collapse-five",
     heading: "How current are the online resources and tutorials?",
     content:
       "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels.",
   },
   {
-    id: "hs-basic-with-title-and-arrow-stretched-heading-six",
-    collapseId: "hs-basic-with-title-and-arrow-stretched-collapse-six",
     heading:
       "Does ScrewFast offer services for large-scale construction projects?",
     content:
@@ -77,7 +64,13 @@ const faqs = [
       <div
         class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700"
       >
-        {faqs.map((faq, i) => <AccordionItem {...faq} first={i === 0} />)}
+        {faqs.map((question, i) => {
+          // Generate ids dynamically
+          let id = makeId("hs-basic-with-title-and-arrow-stretched-heading-", i);
+          let collapseId = makeId("hs-basic-with-title-and-arrow-stretched-collapse", i);
+
+          return <AccordionItem {...question} id={id} collapseId={collapseId} first={i === 0} />
+        })}
       </div>
     </div>
   </div>

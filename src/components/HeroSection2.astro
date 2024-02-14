@@ -9,11 +9,12 @@ const title: string = "Let's Build Together";
 // Sub-heading text
 const subTitle: string =
   "ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks.";
-
 ---
 
 <div class="relative mx-auto max-w-[85rem] px-4 pb-24 pt-10 sm:px-6 lg:px-8">
-  <div class="absolute top-[55%] left-0 md:top-[20%] xl:left-[10%] xl:top-[25%] scale-90">
+  <div
+    class="absolute left-0 top-[55%] scale-90 md:top-[20%] xl:left-[10%] xl:top-[25%]"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="64"
@@ -85,7 +86,9 @@ const subTitle: string =
         d="M10.5 19H9M15 19h-1.5"></path>
     </svg>
   </div>
-  <div class="absolute bottom-[5%] left-[60%] xl:bottom-[15%] xl:left-[35%] scale-[.6]">
+  <div
+    class="absolute bottom-[5%] left-[60%] scale-[.6] xl:bottom-[15%] xl:left-[35%]"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="64"
@@ -119,7 +122,9 @@ const subTitle: string =
   </div>
 
   <div class="mx-auto mt-5 max-w-3xl text-center">
-    <p class="text-lg text-neutral-600 dark:text-neutral-400">{subTitle}</p>
+    <p class="text-pretty text-lg text-neutral-600 dark:text-neutral-400">
+      {subTitle}
+    </p>
   </div>
 
   <div class="mt-8 flex justify-center gap-3">

@@ -1,0 +1,72 @@
+---
+// Import section components
+import MainLayout from "../layouts/MainLayout.astro";
+import PrimaryCTA from "../components/ui/buttons/PrimaryCTA.astro";
+import ImgSmall from "../components/ui/images/ImgSmall.astro";
+import ImgWide from "../components/ui/images/ImgWide.astro";
+import FeaturesStats2 from "../components/FeaturesStats2.astro";
+import TestimonialsSection2 from "../components/TestimonialsSection2.astro";
+
+import product1 from "../images/product-image-1.avif";
+import product2 from "../images/product-image-2.avif";
+import product3 from "../images/product-image-3.avif";
+import product4 from "../images/product-image-4.avif";
+
+const title: string = "Products";
+
+const subTitle: string =
+  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
+---
+
+<MainLayout title="Products | ScrewFast" meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.">
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title}
+        </h1>
+
+        <p
+          class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block"
+        >
+          {subTitle}
+        </p>
+      </div>
+      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      <ImgSmall
+        url="#"
+        title="Machine Screws"
+        src={product1}
+        alt="Mockup box of machine screws"
+      />
+      <ImgWide
+        url="#"
+        title="Assorted Screw Set"
+        src={product2}
+        alt="Mockup box of assorted screw set"
+      />
+      <ImgWide
+        url="#"
+        title="Tap Bolts and Nuts"
+        src={product3}
+        alt="Mockup box of tap bolts and nuts"
+      />
+      <ImgSmall
+        url="#"
+        title="Hex Bolts"
+        src={product4}
+        alt="Mockup box of hex bolts"
+      />
+    </div>
+  </div>
+
+  <FeaturesStats2 />
+  <TestimonialsSection2 />
+</MainLayout>

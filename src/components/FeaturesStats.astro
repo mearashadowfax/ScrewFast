@@ -53,19 +53,18 @@ const stats: Stat[] = [
         title="96%"
         subTitle="of our clients rate their experience with ScrewFast as exceptional"
       />
-
+    </div>
+    <div
+      class="relative lg:col-span-8 lg:before:absolute lg:before:-start-12 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-neutral-300 lg:before:dark:bg-neutral-700"
+    >
       <div
-        class="relative lg:col-span-8 lg:before:absolute lg:before:-start-12 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-neutral-300 lg:before:dark:bg-neutral-700"
+        class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:grid-cols-3"
       >
-        <div
-          class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:grid-cols-3"
-        >
-          {
-            stats.map((stat) => (
-              <StatsSmall title={stat.stat} subTitle={stat.description} />
-            ))
-          }
-        </div>
+        {
+          stats.map((stat) => (
+            <StatsSmall title={stat.stat} subTitle={stat.description} />
+          ))
+        }
       </div>
     </div>
   </div>

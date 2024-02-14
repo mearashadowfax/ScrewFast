@@ -1,9 +1,10 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, noArrow } = Astro.props;
 
 interface Props {
   title?: string;
   url?: string;
+  noArrow?: boolean;
 }
 ---
 
@@ -12,15 +13,16 @@ interface Props {
   href={url}
 >
   {title}
-  <svg
-    class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
-  >
+  {noArrow ? null : (
+    <svg
+      class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
+    >) }
 </a>

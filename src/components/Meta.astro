@@ -1,10 +1,18 @@
 ---
+// Assign a description using the `meta` prop passed from the parent component,
+// `meta` is used as a variable on each individual page by passing it as a prop to this component.
+// For example, you can pass a meta description to the MainLayout component like this: <MainLayout title="Page title" meta="Page description"/>
+const { meta: description } = Astro.props;
+
+interface Props {
+    meta?: string;
+}
+
 // Customize the following metadata for your landing page
 
 const title: string = "ScrewFast"; // Replace with your website title
 const ogTitle: string = "ScrewFast: Hardware Tools & Construction Services"; // Replace with your Open Graph title
 const author:string = "Emil Gulamov" // Replace with the author's name
-const description:string = "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."; // Replace with your site description
 const ogDescription: string = "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!"; // Replace with your site description for social media
 const URL:string = "https://screw-fast.vercel.app"; // Replace with your website URL
 const socialImage:string = "https://screw-fast.vercel.app/social.png"; // Replace with the URL to your social media image

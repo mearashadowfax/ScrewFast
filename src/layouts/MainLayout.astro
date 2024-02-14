@@ -3,16 +3,17 @@ import Meta from "../components/Meta.astro";
 import Navbar from "../components/Navbar.astro";
 import FooterSection from "../components/FooterSection.astro";
 
-const { title = "ScrewFast" } = Astro.props;
+const { title = "ScrewFast", meta } = Astro.props;
 
 interface Props {
   title?: string;
+  meta?: string;
 }
 ---
 
-<html lang="en" class="scrollbar-hide">
+<html lang="en" class="scrollbar-hide scroll-pt-16">
   <head>
-    <Meta />
+    <Meta meta={meta} />
     <title>{title}</title>
     <script is:inline>
       // This script is to handle theme according to user preference
