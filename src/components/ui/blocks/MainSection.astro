@@ -1,0 +1,37 @@
+---
+import PrimaryCTA from "../buttons/PrimaryCTA.astro";
+
+const { title, subTitle, btn, btnTitle, btnURL } = Astro.props;
+
+interface Props {
+  title: string;
+  subTitle: string;
+  btn?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+}
+---
+
+<section
+  class="mx-auto mt-10 max-w-[85rem] px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <div class="max-w-screen-md">
+    <h1
+      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
+      {title}
+    </h1>
+    <p
+      class="mb-8 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-xl"
+    >
+      {subTitle}
+    </p>
+    {
+      btn ? (
+        <div class="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+          <PrimaryCTA title={btnTitle} url={btnURL} />
+        </div>
+      ) : null
+    }
+  </div>
+</section>

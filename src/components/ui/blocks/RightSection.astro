@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import PrimaryCTA from "../buttons/PrimaryCTA.astro";
+
+const {
+  title,
+  subTitle,
+  btn,
+  btnTitle,
+  btnURL,
+  single,
+  imgOne,
+  imgOneAlt,
+  imgTwo,
+  imgTwoAlt,
+} = Astro.props;
+
+interface Props {
+  title: string;
+  subTitle: string;
+  btn?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  single?: boolean;
+  imgOne?: any;
+  imgOneAlt?: any;
+  imgTwo?: any;
+  imgTwoAlt?: any;
+}
+---
+
+<section
+  class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <div>
+    <h2
+      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
+      {title}
+    </h2>
+    <p
+      class="mb-4 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-lg"
+    >
+      {subTitle}
+    </p>
+    {btn ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
+  </div>
+  {
+    single ? (
+      <div class="mt-8">
+        <Image
+          class="w-full rounded-lg"
+          src={imgOne}
+          alt={imgOneAlt}
+          format={"avif"}
+        />
+      </div>
+    ) : (
+      <div class="mt-8 grid grid-cols-2 gap-4">
+        <Image
+          class="w-full rounded-lg"
+          src={imgOne}
+          alt={imgOneAlt}
+          format={"avif"}
+        />
+        <Image
+          class="mt-4 w-full rounded-lg lg:mt-10"
+          src={imgTwo}
+          alt={imgTwoAlt}
+          format={"avif"}
+        />
+      </div>
+    )
+  }
+</section>
