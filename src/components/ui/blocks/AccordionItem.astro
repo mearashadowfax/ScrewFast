@@ -10,7 +10,8 @@ interface Props {
 }
 const ACCORDION_CLASS_DEFAULT = "hs-accordion pb-3 active";
 const ACCORDION_CLASS_COLLAPSED = "hs-accordion pt-6 pb-3";
-const ACCORDION_CONTENT_CLASS = "hs-accordion-content w-full overflow-hidden transition-[height] duration-300";
+const ACCORDION_CONTENT_CLASS =
+  "hs-accordion-content w-full overflow-hidden transition-[height] duration-300";
 function getAccordionClass(first: boolean = false) {
   return first ? ACCORDION_CLASS_DEFAULT : ACCORDION_CLASS_COLLAPSED;
 }
@@ -22,14 +23,11 @@ const SVG_PARAMS = {
   stroke: "currentColor",
   strokeWidth: "2",
   strokeLinecap: "round",
-  strokeLinejoin: "round"
+  strokeLinejoin: "round",
 };
 ---
 
-<div
-    class={getAccordionClass(first)}
-    id={id}
->
+<div class={getAccordionClass(first)} id={id}>
   <button
     class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-balance rounded-lg pb-3 text-start font-bold text-neutral-800 outline-none ring-zinc-500 transition hover:text-neutral-500 focus-visible:ring dark:text-neutral-200 dark:ring-zinc-200 dark:hover:text-neutral-400 dark:focus:outline-none md:text-lg"
     aria-controls={collapseId}
@@ -37,19 +35,17 @@ const SVG_PARAMS = {
     {heading}
     <svg
       class="block h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:hidden dark:text-neutral-400"
-      {...SVG_PARAMS}
-    ><path d="m6 9 6 6 6-6"></path></svg
+      {...SVG_PARAMS}><path d="m6 9 6 6 6-6"></path></svg
     >
     <svg
       class="hidden h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:block dark:text-neutral-400"
-      {...SVG_PARAMS}
-    ><path d="m18 15-6-6-6 6"></path></svg
+      {...SVG_PARAMS}><path d="m18 15-6-6-6 6"></path></svg
     >
   </button>
   <div
-      aria-labelledby={id}
-      class={`${first ? ACCORDION_CONTENT_CLASS : 'hidden ' + ACCORDION_CONTENT_CLASS}`}
-      id={collapseId}
+    aria-labelledby={id}
+    class={`${first ? ACCORDION_CONTENT_CLASS : "hidden " + ACCORDION_CONTENT_CLASS}`}
+    id={collapseId}
   >
     <p class="text-pretty text-neutral-600 dark:text-neutral-400">
       {content}
