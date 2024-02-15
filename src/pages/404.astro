@@ -1,0 +1,35 @@
+---
+// Import section components
+import MainLayout from "../layouts/MainLayout.astro";
+import PrimaryCTA from "../components/ui/buttons/PrimaryCTA.astro";
+---
+
+<MainLayout
+  title="Page Not Found | ScrewFast"
+  meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
+>
+  <section class="grid h-svh place-content-center">
+    <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
+      <div class="mx-auto max-w-screen-sm text-center">
+        <h1
+          class="text-dark mb-4 text-7xl font-extrabold text-yellow-500 dark:text-yellow-400 lg:text-9xl"
+        >
+          404
+        </h1>
+        <p
+          class="mb-4 text-balance text-3xl font-bold tracking-tight text-neutral-700 dark:text-neutral-300 md:text-4xl"
+        >
+          Oops, this isn't the tool you were looking for!
+        </p>
+
+        <p
+          class="mb-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
+        >
+          Don't let this hiccup slow you down. Let's get you back to building
+          your masterpiece.
+        </p>
+        <PrimaryCTA title="Go Back" url="#" />
+      </div>
+    </div>
+  </section>
+</MainLayout>

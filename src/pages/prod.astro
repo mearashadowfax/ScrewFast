@@ -28,7 +28,7 @@ import { Image } from "astro:assets";
         {productData.main.content}
       </p>
     </div>
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 items-center justify-between">
       <div id="fadeInUp">
         <h1
           class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl"
@@ -197,7 +197,7 @@ import { Image } from "astro:assets";
   <!-- End Icon Blocks -->
 
   <div id="tabs-with-card-3" class="hidden" role="tabpanel">
-    <div class="mx-auto mb-12 flex w-full md:mb-28">
+    <div class="mx-auto flex w-full mb-20 md:mb-28">
       <div
         class="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 lg:ml-0"
       >
@@ -245,13 +245,13 @@ import { Image } from "astro:assets";
         timeline.to(
           "#fadeInUp",
           { duration: 2, autoAlpha: 1, y: 0, ease: "power2.out" },
-          "-=1",
+          "-=1.2",
         );
 
         timeline.to(
           "#fadeInMoveRight",
           { duration: 2, autoAlpha: 1, x: 0, ease: "power2.out" },
-          "-=1.5",
+          "-=1.2",
         );
 
         timeline.to("#overlay", { duration: 1, autoAlpha: 0, delay: 0.5 });
@@ -269,9 +269,9 @@ import { Image } from "astro:assets";
             "dark:bg-white/[.05]",
           );
 
-          const contentId = btn.getAttribute("data-tab-target");
-          if (contentId) {
-            const contentElement = document.querySelector(contentId);
+          const tabId = btn.getAttribute("data-tab-target");
+          if (tabId) {
+            const contentElement = document.querySelector(tabId);
             if (contentElement) {
               contentElement.classList.add("hidden");
             }
