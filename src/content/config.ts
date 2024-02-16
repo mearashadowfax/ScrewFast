@@ -2,7 +2,7 @@
 
 import { z, defineCollection } from 'astro:content';
 
-const productCollection = defineCollection({
+const productsCollection = defineCollection({
   type: 'content',
     schema: ({ image }) => z.object({
     main: z.object({
@@ -46,8 +46,8 @@ const productCollection = defineCollection({
       })
     ).optional(),
     blueprints: z.object({
-      first: z.string().optional(),
-      second: z.string().optional(),
+      first: image().optional(),
+      second: image().optional(),
     }),
   }),
 });
@@ -59,6 +59,6 @@ const productCollection = defineCollection({
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-  'products': productCollection,
+  'products': productsCollection,
   // 'blog': blogCollection,
 };
