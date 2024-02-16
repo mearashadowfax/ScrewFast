@@ -1,0 +1,305 @@
+---
+// Import section components
+import MainLayout from "../../layouts/MainLayout.astro";
+import ProductTabBtn from "../../components/ui/buttons/ProductTabBtn.astro";
+import PrimaryCTA from "../../components/ui/buttons/PrimaryCTA.astro";
+
+declare global {
+  interface Window {
+    gsap: any;
+  }
+}
+import { Image } from "astro:assets";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const productEntries = await getCollection("products");
+  return productEntries.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<MainLayout title={product.data.main.title + " | ScrewFast"}>
+  <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
+  </div>
+
+  <div
+    class="mx-auto flex max-w-[85rem] flex-col px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div>
+      <p
+        id="fadeText"
+        class="mb-8 max-w-prose text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl"
+      >
+        {product.data.main.content}
+      </p>
+    </div>
+    <div
+      class="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0"
+    >
+      <div id="fadeInUp">
+        <h1
+          class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          {product.data.main.title}
+        </h1>
+        <p class="text-lg text-neutral-600 dark:text-neutral-400">
+          {product.data.main.subTitle}
+        </p>
+      </div>
+      <div>
+        <Image
+          id="fadeInMoveRight"
+          src={product.data.main.imgMain}
+          class="w-[600px]"
+          alt={product.data.main.imgAlt}
+          format={"avif"}
+          loading={"eager"}
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
+    <nav
+      class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
+      aria-label="Tabs"
+      role="tablist"
+    >
+      {
+        product.data.tabs.map((tab, index) => (
+          <ProductTabBtn
+            title={tab.title}
+            id={tab.id}
+            dataTab={tab.dataTab}
+            first={index === 0}
+          />
+        ))
+      }
+    </nav>
+
+    <div class="mt-12 md:mt-16">
+      <div id="tabs-with-card-1" role="tabpanel">
+        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+          <div class="grid gap-12 md:grid-cols-2">
+            <div class="lg:w-3/4">
+              <h2
+                class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl"
+              >
+                {product.data.description.title}
+              </h2>
+              <p
+                class="mt-3 text-pretty text-neutral-600 dark:text-neutral-400"
+              >
+                {product.data.description.subTitle}
+              </p>
+              <p class="mt-5">
+                <PrimaryCTA
+                  title={product.data.description.btnTitle}
+                  url={product.data.description.btnURL}
+                />
+              </p>
+            </div>
+
+            <div class="space-y-6 lg:space-y-10">
+              {
+                product.data.descriptionList.map((list) => (
+                  <div class="flex">
+                    <div>
+                      <h3 class="text-base font-bold text-gray-800 dark:text-gray-200 sm:text-lg">
+                        {list.title}
+                      </h3>
+                      <p class="mt-1 text-gray-600 dark:text-gray-400">
+                        {list.subTitle}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabs-with-card-2" class="hidden" role="tabpanel">
+        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+          <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
+            <div class="max-w-md space-y-6">
+              {
+                product.data.specificationsLeft.map((spec) => (
+                  <div>
+                    <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
+                      {spec.title}
+                    </h3>
+                    <p class="text-neutral-600 dark:text-neutral-400">
+                      {spec.subTitle}
+                    </p>
+                  </div>
+                ))
+              }
+            </div>
+            <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
+              {
+                product.data.specificationsRight?.map((spec) => (
+                  <div>
+                    <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
+                      {spec.title}
+                    </h3>
+                    <p class="text-neutral-600 dark:text-neutral-400">
+                      {spec.subTitle}
+                    </p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tabs-with-card-3" class="hidden" role="tabpanel">
+    <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
+      <div
+        class="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 lg:ml-0"
+      >
+        <Image
+          src={product.data.blueprints.first}
+          class="h-full w-full object-cover object-center"
+          alt="Blueprint Illustration"
+          format={"avif"}
+        />
+      </div>
+
+      <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
+        <Image
+          src={product.data.blueprints.second}
+          class="h-full w-full object-cover object-center"
+          alt="Blueprint Illustration"
+          format={"avif"}
+        />
+      </div>
+    </div>
+  </div>
+
+  <script is:inline src="/assets/vendor/gsap/gsap.min.js"></script>
+  <script>
+    window.addEventListener("load", (event) => {
+      if (window.gsap) {
+        const gsap = window.gsap;
+        gsap.set("#fadeText", { autoAlpha: 0, y: 50 });
+        gsap.set("#fadeInUp", { autoAlpha: 0, y: 50 });
+        gsap.set("#fadeInMoveRight", { autoAlpha: 0, x: 300 });
+
+        let timeline = gsap.timeline();
+
+        timeline.to("#fadeText", {
+          duration: 2,
+          autoAlpha: 1,
+          y: 0,
+          delay: 1,
+          ease: "power2.out",
+        });
+
+        timeline.to(
+          "#fadeInUp",
+          { duration: 2, autoAlpha: 1, y: 0, ease: "power2.out" },
+          "-=1.2",
+        );
+
+        timeline.to(
+          "#fadeInMoveRight",
+          { duration: 2, autoAlpha: 1, x: 0, ease: "power2.out" },
+          "-=1.2",
+        );
+
+        timeline.to("#overlay", { duration: 1, autoAlpha: 0, delay: 0.5 });
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function setButtonInactive(btn: any, activeButton: any) {
+        if (btn !== activeButton) {
+          btn.classList.remove(
+            "active",
+            "bg-neutral-100",
+            "hover:border-transparent",
+            "dark:bg-white/[.05]",
+          );
+
+          const tabId = btn.getAttribute("data-target");
+          if (tabId) {
+            const contentElement = document.querySelector(tabId);
+            if (contentElement) {
+              contentElement.classList.add("hidden");
+            }
+          }
+
+          changeHeadingStyle(
+            btn,
+            ["text-neutral-800", "dark:text-neutral-200"],
+            ["text-[#fa5a15]", "dark:text-[#fb713b]"],
+          );
+        }
+      }
+
+      function activateButton(button: any) {
+        button.classList.add(
+          "active",
+          "bg-neutral-100",
+          ",hover:border-transparent",
+          "dark:bg-white/[.05]",
+        );
+
+        const tabId = button.getAttribute("data-target");
+        if (tabId) {
+          const contentElementToShow = document.querySelector(tabId);
+          if (contentElementToShow) {
+            contentElementToShow.classList.remove("hidden");
+          }
+        }
+
+        changeHeadingStyle(
+          button,
+          ["text-[#fa5a15]", "dark:text-[#fb713b]"],
+          ["text-neutral-800", "dark:text-neutral-200"],
+        );
+      }
+
+      function changeHeadingStyle(
+        button: any,
+        addClasses: any,
+        removeClasses: any,
+      ) {
+        let heading = button.querySelector("h2");
+        if (heading) {
+          heading.classList.remove(...removeClasses);
+          heading.classList.add(...addClasses);
+        }
+      }
+
+      const tabButtons = document.querySelectorAll("[data-target]");
+
+      if (tabButtons.length > 0) {
+        changeHeadingStyle(
+          tabButtons[0],
+          ["text-[#fa5a15]", "dark:text-[#fb713b]"],
+          [],
+        );
+      }
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          tabButtons.forEach((btn) => setButtonInactive(btn, button));
+          activateButton(button);
+        });
+      });
+    });
+  </script>
+</MainLayout>
