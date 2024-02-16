@@ -168,21 +168,25 @@ const { product } = Astro.props;
       <div
         class="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 lg:ml-0"
       >
-        <Image
-          src={product.data.blueprints.first}
-          class="h-full w-full object-cover object-center"
-          alt="Blueprint Illustration"
-          format={"avif"}
-        />
+        {product.data.blueprints.first &&
+            <Image
+                src={product.data.blueprints.first}
+                class="h-full w-full object-cover object-center"
+                alt="Blueprint Illustration"
+                format={"avif"}
+            />
+        }
       </div>
 
       <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
-        <Image
-          src={product.data.blueprints.second}
-          class="h-full w-full object-cover object-center"
-          alt="Blueprint Illustration"
-          format={"avif"}
-        />
+        {product.data.blueprints.second &&
+            <Image
+                src={product.data.blueprints.second}
+                class="h-full w-full object-cover object-center"
+                alt="Blueprint Illustration"
+                format={"avif"}
+            />
+        }
       </div>
     </div>
   </div>
