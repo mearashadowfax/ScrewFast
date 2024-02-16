@@ -1,7 +1,7 @@
 ---
 // Import section components
 import MainLayout from "../layouts/MainLayout.astro";
-import productData from "../content/products/b203.json";
+import productData from "../content/products/b203.md";
 import ProductTabBtn from "../components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "../components/ui/buttons/PrimaryCTA.astro";
 
@@ -28,7 +28,9 @@ import { Image } from "astro:assets";
         {productData.main.content}
       </p>
     </div>
-    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 items-center justify-between">
+    <div
+      class="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0"
+    >
       <div id="fadeInUp">
         <h1
           class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl"
@@ -50,9 +52,9 @@ import { Image } from "astro:assets";
     </div>
   </div>
 
-  <!-- Features -->
+  
   <div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
-    <!-- Tab Nav -->
+   
     <nav
       class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
       aria-label="Tabs"
@@ -69,7 +71,7 @@ import { Image } from "astro:assets";
         ))
       }
     </nav>
-    <!-- End Tab Nav -->
+    
 
     <div class="mt-12 md:mt-16">
       <div id="tabs-with-card-1" role="tabpanel">
@@ -93,15 +95,15 @@ import { Image } from "astro:assets";
                 />
               </p>
             </div>
-            <!-- End Col -->
+            
 
             <div class="space-y-6 lg:space-y-10">
-              <!-- Icon Block -->
+             
               {
                 productData.descriptionList.map((list) => (
                   <div class="flex">
-                    <div class="ms-5 sm:ms-8">
-                      <h3 class="text-base font-semibold text-gray-800 dark:text-gray-200 sm:text-lg">
+                    <div>
+                      <h3 class="text-base font-bold text-gray-800 dark:text-gray-200 sm:text-lg">
                         {list.title}
                       </h3>
                       <p class="mt-1 text-gray-600 dark:text-gray-400">
@@ -117,87 +119,49 @@ import { Image } from "astro:assets";
       </div>
 
       <div id="tabs-with-card-2" class="hidden" role="tabpanel">
-        <!-- Icon Blocks -->
-        <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-          <div class="mx-auto max-w-2xl">
-            <div class="grid grid-cols-2 place-content-evenly gap-x-8">
-              <div>
-                <div>
-                  <h3 class="block font-bold text-gray-800 dark:text-white">
-                    Build your portfolio
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    The simplest way to keep your portfolio always up-to-date.
-                  </p>
-                </div>
-                <div>
-                  <h3 class="block font-bold text-gray-800 dark:text-white">
-                    Build your portfolio
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    The simplest way to keep your portfolio always up-to-date.
-                  </p>
-                </div>
-                <div>
-                  <h3 class="block font-bold text-gray-800 dark:text-white">
-                    Build your portfolio
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    The simplest way to keep your portfolio always up-to-date.
-                  </p>
-                </div>
-                <div>
-                  <h3 class="block font-bold text-gray-800 dark:text-white">
-                    Build your portfolio
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    The simplest way to keep your portfolio always up-to-date.
-                  </p>
-                </div>
+       
+        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+          
+            <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-x-16">
+              <div class="space-y-6 max-w-md">
+                {
+                  productData.specificationsLeft.map((spec) => (
+                    <div>
+                      <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
+                        {spec.title}
+                      </h3>
+                      <p class="text-neutral-600 dark:text-neutral-400">
+                        {spec.subTitle}
+                      </p>
+                    </div>
+                  ))
+                }
               </div>
-              <div>
-                <h3 class="block font-bold text-gray-800 dark:text-white">
-                  Build your portfolio
-                </h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  The simplest way to keep your portfolio always up-to-date.
-                </p>
-              </div>
-              <div>
-                <h3 class="block font-bold text-gray-800 dark:text-white">
-                  Build your portfolio
-                </h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  The simplest way to keep your portfolio always up-to-date.
-                </p>
-              </div>
-              <div>
-                <h3 class="block font-bold text-gray-800 dark:text-white">
-                  Build your portfolio
-                </h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  The simplest way to keep your portfolio always up-to-date.
-                </p>
-              </div>
-              <div>
-                <h3 class="block font-bold text-gray-800 dark:text-white">
-                  Build your portfolio
-                </h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  The simplest way to keep your portfolio always up-to-date.
-                </p>
+              <div class="space-y-6 max-w-md mt-6 md:ml-auto md:mt-0">
+                {
+                  productData.specificationsRight.map((spec) => (
+                    <div>
+                      <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
+                        {spec.title}
+                      </h3>
+                      <p class="text-neutral-600 dark:text-neutral-400">
+                        {spec.subTitle}
+                      </p>
+                    </div>
+                  ))
+                }
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
-      <!-- End Grid -->
+     
     </div>
   </div>
-  <!-- End Icon Blocks -->
+  
 
   <div id="tabs-with-card-3" class="hidden" role="tabpanel">
-    <div class="mx-auto flex w-full mb-20 md:mb-28">
+    <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
       <div
         class="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 lg:ml-0"
       >
@@ -209,21 +173,18 @@ import { Image } from "astro:assets";
         />
       </div>
 
-      <div class="relative right-12 overflow-hidden rounded-lg shadow-xl">
+      <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
         <img
           src="src/images/blueprint-2.avif"
           loading="lazy"
           alt="Photo by Manny Moreno"
-          class="h-full w-full object-cover object-center"
+          class="h-full w-full object-cover object-center "
         />
       </div>
     </div>
   </div>
 
-  <script
-    is:inline
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-  ></script>
+  <script is:inline src="/assets/vendor/gsap/gsap.min.js"></script>
   <script>
     window.addEventListener("load", (event) => {
       if (window.gsap) {
@@ -269,7 +230,7 @@ import { Image } from "astro:assets";
             "dark:bg-white/[.05]",
           );
 
-          const tabId = btn.getAttribute("data-tab-target");
+          const tabId = btn.getAttribute("data-target");
           if (tabId) {
             const contentElement = document.querySelector(tabId);
             if (contentElement) {
@@ -293,7 +254,7 @@ import { Image } from "astro:assets";
           "dark:bg-white/[.05]",
         );
 
-        const tabId = button.getAttribute("data-tab-target");
+        const tabId = button.getAttribute("data-target");
         if (tabId) {
           const contentElementToShow = document.querySelector(tabId);
           if (contentElementToShow) {
@@ -320,7 +281,7 @@ import { Image } from "astro:assets";
         }
       }
 
-      const tabButtons = document.querySelectorAll("[data-tab-target]");
+      const tabButtons = document.querySelectorAll("[data-target]");
 
       if (tabButtons.length > 0) {
         changeHeadingStyle(

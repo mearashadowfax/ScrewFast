@@ -11,7 +11,7 @@ interface Props {
 const BUTTON_CLASS =
   "flex w-full justify-center rounded-xl border border-transparent p-3 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-100 focus-visible:ring dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:focus:outline-none md:p-5";
 
-  const HEADING_CLASS = "block text-center font-semibold";
+  const HEADING_CLASS = "block text-center font-bold";
   const INACTIVE_HEADING_CLASS = "text-neutral-800 dark:text-neutral-200";
 ---
 
@@ -19,7 +19,7 @@ const BUTTON_CLASS =
 type="button"
 class={`${BUTTON_CLASS} ${first ? "active bg-neutral-100 hover:border-transparent dark:bg-white/[.05]" : ""}`}
 id={id}
-data-tab-target={dataTab}
+data-target={dataTab}
 role="tab"
 >
 <h2

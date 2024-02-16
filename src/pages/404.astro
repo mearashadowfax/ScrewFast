@@ -1,7 +1,7 @@
 ---
 // Import section components
 import MainLayout from "../layouts/MainLayout.astro";
-import PrimaryCTA from "../components/ui/buttons/PrimaryCTA.astro";
+import Btn404 from "../components/ui/buttons/Btn404.astro";
 ---
 
 <MainLayout
@@ -28,8 +28,13 @@ import PrimaryCTA from "../components/ui/buttons/PrimaryCTA.astro";
           Don't let this hiccup slow you down. Let's get you back to building
           your masterpiece.
         </p>
-        <PrimaryCTA title="Go Back" url="#" />
+        <Btn404 title="Go Back" id="go-back" />
       </div>
     </div>
   </section>
 </MainLayout>
+<script>
+  document.getElementById("go-back")?.addEventListener("click", () => {
+    history.back();
+  });
+</script>
