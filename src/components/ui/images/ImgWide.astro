@@ -3,10 +3,10 @@ import { Image } from "astro:assets";
 const { title, src, alt, url } = Astro.props;
 
 interface Props {
-  title: string;
-  src: any;
-  alt: string;
-  url: string;
+  title?: string;
+  src?: any;
+  alt?: string;
+  url?: string;
 }
 
 import type { CollectionEntry } from "astro:content";
