@@ -1,0 +1,52 @@
+---
+import AvatarBlog from "../avatars/AvatarBlog.astro";
+import {Image} from "astro:assets";
+
+import {formatDate} from "../../../utils";
+import type {CollectionEntry} from "astro:content";
+
+const {blogEntry} = Astro.props;
+
+interface Props {
+    blogEntry: CollectionEntry<"blog">;
+}
+---
+
+<a class="group relative block rounded-xl outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none transition duration-500"
+   href={`/blog/${blogEntry.slug}/`} data-astro-prefetch>
+    <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:size-full before:bg-gradient-to-t before:from-neutral-900/[.7] before:z-[1]">
+        <Image class="size-full absolute top-0 start-0 object-cover group-hover:scale-110 transition duration-500"
+               src={blogEntry.data.cardImage} alt={blogEntry.data.cardImageAlt} draggable={"false"} format={"avif"}/>
+    </div>
+
+    <div class="absolute top-0 inset-x-0 z-10">
+        <div class="p-4 flex flex-col h-full sm:p-6">
+
+            <div class="flex items-center">
+
+                <AvatarBlog blogEntry={blogEntry}/>
+
+                    <div class="ms-2.5 sm:ms-4">
+                        <h4 class="font-bold text-neutral-50">
+                            {blogEntry.data.author}
+                        </h4>
+                        <p class="text-xs text-neutral-50/[.8]">
+                            {formatDate(blogEntry.data.pubDate)}
+
+                        </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-0 inset-x-0 z-10">
+        <div class="flex flex-col h-full p-4 sm:p-6">
+            <h3 class="text-lg sm:text-3xl font-bold text-neutral-50 group-hover:text-neutral-50/[.8]">
+                {blogEntry.data.title}
+            </h3>
+            <p class="mt-2 text-neutral-50/[.8]">
+                {blogEntry.data.description}
+            </p>
+        </div>
+    </div>
+</a>
