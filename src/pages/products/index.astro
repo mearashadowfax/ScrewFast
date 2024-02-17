@@ -2,8 +2,8 @@
 // Import section components
 import MainLayout from "../../layouts/MainLayout.astro";
 import PrimaryCTA from "../../components/ui/buttons/PrimaryCTA.astro";
-import ImgSmall from "../../components/ui/images/ImgSmall.astro";
-import ImgWide from "../../components/ui/images/ImgWide.astro";
+import CardSmall from "../../components/ui/cards/CardSmall.astro";
+import CardWide from "../../components/ui/cards/CardWide.astro";
 import FeaturesStats2 from "../../components/FeaturesStats2.astro";
 import TestimonialsSection2 from "../../components/TestimonialsSection2.astro";
 
@@ -14,7 +14,7 @@ const product: CollectionEntry<"products">[] = (
   await getCollection("products")
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id,
+    a.data.main.id - b.data.main.id
 );
 
 const title: string = "Products";
@@ -47,14 +47,14 @@ const subTitle: string =
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
 
-    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
           const position = index % 4;
           if (position === 0 || position === 3) {
-            return <ImgSmall product={product} />;
+            return <CardSmall product={product} />;
           } else {
-            return <ImgWide product={product} />;
+            return <CardWide product={product} />;
           }
         })
       }
