@@ -27,7 +27,7 @@ interface Props {
         document.documentElement.classList.remove("dark");
       }
     </script>
-    <script is:inline src="/assets/vendor/lenis/lenis.js"></script>
+    <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline>
       // This script is to handle lenis library settings and behaviors, like the smooth scrolling
       const lenis = new Lenis({ smooth: true, smoothTouch: false });
@@ -39,7 +39,6 @@ interface Props {
 
       requestAnimationFrame(raf);
     </script>
-    <script is:inline src="/assets/vendor/preline/preline.js"></script>
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
