@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+
+import type { CollectionEntry } from "astro:content";
+
+const { insightEntry } = Astro.props;
+
+interface Props {
+    insightEntry: CollectionEntry<"insights">;
+}
+---
+
+ <a class="group outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none" href={`/insights/${insightEntry.slug}/`}>
+    <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+      <Image class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 transition duration-500 ease-in-out rounded-xl" src={insightEntry.data.cardImage}
+    alt={insightEntry.data.cardImageAlt}
+    draggable={"false"}
+    format={"avif"} />
+    </div>
+
+    <div class="mt-7">
+      <h3 class="text-xl font-bold text-neutral-800 group-hover:text-neutral-600 dark:text-neutral-200 dark:group-hover:text-neutral-400">
+        {insightEntry.data.title}  
+      </h3>
+      <p class="mt-3 text-neutral-600 dark:text-neutral-400">
+      {insightEntry.data.description}
+      </p>
+      <p class="mt-5 inline-flex items-center gap-x-1 text-[#fa5a15] dark:text-[#fb713b] decoration-2 group-hover:underline font-medium">
+        Read more
+        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </p>
+    </div>
+  </a>

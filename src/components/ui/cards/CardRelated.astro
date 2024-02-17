@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+
+import { formatDate } from "../../../utils";
+import type { CollectionEntry } from "astro:content";
+
+const { blogEntry } = Astro.props;
+
+interface Props {
+  blogEntry: CollectionEntry<"blog">;
+}
+---
+
+<a
+  class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
+  href="#"
+>
+  <div>
+    <Image
+      class="aspect-video rounded-xl"
+      src={blogEntry.data.cardImage}
+      alt={blogEntry.data.cardImageAlt}
+      draggable={"false"}
+      format={"avif"}
+    />
+    <h3
+      class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-[#fa5a15] dark:text-neutral-300 dark:group-hover:text-neutral-50"
+    >
+      {blogEntry.data.title}
+    </h3>
+    <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+      {formatDate(blogEntry.data.pubDate)}
+    </p>
+  </div></a
+>

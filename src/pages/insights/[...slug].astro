@@ -1,0 +1,59 @@
+---
+// Import section components
+import MainLayout from "../../layouts/MainLayout.astro";
+import AvatarBlogLarge from "../../components/ui/avatars/AvatarBlogLarge.astro";
+import { Image } from "astro:assets";
+import { capitalize, formatDate } from "../../utils";
+import { getCollection } from "astro:content";
+
+
+export async function getStaticPaths() {
+  const insightPosts = await getCollection("insights");
+  return insightPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+---
+
+<MainLayout
+  title={post.data.title + " | ScrewFast"}
+  meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
+>
+<div class="py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+      <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+        <div>
+          <div class="h-64 overflow-hidden rounded-lg shadow-lg md:h-auto">
+            <Image
+                  class="h-full w-full object-cover object-center"
+                  src={post.data.cardImage}
+                  alt={post.data.cardImageAlt}
+                  draggable={"false"}
+                  format={"avif"}
+                />
+          </div>
+        </div>
+  
+        <div class="md:pt-8">
+          
+          <h1 class="mb-4 text-center text-2xl font-bold text-neutral-800 dark:text-neutral-200 text-balance sm:text-3xl md:mb-6 md:text-left">{post.data.title}</h1>
+  <div class="space-y-8">
+          {
+            post.data.contents.map((content) =>
+              
+                  <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
+                    {content}
+                  </p>
+               )
+          }
+          </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+</MainLayout>
