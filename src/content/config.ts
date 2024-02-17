@@ -70,7 +70,19 @@ const blogCollection = defineCollection({
   }),
 });
 
+const insightsCollection = defineCollection({
+  type: "content",
+  schema: ({ image }) => z.object ({
+  title: z.string(),
+  description: z.string(),
+  contents: z.array(z.string()),
+  cardImage: image(),
+  cardImageAlt: z.string(),
+  }),
+});
+
 export const collections = {
   'products': productsCollection,
   'blog': blogCollection,
+  'insights': insightsCollection,
 };
