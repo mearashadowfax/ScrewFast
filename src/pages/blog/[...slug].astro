@@ -84,7 +84,7 @@ const { post } = Astro.props;
 
       <div class="space-x-2">
         {
-          post.data.tags.map((tag: string) => (
+          post.data.tags?.map((tag: string) => (
             <span class="inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
               {capitalize(tag)}
             </span>
