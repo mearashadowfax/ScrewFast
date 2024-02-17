@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+
+import type { CollectionEntry } from "astro:content";
+
+const { blogEntry } = Astro.props;
+
+interface Props {
+  blogEntry: CollectionEntry<"blog">;
+}
+---
+<div class="flex-shrink-0">
+  <Image class="size-10 sm:h-14 sm:w-14 rounded-full" src={blogEntry.data.authorImage}
+  alt={blogEntry.data.authorImageAlt}
+  draggable={"false"} format={"avif"}>
+</div>

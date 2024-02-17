@@ -1,0 +1,96 @@
+---
+// Import section components
+import MainLayout from "../../layouts/MainLayout.astro";
+import ProductTabBtn from "../../components/ui/buttons/ProductTabBtn.astro";
+import PrimaryCTA from "../../components/ui/buttons/PrimaryCTA.astro";
+import AvatarBlogLarge from "../../components/ui/avatars/AvatarBlogLarge.astro";
+import { Image } from "astro:assets";
+import { capitalize, formatDate } from "../../utils";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection("blog");
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<MainLayout
+  title={post.data.title + " | ScrewFast"}
+  meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
+>
+  <div class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
+    <div class="max-w-2xl">
+      <div class="mb-6 flex items-center justify-between">
+        <div class="flex w-full gap-x-5 sm:items-center sm:gap-x-3">
+          <AvatarBlogLarge blogEntry={post} />
+          <div class="grow">
+            <div class="flex items-center justify-between gap-x-2">
+              <div>
+                <div
+                  class="hs-tooltip inline-block [--placement:bottom] [--trigger:hover]"
+                >
+                  
+                    <span class="font-bold text-neutral-700 dark:text-neutral-300">
+                      {post.data.author}
+                    </span>
+                  
+                </div>
+                <ul class="text-xs text-neutral-500">
+                  <li
+                    class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
+                  >
+                    {formatDate(post.data.pubDate)}
+                  </li>
+                  <li
+                    class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
+                  >
+                    {post.data.readTime} min read
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="mb-3 text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl">
+        {post.data.title}
+      </h2>
+
+      <div class="space-y-5 md:space-y-8 mb-5 md:mb-8">
+        {
+          post.data.contents.map((content: string, index: any) => (
+          index === 1 ? 
+            <p class="text-lg text-neutral-700 dark:text-neutral-300">
+              {content}
+            </p>
+            <Image
+        class="w-full rounded-xl object-cover"
+        src={post.data.cardImage}
+        alt={post.data.cardImageAlt}
+        draggable={"false"}
+        format={"avif"}
+      /> : <p class="text-lg text-neutral-700 dark:text-neutral-300">
+              {content}
+            </p>
+          ))
+        }
+      </div>
+
+      <div class="space-x-2">
+        {
+          post.data.tags.map((tag: string) => (
+            <span class="inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
+              {capitalize(tag)}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</MainLayout>
