@@ -1,27 +1,21 @@
 ---
-// Import the necessary dependencies from individual component files
+// Import necessary components from individual files
 import EmailInput from "./input/EmailInput.astro";
 import PasswordInput from "./input/PasswordInput.astro";
 import Checkbox from "./input/Checkbox.astro";
 import GoogleBtn from "../buttons/GoogleBtn.astro";
 import AuthBtn from "../buttons/AuthBtn.astro";
-
+// Config object for customization of the component
 const config = {
-  // Modal identifier
-  id: "hs-toggle-between-modals-register-modal",
-
-  // Main title
-  title: "Sign up",
-
-  // Subtitle text
-  subTitle: "Already have an account?",
-
-  // Text and target link for the login button
-  loginBtn: "Sign in here",
-  loginBtnDataHS: "#hs-toggle-between-modals-login-modal"
+  id: "hs-toggle-between-modals-register-modal", // Modal identifier
+  title: "Sign up", // Main heading
+  subTitle: "Already have an account?", // Sub-heading text
+  loginBtn: "Sign in here", // Text for login button
+  loginBtnDataHS: "#hs-toggle-between-modals-login-modal", // Target link for login button
 };
 ---
 
+<!-- Root element of the registration modal with the id and styling -->
 <div
   id={config.id}
   class="hs-overlay absolute start-0 top-0 z-50 hidden h-full w-full hs-overlay-backdrop-open:bg-neutral-900/90"
@@ -35,13 +29,14 @@ const config = {
       >
         <div class="p-4 sm:p-7">
           <div class="text-center">
-            <h1
+            <h2
               class="block text-2xl font-bold text-neutral-800 dark:text-neutral-200"
             >
               {config.title}
-            </h1>
+            </h2>
             <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               {config.subTitle}
+              <!-- Button to toggle login modal -->
               <button
                 class="rounded-lg p-1 font-medium text-[#fa5a15] decoration-2 outline-none ring-zinc-500 hover:underline focus-visible:ring dark:text-[#fa5a15] dark:ring-zinc-200 dark:focus:outline-none"
                 data-hs-overlay={config.loginBtnDataHS}
@@ -50,25 +45,29 @@ const config = {
               </button>
             </p>
           </div>
-
+          <!-- The form for user registration -->
           <div class="mt-5">
+            <!-- Google signup button -->
             <GoogleBtn title="Sign up with Google" />
-
+            <!-- Dividing line with 'Or' text -->
             <div
               class="flex items-center py-3 text-xs uppercase text-neutral-400 before:me-6 before:flex-[1_1_0%] before:border-t before:border-neutral-200 after:ms-6 after:flex-[1_1_0%] after:border-t after:border-neutral-200 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600"
             >
               Or
             </div>
-
+            <!-- Registration form -->
             <form>
               <div class="grid gap-y-4">
+                <!-- Email input field -->
                 <EmailInput id="register-email" />
+                <!-- Password input field -->
                 <PasswordInput
                   id="create-password"
                   ;
-                  errorId="password-error"
+                  errorId="register-password-error"
                   content="8+ characters required"
                 />
+                <!-- Password confirmation input field -->
                 <PasswordInput
                   label="Confirm Password"
                   id="confirm-password"
@@ -77,14 +76,14 @@ const config = {
                   aria="confirm-password-error"
                   content="Password does not match the password"
                 />
-
+                <!-- Checkbox with a label and a link for accepting the terms and conditions -->
                 <Checkbox label="I accept the " , id="terms-agree">
                   <a
                     class="font-medium text-[#fa5a15] decoration-2 hover:underline dark:text-[#fa5a15] dark:focus:outline-none"
                     href="#">Terms and Conditions</a
                   >
                 </Checkbox>
-
+                <!-- Submit button for the registration form -->
                 <AuthBtn title="Sign up" />
               </div>
             </form>

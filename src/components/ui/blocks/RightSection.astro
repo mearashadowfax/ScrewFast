@@ -1,7 +1,8 @@
 ---
+// Import the required modules
 import { Image } from "astro:assets";
 import PrimaryCTA from "../buttons/PrimaryCTA.astro";
-
+// Extract properties from Astro.props
 const {
   title,
   subTitle,
@@ -14,7 +15,7 @@ const {
   imgTwo,
   imgTwoAlt,
 } = Astro.props;
-
+// Define TypeScript interface for the properties
 interface Props {
   title: string;
   subTitle: string;
@@ -28,26 +29,31 @@ interface Props {
   imgTwoAlt?: any;
 }
 ---
-
+<!-- Root section of the component -->
 <section
   class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <div>
+    <!-- Title of the section -->
     <h2
       class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
     >
       {title}
     </h2>
+    <!-- Subtitle of the section -->
     <p
       class="mb-4 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-lg"
     >
       {subTitle}
     </p>
+    <!-- Conditional rendering of the Primary Call-To-Action button if 'btnExists' is true -->
     {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
   </div>
+  <!-- Conditionally render one or two images based on 'single' property -->
   {
     single ? (
       <div class="mt-8">
+        <!-- Single image -->
         <Image
           class="w-full rounded-lg"
           src={imgOne}
@@ -57,6 +63,7 @@ interface Props {
       </div>
     ) : (
       <div class="mt-8 grid grid-cols-2 gap-4">
+        <!-- First image in a two-image layout -->
         <Image
           class="w-full rounded-xl"
           src={imgOne}
@@ -64,6 +71,7 @@ interface Props {
           draggable={"false"}
           format={"avif"}
         />
+        <!-- Second image in a two-image layout -->
         <Image
           class="mt-4 w-full rounded-xl lg:mt-10"
           src={imgTwo}

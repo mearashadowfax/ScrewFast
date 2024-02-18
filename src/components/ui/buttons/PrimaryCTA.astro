@@ -1,18 +1,22 @@
 ---
+// Destructure the properties from Astro.props
 const { title, url, noArrow } = Astro.props;
-
+// Define TypeScript interface for the properties
 interface Props {
-    title?: string;
-    url?: string;
-    noArrow?: boolean;
+  title?: string;
+  url?: string;
+  noArrow?: boolean;
 }
-
-const baseClasses = "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring outline-none";
+// Define CSS classes for styling the button
+const baseClasses =
+  "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring outline-none";
 const borderClasses = "border border-transparent";
-const bgColorClasses = "bg-[#fa5a15] hover:bg-[#e14d0b] active:bg-[#e14d0b] dark:focus:outline-none";
+const bgColorClasses =
+  "bg-[#fa5a15] hover:bg-[#e14d0b] active:bg-[#e14d0b] dark:focus:outline-none";
 const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
 const fontSizeClasses = "2xl:text-base";
 const ringClasses = "dark:ring-zinc-200";
+// SVG for an arrow icon
 const arrowSVG = `<svg
                     class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
                     width="24"
@@ -28,12 +32,14 @@ const arrowSVG = `<svg
             </svg>`;
 ---
 
+<!-- Link styled as a button, with dynamic title, URL, and optional arrow -->
 <a
-        class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
-        href={url}
+  class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
+  href={url}
 >
-    {title}
-    {noArrow ? null :
-            <Fragment set:html={arrowSVG} />
-    }
+  {title}
+  <!-- Display the arrow based on the 'noArrow' property -->
+  <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
+
+  {noArrow ? null : <Fragment set:html={arrowSVG} />}
 </a>
