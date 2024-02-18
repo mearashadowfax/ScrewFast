@@ -15,7 +15,8 @@ interface Props {
      You might want to change it to the corresponding blog post's URL. -->
 <a
   class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-  href="#"
+  href={`/blog/${blogEntry.slug}/`}
+  data-astro-prefetch
 >
   <!-- The blog post's cover image. It uses astro:assets' Image for loading the image optimally -->
   <div>

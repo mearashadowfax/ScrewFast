@@ -1,11 +1,12 @@
 ---
 // Destructure the properties from Astro.props, setting default value for label
-const { label = "Email address", id } = Astro.props;
+const { label = "Email address", id, errorId } = Astro.props;
 
 // Define TypeScript interface for the properties
 interface Props {
   label?: string;
   id: string;
+  errorId: string;
 }
 ---
 
@@ -27,7 +28,7 @@ interface Props {
       autocomplete="email"
       class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:outline-none focus:ring focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1"
       required
-      aria-describedby="email-error"
+      aria-describedby={id}
     />
     <!-- Hidden error icon -->
     <div class="pointer-events-none absolute inset-y-0 end-0 hidden pe-3">
@@ -46,7 +47,7 @@ interface Props {
     </div>
   </div>
   <!-- Validation message which is hidden by default -->
-  <p class="mt-2 hidden text-xs text-red-600" id="valid-email-error">
+  <p class="mt-2 hidden text-xs text-red-600" id={errorId}>
     Please include a valid email address so we can get back to you
   </p>
 </div>
