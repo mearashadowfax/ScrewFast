@@ -1,19 +1,25 @@
 ---
+// Destructure the properties from Astro.props, setting default value for label
 const { label = "Email address", id } = Astro.props;
 
+// Define TypeScript interface for the properties
 interface Props {
   label?: string;
   id: string;
 }
 ---
 
+<!-- Container for the label, input, and validation message -->
 <div>
+  <!-- Label for the email input field -->
   <label
     for={id}
     class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200"
     >{label}</label
   >
+  <!-- Label for the email input field -->
   <div class="relative">
+    <!-- Email input field -->
     <input
       type="email"
       id={id}
@@ -23,6 +29,7 @@ interface Props {
       required
       aria-describedby="email-error"
     />
+    <!-- Hidden error icon -->
     <div class="pointer-events-none absolute inset-y-0 end-0 hidden pe-3">
       <svg
         class="h-5 w-5 text-red-500"
@@ -38,7 +45,8 @@ interface Props {
       </svg>
     </div>
   </div>
-  <p class="mt-2 hidden text-xs text-red-600" id="email-error">
+  <!-- Validation message which is hidden by default -->
+  <p class="mt-2 hidden text-xs text-red-600" id="valid-email-error">
     Please include a valid email address so we can get back to you
   </p>
 </div>

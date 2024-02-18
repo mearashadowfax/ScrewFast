@@ -1,14 +1,18 @@
 ---
+// Destructure the properties from Astro.props, setting default value for label
 const { label = "Email", id } = Astro.props;
-
+// Define TypeScript interface for the properties
 interface Props {
   label?: string;
   id: string;
 }
 ---
 
+<!-- Container for the label and email input field -->
 <div>
+  <!-- Label for the email input field, visually hidden but accessible to screen readers -->
   <label for={id} class="sr-only">{label}</label>
+  <!-- Email input field -->
   <input
     type="email"
     name="hs-email-contacts"

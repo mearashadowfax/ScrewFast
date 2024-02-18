@@ -1,12 +1,12 @@
 ---
-// Import the necessary dependencies from individual component files
+// Import the necessary dependencies
 import TabNav from "./ui/blocks/TabNav.astro";
 import TabContent from "./ui/blocks/TabContent.astro";
 import construction from "../images/construction-image.avif";
 import tools from "../images/automated-tools.avif";
 import dashboard from "../images/dashboard-image.avif";
 
-// Main heading
+// Define the variable for the section's heading
 const title: string = `Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`;
 ---
 
@@ -17,7 +17,7 @@ const title: string = `Customize <span class="text-yellow-500 dark:text-yellow-4
     <div
       class="relative z-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-16"
     >
-      <!-- Text contents of the section -->
+      <!-- Section's heading and tab navigation -->
       <div class="mb-10 lg:order-2 lg:col-span-6 lg:col-start-8 lg:mb-0">
         <h2
           class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl"
@@ -126,4 +126,6 @@ const title: string = `Customize <span class="text-yellow-500 dark:text-yellow-4
     </div>
   </div>
 </div>
+<!--Import the necessary Tabs plugin-->
+<!--https://preline.co/plugins/html/tabs.html-->
 <script is:inline src="/scripts/vendor/preline/tabs/index.js"></script>

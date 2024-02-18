@@ -1,5 +1,5 @@
 ---
-// Import the necessary dependencies from individual component files
+// Import the necessary dependencies.
 import AuthBtn from "./ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "./ui/blocks/ContactIconBlock.astro";
 import TextInput from "./ui/forms/input/TextInput.astro";
@@ -7,18 +7,13 @@ import EmailContactInput from "./ui/forms/input/EmailContactInput.astro";
 import PhoneInput from "./ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "./ui/forms/input/TextAreaInput.astro";
 
-// Variables for customization of the HeroSection2 Component
-// Main heading
+// Define the variables that will be used in this component
 const title: string = "Contact us";
-
-// Sub-heading text
 const subTitle: string =
   "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
 
-// Form heading text
 const formTitle: string = "Fill in the form below";
 
-// Form sub-heading text
 const formSubTitle: string = "We'll get back to you in 1-2 business days.";
 ---
 
@@ -37,14 +32,14 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
     </div>
 
     <div class="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
-      <!-- Card -->
       <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
         <h2
           class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300"
         >
           {formTitle}
         </h2>
-
+        <!-- Form for user input with various input fields.-->
+        <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
         <form>
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -79,8 +74,8 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
           </div>
         </form>
       </div>
-      <!-- End Card -->
 
+      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
           heading="Knowledgebase"
@@ -174,4 +169,3 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
     </div>
   </div>
 </div>
-<!-- End Contact Us -->

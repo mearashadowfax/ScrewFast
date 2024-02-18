@@ -1,21 +1,22 @@
 ---
+// Import the necessary components
 import StatsBig from "../components/ui/blocks/StatsBig.astro";
 import StatsSmall from "../components/ui/blocks/StatsSmall.astro";
-
+// Get values from Astro's builtin props
 const { title, subTitle } = Astro.props;
-
+// TypeScript interface for the properties
 interface Props {
   title: string;
   subTitle: string;
 }
 
-/* TypeScript type for testimonials. */
+// TypeScript type for the statistics
 type Stat = {
   stat: string;
   description: string;
 };
 
-/* An array of testimonials, each being an object that conforms to the above `Testimonial` type. */
+// An array of statistics, each being an object that conforms to the above `Stat` type
 const stats: Stat[] = [
   {
     stat: "99.8%",
@@ -36,30 +37,36 @@ const stats: Stat[] = [
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <div class="max-w-screen-md">
+    <!-- Main title -->
     <h2
       class="mb-4 text-balance text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
     >
       {title}
     </h2>
+    <!-- Subtitle -->
     <p
       class="mb-16 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-xl"
     >
       {subTitle}
     </p>
   </div>
+  <!-- Grid container for statistics -->
   <div class="grid items-center gap-6 lg:grid-cols-12 lg:gap-12">
+    <!-- First grid item, showing a big statistics -->
     <div class="lg:col-span-4">
       <StatsBig
         title="96%"
         subTitle="of our clients rate their experience with ScrewFast as exceptional"
       />
     </div>
+    <!-- Second grid item, showing multiple small statistics -->
     <div
       class="relative lg:col-span-8 lg:before:absolute lg:before:-start-12 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-neutral-300 lg:before:dark:bg-neutral-700"
     >
       <div
         class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:grid-cols-3"
       >
+        <!-- Iterate over the 'stats' array and create a 'StatsSmall' component for each object in the array -->
         {
           stats.map((stat) => (
             <StatsSmall title={stat.stat} subTitle={stat.description} />

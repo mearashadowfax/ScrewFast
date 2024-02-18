@@ -1,5 +1,5 @@
 ---
-// Import the necessary dependencies from individual component files
+// Import the necessary dependencies
 import FooterSocialLink from "./ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "./ui/forms/input/EmailFooterInput.astro";
 
@@ -8,7 +8,7 @@ const sectionOne: string = "Product";
 const sectionTwo: string = "Company";
 const sectionThree: string = "Stay up to date";
 
-/* `content` variable used to customise the email subscription content text. */
+// Define the variables that will be used in this component
 const content: string =
   "Stay updated with the latest tools and exclusive deals.";
 
@@ -18,7 +18,7 @@ type Links = {
   url: string;
 };
 
-/* An array of links, each being an object that conforms to the above `Links` type. */
+// An array of links for Product section
 const product: Links[] = [
   {
     title: "Tools & Equipment",
@@ -34,7 +34,7 @@ const product: Links[] = [
   },
 ];
 
-/* An array of links, each being an object that conforms to the above `Links` type. */
+// An array of links for Company section
 const company: Links[] = [
   {
     title: "About us",
@@ -183,8 +183,7 @@ const company: Links[] = [
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © <span id="current-year"></span> ScrewFast. Crafted
-          by
+          © <span id="current-year"></span> ScrewFast. Crafted by
           <a
             class="font-medium underline underline-offset-2 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-none focus-visible:ring dark:ring-zinc-200 dark:hover:text-neutral-300"
             href="https://sobstvennoai.dev"

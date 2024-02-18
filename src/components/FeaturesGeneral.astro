@@ -1,13 +1,11 @@
 ---
-// Import the necessary dependencies from individual component files
+// Import the necessary dependencies
 import { Image } from "astro:assets";
 import featureImage from "../images/features-image.avif";
 import IconBlock from "./ui/blocks/IconBlock.astro";
 
-// Main heading
+// Define the string variables `title` and `subTitle` for the main heading and sub-heading text respectively.
 const title: string = "Meeting Industry Demands";
-
-// Sub-heading text
 const subTitle: string =
   "At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals.";
 ---
@@ -15,7 +13,7 @@ const subTitle: string =
 <div
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
-  <!-- Showing an Image -->
+  <!-- Block to display the feature image -->
   <div class="relative mb-6 overflow-hidden md:mb-8">
     <Image
       src={featureImage}
@@ -26,16 +24,17 @@ const subTitle: string =
     />
   </div>
 
-  <!-- Render title, subtitle and the various IconBlock instances -->
+  <!-- Displaying the main content consisting of title, subtitle, and several `IconBlock` components -->
   <div class="mt-5 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-12">
+    <!-- Block for title and subtitle -->
     <div class="lg:col-span-1">
-      <!-- Title Block -->
+      <!-- Rendering title -->
       <h2
         class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
       >
         {title}
       </h2>
-      <!-- Sub Title Block -->
+      <!-- Rendering subtitle -->
       <p
         class="mt-2 text-pretty text-neutral-600 dark:text-neutral-400 md:mt-4"
       >
@@ -43,9 +42,10 @@ const subTitle: string =
       </p>
     </div>
 
-    <!-- Render a grid of IconBlocks -->
+    <!-- Block to display the IconBlock components -->
     <div class="lg:col-span-2">
       <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
+        <!-- Injecting IconBlock components with different properties -->
         <!-- IconBlock #1 -->
         <IconBlock
           heading="Dedicated Teams"
