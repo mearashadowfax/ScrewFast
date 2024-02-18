@@ -1,23 +1,28 @@
 ---
+// Get heading and content from Astro props
 const { heading, content } = Astro.props;
-
+// Define TypeScript interface for props
 interface Props {
   heading?: string;
   content?: string;
 }
-
+// Define classes for heading and content
 const headingClasses =
   "text-balance text-lg font-bold text-gray-800 dark:text-neutral-200";
 const contentClasses =
   "mt-1 text-pretty text-neutral-700 dark:text-neutral-300";
 ---
 
+<!-- The root container that arranges your slot and the heading/content -->
 <div class="flex gap-x-5">
+  <!-- Slot to allow for extensibility of the component -->
   <slot />
   <div class="grow">
+    <!-- Heading of the section -->
     <h3 class={headingClasses}>
       {heading}
     </h3>
+    <!-- Content text of the section -->
     <p class={contentClasses}>{content}</p>
   </div>
 </div>

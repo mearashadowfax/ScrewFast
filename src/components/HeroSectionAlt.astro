@@ -1,17 +1,15 @@
 ---
-// Import the necessary dependencies from individual component files
+// Import the necessary dependencies
 import GithubBtn from "./ui/buttons/GithubBtn.astro";
 
-// Variables for customization of the HeroSection2 Component
-// Main heading
+// Define the variables that will be used in this component
 const title: string = "Let's Build Together";
-
-// Sub-heading text
 const subTitle: string =
   "ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks.";
 ---
 
 <div class="relative mx-auto max-w-[85rem] px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+  <!-- Decorating SVG elements -->
   <div
     class="absolute left-0 top-[55%] scale-90 md:top-[20%] xl:left-[10%] xl:top-[25%]"
   >
@@ -112,21 +110,21 @@ const subTitle: string =
       ></path>
     </svg>
   </div>
-
+  <!-- Hero Section Heading -->
   <div class="mx-auto mt-5 max-w-xl text-center">
-    <h1
+    <h2
       class="block text-balance text-4xl font-bold leading-tight tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
     >
       {title}
-    </h1>
+    </h2>
   </div>
-
+  <!-- Hero Section Sub-heading -->
   <div class="mx-auto mt-5 max-w-3xl text-center">
     <p class="text-pretty text-lg text-neutral-600 dark:text-neutral-400">
       {subTitle}
     </p>
   </div>
-
+  <!-- Github Button -->
   <div class="mt-8 flex justify-center gap-3">
     <GithubBtn url="https://github.com/mearashadowfax/ScrewFast" />
   </div>

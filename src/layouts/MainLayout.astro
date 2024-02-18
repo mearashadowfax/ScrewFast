@@ -1,22 +1,31 @@
 ---
+// Importing necessary components
 import Meta from "../components/Meta.astro";
 import Navbar from "../components/Navbar.astro";
 import FooterSection from "../components/FooterSection.astro";
 
+// Setting expected props - expecting 'title' and 'meta' as options with a default value for title
 const { title = "ScrewFast", meta } = Astro.props;
 
+// Interface to type-check the properties
 interface Props {
   title?: string;
   meta?: string;
 }
 ---
 
+<!--
+This is the main structure for the page.
+We set the language of the page to English and add classes for scrollbar and scroll behavior.
+-->
 <html lang="en" class="scrollbar-hide scroll-pt-16">
   <head>
+    <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} />
+    <!-- Define the title of the page -->
     <title>{title}</title>
     <script is:inline>
-      // This script is to handle theme according to user preference
+      // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
       if (
         localStorage.getItem("hs_theme") === "dark" ||
         (!("hs_theme" in localStorage) &&
@@ -29,7 +38,7 @@ interface Props {
     </script>
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline>
-      // This script is to handle lenis library settings and behaviors, like the smooth scrolling
+      // Script to handle Lenis library settings for smooth scrolling
       const lenis = new Lenis({ smooth: true, smoothTouch: false });
 
       function raf(time) {
@@ -43,13 +52,17 @@ interface Props {
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
+    <!--
+    Setting up the main structure of the page.
+    The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
+    -->
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <Navbar />
       <slot />
     </div>
     <FooterSection />
     <style>
-      // These css rules are for the page scrollbar and scrolling experience with lenis library
+      // CSS rules for the page scrollbar and scrolling experience with lenis library
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }

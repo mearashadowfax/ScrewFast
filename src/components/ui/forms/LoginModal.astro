@@ -1,5 +1,5 @@
 ---
-// Import the necessary dependencies from individual component files
+// Import necessary components from their individual files
 import EmailInput from "./input/EmailInput.astro";
 import PasswordInput from "./input/PasswordInput.astro";
 import Checkbox from "./input/Checkbox.astro";
@@ -7,13 +7,13 @@ import AuthBtn from "../buttons/AuthBtn.astro";
 import GoogleBtn from "../buttons/GoogleBtn.astro";
 
 // Variables for customization of the LoginModal Component
-// Modal identifier, Main heading, Sub-heading text, Text for registration button, Target link for registration button
+
 const config = {
-  id: "hs-toggle-between-modals-login-modal",
-  title: "Sign in",
-  subTitle: "Don't have an account yet?",
-  registerBtn: "Sign up here",
-  registerBtnDataHS: "#hs-toggle-between-modals-register-modal"
+  id: "hs-toggle-between-modals-login-modal", // Modal IDENTIFIER
+  title: "Sign in", // Main HEADING
+  subTitle: "Don't have an account yet?", // Sub-Heading TEXT
+  registerBtn: "Sign up here", // Text for REGISTRATION BUTTON
+  registerBtnDataHS: "#hs-toggle-between-modals-register-modal", // TARGET LINK for registration button
 };
 ---
 
@@ -30,11 +30,11 @@ const config = {
       >
         <div class="p-4 sm:p-7">
           <div class="text-center">
-            <h1
+            <h2
               class="block text-2xl font-bold text-neutral-800 dark:text-neutral-200"
             >
               {config.title}
-            </h1>
+            </h2>
             <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               {config.subTitle}
               <button
@@ -53,21 +53,23 @@ const config = {
             >
               Or
             </div>
-
+            <!-- The container for the form -->
             <form>
+              <!-- A grid layout for the form fields -->
               <div class="grid gap-y-4">
+                <!-- The email input field -->
                 <EmailInput id="login-email" />
-
+                <!-- The password input field -->
                 <PasswordInput
                   forgot={true}
                   id="password"
                   ;
-                  errorId="password-error"
+                  errorId="login-password-error"
                   content="8+ characters required"
                 />
-
+                <!-- The remember-me checkbox -->
                 <Checkbox id="remember-me" />
-
+                <!-- The sign-in button -->
                 <AuthBtn title="Sign in" />
               </div>
             </form>

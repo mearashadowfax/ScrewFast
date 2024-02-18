@@ -1,6 +1,8 @@
 ---
+// Destructure the properties from Astro.props
 const { url, name } = Astro.props;
 
+// Define TypeScript interface for the properties
 interface Props {
   url: string;
   name: string;
@@ -23,20 +25,20 @@ If URL is '/' (home page), assign ID as 'home'
 </a>
 
 <script>
-    window.onload = function () {
-        let url = window.location.pathname;
-        let firstPathSegment = url.split('/')[1];
-        let navId = firstPathSegment ? firstPathSegment : 'home';
-        let nav = document.getElementById(navId);
-        if (nav) {
-            nav.classList.remove(
-                'text-neutral-600',
-                'dark:text-neutral-400',
-                'hover:text-neutral-500',
-                'dark:hover:text-neutral-500',
-            );
-            nav.classList.add('text-[#fa5a15]', 'dark:text-[#fb713b]');
-            nav.setAttribute('aria-current', 'page');
-        }
-    };
+  window.onload = function () {
+    let url = window.location.pathname;
+    let firstPathSegment = url.split("/")[1];
+    let navId = firstPathSegment ? firstPathSegment : "home";
+    let nav = document.getElementById(navId);
+    if (nav) {
+      nav.classList.remove(
+        "text-neutral-600",
+        "dark:text-neutral-400",
+        "hover:text-neutral-500",
+        "dark:hover:text-neutral-500",
+      );
+      nav.classList.add("text-[#fa5a15]", "dark:text-[#fb713b]");
+      nav.setAttribute("aria-current", "page");
+    }
+  };
 </script>

@@ -1,8 +1,8 @@
 ---
-// Import section components
+// Import the necessary components
 import MainLayout from "../layouts/MainLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
-import HeroSection2 from "../components/HeroSection2.astro";
+import HeroSectionAlt from "../components/HeroSectionAlt.astro";
 import ClientsSection from "../components/ClientsSection.astro";
 import FeaturesGeneral from "../components/FeaturesGeneral.astro";
 import FeaturesNavs from "../components/FeaturesNavs.astro";
@@ -11,8 +11,10 @@ import PricingSection from "../components/PricingSection.astro";
 import FAQ from "../components/FAQ.astro";
 ---
 
-<MainLayout meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.">
-
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
+>
   <HeroSection />
   <ClientsSection />
   <FeaturesGeneral />
@@ -20,5 +22,5 @@ import FAQ from "../components/FAQ.astro";
   <TestimonialsSection />
   <PricingSection />
   <FAQ />
-  <HeroSection2 />
+  <HeroSectionAlt />
 </MainLayout>

@@ -1,24 +1,26 @@
 ---
-// Import the necessary dependencies from individual component files
+//Import relevant dependencies
 import ThemeIcon from "./ThemeIcon.astro";
 import NavLink from "./ui/links/NavLink.astro";
 import Authentication from "./Authentication.astro";
 ---
 
+<!-- Main header component -->
 <header
   class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
 >
+  <!-- Navigation container -->
   <nav
     class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-3 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
     aria-label="Global"
   >
     <div class="flex items-center justify-between">
+      <!-- Brand logo -->
       <a
-        class="flex-none text-xl outline-none rounded-lg font-bold dark:focus:outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200"
+        class="flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
         href="/"
         aria-label="Brand"
       >
-        <!-- Brand Logo -->
         <svg class="h-auto w-24" viewBox="0 0 521 226" fill="none">
           <rect
             width="78.937"
@@ -73,6 +75,7 @@ import Authentication from "./Authentication.astro";
           ></path>
         </svg>
       </a>
+      <!-- Collapse toggle for smaller screens -->
       <div class="ml-auto mr-5 md:hidden">
         <button
           type="button"
@@ -112,24 +115,29 @@ import Authentication from "./Authentication.astro";
           </svg>
         </button>
       </div>
+      <!-- ThemeIcon component specifically for smaller screens -->
       <span class="inline-block md:hidden">
         <ThemeIcon />
       </span>
     </div>
+    <!-- Contains navigation links -->
     <div
       id="navbar-collapse-with-animation"
       class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:block"
     >
+      <!-- Navigation links container -->
       <div
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-7 md:gap-y-0 md:ps-7"
       >
+        <!-- Navigation links and Authentication component -->
         <NavLink url="/" name="Home" />
         <NavLink url="/products" name="Products" />
         <NavLink url="/services" name="Services" />
         <NavLink url="/blog" name="Blog" />
         <NavLink url="/contact" name="Contact" />
-        
+
         <Authentication />
+        <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">
           <ThemeIcon />
         </span>
@@ -137,7 +145,7 @@ import Authentication from "./Authentication.astro";
     </div>
   </nav>
 </header>
-
+<!-- Theme Appearance script to manage light/dark modes -->
 <script is:inline>
   const HSThemeAppearance = {
     init() {
@@ -242,5 +250,8 @@ import Authentication from "./Authentication.astro";
     });
   });
 </script>
+<!--Import the necessary Collapse and Overlay plugins-->
+<!--https://preline.co/plugins/html/collapse.html-->
+<!--https://preline.co/plugins/html/overlay.html-->
 <script is:inline src="/scripts/vendor/preline/collapse/index.js"></script>
 <script is:inline src="/scripts/vendor/preline/overlay/index.js"></script>

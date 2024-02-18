@@ -1,28 +1,31 @@
 ---
-// Import section components
+// Importing necessary components
 import MainLayout from "../../layouts/MainLayout.astro";
 import PrimaryCTA from "../../components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "../../components/ui/cards/CardSmall.astro";
 import CardWide from "../../components/ui/cards/CardWide.astro";
-import FeaturesStats2 from "../../components/FeaturesStats2.astro";
-import TestimonialsSection2 from "../../components/TestimonialsSection2.astro";
+import FeaturesStatsAlt from "../../components/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "../../components/TestimonialsSectionAlt.astro";
 
+// Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
+// Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
   await getCollection("products")
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id
+    a.data.main.id - b.data.main.id,
 );
 
+// Define variables for page content
 const title: string = "Products";
-
 const subTitle: string =
   "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
 ---
 
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout
   title="Products | ScrewFast"
   meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
@@ -46,7 +49,8 @@ const subTitle: string =
       </div>
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
-
+    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
+    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
@@ -60,7 +64,8 @@ const subTitle: string =
       }
     </div>
   </div>
-
-  <FeaturesStats2 />
-  <TestimonialsSection2 />
+  <!--Features statistics section-->
+  <FeaturesStatsAlt />
+  <!--Testimonials section-->
+  <TestimonialsSectionAlt />
 </MainLayout>

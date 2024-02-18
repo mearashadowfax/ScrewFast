@@ -1,5 +1,5 @@
 ---
-// import necessary dependencies
+// Import the necessary dependencies
 import { Image } from "astro:assets";
 import heroImage from "../images/hero-image.avif";
 import PrimaryCTA from "./ui/buttons/PrimaryCTA.astro";
@@ -8,41 +8,29 @@ import Avatar from "./ui/avatars/Avatar.astro";
 import FullStar from "./ui/stars/FullStar.astro";
 import HalfStar from "./ui/stars/HalfStar.astro";
 
-// Variables for customization of the HeroSection Component
-// Main heading
-const title:string = `Equip Your Projects with <span
+// Define the variables that will be used in this component
+const title: string = `Equip Your Projects with <span
         class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`;
-
-// Main heading
-const subTitle:string =
+const subTitle: string =
   "Top-quality hardware tools and expert construction services for every project need.";
-
-// Sub-heading text
-const primaryBtn:string = "Start Exploring";
-const primaryBtnURL:string = "/products";
-
-/* `secondaryBtn` and `secondaryBtnURL` variables used to customise the text and target link of the secondary button. */
-const secondaryBtn:string = "Contact Sales Team";
-const secondaryBtnURL:string = "/contact";
-
-/* `rating` variable used to customise the rating. */
-const rating:number = 4.8;
-
-/* `starCount` variable used to customise the star rating with the full stars. */
-const starCount:number = 4;
-
-/* `reviews` variable used to customise the number of reviews. */
-const reviews:string = "12.8k";
-
+const primaryBtn: string = "Start Exploring";
+const primaryBtnURL: string = "/products";
+const secondaryBtn: string = "Contact Sales Team";
+const secondaryBtnURL: string = "/contact";
+const rating: number = 4.8;
+const starCount: number = 4;
+const reviews: string = "12.8k";
 ---
 
+<!-- Defining a grid container that holds all the content -->
 <div
   class="mx-auto grid max-w-[85rem] gap-4 px-4 py-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8 2xl:max-w-full"
 >
   <!-- Title and description -->
   <div>
+    <!-- Each h1 and p tag renders a portion of the title and subTitle defined above -->
     <h1
-      class="text-balance block text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
+      class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
     >
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
@@ -53,13 +41,13 @@ const reviews:string = "12.8k";
       {subTitle}
     </p>
 
-    <!-- Action buttons -->
+    <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
     <div class="mt-7 grid w-full gap-3 sm:inline-flex">
       <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
       <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
     </div>
 
-    <!-- Review Section -->
+    <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
     <div class="mt-6 lg:mt-10">
       <div class="py-5">
         <div class="text-center sm:flex sm:items-center sm:text-start">
@@ -67,16 +55,20 @@ const reviews:string = "12.8k";
             <!-- Avatar Group -->
             <div class="flex justify-center -space-x-3">
               <Avatar
-                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description"
+                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+                alt="Image Description"
               />
               <Avatar
-                src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description"
+                src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+                alt="Image Description"
               />
               <Avatar
-                src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80" alt="Image Description"
+                src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
+                alt="Image Description"
               />
               <Avatar
-                src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description"
+                src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+                alt="Image Description"
               />
               <span
                 class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800"
@@ -119,7 +111,7 @@ const reviews:string = "12.8k";
     </div>
   </div>
 
-  <!-- Hero Image -->
+  <!-- Hero Image Section -->
   <div class="flex w-full">
     <div class="top-12 overflow-hidden">
       <Image
