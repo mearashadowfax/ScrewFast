@@ -1,8 +1,11 @@
 ---
+// Import the Image component from astro:assets
 import { Image } from "astro:assets";
 
+// Destructure the component properties from Astro.props
 const { id, aria, src, alt, first, second } = Astro.props;
 
+// Define TypeScript interface for the properties
 interface Props {
   id: string;
   aria: string;
@@ -11,29 +14,35 @@ interface Props {
   first?: boolean;
   second?: boolean;
 }
-
+// Set class based on 'first' property
+// If 'first' is present, show the tab content immediately
 const firstClass = first ? "" : "hidden";
-const secondClass = second ? "shadow-xl aspect-[5/4] bg-neutral-300 dark:bg-neutral-600 object-cover p-3 lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]" :
-    "shadow-xl aspect-[3/2] object-cover lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]";
+// Set class based on 'second' property
+// If 'second' is present, use an alternate style for the image
+const secondClass = second
+  ? "shadow-xl aspect-[5/4] bg-neutral-300 dark:bg-neutral-600 object-cover p-3 lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]"
+  : "shadow-xl aspect-[3/2] object-cover lg:aspect-auto shadow-neutral-200 rounded-xl dark:shadow-neutral-900/[.2]";
 
 /*
-first: This prop should be set to true for the initial TabContent component in your list to ensure that it's visible when the page first loads. All subsequent TabContent components should omit this prop or set it to false.
+first: This property should be set to true for the initial TabContent component
+in your list to ensure that it's visible when the page first loads.
+All subsequent TabContent components should omit this property or set it to false.
 
-second: This prop allows to control changes in the look of the Image. If it is set to true, the Image will have different aspect ratio and background color. If this prop is not provided or is set to false, the Image will use default styling. You can enable this for any TabContent component you want to apply these changes to.
+second: This property allows to control changes in the look of the Image.
+If it is set to true, the Image will have different aspect ratio and background color.
+If this property is not provided or is set to false, the Image will use default styling.
+You can enable this for any TabContent component you want to apply these changes to.
 
-Example:
+This is the full example:
 <TabContent id="" aria="" src="" alt="" first={true}/>
 <TabContent id="" aria="" src="" alt="" second={true}/>
 <TabContent id="" aria="" src="" alt="" />
 */
 ---
 
-<div
-  id={id}
-  role="tabpanel"
-  class={firstClass}
-  aria-labelledby={aria}
->
+<!-- Container for tab content that controls visibility and accessibility -->
+<div id={id} role="tabpanel" class={firstClass} aria-labelledby={aria}>
+  <!-- Astro Image component to display the image with dynamic classes based on the 'second' property -->
   <Image
     src={src}
     alt={alt}

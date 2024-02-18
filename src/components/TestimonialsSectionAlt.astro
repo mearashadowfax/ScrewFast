@@ -1,12 +1,11 @@
 ---
-// Import the necessary dependencies from individual component files
-import AvatarTestimonialSection2 from "./ui/avatars/AvatarTestimonialSection2.astro";
+// Import AvatarTestimonialSection component for use in this module
+import AvatarTestimonialSection from "./ui/avatars/AvatarTestimonialSection.astro";
 
-// Variables for customization of the LoginModal Component
-// Main heading
+// Set title for the testimonial section
 const title: string = "What Our Customers Say";
 
-/* TypeScript type for product. */
+// Type definition for each testimonial
 type Testimonial = {
   content: string;
   author: string;
@@ -15,7 +14,9 @@ type Testimonial = {
   avatarAlt: string;
 };
 
+// Testimonial data that will be rendered in the component
 const testimonials: Testimonial[] = [
+  // First testimonial data
   {
     content:
       " \"Since switching to ScrewFast's hardware tools, the efficiency on our construction sites has skyrocketed. The durability of the hex bolts and precision of the machine screws are simply unmatched. It's refreshing to work with a company that truly understands the daily demands of the industry.\" ",
@@ -25,6 +26,7 @@ const testimonials: Testimonial[] = [
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     avatarAlt: "Image Description",
   },
+  // Second testimonial data
   {
     content:
       " \"As an interior designer, I'm always looking for high-quality materials and tools that help bring my visions to life. ScrewFast's mixed screws assortment has been a game-changer for my projects, providing the perfect blend of quality and variety. The outstanding customer support was just the cherry on top!\" ",
@@ -34,6 +36,7 @@ const testimonials: Testimonial[] = [
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     avatarAlt: "Image Description",
   },
+  // Third testimonial data
   {
     content:
       " \"I’ve been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast’s tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
@@ -45,11 +48,12 @@ const testimonials: Testimonial[] = [
   },
 ];
 ---
-
+<!-- Main div that wraps the testimonials section -->
 <div
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   id="testimonials"
 >
+  <!-- Title of the testimonials section -->
   <div class="mb-6 w-3/4 max-w-2xl sm:mb-10 md:mb-16 lg:w-1/2">
     <h2
       class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-4xl"
@@ -59,11 +63,13 @@ const testimonials: Testimonial[] = [
   </div>
 
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Looping through each testimonial data and rendering it -->
     {
       testimonials.map((testimonial) => (
         <div class="flex h-auto">
           <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
             <div class="flex-auto p-4 md:p-6">
+              <!-- Testimonial content -->
               <p class="text-pretty text-base italic text-neutral-600 dark:text-neutral-300 md:text-lg">
                 {testimonial.content}
               </p>
@@ -71,7 +77,7 @@ const testimonials: Testimonial[] = [
 
             <div class="rounded-b-xl bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7">
               <div class="flex items-center">
-                <AvatarTestimonialSection2
+                <AvatarTestimonialSection
                   src={testimonial.avatarSrc}
                   alt={testimonial.avatarAlt}
                 />

@@ -1,6 +1,8 @@
 ---
+// Extract properties from Astro.props
 const { aria, dataTab, id, heading, content, first } = Astro.props;
 
+// Define TypeScript interface for properties
 interface Props {
   dataTab: string;
   id: string;
@@ -9,10 +11,14 @@ interface Props {
   content?: string;
   first?: boolean;
 }
-const BUTTON_CLASS = "dark:hover:bg-neutral-700 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none  dark:hs-tab-active:bg-neutral-700/60 md:p-5"
+// Define button classes
+const BUTTON_CLASS =
+  "dark:hover:bg-neutral-700 rounded-xl p-4 text-start outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 focus-visible:ring hs-tab-active:bg-neutral-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-zinc-200 dark:focus:outline-none  dark:hs-tab-active:bg-neutral-700/60 md:p-5";
 
 /*
-first: This prop should be set to true for the initial TabNav component in your list to ensure that it's visible when the page first loads. All subsequent TabNav components should omit this prop or set it to false.
+first: This property should be set to true for the initial TabNav component in your list
+to ensure that it's visible when the page first loads. All subsequent TabNav components
+should omit this property or set it to false.
 
 Example:
 <TabNav id="" dataTab="" aria="" heading="" paragraph="" first={true} />
@@ -21,6 +27,7 @@ Example:
 */
 ---
 
+<!-- Tab button with dynamic class based on 'first' property, id, tab data, and aria-controls  -->
 <button
   type="button"
   class={`${first ? "active " : ""}${BUTTON_CLASS}`}
@@ -29,13 +36,17 @@ Example:
   aria-controls={aria}
   role="tab"
 >
+  <!-- Slot for additional content -->
   <span class="flex">
     <slot />
+    <!-- Container for the heading and content of the tab -->
     <span class="ms-6 grow">
+      <!-- Heading of the tab, changes color when active -->
       <span
         class="block text-lg font-bold text-neutral-800 hs-tab-active:text-[#fa5a15] dark:text-neutral-200 dark:hs-tab-active:text-[#fb713b]"
         >{heading}</span
       >
+      <!-- Content of the tab, changes color when active -->
       <span
         class="mt-1 block text-neutral-500 hs-tab-active:text-neutral-600 dark:text-neutral-400 dark:hs-tab-active:text-neutral-200"
         >{content}</span

@@ -1,13 +1,10 @@
 ---
-// Variables for customization of the LoginModal Component
-// Main heading
+// Define constants for content
 const title: string = "Fast-Track Your Projects";
-
-// Sub-heading text
 const subTitle: string =
   "At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined.";
 
-/* TypeScript type for testimonials. */
+// TypeScript type for testimonials
 type Testimonial = {
   content: string;
   author: string;
@@ -15,7 +12,7 @@ type Testimonial = {
   avatarSrc: string;
 };
 
-/* An array of testimonials, each being an object that conforms to the above `Testimonial` type. */
+// An array of testimonials
 const testimonials: Testimonial[] = [
   {
     content:
@@ -27,13 +24,13 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-/* TypeScript type for stats. */
+// TypeScript type for stats.
 type StatProps = {
   count: string;
   description: string;
 };
 
-/* An array of stats, each being an object that conforms to the above `StatProps` type. */
+// An array of stats
 const statistics: StatProps[] = [
   {
     count: "70k+",
@@ -55,12 +52,15 @@ const statistics: StatProps[] = [
 ];
 ---
 
-<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+<div
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <!-- Container for the testimonials -->
   <div
     class="lg:grid lg:grid-cols-12 lg:items-center lg:justify-between lg:gap-16"
   >
     <div class="lg:col-span-5 lg:col-start-1">
-      <!-- Title and description -->
+      <!-- Title and Subtitle -->
       <div class="mb-8">
         <h2
           class="mb-2 text-3xl font-bold text-neutral-800 dark:text-neutral-200 lg:text-4xl"

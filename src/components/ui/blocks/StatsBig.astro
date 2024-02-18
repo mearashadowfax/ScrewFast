@@ -1,14 +1,17 @@
 ---
+// Extract the properties from Astro.props
 const { title, subTitle } = Astro.props;
-
+// Define TypeScript interface for the properties
 interface Props {
   title: string;
   subTitle: string;
 }
 ---
+
+<!-- Container for the title and subtitle -->
 <div class="lg:pe-6 xl:pe-12">
-    <p class="text-6xl font-bold leading-10 text-[#fa5a15] dark:text-[#fb713b]">
-      {title}
-    </p>
-    <p class="mt-2 sm:mt-3 text-neutral-600 dark:text-neutral-400">{subTitle}</p>
+  <p class="text-6xl font-bold leading-10 text-[#fa5a15] dark:text-[#fb713b]">
+    {title}
+  </p>
+  <p class="mt-2 text-neutral-600 dark:text-neutral-400 sm:mt-3">{subTitle}</p>
 </div>
