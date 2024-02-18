@@ -1,20 +1,23 @@
 ---
+// Import necessary modules and utilities
 import { Image } from "astro:assets";
-
 import { formatDate } from "../../../utils";
 import type { CollectionEntry } from "astro:content";
-
+// Define data source from Astro.js incoming props
 const { blogEntry } = Astro.props;
-
+// Define TypeScript props interface
 interface Props {
   blogEntry: CollectionEntry<"blog">;
 }
 ---
 
+<!-- The anchor tag is the main container for the blog preview card. Currently, it links to "#".
+     You might want to change it to the corresponding blog post's URL. -->
 <a
   class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
   href="#"
 >
+  <!-- The blog post's cover image. It uses astro:assets' Image for loading the image optimally -->
   <div>
     <Image
       class="aspect-video rounded-xl"
@@ -23,11 +26,13 @@ interface Props {
       draggable={"false"}
       format={"avif"}
     />
+    <!-- The title of the blog post -->
     <h3
       class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-[#fa5a15] dark:text-neutral-300 dark:group-hover:text-neutral-50"
     >
       {blogEntry.data.title}
     </h3>
+    <!-- The formatted publication date of the blog post -->
     <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
       {formatDate(blogEntry.data.pubDate)}
     </p>

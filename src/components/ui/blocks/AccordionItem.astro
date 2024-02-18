@@ -1,6 +1,7 @@
 ---
+// Define props from Astro
 const { id, collapseId, heading, content, first } = Astro.props;
-
+// Define TypeScript interface for props
 interface Props {
   id: string;
   collapseId: string;
@@ -8,45 +9,58 @@ interface Props {
   content: string;
   first?: boolean;
 }
+// Define class names for the accordion and its content
 const ACCORDION_CLASS_DEFAULT = "hs-accordion pb-3 active";
 const ACCORDION_CLASS_COLLAPSED = "hs-accordion pt-6 pb-3";
 const ACCORDION_CONTENT_CLASS =
   "hs-accordion-content w-full overflow-hidden transition-[height] duration-300";
+// Helper function to return the correct class for the accordion
 function getAccordionClass(first: boolean = false) {
   return first ? ACCORDION_CLASS_DEFAULT : ACCORDION_CLASS_COLLAPSED;
 }
-const SVG_PARAMS = {
-  width: "24",
-  height: "24",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-};
 ---
 
+<!-- The main container for the accordion item -->
 <div class={getAccordionClass(first)} id={id}>
+  <!-- The accordion button, which toggles the expanded/collapsed state -->
   <button
     class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-balance rounded-lg pb-3 text-start font-bold text-neutral-800 outline-none ring-zinc-500 transition hover:text-neutral-500 focus-visible:ring dark:text-neutral-200 dark:ring-zinc-200 dark:hover:text-neutral-400 dark:focus:outline-none md:text-lg"
     aria-controls={collapseId}
   >
     {heading}
+    <!-- SVG Icon that is shown when the accordion is NOT active -->
     <svg
       class="block h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:hidden dark:text-neutral-400"
-      {...SVG_PARAMS}><path d="m6 9 6 6 6-6"></path></svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
     >
+
+    <!-- SVG Icon that is shown when the accordion is active -->
     <svg
       class="hidden h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:block dark:text-neutral-400"
-      {...SVG_PARAMS}><path d="m18 15-6-6-6 6"></path></svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
     >
   </button>
+  <!-- The collapsible content of the accordion -->
   <div
     aria-labelledby={id}
     class={`${first ? ACCORDION_CONTENT_CLASS : "hidden " + ACCORDION_CONTENT_CLASS}`}
     id={collapseId}
   >
+    <!-- The content paragraph -->
     <p class="text-pretty text-neutral-600 dark:text-neutral-400">
       {content}
     </p>

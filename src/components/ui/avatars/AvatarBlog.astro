@@ -1,14 +1,17 @@
 ---
+// Import necessary components
 import { Image } from "astro:assets";
-
+// Import necessary types
 import type { CollectionEntry } from "astro:content";
 
+// Extract blogEntry property from Astro.props
 const { blogEntry } = Astro.props;
-
+// Define Props interface
 interface Props {
   blogEntry: CollectionEntry<"blog">;
 }
 ---
+
 <div class="flex-shrink-0">
   <Image
     class="size-[46px] rounded-full border-2 border-neutral-50"

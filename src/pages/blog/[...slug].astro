@@ -1,5 +1,5 @@
 ---
-// Import section components
+// Import necessary components and utilities
 import MainLayout from "../../layouts/MainLayout.astro";
 import AvatarBlogLarge from "../../components/ui/avatars/AvatarBlogLarge.astro";
 import CardRelated from "../../components/ui/cards/CardRelated.astro";
@@ -8,6 +8,7 @@ import { capitalize, formatDate } from "../../utils";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
+// getStaticPaths is used to pre-render all routes based on the blog posts
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog");
   return blogPosts.map((post) => ({
@@ -15,11 +16,16 @@ export async function getStaticPaths() {
     props: { post },
   }));
 }
-
+// Get the current post's data
 const { post } = Astro.props;
 
+// Get all blog posts
 const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
-const relatedPosts: CollectionEntry<"blog"> = blogPosts.filter(
+
+// Filter out the current post to get related posts
+// Note: This is a very basic way of choosing related posts, just for the purpose of the example.
+// In a production site, you might want to implement a more robust algorithm, choosing related posts based on tags, categories, dates, authors, or keywords.
+const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   (blogEntry) => blogEntry.slug !== post.slug,
 );
 ---
@@ -39,6 +45,7 @@ const relatedPosts: CollectionEntry<"blog"> = blogPosts.filter(
                 <div
                   class="hs-tooltip inline-block [--placement:bottom] [--trigger:hover]"
                 >
+                  <!--Post metadata and author info-->
                   <span
                     class="font-bold text-neutral-700 dark:text-neutral-300"
                   >
@@ -62,17 +69,18 @@ const relatedPosts: CollectionEntry<"blog"> = blogPosts.filter(
           </div>
         </div>
       </div>
-
+      <!--Blog post title-->
       <h2
         class="mb-3 text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
       >
         {post.data.title}
       </h2>
-
+      <!--Blog post contents-->
       <div class="mb-5 space-y-5 md:mb-8 md:space-y-8">
         {
           post.data.contents.map((content: string, index: any) =>
             index === 1 ? (
+              <>
                 <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
                   {content}
                 </p>
@@ -83,6 +91,7 @@ const relatedPosts: CollectionEntry<"blog"> = blogPosts.filter(
                   draggable={"false"}
                   format={"avif"}
                 />
+              </>
             ) : (
               <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
                 {content}
@@ -91,7 +100,7 @@ const relatedPosts: CollectionEntry<"blog"> = blogPosts.filter(
           )
         }
       </div>
-
+      <!--Blog post tags-->
       <div class="space-x-2">
         {
           post.data.tags?.map((tag: string) => (
@@ -103,7 +112,7 @@ const relatedPosts: CollectionEntry<"blog"> = blogPosts.filter(
       </div>
     </div>
   </div>
-
+  <!--Related articles section-->
   <div class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
     <div class="mb-10 max-w-2xl">
       <h2

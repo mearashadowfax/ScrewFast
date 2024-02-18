@@ -1,6 +1,8 @@
 ---
+// Destructure the properties from Astro.props
 const { src, alt } = Astro.props;
 
+// Define TypeScript interface for the properties
 interface Props {
   src: string;
   alt: string;

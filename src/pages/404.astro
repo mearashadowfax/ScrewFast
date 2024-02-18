@@ -2,6 +2,13 @@
 // Import section components
 import MainLayout from "../layouts/MainLayout.astro";
 import Btn404 from "../components/ui/buttons/Btn404.astro";
+
+// Define variables for page content
+const title: string = "404";
+const subTitle: string = "Oops, this isn't the tool you were looking for!";
+const content: string =
+  "Don't let this hiccup slow you down. Let's get you back to building your masterpiece.";
+const btnTitle: string = "Go Back";
 ---
 
 <MainLayout
@@ -14,25 +21,26 @@ import Btn404 from "../components/ui/buttons/Btn404.astro";
         <h1
           class="text-dark mb-4 text-7xl font-extrabold text-yellow-500 dark:text-yellow-400 lg:text-9xl"
         >
-          404
+          {title}
         </h1>
         <p
           class="mb-4 text-balance text-3xl font-bold tracking-tight text-neutral-700 dark:text-neutral-300 md:text-4xl"
         >
-          Oops, this isn't the tool you were looking for!
+          {subTitle}
         </p>
 
         <p
           class="mb-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
         >
-          Don't let this hiccup slow you down. Let's get you back to building
-          your masterpiece.
+          {content}
         </p>
-        <Btn404 title="Go Back" id="go-back" />
+        <!--Display a button that navigates user back to the previous page-->
+        <Btn404 title={btnTitle} id="go-back" />
       </div>
     </div>
   </section>
 </MainLayout>
+<!--JavaScript code that adds click event to the Button, resulting in going back to the previous page in history-->
 <script>
   document.getElementById("go-back")?.addEventListener("click", () => {
     history.back();

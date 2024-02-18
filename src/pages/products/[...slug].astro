@@ -3,16 +3,16 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import ProductTabBtn from "../../components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "../../components/ui/buttons/PrimaryCTA.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
+// Global declaration for gsap animation library
 declare global {
   interface Window {
     gsap: any;
   }
 }
-import { Image } from "astro:assets";
-
-import { getCollection } from "astro:content";
-
+// This gets the static paths for all the unique products
 export async function getStaticPaths() {
   const productEntries = await getCollection("products");
   return productEntries.map((product) => ({
@@ -24,7 +24,10 @@ export async function getStaticPaths() {
 const { product } = Astro.props;
 ---
 
-<MainLayout title={product.data.main.title + " | ScrewFast"} meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.">
+<MainLayout
+  title={product.data.main.title + " | ScrewFast"}
+  meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
+>
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
   </div>
 
@@ -111,10 +114,10 @@ const { product } = Astro.props;
                 product.data.descriptionList.map((list) => (
                   <div class="flex">
                     <div>
-                      <h3 class="text-base font-bold text-gray-800 dark:text-gray-200 sm:text-lg">
+                      <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
                         {list.title}
                       </h3>
-                      <p class="mt-1 text-gray-600 dark:text-gray-400">
+                      <p class="mt-1 text-neutral-600 dark:text-neutral-400">
                         {list.subTitle}
                       </p>
                     </div>
@@ -200,11 +203,23 @@ const { product } = Astro.props;
     window.addEventListener("load", (event) => {
       if (window.gsap) {
         const gsap = window.gsap;
-        gsap.set("#fadeText", { autoAlpha: 0, y: 50 });
-        gsap.set("#fadeInUp", { autoAlpha: 0, y: 50 });
-        gsap.set("#fadeInMoveRight", { autoAlpha: 0, x: 300 });
+        gsap.set("#fadeText", {
+          autoAlpha: 0,
+          y: 50,
+          willChange: "transform, opacity",
+        });
+        gsap.set("#fadeInUp", {
+          autoAlpha: 0,
+          y: 50,
+          willChange: "transform, opacity",
+        });
+        gsap.set("#fadeInMoveRight", {
+          autoAlpha: 0,
+          x: 300,
+          willChange: "transform, opacity",
+        });
 
-        let timeline = gsap.timeline();
+        let timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
 
         timeline.to("#fadeText", {
           duration: 1.5,
