@@ -1,6 +1,6 @@
 {
-    "short_name": "OpenStove",
-    "name": "OpenStove",
+    "short_name": "ScrewFast",
+    "name": "ScrewFast",
     "icons": [
       {
         "src": "/icon-192.png",
@@ -31,5 +31,5 @@
     "id": "/",
     "start_url": "/",
     "theme_color": "#FFEDD5",
-    "background_color": "#FFEDD5"
+    "background_color": "#262626"
   }
