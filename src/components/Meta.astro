@@ -1,15 +1,26 @@
 ---
-// Assign a description using the `meta` prop passed from the parent component,
-// `meta` is used as a variable on each individual page by passing it as a prop to this component.
-// For example, you can pass a meta description to the MainLayout component like this: <MainLayout meta="Page description"/>
-const { meta: description } = Astro.props;
+// Default properties for the Meta component. These values are used if props are not provided.
+// 'title' sets the default page title for the website.
+// 'meta' sets a default description meta tag to describe the page content.
+// 'structuredData' defines default structured data in JSON-LD format to enhance search engine understanding of the page (for SEO purposes).
+const defaultProps = {
+  title: "ScrewFast", // Default title
+  meta: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ScrewFast",
+    "url": "https://screwfast.uk",
+    "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
+  },
+};
 
-interface Props {
-  meta?: string;
-}
+// Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
+// For example:
+// <MainLayout title="Custom Title" meta="Custom description." />
+const { title = defaultProps.title, meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
 
 // Define the metadata for your website and individual pages
-const title: string = "ScrewFast"; // Set the website title
 const ogTitle: string = "ScrewFast: Hardware Tools & Construction Services"; // Set the Open Graph title
 const author: string = "Emil Gulamov"; // Set the author's name
 const ogDescription: string =
@@ -18,19 +29,14 @@ const URL: string = "https://screwfast.uk"; // Set the website URL
 const socialImage: string = "https://screwfast.uk/social.png"; // Set the URL for the social media image
 ---
 
-<!-- JSON-LD structured data script for the website -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "ScrewFast",
-    "url": "https://screwfast.uk",
-    "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
-  }
-</script>
+<!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->
+{structuredData && (
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+)}
 <!-- Define the character set, description, author, and viewport settings -->
 <meta charset="utf-8" />
-<meta content={description} name="description" />
+<meta content={meta} name="description" />
 <meta name="web_author" content={author} />
 <meta
   name="viewport"

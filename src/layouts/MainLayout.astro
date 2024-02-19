@@ -5,12 +5,13 @@ import Navbar from "../components/Navbar.astro";
 import FooterSection from "../components/FooterSection.astro";
 
 // Setting expected props - expecting 'title' and 'meta' as options with a default value for title
-const { title = "ScrewFast", meta } = Astro.props;
+const { title = "ScrewFast", meta, structuredData } = Astro.props;
 
 // Interface to type-check the properties
 interface Props {
   title?: string;
   meta?: string;
+  structuredData?: object;
 }
 ---
 
@@ -21,7 +22,7 @@ We set the language of the page to English and add classes for scrollbar and scr
 <html lang="en" class="scrollbar-hide scroll-pt-16">
   <head>
     <!-- Adding metadata to the HTML document -->
-    <Meta meta={meta} />
+    <Meta meta={meta} structuredData={structuredData} />
     <!-- Define the title of the page -->
     <title>{title}</title>
     <script is:inline>
