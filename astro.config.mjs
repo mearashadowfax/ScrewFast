@@ -7,7 +7,7 @@ import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://screw-fast.vercel.app',
+  site: 'https://screwfast.uk',
   integrations: [tailwind(), sitemap(), compressor({ gzip: false, brotli: true })],
   output: 'static',
   adapter: vercelStatic()
