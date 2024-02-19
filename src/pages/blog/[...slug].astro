@@ -34,7 +34,7 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   title={post.data.title + " | ScrewFast"}
   meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
 >
-  <div class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
+  <section class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
     <div class="max-w-2xl">
       <div class="mb-6 flex items-center justify-between">
         <div class="flex w-full gap-x-5 sm:items-center sm:gap-x-3">
@@ -111,9 +111,9 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
         }
       </div>
     </div>
-  </div>
+  </section>
   <!--Related articles section-->
-  <div class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
     <div class="mb-10 max-w-2xl">
       <h2
         class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
@@ -125,5 +125,5 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
     <div class="grid grid-cols-2 gap-6">
       {relatedPosts.map((entry) => <CardRelated blogEntry={entry} />)}
     </div>
-  </div>
+  </section>
 </MainLayout>

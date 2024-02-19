@@ -51,7 +51,7 @@ const subTitle: string =
     </div>
     <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
     <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
           const position = index % 4;
@@ -62,7 +62,7 @@ const subTitle: string =
           }
         })
       }
-    </div>
+    </section>
   </div>
   <!--Features statistics section-->
   <FeaturesStatsAlt />
