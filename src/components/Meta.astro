@@ -4,7 +4,6 @@
 // 'meta' sets a default description meta tag to describe the page content.
 // 'structuredData' defines default structured data in JSON-LD format to enhance search engine understanding of the page (for SEO purposes).
 const defaultProps = {
-  title: "ScrewFast", // Default title
   meta: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
   structuredData: {
     "@context": "https://schema.org",
@@ -18,9 +17,10 @@ const defaultProps = {
 // Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
 // For example:
 // <MainLayout title="Custom Title" meta="Custom description." />
-const { title = defaultProps.title, meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
+const { meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
 
 // Define the metadata for your website and individual pages
+const title: string = "ScrewFast"; // Set default title
 const ogTitle: string = "ScrewFast: Hardware Tools & Construction Services"; // Set the Open Graph title
 const author: string = "Emil Gulamov"; // Set the author's name
 const ogDescription: string =

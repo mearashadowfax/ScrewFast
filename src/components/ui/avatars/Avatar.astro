@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 // Destructure the properties from Astro.props
 const { src, alt } = Astro.props;
 
@@ -9,9 +10,10 @@ interface Props {
 }
 ---
 
-<img
+<Image
   class="inline-block h-8 w-8 rounded-full ring-2 ring-neutral-50 dark:ring-zinc-800"
   src={src}
   alt={alt}
-  loading="lazy"
+  inferSize
+  loading={"eager"}
 />

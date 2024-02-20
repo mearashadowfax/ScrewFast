@@ -1,8 +1,12 @@
 ---
-// Define the variables that will be used in this component
-const title: string = "Trusted by Industry Leaders";
-const subTitle: string =
-  "Experience the reliability chosen by industry giants.";
+// Define props from Astro
+const { title, subTitle } = Astro.props;
+
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  subTitle: string;
+}
 ---
 
 <section

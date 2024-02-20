@@ -4,8 +4,8 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import PrimaryCTA from "../../components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "../../components/ui/cards/CardSmall.astro";
 import CardWide from "../../components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "../../components/sections/FeaturesStatsAlt.astro";
-import TestimonialsSectionAlt from "../../components/sections/TestimonialsSectionAlt.astro";
+import FeaturesStatsAlt from "../../components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "../../components/sections/testimonials/TestimonialsSectionAlt.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
@@ -25,7 +25,7 @@ const subTitle: string =
   "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
 ---
 
-<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+
 <MainLayout title="Products | ScrewFast">
   <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"

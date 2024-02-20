@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 // Define constants for content
 const title: string = "Fast-Track Your Projects";
 const subTitle: string =
@@ -99,10 +100,11 @@ const statistics: StatProps[] = [
             <footer class="mt-6">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
-                  <img
+                  <Image
                     class="h-8 w-8 rounded-full"
                     src={testimonial.avatarSrc}
-                    alt="Image Description"
+                    alt="Avatar Description"
+                    inferSize
                   />
                 </div>
                 <div class="ms-4 grow">

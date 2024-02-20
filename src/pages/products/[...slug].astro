@@ -24,10 +24,7 @@ export async function getStaticPaths() {
 const { product } = Astro.props;
 ---
 
-<MainLayout
-  title={product.data.main.title + " | ScrewFast"}
-  meta="ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability."
->
+<MainLayout title={product.data.main.title + " | ScrewFast"}>
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
   </div>
 
@@ -300,7 +297,7 @@ const { product } = Astro.props;
         addClasses: any,
         removeClasses: any,
       ) {
-        let heading = button.querySelector("h2");
+        let heading = button.querySelector("span");
         if (heading) {
           heading.classList.remove(...removeClasses);
           heading.classList.add(...addClasses);

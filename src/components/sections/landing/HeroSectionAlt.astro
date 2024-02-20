@@ -2,10 +2,15 @@
 // Import the necessary dependencies
 import GithubBtn from "../ui/buttons/GithubBtn.astro";
 
-// Define the variables that will be used in this component
-const title: string = "Let's Build Together";
-const subTitle: string =
-  "ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks.";
+// Define props from Astro
+const { title, subTitle, url } = Astro.props;
+
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  subTitle: string;
+  url?: string;
+}
 ---
 
 <section class="relative mx-auto max-w-[85rem] px-4 pb-24 pt-10 sm:px-6 lg:px-8">
@@ -14,7 +19,6 @@ const subTitle: string =
     class="absolute left-0 top-[55%] scale-90 md:top-[20%] xl:left-[10%] xl:top-[25%]"
   >
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="64"
       height="64"
       fill="none"
@@ -45,7 +49,6 @@ const subTitle: string =
   </div>
   <div class="absolute left-[85%] top-0 scale-75">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="64"
       height="64"
       fill="none"
@@ -88,7 +91,6 @@ const subTitle: string =
     class="absolute bottom-[5%] left-[60%] scale-[.6] xl:bottom-[15%] xl:left-[35%]"
   >
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="64"
       height="64"
       fill="none"
@@ -126,6 +128,6 @@ const subTitle: string =
   </div>
   <!-- Github Button -->
   <div class="mt-8 flex justify-center gap-3">
-    <GithubBtn url="https://github.com/mearashadowfax/ScrewFast" />
+    <GithubBtn url={url} />
   </div>
 </section>

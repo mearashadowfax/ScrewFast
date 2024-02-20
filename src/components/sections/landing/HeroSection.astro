@@ -8,18 +8,33 @@ import Avatar from "../ui/avatars/Avatar.astro";
 import FullStar from "../ui/stars/FullStar.astro";
 import HalfStar from "../ui/stars/HalfStar.astro";
 
-// Define the variables that will be used in this component
-const title: string = `Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`;
-const subTitle: string =
-  "Top-quality hardware tools and expert construction services for every project need.";
-const primaryBtn: string = "Start Exploring";
-const primaryBtnURL: string = "/products";
-const secondaryBtn: string = "Contact Sales Team";
-const secondaryBtnURL: string = "/contact";
-const rating: number = 4.8;
-const starCount: number = 4;
-const reviews: string = "12.8k";
+// Define props from Astro
+const {
+  title,
+  subTitle,
+  primaryBtn,
+  primaryBtnURL,
+  secondaryBtn,
+  secondaryBtnURL,
+  withReview,
+  starCount = 0,
+  rating,
+  reviews,
+} = Astro.props;
+
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  subTitle?: string;
+  primaryBtn?: string;
+  primaryBtnURL?: string;
+  secondaryBtn?: string;
+  secondaryBtnURL?: string;
+  withReview?: boolean;
+  starCount?: number;
+  rating?: string;
+  reviews?: string;
+}
 ---
 
 <!-- Defining a grid container that holds all the content -->
@@ -48,6 +63,7 @@ const reviews: string = "12.8k";
     </div>
 
     <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
+    { withReview ? (
     <div class="mt-6 lg:mt-10">
       <div class="py-5">
         <div class="text-center sm:flex sm:items-center sm:text-start">
@@ -56,27 +72,26 @@ const reviews: string = "12.8k";
             <div class="flex justify-center -space-x-3">
               <Avatar
                 src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-                alt="Image Description"
+                alt="Avatar Description"
               />
               <Avatar
                 src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-                alt="Image Description"
+                alt="Avatar Description"
               />
               <Avatar
                 src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
-                alt="Image Description"
+                alt="Avatar Description"
               />
               <Avatar
                 src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-                alt="Image Description"
+                alt="Avatar Description"
               />
               <span
                 class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800"
               >
                 <span
                   class="text-xs font-medium uppercase leading-none text-white"
-                  >7k+</span
-                >
+                  >7k+</span>
               </span>
             </div>
           </div>
@@ -84,7 +99,7 @@ const reviews: string = "12.8k";
             class="mx-auto h-px w-32 border-t border-neutral-400 dark:border-neutral-500 sm:mx-0 sm:h-8 sm:w-auto sm:border-s sm:border-t-0"
           >
           </div>
-          <!-- Review Ratings -->
+          <!-- Review Ratings --> 
           <div class="flex flex-col items-center sm:items-start">
             <div class="flex items-baseline space-x-1 pt-5 sm:ps-5 sm:pt-0">
               <div class="flex space-x-1">
@@ -94,21 +109,22 @@ const reviews: string = "12.8k";
                     .fill(0)
                     .map((_, i) => <FullStar key={i} />)
                 }
+                <!-- Adding additional half-star -->
                 <HalfStar />
               </div>
               <p class="text-neutral-800 dark:text-neutral-200">
-                <span class="font-bold">{rating}</span> / 5
+                <Fragment set:html={rating} />
               </p>
             </div>
             <div class="text-sm text-neutral-800 dark:text-neutral-200 sm:ps-5">
               <p>
-                From Over <span class="font-bold">{reviews}</span> Reviews
+                <Fragment set:html={reviews} />
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> ) : "" }
   </div>
 
   <!-- Hero Image Section -->

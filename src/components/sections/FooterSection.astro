@@ -2,57 +2,14 @@
 // Import the necessary dependencies
 import FooterSocialLink from "../ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "../ui/forms/input/EmailFooterInput.astro";
+import { footerLinks, socialLinks } from "../../utils/navigation.ts";
 
 // Footer Section Names
-const sectionOne: string = "Product";
-const sectionTwo: string = "Company";
 const sectionThree: string = "Stay up to date";
 
 // Define the variables that will be used in this component
 const content: string =
   "Stay updated with the latest tools and exclusive deals.";
-
-/* TypeScript type for links. */
-type Links = {
-  title: string;
-  url: string;
-};
-
-// An array of links for Product section
-const product: Links[] = [
-  {
-    title: "Tools & Equipment",
-    url: "#",
-  },
-  {
-    title: "Construction Services",
-    url: "/services",
-  },
-  {
-    title: "Pricing",
-    url: "#",
-  },
-];
-
-// An array of links for Company section
-const company: Links[] = [
-  {
-    title: "About us",
-    url: "#",
-  },
-  {
-    title: "Blog",
-    url: "/blog",
-  },
-  {
-    title: "Careers",
-    url: "#",
-  },
-  {
-    title: "Customers",
-    url: "#",
-  },
-];
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
@@ -116,53 +73,33 @@ const company: Links[] = [
           ></path>
         </svg>
       </div>
-
-      <div class="col-span-1">
-        <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
-          {sectionOne}
-        </h3>
-
-        <div class="mt-3 grid space-y-3">
-          {
-            product.map((item) => (
-              <p>
-                <a
-                  class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-none dark:focus:ring-1"
-                  href={item.url}
-                >
-                  {item.title}
-                </a>
-              </p>
-            ))
-          }
-        </div>
-      </div>
-
-      <div class="col-span-1">
-        <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
-          {sectionTwo}
-        </h3>
-
-        <div class="mt-3 grid space-y-3">
-          {
-            company.map((item, index) => (
-              <p>
-                <a
-                  class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-none dark:focus:ring-1"
-                  href={item.url}
-                >
-                  {item.title}
-                </a>
-                {index === 2 ? (
-                  <span class="ms-1 inline rounded-lg bg-[#e14d0b] px-2 py-1 text-xs text-neutral-50">
-                    We're hiring
-                  </span>
-                ) : null}
-              </p>
-            ))
-          }
-        </div>
-      </div>
+      <!-- An array of links for Product and Company sections -->
+      {
+        footerLinks.map((section) => (
+          <div class="col-span-1">
+            <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
+              {section.section}
+            </h3>
+            <ul class="mt-3 grid space-y-3">
+              {section.links.map((link, index) => (
+                <li>
+                  <a
+                    href={link.url}
+                    class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-none dark:focus:ring-1"
+                  >
+                    {link.name}
+                  </a>
+                  {section.section === "Company" && index === 2 ? (
+                    <span class="ms-1 inline rounded-lg bg-[#e14d0b] px-2 py-1 text-xs font-bold text-neutral-50">
+                      We're hiring!
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
 
       <div class="col-span-2">
         <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
@@ -195,7 +132,7 @@ const company: Links[] = [
 
       <!-- Social Brands -->
       <div>
-        <FooterSocialLink url="#"
+        <FooterSocialLink url={socialLinks.facebook}
           ><svg
             class="h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400"
             fill="currentColor"
@@ -207,7 +144,7 @@ const company: Links[] = [
           >
         </FooterSocialLink>
 
-        <FooterSocialLink url="#"
+        <FooterSocialLink url={socialLinks.x}
           ><svg
             class="h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400"
             fill="currentColor"
@@ -219,7 +156,7 @@ const company: Links[] = [
           ></FooterSocialLink
         >
 
-        <FooterSocialLink url="https://github.com/mearashadowfax/ScrewFast"
+        <FooterSocialLink url={socialLinks.github}
           ><svg
             class="h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400"
             fill="currentColor"
@@ -231,7 +168,7 @@ const company: Links[] = [
           >
         </FooterSocialLink>
 
-        <FooterSocialLink url="#"
+        <FooterSocialLink url={socialLinks.google}
           ><svg
             class="h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400"
             fill="currentColor"
@@ -243,7 +180,7 @@ const company: Links[] = [
           >
         </FooterSocialLink>
 
-        <FooterSocialLink url="#"
+        <FooterSocialLink url={socialLinks.slack}
           ><svg
             class="h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400"
             fill="currentColor"
