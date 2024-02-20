@@ -1,6 +1,6 @@
 # ScrewFast: Landing Page/Blog Template
 
-![ScrewFast](https://raw.githubusercontent.com/mearashadowfax/ScrewFast/main/assets/125820963/ab8b5808-4aef-4a6d-aeb3-083b327693e6.png)
+![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/5c6ef8aa-b859-49ce-9468-cf548c33c8fc)
 
 ScrewFast is a landing and blog template crafted with simplicity and ease of use in mind. Designed for small to medium-sized projects, ScrewFast provides a seamless setup experience for developers and content creators alike. It combines the power of [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/) to deliver a less complex, yet functional and visually appealing web presence.
 
