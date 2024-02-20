@@ -154,7 +154,7 @@ Some components have properties defined as TypeScript variables within the compo
 // Define the string variables title and subTitle for the main heading and sub-heading text.
 const title: string = "Meeting Industry Demands";
 const subTitle: string =
-  "At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals.";
+  "At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors.";
 ```
 
 For collections of content like testimonials or statistics, edit the corresponding array of objects:
@@ -253,7 +253,8 @@ export const socialLinks: SocialLinks = {
 };
 ```
 
-Remember to add complete and valid URLs for the navigation to function properly. These customizations will reflect throughout your Astro site, promoting consistency across all pages.
+> [!NOTE]
+> Remember to add complete and valid URLs for the navigation to function properly. These customizations will reflect throughout your Astro site, promoting consistency across all pages.
 </details>
 
 ## Integrations and Enhancements
@@ -305,7 +306,8 @@ html.lenis {
 
 Please note that smooth scrolling can affect accessibility and performance on some devices, so be sure to test it comprehensively across different environments.
 
-If you would like to remove Lenis and return to the browser's default scrolling behavior, simply comment out or delete these lines from the `MainLayout.astro` file.
+> [!NOTE]
+> If you would like to remove Lenis and return to the browser's default scrolling behavior, simply comment out or delete these lines from the `MainLayout.astro` file.
 
 ### GSAP Integration
 
@@ -332,7 +334,8 @@ Please tailor the GSAP animations within this script to fit your project's look 
 - To modify an animation, update the properties and parameters within the `gsap.from()` method, or add new GSAP animation calls as required.
 - Should GSAP not be needed, or if you prefer a different animation method, simply remove the aforementioned script segment.
 
-We've chosen to keep the integration lean and focused, but GSAP's comprehensive documentation can be referred to for more complex animations: [GSAP Documentation](https://gsap.com/docs/v3/).
+> [!TIP]
+> We've chosen to keep the integration lean and focused, but GSAP's comprehensive documentation can be referred to for more complex animations: [GSAP Documentation](https://gsap.com/docs/v3/).
 
 ### Hiding Scrollbar
 
@@ -369,9 +372,11 @@ The ScrewFast template incorporates a flexible SEO configuration that empowers y
 The `Meta.astro` component is pre-configured with default metadata values that should be defined to align with your website's content, ensuring out-of-the-box SEO readiness. These defaults can be overridden on a per-page basis:
 
 ```astro
+---
 // In Meta.astro component
 const defaultDescription = "ScrewFast offers top-tier hardware tools and expert construction services.";
 const { meta = defaultDescription } = Astro.props;
+---
 ```
 
 By setting the `defaultDescription` to a value that accurately reflects the content of your website, you ensure that all pages will have a relevant default meta description unless otherwise specified.
@@ -501,10 +506,9 @@ Interactive components like navbars, modals, and accordions are built using [Pre
 
 Styling across our project leverages the utility-first classes offered by [Tailwind CSS](https://tailwindcss.com). This methodology allows us to create custom layouts and components with speed and efficiency.
 
-In our project configuration, we use `prettier-plugin-tailwindcss` [plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) that automatically sorts classes:
+To ensure consistent code formatting, particularly for class sorting, we have integrated the `prettier-plugin-tailwindcss` [plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss). The following configuration is set in the `.prettierrc` file at the root of the project:
 
 ```json
-/.prettierrc
 {
   "plugins": ["prettier-plugin-tailwindcss"]
 }
@@ -523,8 +527,8 @@ We deploy our project on [Vercel](https://vercel.com), capitalizing on their rob
         {
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; [other-directives]"
-        }
-        // Additional security headers...
+        },
+        "Additional security headers..."
       ]
     }
   ]
