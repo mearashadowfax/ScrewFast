@@ -2,7 +2,7 @@
 
 ![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/5c6ef8aa-b859-49ce-9468-cf548c33c8fc.png)
 
-ScrewFast is a landing and blog template crafted with simplicity and ease of use in mind. Designed for small to medium-sized projects, ScrewFast provides a seamless setup experience for developers and content creators alike. This template combines [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/) for a functional and aesthetically pleasing web presence.
+ScrewFast is a free and open-source landing and blog template crafted with simplicity and ease of use in mind. Designed for small to medium-sized projects, ScrewFast provides a seamless setup experience for developers and content creators alike. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
 
 ## Why Choose ScrewFast?
 
@@ -58,10 +58,9 @@ This creates a `dist/` directory with your built site (configurable via [outDir 
 
 ### Deploying to Vercel
 
-To deploy ScrewFast to Vercel, follow these steps:
+Click the button below to start deploying your project on Vercel:  
 
-1. Clone this repository to your GitHub account.
-2. Click the button below to start deploying your project on Vercel:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast)
 
 ## Project Structure
 
@@ -253,7 +252,6 @@ export const socialLinks: SocialLinks = {
 };
 ```
 
-> [!NOTE]
 > Remember to add complete and valid URLs for the navigation to function properly. These customizations will reflect throughout your Astro site, promoting consistency across all pages.
 </details>
 
@@ -305,8 +303,7 @@ html.lenis {
 ```
 
 Please note that smooth scrolling can affect accessibility and performance on some devices, so be sure to test it comprehensively across different environments.
-
-> [!NOTE]
+ 
 > If you would like to remove Lenis and return to the browser's default scrolling behavior, simply comment out or delete these lines from the `MainLayout.astro` file.
 
 ### GSAP Integration
@@ -334,7 +331,6 @@ Please tailor the GSAP animations within this script to fit your project's look 
 - To modify an animation, update the properties and parameters within the `gsap.from()` method, or add new GSAP animation calls as required.
 - Should GSAP not be needed, or if you prefer a different animation method, simply remove the aforementioned script segment.
 
-> [!TIP]
 > We've chosen to keep the integration lean and focused, but GSAP's comprehensive documentation can be referred to for more complex animations: [GSAP Documentation](https://gsap.com/docs/v3/).
 
 ### Hiding Scrollbar
