@@ -1,4 +1,4 @@
-# ScrewFast: Landing Page/Blog Template
+# ScrewFast: Simplified Landing & Blog Template
 
 ![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/5c6ef8aa-b859-49ce-9468-cf548c33c8fc)
 
@@ -22,11 +22,7 @@ ScrewFast is a landing and blog template crafted with simplicity and ease of use
 
 ## Getting Started
 
-<details>
-<summary>
 This guide will help you set up the Astro project on your local machine and introduce you to some essential commands for development and deployment.
-</summary>
-<br>
 
 ### Installation
 
@@ -38,36 +34,35 @@ npm install
 
 This command will install all the dependencies listed in the project's `package.json` file.
 
-### Common Commands
+### Development Commands
 
-Once the installation is completed, you can use various npm scripts defined in `package.json` to manage the development lifecycle of your project:
+After installing the dependencies, you can use these npm scripts for the development lifecycle of your project:
+
+- `npm run dev`: Launches a local server with hot reloading.
+- `npm run preview`: Previews the build locally.
+- `npm run astro`: Executes Astro CLI commands.
+- `npm run astro --help`: Provides help information for Astro commands.
+
+Learn more about Astro's CLI by referring to [Astro's documentation](https://docs.astro.build/).
+
+## Deployment
+
+### Building Your Site
+
+Before deployment, you need to create a production build:
 
 ```bash
-# Starts the local development server
-
-npm run dev
-
-# Builds your production site and outputs it to ./dist/
-
 npm run build
-
-# Previews your built site locally before deploying it
-
-npm run preview
-
-# Runs Astro CLI commands such as astro add or astro check
-
-npm run astro
-
-# Displays help information for Astro CLI commands
-
-npm run astro --help
 ```
 
-### Learning More
+This creates a `dist/` directory with your built site (configurable via [outDir in Astro](https://docs.astro.build/en/reference/configuration-reference/#outdir)).
 
-To learn more about the available Astro CLI commands and further understand the capabilities of Astro, refer to [Astro's documentation](https://docs.astro.build/).
-</details>
+### Deploying to Vercel
+
+To deploy ScrewFast to Vercel, follow these steps:
+
+1. Clone this repository to your GitHub account.
+2. Click the button below to start deploying your forked copy on Vercel:
 
 ## Project Structure
 
