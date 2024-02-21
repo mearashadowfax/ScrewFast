@@ -1,6 +1,6 @@
 # ScrewFast: Simplified Landing & Blog Template
 
-![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/5c6ef8aa-b859-49ce-9468-cf548c33c8fc.png)
+![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/5c6ef8aa-b859-49ce-9468-cf548c33c8fc)
 
 ScrewFast is a free and open-source landing and blog template crafted with simplicity and ease of use in mind. Designed for small to medium-sized projects, ScrewFast provides a seamless setup experience for developers and content creators alike. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
 
@@ -425,7 +425,7 @@ Structured data in JSON-LD format can be managed by the `Meta.astro` component, 
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ScrewFast",
-    "url": "https://screwfast.uk",",
+    "url": "https://screwfast.uk",
     "description": "Discover top-quality hardware tools and services"
   }}
 >
