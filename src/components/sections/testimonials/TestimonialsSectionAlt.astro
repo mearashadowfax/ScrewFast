@@ -2,51 +2,23 @@
 // Import AvatarTestimonialSection component for use in this module
 import AvatarTestimonialSection from "../../ui/avatars/AvatarTestimonialSection.astro";
 
-// Set title for the testimonial section
-const title: string = "What Our Customers Say";
+// Define props from Astro
+const { title, testimonials } = Astro.props;
 
-// Type definition for each testimonial
-type Testimonial = {
+// Define TypeScript interface for Testimonial
+interface Testimonial {
   content: string;
   author: string;
   role: string;
   avatarSrc: string;
   avatarAlt: string;
-};
+}
 
-// Testimonial data that will be rendered in the component
-const testimonials: Testimonial[] = [
-  // First testimonial data
-  {
-    content:
-      " \"Since switching to ScrewFast's hardware tools, the efficiency on our construction sites has skyrocketed. The durability of the hex bolts and precision of the machine screws are simply unmatched. It's refreshing to work with a company that truly understands the daily demands of the industry.\" ",
-    author: "Jason Clark",
-    role: "Site Foreman | TopBuild",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
-  },
-  // Second testimonial data
-  {
-    content:
-      " \"As an interior designer, I'm always looking for high-quality materials and tools that help bring my visions to life. ScrewFast's mixed screws assortment has been a game-changer for my projects, providing the perfect blend of quality and variety. The outstanding customer support was just the cherry on top!\" ",
-    author: "Maria Gonzalez",
-    role: "Interior Designer | Creative Spaces",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
-  },
-  // Third testimonial data
-  {
-    content:
-      " \"I’ve been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast’s tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
-    author: "Richard Kim",
-    role: "Master Carpenter | WoodWright",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
-  },
-];
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  testimonials: Testimonial[];
+}
 ---
 <!-- Main div that wraps the testimonials section -->
 <section

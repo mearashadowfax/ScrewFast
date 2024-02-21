@@ -17,9 +17,10 @@ const {
   secondaryBtn,
   secondaryBtnURL,
   withReview,
+  avatars,
   starCount = 0,
   rating,
-  reviews,
+  reviews
 } = Astro.props;
 
 // Define TypeScript interface for props
@@ -31,6 +32,7 @@ interface Props {
   secondaryBtn?: string;
   secondaryBtnURL?: string;
   withReview?: boolean;
+  avatars?: Array<string>;
   starCount?: number;
   rating?: string;
   reviews?: string;
@@ -50,16 +52,21 @@ interface Props {
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
     </h1>
+    {subTitle &&
     <p
       class="mt-3 text-pretty text-lg leading-relaxed text-neutral-700 dark:text-neutral-400 lg:w-4/5"
     >
       {subTitle}
     </p>
-
+  }
     <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
     <div class="mt-7 grid w-full gap-3 sm:inline-flex">
+      {primaryBtn && 
       <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
+      }
+      {secondaryBtn && 
       <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+      }
     </div>
 
     <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
@@ -70,22 +77,7 @@ interface Props {
           <div class="flex-shrink-0 pb-5 sm:flex sm:pb-0 sm:pe-5">
             <!-- Avatar Group -->
             <div class="flex justify-center -space-x-3">
-              <Avatar
-                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-                alt="Avatar Description"
-              />
-              <Avatar
-                src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-                alt="Avatar Description"
-              />
-              <Avatar
-                src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80"
-                alt="Avatar Description"
-              />
-              <Avatar
-                src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-                alt="Avatar Description"
-              />
+              { avatars?.map(src => <Avatar src={src} alt="Avatar Description" />) }
               <span
                 class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800"
               >
@@ -103,11 +95,9 @@ interface Props {
           <div class="flex flex-col items-center sm:items-start">
             <div class="flex items-baseline space-x-1 pt-5 sm:ps-5 sm:pt-0">
               <div class="flex space-x-1">
-                <!-- Replace with your star ratings -->
+                <!-- Your star ratings -->
                 {
-                  Array(starCount)
-                    .fill(0)
-                    .map((_, i) => <FullStar key={i} />)
+                    Array(starCount).fill(0).map((_, i) => <FullStar key={i} />)
                 }
                 <!-- Adding additional half-star -->
                 <HalfStar />

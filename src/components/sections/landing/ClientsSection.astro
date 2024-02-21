@@ -5,7 +5,7 @@ const { title, subTitle } = Astro.props;
 // Define TypeScript interface for props
 interface Props {
   title: string;
-  subTitle: string;
+  subTitle?: string;
 }
 ---
 
@@ -19,9 +19,13 @@ interface Props {
     >
       {title}
     </h2>
-    <p class="text-pretty leading-tight text-neutral-600 dark:text-neutral-400">
-      {subTitle}
-    </p>
+    {
+      subTitle && (
+        <p class="text-pretty leading-tight text-neutral-600 dark:text-neutral-400">
+          {subTitle}
+        </p>
+      )
+    }
   </div>
   <div
     class="flex flex-col items-center justify-center gap-y-2 sm:flex-row sm:gap-x-12 sm:gap-y-0 lg:gap-x-24"

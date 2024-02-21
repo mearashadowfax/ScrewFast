@@ -1,19 +1,17 @@
 ---
 import { Image } from "astro:assets";
-
 import product5 from "../../../images/features-image.avif";
 
-// Define the variables to be used in the component
-const title: string = "Why Choose ScrewFast?";
+// Define props from Astro
+const { title, subTitle, benefits } = Astro.props;
 
-const subTitle: string =
-  "Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence.";
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  subTitle?: string;
+  benefits?: Array<string>;
+}
 
-const benefits: string[] = [
-  "Robust and reliable tools for long-lasting performance.",
-  "Innovative solutions tailored to modern construction needs.",
-  "Customer support dedicated to your project's success.",
-];
 // Define SVG marker to be used in the component
 const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-0.5 h-6 w-6 text-[#fa5a15] dark:text-[#fb713b]"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>`;
 ---
@@ -34,23 +32,28 @@ const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-widt
           >
             {title}
           </h2>
-          <p class="text-pretty text-neutral-600 dark:text-neutral-400">
-            {subTitle}
-          </p>
-        </div>
-        <ul class="space-y-2 sm:space-y-4">
           {
-            benefits.map((item) => (
-              <li class="flex space-x-3">
-                <Fragment set:html={ListItemMarker} />
-
-                <span class="text-pretty text-base font-medium text-neutral-600 dark:text-neutral-400">
-                  {item}
-                </span>
-              </li>
-            ))
+            subTitle && (
+              <p class="text-pretty text-neutral-600 dark:text-neutral-400">
+                {subTitle}
+              </p>
+            )
           }
-        </ul>
+        </div>
+        {
+          benefits && (
+            <ul class="space-y-2 sm:space-y-4">
+              {benefits.map((item) => (
+                <li class="flex space-x-3">
+                  <Fragment set:html={ListItemMarker} />
+                  <span class="text-pretty text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )
+        }
       </div>
     </div>
   </div>
