@@ -1,7 +1,6 @@
 ---
-// Extract label and id from Astro.props with default value for label
 const { label = "Remember me", id } = Astro.props;
-// Define TypeScript interface for the properties
+
 interface Props {
   label?: string;
   id?: string;

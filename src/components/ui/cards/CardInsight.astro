@@ -2,9 +2,9 @@
 // Import necessary modules and utilities
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-// Define data source from Astro.js incoming props
+
 const { insightEntry } = Astro.props;
-// Define TypeScript props interface
+
 interface Props {
   insightEntry: CollectionEntry<"insights">;
 }

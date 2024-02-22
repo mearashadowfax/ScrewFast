@@ -1,12 +1,11 @@
 ---
 // Import necessary components
 import { Image } from "astro:assets";
-// Import necessary types
+
 import type { CollectionEntry } from "astro:content";
 
-// Extract blogEntry property from Astro.props
 const { blogEntry } = Astro.props;
-// Define Props interface
+
 interface Props {
   blogEntry: CollectionEntry<"blog">;
 }

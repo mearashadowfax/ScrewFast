@@ -1,7 +1,6 @@
 ---
-// Destructure the properties from Astro.props, setting default value for label
 const { label = "Email", id } = Astro.props;
-// Define TypeScript interface for the properties
+
 interface Props {
   label?: string;
   id: string;

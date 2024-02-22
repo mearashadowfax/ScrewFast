@@ -4,9 +4,9 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import AvatarBlogLarge from "../avatars/AvatarBlogLarge.astro";
 import PrimaryCTA from "../buttons/PrimaryCTA.astro";
-// Define data source from Astro.js incoming props
+
 const { blogEntry } = Astro.props;
-// Define TypeScript props interface
+
 interface Props {
   blogEntry: CollectionEntry<"blog">;
 }
@@ -22,6 +22,7 @@ interface Props {
         src={blogEntry.data.cardImage}
         alt={blogEntry.data.cardImageAlt}
         draggable={"false"}
+        loading={"eager"}
         format={"avif"}
       />
     </div>

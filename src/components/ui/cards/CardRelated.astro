@@ -3,22 +3,19 @@
 import { Image } from "astro:assets";
 import { formatDate } from "../../../utils/utils";
 import type { CollectionEntry } from "astro:content";
-// Define data source from Astro.js incoming props
+
 const { blogEntry } = Astro.props;
-// Define TypeScript props interface
+
 interface Props {
   blogEntry: CollectionEntry<"blog">;
 }
 ---
 
-<!-- The anchor tag is the main container for the blog preview card. Currently, it links to "#".
-     You might want to change it to the corresponding blog post's URL. -->
 <a
   class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
   href={`/blog/${blogEntry.slug}/`}
   data-astro-prefetch
 >
-  <!-- The blog post's cover image. It uses astro:assets' Image for loading the image optimally -->
   <div>
     <Image
       class="aspect-video rounded-xl"

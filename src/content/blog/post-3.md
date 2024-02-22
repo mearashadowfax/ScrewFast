@@ -4,7 +4,7 @@ description: "Affordable, durable tools for efficient construction projects"
 author: "Olga Zabegina"
 role: "Strategic Marketing Manager"
 authorImage: "../../images/blog/anna.avif"
-authorImageAlt: "Image Description"
+authorImageAlt: "Avatar Description"
 pubDate: 2024-02-18
 cardImage: "../../images/blog/post-3.avif"
 cardImageAlt: "Side view worker wearing gloves"

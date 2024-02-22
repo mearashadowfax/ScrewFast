@@ -5,10 +5,8 @@ import { Image } from "astro:assets";
 import { formatDate } from "../../../utils/utils";
 import type { CollectionEntry } from "astro:content";
 
-// Define data sources from Astro props
 const { blogEntry } = Astro.props;
 
-// Define TypeScript props interface
 interface Props {
   blogEntry: CollectionEntry<"blog">;
 }
@@ -16,7 +14,7 @@ interface Props {
 
 <!-- The following anchor tag is the main container for the card.
      It's a link to the blog post detailed page.
-     The data-astro-prefetch is a Astro.js specific Dynamic HTML feature,
+     The data-astro-prefetch is an Astro specific Dynamic HTML feature,
      which automatically prefetches the linked page to speed up navigation. -->
 <a
   class="group relative block rounded-xl outline-none ring-zinc-500 transition duration-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
@@ -32,6 +30,7 @@ interface Props {
       src={blogEntry.data.cardImage}
       alt={blogEntry.data.cardImageAlt}
       draggable={"false"}
+      loading={"eager"}
       format={"avif"}
     />
   </div>
