@@ -7,11 +7,15 @@ import compressor from "astro-compressor";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
+  site: 'https://screwfast.uk',
   image: {
     domains: ["images.unsplash.com"],
   },
-  site: 'https://screwfast.uk',
+  prefetch: true,
   integrations: [tailwind(), sitemap(), compressor({ gzip: false, brotli: true })],
   output: 'static',
+  experimental: {
+    clientPrerender: true
+  },
   adapter: vercelStatic()
 });
