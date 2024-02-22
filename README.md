@@ -1,26 +1,65 @@
-# ScrewFast: Simplified Landing & Blog Template
+# Versatile Landing & Blog Template for a Simplified Web Presence
 
 ![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/5c6ef8aa-b859-49ce-9468-cf548c33c8fc)
 
-ScrewFast is a free and open-source landing and blog template crafted with simplicity and ease of use in mind. Designed for small to medium-sized projects, ScrewFast provides a seamless setup experience for developers and content creators alike. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
+ScrewFast is an open-source template designed for quick and efficient web project setup, blending minimalism with functionality. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
 
-**See Live** — https://screwfast.uk
+**[View Live Demo](https://screwfast.uk)**
+
+## Table of Contents
+  * [Why Choose ScrewFast?](#why-choose-screwfast)
+  * [Features](#features)
+  * [Getting Started](#getting-started)
+    + [Installation](#installation)
+    + [Development Commands](#development-commands)
+  * [Deployment](#deployment)
+    + [Building Your Site](#building-your-site)
+    + [Deploying to Vercel](#deploying-to-vercel)
+  * [Project Structure](#project-structure)
+  * [Static Assets and Public Resources](#static-assets-and-public-resources)
+  * [Customization](#customization)
+    + [Editing Component Variables](#editing-component-variables)
+    + [Props in Component Instances](#props-in-component-instances)
+    + [Customizing Navigation and Footer Links](#customizing-navigation-and-footer-links)
+      - [Navigation Bar Links](#navigation-bar-links)
+      - [Footer Links](#footer-links)
+      - [Social Media Links](#social-media-links)
+  * [Integrations and Enhancements](#integrations-and-enhancements)
+    + [Lenis for Smooth Scrolling](#lenis-for-smooth-scrolling)
+    + [GSAP Integration](#gsap-integration)
+    + [Hiding Scrollbar](#hiding-scrollbar)
+    + [SEO Configuration](#seo-configuration)
+      - [Customizing Metadata with Meta.astro](#customizing-metadata-with-metaastro)
+      - [Applying Metadata in Layouts](#applying-metadata-in-layouts)
+      - [Customizing Metadata on Individual Pages](#customizing-metadata-on-individual-pages)
+      - [Extending Metadata for SEO](#extending-metadata-for-seo)
+      - [Structured Data and Rich Snippets](#structured-data-and-rich-snippets)
+      - [Using Astro SEO Integrations](#using-astro-seo-integrations)
+    + [Robots.txt](#robotstxt)
+    + [Astro Integrations](#astro-integrations)
+    + [Flexibility with Integrations](#flexibility-with-integrations)
+  * [Tools and Technologies](#tools-and-technologies)
+    + [Preline UI](#preline-ui)
+    + [Tailwind CSS](#tailwind-css)
+    + [Deployment and Security](#deployment-and-security)
+    + [HTML Minification](#html-minification)
+  * [Contributing](#contributing)
+  * [License](#license)
 
 ## Why Choose ScrewFast?
 
-- **Simplified Architecture**: Ideal for portfolios, company landing pages, or blogs, ScrewFast offers an easy-to-navigate structure that accelerates project deployment.
-- **Tailored for Smaller Projects**: Prioritizing performance and minimal overhead, this template is perfect for a clean, professional online presence without the complexity.
-- **Customizable and Extensible**: Offers the perfect balance between simplicity and customization using Astro's component model and Tailwind's utility styling.
+- **Efficient Architecture:** Deploy faster with a template that's simple to set up and navigate.
+- **Optimized for Small Projects:** Perfect for crisp, professional web personas without excess complexity.
+- **Highly Customizable:** Flexibly adapt and style your site using Astro and Tailwind CSS.
 
 ## Features
 
-- **Astro Framework:** A web framework for building content-driven websites efficiently.
-- **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
-- **Preline UI:** An open-source set of prebuilt UI components that enhance aesthetics and functionality.
-- **GSAP Integration:** Smooth, professional-grade animations to captivate your audience.
-- **Markdown Content Collections:** Easily organize and manage content using Markdown.
-- **SEO-Friendly:** Structured for optimal search engine discoverability.
-- **Responsive Design:** Fully responsive layout to ensure your site looks great on all devices.
+- **Astro-Powered:** Utilize a modern static-site generation framework.
+- **Tailwind CSS:** Enjoy rapid UI development with a utility-first CSS framework.
+- **Preline UI:** Implement prebuilt UI components for added elegance.
+- **GSAP Integration:** Impress with professional and polished animations.
+- **Markdown Content Collections:** Organize and manage your content seamlessly.
+- **SEO and Responsiveness:** Ensure your site is discoverable and accessible on any device.
 
 ## Getting Started
 
