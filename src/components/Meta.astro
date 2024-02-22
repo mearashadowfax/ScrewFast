@@ -25,8 +25,8 @@ const ogTitle: string = "ScrewFast: Hardware Tools & Construction Services"; // 
 const author: string = "Emil Gulamov"; // Set the author's name
 const ogDescription: string =
   "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!"; // Set the Open Graph description
-const URL: string = "https://screwfast.uk"; // Set the website URL
-const socialImage: string = "https://screwfast.uk/social.png"; // Set the URL for the social media image
+const URL: string = `${Astro.site}`; // Set the website URL in astro.config.mjs
+const socialImage: string = `${Astro.site}/social.png`; // Set the path for the social media image
 ---
 
 <!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:

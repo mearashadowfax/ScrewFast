@@ -15,6 +15,81 @@ import aerialView from "../images/aerial-view.avif";
 import usingTools from "../images/using-tools.avif";
 import progressBuilding from "../images/progress-building.avif";
 import underConstruction from "../images/under-construction.avif";
+
+interface Article {
+  isRightSection: boolean;
+  title: string;
+  subTitle: string;
+  btnExists?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  single?: boolean;
+  img?: any;
+  imgAlt?: string;
+  imgOne?: any;
+  imgOneAlt?: string;
+  imgTwo?: any;
+  imgTwoAlt?: string;
+}
+
+const articles: Article[] = [
+  {
+    isRightSection: true,
+    title: "Delivering Expert Guidance",
+    subTitle:
+      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+    single: false,
+    imgOne: blueprints,
+    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgTwo: personWorking,
+    imgTwoAlt: "Person working in the office",
+  },
+  {
+    isRightSection: false,
+    title: "Transforming Designs into Reality",
+    subTitle:
+      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
+    img: beforeAfter,
+    imgAlt: "Construction site before and after",
+    btnExists: true,
+    btnTitle: "Learn More",
+    btnURL: "#",
+  },
+  {
+    isRightSection: true,
+    title: "Navigating Projects with Professional Oversight",
+    subTitle:
+      "Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
+    single: false,
+    imgOne: constructionWorkers,
+    imgOneAlt: "Construction workers orchestrating a project",
+    imgTwo: aerialView,
+    imgTwoAlt: "Aerial view of managed construction",
+  },
+  {
+    isRightSection: false,
+    title: "Ensuring Long-lasting Performance",
+    subTitle:
+      "Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
+    img: usingTools,
+    imgAlt:
+      "Man in orange and black vest wearing white helmet holding yellow and black power tool",
+  },
+  {
+    isRightSection: true,
+    title: "Crafting Bespoke Strategies for Unique Challenges",
+    subTitle:
+      "For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward.",
+    single: false,
+    imgOne: progressBuilding,
+    imgOneAlt: "In progress building structure",
+    imgTwo: underConstruction,
+    imgTwoAlt: "Brown and gray building under construction",
+    btnExists: true,
+    btnTitle: "Read more",
+    btnURL: "#",
+  },
+];
 ---
 
 <MainLayout title="Services | ScrewFast">
@@ -34,51 +109,53 @@ import underConstruction from "../images/under-construction.avif";
   RightSection can also conditionally render one or two images based on the 'single' property.
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
-  <RightSection
-    title="Delivering Expert Guidance"
-    subTitle="Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations."
-    imgOne={blueprints}
-    imgOneAlt={"Blueprints and digital tablet with construction plans."}
-    imgTwo={personWorking}
-    imgTwoAlt={"Person working in the office"}
-  />
-  <LeftSection
-    title="Transforming Designs into Reality"
-    subTitle="Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory."
-    btnExists={true}
-    btnTitle="Learn More"
-    btnURL="#"
-    img={beforeAfter}
-    imgAlt={"Construction site before and after"}
-  />
-  <RightSection
-    title="Navigating Projects with Professional Oversight"
-    subTitle="Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision."
-    imgOne={constructionWorkers}
-    imgOneAlt={"Construction workers orchestrating a project"}
-    imgTwo={aerialView}
-    imgTwoAlt={"Aerial view of managed construction"}
-  />
-  <LeftSection
-    title="Ensuring Long-lasting Performance"
-    subTitle="Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support."
-    img={usingTools}
-    imgAlt={"Man in orange and black vest wearing white helmet holding yellow and black power tool"}
-  />
-  <RightSection
-    title="Crafting Bespoke Strategies for Unique Challenges"
-    subTitle="For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward."
-    btnExists={true}
-    btnTitle="Read more"
-    btnURL="#"
-    imgOne={progressBuilding}
-    imgOneAlt={"In progress building structure"}
-    imgTwo={underConstruction}
-    imgTwoAlt={"Brown and gray building under construction"}
-  />
+  {
+    articles.map((article, index) => {
+      return article.isRightSection ? (
+        <RightSection
+          title={article.title}
+          subTitle={article.subTitle}
+          single={article.single}
+          imgOne={article.imgOne}
+          imgOneAlt={article.imgOneAlt}
+          imgTwo={article.imgTwo}
+          imgTwoAlt={article.imgTwoAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      ) : (
+        <LeftSection
+          title={article.title}
+          subTitle={article.subTitle}
+          img={article.img}
+          imgAlt={article.imgAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      );
+    })
+  }
   <!--FeaturesStats section showcases essential stats valuable to users-->
   <FeaturesStats
     title="By the Numbers"
     subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+    mainStatTitle="96%"
+    mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+    stats={[
+      {
+        stat: "99.8%",
+        description: "project completion rate",
+      },
+      {
+        stat: "5,000+",
+        description: "successful installations",
+      },
+      {
+        stat: "85%",
+        description: "client growth year-over-year",
+      },
+    ]}
   />
 </MainLayout>
