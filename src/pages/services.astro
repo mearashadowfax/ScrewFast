@@ -110,7 +110,7 @@ const articles: Article[] = [
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
   {
-    articles.map((article, index) => {
+    articles.map(article => {
       return article.isRightSection ? (
         <RightSection
           title={article.title}

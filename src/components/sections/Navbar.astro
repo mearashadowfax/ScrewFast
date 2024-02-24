@@ -210,7 +210,7 @@ import { navBarLinks } from "../../utils/navigation.ts";
 
   window
     .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
+    .addEventListener("change", () => {
       if (HSThemeAppearance.getOriginalAppearance() === "auto") {
         HSThemeAppearance.setAppearance("auto", false);
       }

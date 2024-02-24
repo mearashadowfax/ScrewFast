@@ -10,28 +10,46 @@ interface Props {
 ---
 
 <astro-banner btnId={btnId}>
-<div
-  class="fixed bottom-0 start-1/2 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
->
   <div
-    class="rounded-xl bg-neutral-800 bg-[url('src/images/banner-pattern.svg')] bg-cover bg-center bg-no-repeat p-4 text-center shadow-sm dark:bg-neutral-200"
+    class="fixed bottom-0 start-1/2 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
   >
-    <div class="flex items-center justify-center">
-      <div class="ml-auto">
-        <p
-          class="me-2 inline-block font-medium text-neutral-200 dark:text-neutral-800"
+    <div
+      class="rounded-xl bg-neutral-800 bg-[url('src/images/banner-pattern.svg')] bg-cover bg-center bg-no-repeat p-4 text-center shadow-sm dark:bg-neutral-200"
+    >
+      <div class="flex items-center justify-center">
+        <div class="ml-auto">
+          <p
+            class="me-2 inline-block font-medium text-neutral-200 dark:text-neutral-800"
+          >
+            {title}
+          </p>
+          <a
+            class="group inline-flex items-center gap-x-2 rounded-full border-2 border-neutral-50 px-3 py-2 text-sm font-semibold text-neutral-50 transition duration-300 hover:border-neutral-100/70 hover:text-neutral-100/70 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-neutral-800 dark:hover:border-neutral-700/70 dark:hover:text-neutral-800/70 dark:focus:outline-none"
+            href={url}
+            target="_blank"
+          >
+            {btnTitle}
+            <svg
+              class="size-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
+            >
+          </a>
+        </div>
+        <button
+          type="button"
+          class="ml-auto inline-flex items-center gap-x-2 rounded-full border border-transparent bg-gray-100 p-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-700 dark:text-neutral-50 dark:hover:bg-neutral-700/80 dark:hover:text-neutral-50 dark:focus:outline-none"
+          id={btnId}
         >
-          {title}
-        </p>
-        <a
-          class="group inline-flex items-center gap-x-2 rounded-full border-2 border-neutral-50 px-3 py-2 text-sm font-semibold text-neutral-50 transition duration-300 hover:border-neutral-100/70 hover:text-neutral-100/70 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-neutral-800 dark:hover:border-neutral-700/70 dark:hover:text-neutral-800/70 dark:focus:outline-none"
-          href={url}
-          target="_blank"
-
-        >
-          {btnTitle}
+          <span class="sr-only">Dismiss</span>
           <svg
-            class="size-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
+            class="size-5 flex-shrink-0"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -39,41 +57,24 @@ interface Props {
             stroke="currentColor"
             stroke-width="2"
             stroke-linecap="round"
-            stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
+            stroke-linejoin="round"
+            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
           >
-        </a>
+        </button>
       </div>
-      <button
-        type="button"
-        class="ml-auto inline-flex items-center gap-x-2 rounded-full border border-transparent bg-gray-100 p-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-700 dark:text-neutral-50 dark:hover:bg-neutral-700/80 dark:hover:text-neutral-50 dark:focus:outline-none"
-        id={btnId}
-      >
-        <span class="sr-only">Dismiss</span>
-        <svg
-          class="size-5 flex-shrink-0"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
-        >
-      </button>
     </div>
   </div>
-</div>
 </astro-banner>
 <script>
   class AstroBanner extends HTMLElement {
     connectedCallback() {
-      const btnId = this.getAttribute('btnId');
+      const btnId = this.getAttribute("btnId");
       const button = this.querySelector(`#${btnId}`);
-      button.addEventListener('click', () => this.remove());
+      if (button != null) {
+        button.addEventListener("click", () => this.remove());
+      }
     }
   }
 
-  customElements.define('astro-banner', AstroBanner);
+  customElements.define("astro-banner", AstroBanner);
 </script>

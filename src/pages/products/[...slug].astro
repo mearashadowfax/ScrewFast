@@ -197,7 +197,7 @@ const { product } = Astro.props;
 
   <script is:inline src="/scripts/vendor/gsap/gsap.min.js"></script>
   <script>
-    window.addEventListener("load", (event) => {
+    window.addEventListener("load", () => {
       if (window.gsap) {
         const gsap = window.gsap;
         gsap.set("#fadeText", {
