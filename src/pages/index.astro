@@ -9,6 +9,7 @@ import FeaturesNavs from "../components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "../components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "../components/sections/pricing/PricingSection.astro";
 import FAQ from "../components/sections/FAQ.astro";
+import AnnouncementBanner from "../components/ui/banners/AnnouncementBanner.astro";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -19,6 +20,14 @@ const avatarSrcs: Array<string> = [
 ---
 
 <MainLayout>
+  <AnnouncementBanner
+    title="ScrewFast is Live"
+    bannerId="banner-with-dismiss-button"
+    btnId="dismiss-button"
+    btnTitle="Learn more"
+    url="https://github.com/mearashadowfax/ScrewFast"
+  />
+
   <HeroSection
     title=`Equip Your Projects with <span
         class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
@@ -38,9 +47,9 @@ const avatarSrcs: Array<string> = [
     title="Trusted by Industry Leaders"
     subTitle="Experience the reliability chosen by industry giants."
   />
-  
+
   <FeaturesGeneral />
-  
+
   <FeaturesNavs />
 
   <TestimonialsSection
@@ -81,9 +90,9 @@ const avatarSrcs: Array<string> = [
   />
 
   <PricingSection />
-  
+
   <FAQ />
-  
+
   <HeroSectionAlt
     title="Let's Build Together"
     subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
