@@ -1,18 +1,16 @@
 ---
-const { title, bannerId, btnId, btnTitle, url } = Astro.props;
+const { title, btnId, btnTitle, url } = Astro.props;
 
 interface Props {
   title: string;
-  bannerId: string;
   btnId: string;
   btnTitle: string;
   url: string;
 }
 ---
 
-<astro-banner id={bannerId} btnId={btnId}>
+<astro-banner btnId={btnId}>
 <div
-  id={bannerId}
   class="fixed bottom-0 start-1/2 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
 >
   <div
