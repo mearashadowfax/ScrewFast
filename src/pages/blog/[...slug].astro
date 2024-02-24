@@ -25,6 +25,7 @@ const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 // Filter out the current post to get related posts
 // Note: This is a very basic way of choosing related posts, just for the purpose of the example.
 // In a production site, you might want to implement a more robust algorithm, choosing related posts based on tags, categories, dates, authors, or keywords.
+// See example: https://blog.codybrunner.com/2024/adding-related-articles-with-astro-content-collections/
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   (blogEntry) => blogEntry.slug !== post.slug,
 );
