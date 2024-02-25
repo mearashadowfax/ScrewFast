@@ -105,11 +105,7 @@ Click the button below to start deploying your project on Vercel:
 
 ## Project Structure
 
-<details>
-<summary>
 ScrewFast organizes modular components, content, and layouts to streamline development and content management. Expand for a detailed overview of the directory structure:
-</summary>
-<br />
 
 ```md
 
@@ -140,15 +136,9 @@ src/
 
 ```
 
-</details>
-
 ## Static Assets and Public Resources
 
-<details>
-<summary>
 Static files served directly to the browser are within the `public` directory at the root of the project. Expand for the layout:
-</summary>
-<br />
 
 ```md
 
@@ -177,14 +167,10 @@ public/
 ```
 
 The scripts in the `public/scripts/vendor` directory are essential for the interactivity and aesthetic features of the website. Do not remove these unless you plan to replace their functionality.
-</details>
 
 ## Customization
 
-<details>
-<summary>
 ScrewFast allows for easy customization to suit your specific needs. Here are a couple of ways you can configure components and content:
-</summary>
 
 ### Editing Component Variables
 
@@ -293,15 +279,13 @@ export const socialLinks: SocialLinks = {
 };
 ```
 
+> [!NOTE]
 > Remember to add complete and valid URLs for the navigation to function properly. These customizations will reflect throughout your Astro site, promoting consistency across all pages.
 </details>
 
 ## Integrations and Enhancements
 
-<details>
-<summary>
 ScrewFast leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
-</summary>
 
 ### Lenis for Smooth Scrolling
 
@@ -344,7 +328,8 @@ html.lenis {
 ```
 
 Please note that smooth scrolling can affect accessibility and performance on some devices, so be sure to test it comprehensively across different environments.
- 
+
+> [!NOTE]
 > If you would like to remove Lenis and return to the browser's default scrolling behavior, simply comment out or delete these lines from the `MainLayout.astro` file.
 
 ### GSAP Integration
@@ -372,6 +357,7 @@ Please tailor the GSAP animations within this script to fit your project's look 
 - To modify an animation, update the properties and parameters within the `gsap.from()` method, or add new GSAP animation calls as required.
 - Should GSAP not be needed, or if you prefer a different animation method, simply remove the aforementioned script segment.
 
+> [!NOTE]
 > We've chosen to keep the integration lean and focused, but GSAP's comprehensive documentation can be referred to for more complex animations: [GSAP Documentation](https://gsap.com/docs/v3/).
 
 ### Hiding Scrollbar
@@ -380,7 +366,8 @@ To achieve a cleaner and more spacious design, the default scrollbar has been vi
 
 For those who prefer custom-styled scrollbars, we suggest using the [tailwind-scrollbar](https://adoxography.github.io/tailwind-scrollbar/) plugin, which adds Tailwind CSS utilities for scrollbar styles, allowing for more controlled customization that can also meet accessibility standards.
 
-If you wish to return the default scrollbar, you can comment out or remove the following CSS from `src/layouts/MainLayout.astro`:
+> [!NOTE]
+> If you wish to return the default scrollbar, you can comment out or remove the following CSS from `src/layouts/MainLayout.astro`:
 
 ```html
 <style>
@@ -530,10 +517,7 @@ The great thing about Astro is its rich ecosystem of integrations, allowing you 
 
 ## Tools and Technologies
 
-<details>
-<summary>
 This project is built using a variety of tools and technologies that enhance its performance, maintainability, and developer experience. Below is a list of the key tools and their roles in the project:
-</summary>
 
 ### Preline UI
 
@@ -595,8 +579,6 @@ We encourage you to refer to the detailed documentation for each tool to fully u
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Vercel Documentation](https://vercel.com/docs)
 - [html-minifier Documentation](https://github.com/kangax/html-minifier)
-
-</details>
 
 ## Contributing
 
