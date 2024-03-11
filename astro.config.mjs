@@ -15,7 +15,8 @@ export default defineConfig({
   integrations: [tailwind(), sitemap(), compressor({ gzip: false, brotli: true })],
   output: 'static',
   experimental: {
-    clientPrerender: true
+    clientPrerender: true,
+    directRenderScript: true
   },
   adapter: vercelStatic()
 });
