@@ -74,8 +74,8 @@ ScrewFast is an open-source template designed for quick and efficient web projec
   - Allows users to bookmark blog posts for later reference.
   - Provides a visual indication of whether a post is bookmarked.
   - Utilizes `localStorage` to store bookmarks locally in the browser.
-  - For server-side rendering (SSR) or dynamic pages, replace `localStorage` with cookies to persist bookmarked posts.
-    - This change allows bookmarked posts to be rendered dynamically based on the user's bookmarks.
+  - For SSR, replace `localStorage` with cookies to persist bookmarked posts. 
+    - This setup opens up the possibility for the server to dynamically render content based on user-specific bookmarks, should you choose to implement this feature.
 
 - [x] **Post Feedback Component**:
   - Collects user feedback at the end of each blog post.
