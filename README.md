@@ -9,6 +9,7 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 ## Table of Contents
   * [Why Choose ScrewFast?](#why-choose-screwfast)
   * [Features](#features)
+  * [What's New](#whats-new)
   * [Getting Started](#getting-started)
     + [Installation](#installation)
     + [Development Commands](#development-commands)
@@ -60,6 +61,33 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 - **GSAP Integration:** Impress with professional and polished animations.
 - **Markdown Content Collections:** Organize and manage your content seamlessly.
 - **SEO and Responsiveness:** Ensure your site is discoverable and accessible on any device.
+
+## What's New
+
+### Added Features
+- [x] **Social Share Component**: 
+  - Enables users to share blog posts on social media platforms.
+  - Provides easy sharing of a blog post's title and URL.
+  - Integrates Clipboard.js for link URL copy functionality.
+
+- [x] **Bookmark Button Component**:
+  - Allows users to bookmark blog posts for later reference.
+  - Provides a visual indication of whether a post is bookmarked.
+  - Utilizes `localStorage` to store bookmarks locally in the browser.
+  - For server-side rendering (SSR) or dynamic pages, replace `localStorage` with cookies to persist bookmarked posts.
+    - This change allows bookmarked posts to be rendered dynamically based on the user's bookmarks.
+
+- [x] **Post Feedback Component**:
+  - Collects user feedback at the end of each blog post.
+  - Serves as a UI demonstration with no live back-end integration.
+
+### Planned Improvements
+- [ ] Add support for internationalization (i18n).
+- [ ] Implement a table of contents (ToC) sidebar for blog articles.
+- [ ] Integrate the Starlight documentation theme.
+
+### Bug Fixes
+- Currently, there are no known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/mearashadowfax/ScrewFast/issues).
 
 ## Getting Started
 
