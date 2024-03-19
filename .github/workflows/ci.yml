@@ -24,10 +24,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Tools & Dependencies
-        uses: ./.github/actions/install
+        run: npm install
 
       - name: Run Astro Check
-        run: pnpm run check
+        run: npm run check
 
   eslint:
     name: Check for code issues with ESLint
@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Tools & Dependencies
-        uses: ./.github/actions/install
+        run: npm install
 
       - name: Run ESLint
-        run: pnpm run lint:eslint
+        run: npm run lint:eslint
