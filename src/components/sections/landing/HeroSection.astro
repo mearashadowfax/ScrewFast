@@ -1,7 +1,6 @@
 ---
 // Import the necessary dependencies
 import { Image } from "astro:assets";
-import heroImage from "../../../images/hero-image.avif";
 import PrimaryCTA from "../../ui/buttons/PrimaryCTA.astro";
 import SecondaryCTA from "../../ui/buttons/SecondaryCTA.astro";
 import ReviewComponent from "../../ui/blocks/ReviewComponent.astro";
@@ -18,7 +17,9 @@ const {
   avatars,
   starCount,
   rating,
-  reviews
+  reviews,
+  src,
+  alt
 } = Astro.props;
 
 // Define TypeScript interface for props
@@ -34,6 +35,8 @@ interface Props {
   starCount?: number;
   rating?: string;
   reviews?: string;
+  src?: any;
+  alt?: string;
 }
 ---
 
@@ -75,15 +78,18 @@ interface Props {
   </div>
   <!-- Hero Image Section -->
   <div class="flex w-full">
-    <div class="top-12 overflow-hidden">
-      <Image
-        src={heroImage}
-        alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+      <div class="top-12 overflow-hidden">
+	{imageSrc && imageAlt &&
+	<Image
+        src={src}
+        alt={alt}
         class="h-full w-full scale-110 object-cover object-center"
         draggable={"false"}
         loading={"eager"}
         format={"avif"}
-      />
+	 />
+	}
+      
     </div>
   </div>
 </section>
