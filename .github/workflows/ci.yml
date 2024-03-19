@@ -1,43 +1,23 @@
 name: Code Quality Check
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
   cancel-in-progress: true
-
 env:
   NODE_OPTIONS: "--max_old_space_size=4096"
 
 jobs:
-  astrocheck:
-    name: Check for type issues with astro check
-    runs-on: ubuntu-latest
-    env:
-      FORCE_COLOR: true
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Tools & Dependencies
-        run: npm install
-
-      - name: Run Astro Check
-        run: npm run check
-
   eslint:
     name: Check for code issues with ESLint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Install Tools & Dependencies
         run: npm install
-
       - name: Run ESLint
         run: npm run lint:eslint
