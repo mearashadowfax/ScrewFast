@@ -1,20 +1,13 @@
 name: Install Tools & Dependencies
-description: Installs pnpm, Node.js & package dependencies
+description: Installs Node.js & package dependencies using npm
 
 runs:
   using: composite
   steps:
-    - name: Setup PNPM
-      uses: pnpm/action-setup@v3
-      with:
-        version: 8.15.5
-
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: 18
-        cache: pnpm
 
     - name: Install dependencies
-      run: pnpm install
-      shell: bash
+      run: npm install
