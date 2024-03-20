@@ -1,13 +1,31 @@
 ---
 // Import the necessary dependencies
 import { Image } from "astro:assets";
-import featureImage from "../../../images/features-image.avif";
 import IconBlock from "../../ui/blocks/IconBlock.astro";
 
-// Define the string variables `title` and `subTitle` for the main heading and sub-heading text
-const title: string = "Meeting Industry Demands";
-const subTitle: string =
-  "At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals.";
+// Define TypeScript interface for props
+interface Icon {
+  heading: string;
+  content: string;
+  svg: string; // Storing raw SVG markup as a string
+}
+
+interface Props {
+  title: string;
+  subTitle?: string;
+  src?: string;
+  alt?: string;
+  icons: Icon[];  // Array of icons
+}
+
+// Define props from Astro
+const {
+  title,
+  subTitle,
+  src,
+  alt,
+  icons  // Include the icons array in the props
+} = Astro.props;
 ---
 
 <section
@@ -15,14 +33,16 @@ const subTitle: string =
 >
   <!-- Block to display the feature image -->
   <div class="relative mb-6 overflow-hidden md:mb-8">
-    <Image
-      src={featureImage}
-      alt="ScrewFast products in floating boxes"
-      class="h-full w-full object-cover object-center"
-      draggable={"false"}
-      format={"avif"}
-      loading={"eager"} 
-    />
+    {src && alt &&
+      <Image
+        src={src}
+        alt={alt}
+        class="h-full w-full object-cover object-center"
+        draggable={"false"}
+        format={"avif"}
+        loading={"eager"}
+      />
+    }
   </div>
 
   <!-- Displaying the main content consisting of title, subtitle, and several `IconBlock` components -->
@@ -48,70 +68,12 @@ const subTitle: string =
     <!-- Block to display the IconBlock components -->
     <div class="lg:col-span-2">
       <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
-        <!-- Injecting IconBlock components with different properties -->
-        <!-- IconBlock #1 -->
-        <IconBlock
-          heading="Dedicated Teams"
-          content="Benefit from our committed teams who ensure your success is personal. Count on expert guidance and exceptional results throughout your project journey."
-        >
-          <svg
-            class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]"
-            height="48"
-            viewBox="0 -960 960 960"
-            width="48"
-            ><path
-              d="m150-400 82-80-82-82-80 82 80 80Zm573-10 87-140 88 140H723Zm-243-70q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm.351-180Q455-660 437.5-642.851t-17.5 42.5Q420-575 437.351-557.5t43 17.5Q506-540 523-557.351t17-43Q540-626 522.851-643t-42.5-17ZM480-600ZM0-240v-53q0-39.464 42-63.232T150.398-380q12.158 0 23.38.5T196-377.273q-8 17.273-12 34.842-4 17.57-4 37.431v65H0Zm240 0v-65q0-65 66.5-105T480-450q108 0 174 40t66 105v65H240Zm570-140q67.5 0 108.75 23.768T960-293v53H780v-65q0-19.861-3.5-37.431Q773-360 765-377.273q11-1.727 22.171-2.227 11.172-.5 22.829-.5Zm-330.2-10Q400-390 350-366q-50 24-50 61v5h360v-6q0-36-49.5-60t-130.7-24Zm.2 90Z"
-            ></path></svg
-          >
-        </IconBlock>
-
-        <!-- IconBlock #2 -->
-        <IconBlock
-          heading="Simplicity and Affordability"
-          content="Find easy-to-use, affordable solutions with ScrewFast's line of tools and equipment. Our products make procurement simple and keep projects within budget."
-        >
-          <svg
-            class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]"
-            height="48"
-            viewBox="0 -960 960 960"
-            width="48"
-            ><path
-              d="m346-60-76-130-151-31 17-147-96-112 96-111-17-147 151-31 76-131 134 62 134-62 77 131 150 31-17 147 96 111-96 112 17 147-150 31-77 130-134-62-134 62Zm27-79 107-45 110 45 67-100 117-30-12-119 81-92-81-94 12-119-117-28-69-100-108 45-110-45-67 100-117 28 12 119-81 94 81 92-12 121 117 28 70 100Zm107-341Zm-43 133 227-225-45-41-182 180-95-99-46 45 141 140Z"
-            ></path></svg
-          >
-        </IconBlock>
-
-        <!-- IconBlock #3 -->
-        <IconBlock
-          heading="Comprehensive Documentation"
-          content="Integrate with ease using ScrewFast's exhaustive guides and libraries. Achieve seamless product adoption with our full suite of documentation designed for your success."
-        >
-          <svg
-            class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]"
-            height="48"
-            viewBox="0 -960 960 960"
-            width="48"
-            ><path
-              d="M343-420h225v-60H343v60Zm0-90h395v-60H343v60Zm0-90h395v-60H343v60Zm-83 400q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560v-560H260v560ZM140-80q-24 0-42-18t-18-42v-620h60v620h620v60H140Zm120-740v560-560Z"
-            ></path></svg
-          >
-        </IconBlock>
-
-        <!-- IconBlock #4 -->
-        <IconBlock
-          heading="User-Centric Design"
-          content="Experience the difference with ScrewFast's user-focused design — where functionality meets practicality for an enhanced work experience."
-        >
-          <svg
-            class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]"
-            height="48"
-            viewBox="0 -960 960 960"
-            width="48"
-            ><path
-              d="M480-480q-51 0-85.5-34.5T360-600q0-50 34.5-85t85.5-35q50 0 85 35t35 85q0 51-35 85.5T480-480Zm-.351-60Q505-540 522.5-557.149t17.5-42.5Q540-625 522.649-642.5t-43-17.5Q454-660 437-642.649t-17 43Q420-574 437.149-557t42.5 17ZM240-240v-76q0-27 17.5-47.5T300-397q42-22 86.943-32.5 44.942-10.5 93-10.5Q528-440 573-429.5t87 32.5q25 13 42.5 33.5T720-316v76H240Zm240-140q-47.546 0-92.773 13T300-328v28h360v-28q-42-26-87.227-39-45.227-13-92.773-13Zm0-220Zm0 300h180-360 180ZM140-80q-24 0-42-18t-18-42v-172h60v172h172v60H140ZM80-648v-172q0-24 18-42t42-18h172v60H140v172H80ZM648-80v-60h172v-172h60v172q0 24-18 42t-42 18H648Zm172-568v-172H648v-60h172q24 0 42 18t18 42v172h-60Z"
-            ></path></svg
-          >
-        </IconBlock>
+        <!-- Iterate over the icons array to render each IconBlock dynamically -->
+        {icons.map((icon) => (
+          <IconBlock heading={icon.heading} content={icon.content}>
+              <Fragment set:html={icon.svg} />
+          </IconBlock>
+        ))}
       </div>
     </div>
   </div>

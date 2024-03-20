@@ -11,12 +11,57 @@ import PricingSection from "../components/sections/pricing/PricingSection.astro"
 import FAQ from "../components/sections/FAQ.astro";
 import AnnouncementBanner from "../components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "../images/hero-image.avif";
+import featureImage from "../images/features-image.avif";
+import construction from "../images/construction-image.avif";
+import tools from "../images/automated-tools.avif";
+import dashboard from "../images/dashboard-image.avif";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+
+// Define the string variable `subTitle` to provide additional information.
+const faqSubTitle: string =
+  "Ask us anything about our brand and products, and get factual responses.";
+
+// Define an array `faqs` that holds the content for the Frequently Asked Questions.
+const faqs = [
+  // Content of each FAQ item goes here
+  {
+    heading: "What types of tools are included in the Starter Kit?",
+    content:
+      "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks.",
+  },
+  {
+    heading: "Can I upgrade from the Starter Kit to the Professional Toolbox?",
+    content:
+      "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition.",
+  },
+  {
+    heading:
+      "What discounts are available for bulk orders through the Professional Toolbox plan?",
+    content:
+      "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure.",
+  },
+  {
+    heading: "What kind of customer support can I expect?",
+    content:
+      "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance.",
+  },
+  {
+    heading: "How current are the online resources and tutorials?",
+    content:
+      "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels.",
+  },
+  {
+    heading:
+      "Does ScrewFast offer services for large-scale construction projects?",
+    content:
+      "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote.",
+  },
 ];
 ---
 
@@ -49,9 +94,84 @@ const avatarSrcs: Array<string> = [
     subTitle="Experience the reliability chosen by industry giants."
   />
 
-  <FeaturesGeneral />
+  <FeaturesGeneral
+	title=`Meeting Industry Demands`
+	subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+	src={featureImage}
+	alt="ScrewFast products in floating boxes"
+	icons={[
+  {
+    heading: "Dedicated Teams",
+    content: "Benefit from our committed teams who ensure your success is personal. Count on expert guidance and exceptional results throughout your project journey.",
+    svg: `
+      <svg class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]" height="48" viewBox="0 -960 960 960" width="48">
+        <path d="m150-400 82-80-82-82-80 82 80 80Zm573-10 87-140 88 140H723Zm-243-70q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm.351-180Q455-660 437.5-642.851t-17.5 42.5Q420-575 437.351-557.5t43 17.5Q506-540 523-557.351t17-43Q540-626 522.851-643t-42.5-17ZM480-600ZM0-240v-53q0-39.464 42-63.232T150.398-380q12.158 0 23.38.5T196-377.273q-8 17.273-12 34.842-4 17.57-4 37.431v65H0Zm240 0v-65q0-65 66.5-105T480-450q108 0 174 40t66 105v65H240Zm570-140q67.5 0 108.75 23.768T960-293v53H780v-65q0-19.861-3.5-37.431Q773-360 765-377.273q11-1.727 22.171-2.227 11.172-.5 22.829-.5Zm-330.2-10Q400-390 350-366q-50 24-50 61v5h360v-6q0-36-49.5-60t-130.7-24Zm.2 90Zm107-341Zm-43 133 227-225-45-41-182 180-95-99-46 45 141 140Z"
+        ></path>
+      </svg>
+    `
+  },
+  {
+    heading: "Simplicity and Affordability",
+    content: "Find easy-to-use, affordable solutions with ScrewFast's line of tools and equipment. Our products make procurement simple and keep projects within budget.",
+    svg: `
+      <svg class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]" height="48" viewBox="0 -960 960 960" width="48">
+        <path d="m346-60-76-130-151-31 17-147-96-112 96-111-17-147 151-31 76-131 134 62 134-62 77 131 150 31-17 147 96 111-96 112 17 147-150 31-77 130-134-62-134 62Zm27-79 107-45 110 45 67-100 117-30-12-119 81-92-81-94 12-119-117-28-69-100-108 45-110-45-67 100-117 28 12 119-81 94 81 92-12 121 117 28 70 100Zm107-341Zm-43 133 227-225-45-41-182 180-95-99-46 45 141 140Z"
+        ></path>
+      </svg>
+    `
+  },
+  {
+    heading: "Comprehensive Documentation",
+    content: "Integrate with ease using ScrewFast's exhaustive guides and libraries. Achieve seamless product adoption with our full suite of documentation designed for your success.",
+    svg: `
+      <svg class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]" height="48" viewBox="0 -960 960 960" width="48">
+        <path d="M343-420h225v-60H343v60Zm0-90h395v-60H343v60Zm0-90h395v-60H343v60Zm-83 400q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560v-560H260v560ZM140-80q-24 0-42-18t-18-42v-620h60v620h620v60H140Zm120-740v560-560Z"
+        ></path>
+      </svg>
+    `
+  },
+  {
+    heading: "User-Centric Design",
+    content: "Experience the difference with ScrewFast's user-focused design — where functionality meets practicality for an enhanced work experience.",
+    svg: `
+      <svg class="mt-1 h-8 w-8 flex-shrink-0 fill-[#fa5a15] dark:fill-[#fb713b]" height="48" viewBox="0 -960 960 960" width="48">
+        <path d="M480-480q-51 0-85.5-34.5T360-600q0-50 34.5-85t85.5-35q50 0 85 35t35 85q0 51-35 85.5T480-480Zm-.351-60Q505-540 522.5-557.149t17.5-42.5Q540-625 522.649-642.5t-43-17.5Q454-660 437-642.649t-17 43Q420-574 437.149-557t42.5 17ZM240-240v-76q0-27 17.5-47.5T300-397q42-22 86.943-32.5 44.942-10.5 93-10.5Q528-440 573-429.5t87 32.5q25 13 42.5 33.5T720-316v76H240Zm240-140q-47.546 0-92.773 13T300-328v28h360v-28q-42-26-87.227-39-45.227-13-92.773-13Zm0-220Zm0 300h180-360 180ZM140-80q-24 0-42-18t-18-42v-172h60v172h172v60H140ZM80-648v-172q0-24 18-42t42-18h172v60H140v172H80ZM648-80v-60h172v-172h60v172q0 24-18 42t-42 18H648Zm172-568v-172H648v-60h172q24 0 42 18t18 42v172h-60Z"
+        ></path>
+      </svg>
+    `
+  }
+]}
+    />
 
-  <FeaturesNavs />
+      <FeaturesNavs
+  title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
+ tabs={[
+    {
+      heading: "Cutting-Edge Tools",
+      content: "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
+      svg: `<svg class="mt-2 h-6 w-6 flex-shrink-0 fill-neutral-700 hs-tab-active:fill-[#fa5a15] dark:fill-neutral-300 dark:hs-tab-active:fill-[#fb713b] md:h-7 md:w-7" height="48" viewBox="0 -960 960 960" width="48"><path d="M764-80q-6 0-11-2t-10-7L501-331q-5-5-7-10t-2-11q0-6 2-11t7-10l85-85q5-5 10-7t11-2q6 0 11 2t10 7l242 242q5 5 7 10t2 11q0 6-2 11t-7 10l-85 85q-5 5-10 7t-11 2Zm0-72 43-43-200-200-43 43 200 200ZM195-80q-6 0-11.5-2T173-89l-84-84q-5-5-7-10.5T80-195q0-6 2-11t7-10l225-225h85l38-38-175-175h-57L80-779l99-99 125 125v57l175 175 130-130-67-67 56-56H485l-18-18 128-128 18 18v113l56-56 169 169q15 15 23.5 34.5T870-600q0 20-6.5 38.5T845-528l-85-85-56 56-52-52-211 211v84L216-89q-5 5-10 7t-11 2Zm0-72 200-200v-43h-43L152-195l43 43Zm0 0-43-43 22 21 21 22Zm569 0 43-43-43 43Z"></path></svg>`,
+	src: tools,
+	alt: "Yellow and black heavy equipment on brown grass field",
+      first: true
+    },
+    {
+      heading: "Intuitive Dashboards",
+      content: "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
+      svg: `<svg class="mt-2 h-6 w-6 flex-shrink-0 fill-neutral-700 hs-tab-active:fill-[#fa5a15] dark:fill-neutral-300 dark:hs-tab-active:fill-[#fb713b] md:h-7 md:w-7" height="48" viewBox="0 -960 960 960" width="48"><path d="M510-570v-270h330v270H510ZM120-450v-390h330v390H120Zm390 330v-390h330v390H510Zm-390 0v-270h330v270H120Zm60-390h210v-270H180v270Zm390 330h210v-270H570v270Zm0-450h210v-150H570v150ZM180-180h210v-150H180v150Zm210-330Zm180-120Zm0 180ZM390-330Z"></path></svg>`,
+	src: dashboard,
+	alt: "A screenshot or graphic representation of the intuitive dashboard",
+      second: true
+    },
+    {
+      heading: "Robust Features",
+      content: "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+      svg: `<svg class="h-6 w-6 flex-shrink-0 text-neutral-700 hs-tab-active:text-[#fa5a15] dark:text-neutral-300 dark:hs-tab-active:text-[#fb713b] md:h-7 md:w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819"></path></svg>`,
+	src: construction,
+	alt: "Gray metal building frame near tower crane during daytime",
+    }
+  ]
+}
+ />
 
   <TestimonialsSection
     title="Fast-Track Your Projects"
@@ -92,7 +212,7 @@ const avatarSrcs: Array<string> = [
 
   <PricingSection />
 
-  <FAQ />
+  <FAQ subTitle={faqSubTitle} faqs={faqs}/>
 
   <HeroSectionAlt
     title="Let's Build Together"
