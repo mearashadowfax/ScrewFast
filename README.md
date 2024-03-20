@@ -1,6 +1,6 @@
-# Versatile Landing & Blog Template for a Simplified Web Presence
+# Versatile Landing, Blog & Docs Template for a Simplified Web Presence
 
-![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/56b9b08f-4f47-4137-9b24-7337413848e4)
+![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
 
 ScrewFast is an open-source template designed for quick and efficient web project setup, blending minimalism with functionality. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
 
@@ -26,6 +26,7 @@ ScrewFast is an open-source template designed for quick and efficient web projec
       - [Footer Links](#footer-links)
       - [Social Media Links](#social-media-links)
   * [Integrations and Enhancements](#integrations-and-enhancements)
+  * + [Starlight Documentation](#starlight-documentation)
     + [Lenis for Smooth Scrolling](#lenis-for-smooth-scrolling)
     + [GSAP Integration](#gsap-integration)
     + [Hiding Scrollbar](#hiding-scrollbar)
@@ -80,11 +81,15 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 - [x] **Post Feedback Component**:
   - Collects user feedback at the end of each blog post.
   - Serves as a UI demonstration with no live back-end integration.
-
+  
+- [x] Starlight Documentation Theme Integration:
+    - A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of our documentation.
+    - Offers a range of features such as site navigation, built-in search functionality, dark mode, syntax highlighting for code, and improved SEO.
+    - Seamlessly integrates internationalization (i18n) to provide support for documentation in multiple languages, catering to a global audience.
+    - Designed to facilitate ease of use while offering a modern aesthetic in both light and dark themes to accommodate user preferences.
+      
 ### Planned Improvements
-- [ ] Add support for internationalization (i18n).
 - [ ] Implement a table of contents (ToC) sidebar for blog articles.
-- [ ] Integrate the Starlight documentation theme.
 
 ### Bug Fixes
 - Currently, there are no known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/mearashadowfax/ScrewFast/issues).
@@ -315,6 +320,23 @@ export const socialLinks: SocialLinks = {
 
 ScrewFast leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
 
+### Starlight Documentation
+
+ScrewFast is now equipped with the Starlight, which is designed to elevate the user's experience with documentation. This modern and elegant theme comes with a suite of features to make the content more accessible and pleasant to navigate.
+
+Key Features:
+
+- **Site Navigation and Search**: Navigate through the documentation with ease using intuitive sidebar and built-in search functionality.
+- **Internationalization**: Cater to a global audience with the ability to switch languages, making documentation accessible to everyone, everywhere.
+- **SEO Friendly**: Optimized for search engines to help users quickly find the information they need.
+- **Code Highlighting and Dark Mode**: Enhances code readability with syntax highlighting, and offers a dark mode to reduce eye strain for users.
+- **Mobile Responsive Design**: Whether you're on a phone, tablet, or desktop, the documentation adapts to your screen size for optimal readability.
+
+With Starlight, you gain access to a wealth of powerful features and integrations, along with extensive customization options to fit your needs.
+
+> [!NOTE]
+> Dive into the Starlight's comprehensive feature list and learn how it can streamline your development process by visiting the theme's [documentation site](https://starlight.astro.build/).
+> 
 ### Lenis for Smooth Scrolling
 
 Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com/). We've integrated Lenis to provide an enhanced scrolling experience that's both fluid and responsive.
