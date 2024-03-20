@@ -9,11 +9,11 @@ export const navBarLinks = [
 // An array of links for footer
 export const footerLinks = [
   {
-    section: "Product",
+    section: "Ecosystem",
     links: [
+      { name: "Documentation", url: "/en/welcome-to-docs/" },
       { name: "Tools & Equipment", url: "/products" },
       { name: "Construction Services", url: "/services" },
-      { name: "Pricing", url: "/#" },
     ],
   },
   {
