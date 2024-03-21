@@ -1,44 +1,46 @@
 /* Dark mode colors. */
 :root {
-  --sl-color-accent-low: #562800;
-  --sl-color-accent: #FF801F;
-  --sl-color-accent-high: #FFA057;
-  --sl-color-white: #ffffff;
-  --sl-color-gray-1: #eeeeee;
-  --sl-color-gray-2: #c2c2c2;
-  --sl-color-gray-3: #8b8b8b;
-  --sl-color-gray-4: #585858;
-  --sl-color-gray-5: #383838;
-  --sl-color-gray-6: #272727;
-  --sl-color-black: #181818;
-  --backdrop-color: #272727cc;
-  --list-marker-color: #fb923c;
+    --backdrop-color: #272727cc;
+    --sl-color-accent: #ff801f;
+    --sl-color-accent-high: #ffa057;
+    --sl-color-accent-low: #562800;
+    --sl-color-black: #181818;
+    --sl-color-gray-1: #eee;
+    --sl-color-gray-2: #c2c2c2;
+    --sl-color-gray-3: #8b8b8b;
+    --sl-color-gray-4: #585858;
+    --sl-color-gray-5: #383838;
+    --sl-color-gray-6: #272727;
+    --sl-color-white: #fff;
+    --list-marker-color: #fb923c;
 }
+
 /* Light mode colors. */
 :root[data-theme="light"] {
-  --sl-color-accent-low: #FFA057;
-  --sl-color-accent: #b73d00;
-  --sl-color-accent-high: #562800;
-  --sl-color-white: #181818;
-  --sl-color-gray-1: #272727;
-  --sl-color-gray-2: #383838;
-  --sl-color-gray-3: #585858;
-  --sl-color-gray-4: #8b8b8b;
-  --sl-color-gray-5: #c2c2c2;
-  --sl-color-gray-6: #eeeeee;
-  --sl-color-gray-7: #f6f6f6;
-  --sl-color-black: #ffffff;
-  --backdrop-color: #f6f6f699;
-  --list-marker-color: #fb923c;
+    --backdrop-color: #f6f6f699;
+    --sl-color-accent: #b73d00;
+    --sl-color-accent-high: #562800;
+    --sl-color-accent-low: #ffa057;
+    --sl-color-black: #fff;
+    --sl-color-gray-1: #272727;
+    --sl-color-gray-2: #383838;
+    --sl-color-gray-3: #585858;
+    --sl-color-gray-4: #8b8b8b;
+    --sl-color-gray-5: #c2c2c2;
+    --sl-color-gray-6: #eee;
+    --sl-color-gray-7: #f6f6f6;
+    --sl-color-white: #181818;
+    --list-marker-color: #fb923c;
 }
 
 header {
-  backdrop-filter: blur(12px) !important;
-  background-color: var(--backdrop-color) !important;
+    backdrop-filter: blur(12px) !important;
+    background-color: var(--backdrop-color) !important;
 }
 
 select {
-  background-image: none;
+    background-image: none;
+    box-shadow: none;
 }
 
 select:focus-visible {
@@ -46,57 +48,57 @@ select:focus-visible {
 }
 
 article.card {
-  border-radius: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .starlight-aside--tip {
-  border: none;
-  border-radius: 0.5rem;
-  color: #66350c;
-  background: linear-gradient(45deg, #ff512f, #f09819);
+    background: linear-gradient(45deg, #ff512f, #f09819);
+    border: none;
+    border-radius: 0.5rem;
+    color: #66350c;
 }
 
 .starlight-aside--note {
-  border: none;
-  border-radius: 0.5rem;
-  color: #004558;
-  background: linear-gradient(45deg, #00b4db, #2193b0);
+    background: linear-gradient(45deg, #00b4db, #2193b0);
+    border: none;
+    border-radius: 0.5rem;
+    color: #004558;
 }
 
 .starlight-aside__icon {
-  transform: scale(0.8);
+    transform: scale(0.8);
 }
 
 .starlight-aside--tip .starlight-aside__title {
-  color: #ffe0c2;
+    color: #ffe0c2;
 }
 
 .starlight-aside--note .starlight-aside__title {
-  color: #bbf3fef7;
+    color: #bbf3fef7;
 }
 
 .sl-markdown-content ul:not(:where(.not-content *)) {
-  list-style-type: none;
-  padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .sl-markdown-content ul:not(:where(.not-content *)) > li {
-  position: relative;
-  padding-left: 1.75rem;
+    padding-left: 1.75rem;
+    position: relative;
 }
 
 .sl-markdown-content li:not(:where(.not-content *)) > ul,
 .sl-markdown-content li + li:not(:where(.not-content *)) {
-  margin-top: 0.625rem;
+    margin-top: 0.625rem;
 }
 
 .sl-markdown-content ul:not(:where(.not-content *)) > li:before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 13px;
-  width: 0.875rem;
-  height: 2px;
-  border-radius: 1px;
-  background: var(--list-marker-color);
+    background: var(--list-marker-color);
+    border-radius: 1px;
+    content: "";
+    height: 2px;
+    left: 2px;
+    position: absolute;
+    top: 13px;
+    width: 0.875rem;
 }

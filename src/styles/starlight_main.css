@@ -1,38 +1,39 @@
 /* Dark mode colors. */
 :root {
-	--sl-color-accent-low: #562800;
-	--sl-color-accent: #FF801F;
-	--sl-color-accent-high: #FFA057;
-	--primary-button-hover: #FF801F;
-	--sl-color-white: #ffffff;
-	--sl-color-gray-1: #eeeeee;
-	--sl-color-gray-2: #c2c2c2;
-	--sl-color-gray-3: #8b8b8b;
-	--sl-color-gray-4: #585858;
-	--sl-color-gray-5: #383838;
-	--sl-color-gray-6: #272727;
-	--sl-color-black: #181818;
-	--yellow-hsl: 43.3,96.4%,56.3%;
+    --primary-button-hover: #ff801f;
+    --backdrop-color: #272727cc;
+    --sl-color-accent: #ff801f;
+    --sl-color-accent-high: #ffa057;
+    --sl-color-accent-low: #562800;
+    --sl-color-black: #181818;
+    --sl-color-gray-1: #eee;
+    --sl-color-gray-2: #c2c2c2;
+    --sl-color-gray-3: #8b8b8b;
+    --sl-color-gray-4: #585858;
+    --sl-color-gray-5: #383838;
+    --sl-color-gray-6: #272727;
+    --sl-color-white: #fff;
+    --yellow-hsl: 43.3, 96.4%, 56.3%;
     --overlay-yellow: hsla(var(--yellow-hsl), .2);
-	--backdrop-color: #272727cc;
 }
+
 /* Light mode colors. */
 :root[data-theme='light'] {
-	--sl-color-accent-low: #FFA057;
-	--sl-color-accent: #F76B15;
-	--sl-color-accent-high: #562800;
-	--primary-button-hover: #FF801F;
-	--sl-color-white: #181818;
-	--sl-color-gray-1: #272727;
-	--sl-color-gray-2: #383838;
-	--sl-color-gray-3: #585858;
-	--sl-color-gray-4: #8b8b8b;
-	--sl-color-gray-5: #c2c2c2;
-	--sl-color-gray-6: #eeeeee;
-	--sl-color-gray-7: #f6f6f6;
-	--sl-color-black: #ffffff;
-	--yellow-hsl: 47.9,95.8%,53.1%;
-	--backdrop-color: #F6F6F699;
+    --primary-button-hover: #ff801f;
+    --backdrop-color: #f6f6f699;
+    --sl-color-accent: #f76b15;
+    --sl-color-accent-high: #562800;
+    --sl-color-accent-low: #ffa057;
+    --sl-color-black: #fff;
+    --sl-color-gray-1: #272727;
+    --sl-color-gray-2: #383838;
+    --sl-color-gray-3: #585858;
+    --sl-color-gray-4: #8b8b8b;
+    --sl-color-gray-5: #c2c2c2;
+    --sl-color-gray-6: #eee;
+    --sl-color-gray-7: #f6f6f6;
+    --sl-color-white: #181818;
+    --yellow-hsl: 47.9, 95.8%, 53.1%;
 }
 
 .page {
@@ -41,20 +42,21 @@
 }
 
 header {
-	backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
     background-color: var(--backdrop-color) !important;
 }
 
 select {
-	background-image: none;
+    background-image: none;
+    box-shadow: none;
 }
 
 .sl-flex.action.primary:hover {
-	background-color: var(--primary-button-hover);
-	transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--primary-button-hover);
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sl-flex.action.primary:hover svg {
-	transform: translateX(0.25rem);
-	transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0.25rem);
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
