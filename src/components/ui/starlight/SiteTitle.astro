@@ -1,6 +1,6 @@
 ---
-import logo from "../../images/starlight/screwfast_logo_dark.svg?raw";
-import docs from "../../images/starlight/docs_logo.svg?raw";
+import logo from "../../../images/starlight/screwfast_logo_dark.svg?raw";
+import docs from "../../../images/starlight/docs_logo.svg?raw";
 import type { Props } from "@astrojs/starlight/props";
 
 const main = "/";
@@ -15,11 +15,12 @@ const self = "/" + (Astro.props.locale || "en") + "/welcome-to-docs/";
 <style>
   .site-title {
     gap: 1rem;
+    margin-right: 1rem;
   }
   .site-title a {
     display: flex;
   }
-
+  
   .flex {
     display: flex;
     align-items: center;
@@ -28,20 +29,16 @@ const self = "/" + (Astro.props.locale || "en") + "/welcome-to-docs/";
     outline: 0;
   }
   .site-title a:focus-visible > :global(*) {
-    outline: auto;
-    outline-offset: 0.33rem;
-    border-radius: 1px;
+    transform: translateY(calc(.1rem * -1));
+    transition: transform 250ms cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   .site-title :global(svg) {
-    --display-height: 1.75rem;
     width: auto;
     height: auto;
-    transition: transform 0.18s cubic-bezier(0.23, 1, 0.32, 1);
   }
   .site-title a:hover :global(svg) {
-    --hover-offset: 0.15rem;
     transform: translateY(calc(.1rem * -1));
-    transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+    transition: transform 250ms cubic-bezier(0.33, 1, 0.68, 1);
   }
 </style>

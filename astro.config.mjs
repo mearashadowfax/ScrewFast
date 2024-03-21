@@ -55,7 +55,7 @@ export default defineConfig({
       customCss: ["./src/styles/starlight.css"],
       favicon: "/favicon.ico",
       components: {
-        SiteTitle: "./src/components/ui/SiteTitle.astro",
+        SiteTitle: "./src/components/ui/starlight/SiteTitle.astro",
       },
     }),
     compressor({
