@@ -1,12 +1,13 @@
 ---
+import Icon from "../icons/Icon.astro";
 // Define props from Astro
-const { id, collapseId, heading, content, first } = Astro.props;
+const { id, collapseId, question, answer, first } = Astro.props;
 // Define TypeScript interface for props
 interface Props {
   id: string;
   collapseId: string;
-  heading: string;
-  content: string;
+  question: string;
+  answer: string;
   first?: boolean;
 }
 // Define class names for the accordion and its content
@@ -27,32 +28,12 @@ function getAccordionClass(first: boolean = false) {
     class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-balance rounded-lg pb-3 text-start font-bold text-neutral-800 outline-none ring-zinc-500 transition hover:text-neutral-500 focus-visible:ring dark:text-neutral-200 dark:ring-zinc-200 dark:hover:text-neutral-400 dark:focus:outline-none md:text-lg"
     aria-controls={collapseId}
   >
-    {heading}
+    {question}
     <!-- SVG Icon that is shown when the accordion is NOT active -->
-    <svg
-      class="block h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:hidden dark:text-neutral-400"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
-    >
+    <Icon name="accordionNotActive" />
 
     <!-- SVG Icon that is shown when the accordion is active -->
-    <svg
-      class="hidden h-5 w-5 flex-shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:block dark:text-neutral-400"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
-    >
+    <Icon name="accordionActive" />
   </button>
   <!-- The collapsible content of the accordion -->
   <div
@@ -62,7 +43,7 @@ function getAccordionClass(first: boolean = false) {
   >
     <!-- The content paragraph -->
     <p class="text-pretty text-neutral-600 dark:text-neutral-400">
-      {content}
+      {answer}
     </p>
   </div>
 </div>
