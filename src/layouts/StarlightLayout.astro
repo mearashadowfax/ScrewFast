@@ -1,19 +1,9 @@
 ---
 // Importing View Transitions component
-import Meta from "../components/Meta.astro";
 import { ViewTransitions } from "astro:transitions";
-
-const { frontmatter } = Astro.props;
-
-// Interface to type-check the properties
-interface Props {
-    meta?: string;
-    structuredData?: object;
-}
 ---
 <html lang="en">
 <head>
-    <title>{frontmatter.title}</title>
     <ViewTransitions />
 </head>
 <body>
