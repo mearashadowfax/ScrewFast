@@ -1,49 +1,27 @@
 ---
-// Import the necessary AccordionItem component
+// Import the necessary AccordionItem component and JSON data
 import AccordionItem from "../ui/blocks/AccordionItem.astro";
 
-// Define the string variable `subTitle` to provide additional information.
-const subTitle: string =
-  "Ask us anything about our brand and products, and get factual responses.";
+// Define props from Astro
+const { title, faqs } = Astro.props;
 
+// Define TypeScript interface for props
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface FaqGroup {
+  subTitle?: string;
+  faqs: Faq[];
+}
+
+interface Props {
+  title: string;
+  faqs: FaqGroup;
+}
 // Define a helper function to generate ids dynamically.
 const makeId = (base: any, index: any) => `${base}${index + 1}`;
-// Define an array `faqs` that holds the content for the Frequently Asked Questions.
-const faqs = [
-  // Content of each FAQ item goes here
-  {
-    heading: "What types of tools are included in the Starter Kit?",
-    content:
-      "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks.",
-  },
-  {
-    heading: "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-    content:
-      "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition.",
-  },
-  {
-    heading:
-      "What discounts are available for bulk orders through the Professional Toolbox plan?",
-    content:
-      "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure.",
-  },
-  {
-    heading: "What kind of customer support can I expect?",
-    content:
-      "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance.",
-  },
-  {
-    heading: "How current are the online resources and tutorials?",
-    content:
-      "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels.",
-  },
-  {
-    heading:
-      "Does ScrewFast offer services for large-scale construction projects?",
-    content:
-      "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote.",
-  },
-];
 ---
 
 <!-- Main container that holds all content. Customized for different viewport sizes. -->
@@ -56,10 +34,10 @@ const faqs = [
         <h2
           class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
         >
-          Frequently<br />asked questions
+          <Fragment set:html={title} />
         </h2>
         <p class="mt-1 hidden text-neutral-600 dark:text-neutral-400 md:block">
-          {subTitle}
+          {faqs.subTitle}
         </p>
       </div>
     </div>
@@ -69,15 +47,15 @@ const faqs = [
         class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700"
       >
         {
-          faqs.map((question, i) => {
+          faqs.faqs.map((question, i) => {
             // Generate ids dynamically for each FAQ accordion item.
             let id = makeId(
               "hs-basic-with-title-and-arrow-stretched-heading-",
-              i,
+              i
             );
             let collapseId = makeId(
               "hs-basic-with-title-and-arrow-stretched-collapse",
-              i,
+              i
             );
 
             return (
