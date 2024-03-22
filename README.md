@@ -82,12 +82,18 @@ ScrewFast is an open-source template designed for quick and efficient web projec
   - Collects user feedback at the end of each blog post.
   - Serves as a UI demonstration with no live back-end integration.
   
-- [x] Starlight Documentation Theme Integration:
+- [x] **Starlight Documentation Theme Integration**:
     - A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of our documentation.
     - Offers a range of features such as site navigation, built-in search functionality, dark mode, syntax highlighting for code, and improved SEO.
     - Seamlessly integrates internationalization (i18n) to provide support for documentation in multiple languages, catering to a global audience.
     - Designed to facilitate ease of use while offering a modern aesthetic in both light and dark themes to accommodate user preferences.
-      
+
+- [x] **Icon Set Component**:
+    - Convenient and reusable Icon component that allows adding icons simply by providing a name prop.
+    - Render any pre-defined icon SVG using `<Icon name="iconName" />` in your Astro components.
+    - The Icon Component offers a centralized location for all SVG Icons across the project in one TypeScript file - allowing unified updates and easy maintenance.
+    - **Note:** Users have the option to use other community integrations like [astro-icons](https://github.com/natemoo-re/astro-icon). However, the author decided to create a custom icon set component for managing custom icons.
+
 ### Planned Improvements
 - [ ] Implement a table of contents (ToC) sidebar for blog articles.
 
