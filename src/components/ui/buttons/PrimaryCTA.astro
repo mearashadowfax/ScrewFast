@@ -1,4 +1,5 @@
 ---
+import Icon from "../icons/Icon.astro";
 // Destructure the properties from Astro.props
 const { title, url, noArrow } = Astro.props;
 // Define TypeScript interface for the properties
@@ -16,20 +17,6 @@ const bgColorClasses =
 const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
 const fontSizeClasses = "2xl:text-base";
 const ringClasses = "dark:ring-zinc-200";
-// SVG for an arrow icon
-const arrowSVG = `<svg
-                    class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-            >
-                <path d="m9 18 6-6-6-6"></path>
-            </svg>`;
 ---
 
 <!-- Link styled as a button, with dynamic title, URL, and optional arrow -->
@@ -39,7 +26,6 @@ const arrowSVG = `<svg
 >
   {title}
   <!-- Display the arrow based on the 'noArrow' property -->
-  <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
 
-  {noArrow ? null : <Fragment set:html={arrowSVG} />}
+  {noArrow ? null : <Icon name="arrowRight" />}
 </a>
