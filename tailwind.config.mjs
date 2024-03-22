@@ -10,8 +10,8 @@ export default {
     extend: {},
   },
   plugins: [
-    require("tailwindcss/nesting"),
-    require("preline/plugin"),
-    require("@tailwindcss/forms")
+    // require("tailwindcss/nesting"),
+    // require("preline/plugin"),
+    // require("@tailwindcss/forms")
   ],
 };
