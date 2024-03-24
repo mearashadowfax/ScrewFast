@@ -144,7 +144,7 @@ Click the button below to start deploying your project on Vercel:
 
 ## Project Structure
 
-ScrewFast organizes modular components, content, and layouts to streamline development and content management. Expand for a detailed overview of the directory structure:
+ScrewFast organizes modular components, content, and layouts to streamline development and content management.
 
 ```md
 
@@ -155,10 +155,12 @@ src/
 │   ├── ThemeIcon.astro   # Component for toggling light/dark themes
 │   └── ui/               # UI components categorized by functionality
 ├── content/              # Markdown files for blog posts, insights, products, and site configuration
-│   ├── blog/             
+│   ├── blog/
+│   ├── docs/           
 │   ├── insights/         
 │   ├── products/         
 │   └── config.ts         # Contains site-wide configuration options
+├── data_files/           # Strings stored as JSON files
 ├── images/               # Static image assets for use across the website
 ├── layouts/              # Components defining layout templates
 │   └── MainLayout.astro  # The main wrapping layout for all pages
@@ -170,14 +172,15 @@ src/
 │   ├── insights/         
 │   ├── products/         
 │   ├── robots.txt.ts     # Dynamically generates robots.txt
-│   └── services.astro    
+│   └── services.astro
+├── styles/               # CSS styles
 └── utils/                # Shared utility functions and helpers
 
 ```
 
 ## Static Assets and Public Resources
 
-Static files served directly to the browser are within the `public` directory at the root of the project. Expand for the layout:
+Static files served directly to the browser are within the `public` directory at the root of the project.
 
 ```md
 
@@ -199,6 +202,7 @@ public/
 │       └── preline/   # Preline UI plugins
 │           ├── accordion/
 │           ├── collapse/
+│           ├── dropdown/
 │           ├── overlay/
 │           └── tabs/
 └── social.png # Image used for social media sharing previews
