@@ -92,7 +92,24 @@ const articles: Article[] = [
 ];
 ---
 
-<MainLayout title="Services | ScrewFast">
+<MainLayout 
+  title="Services | ScrewFast" 
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/services",
+    "url": "https://screwfast.uk/services",
+    "name": "Expert Consultation Services | ScrewFast",
+    "description": "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://screwfast.uk",
+        "name": "ScrewFast",
+        "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+    },
+    "inLanguage": "en-US"
+  }}
+>
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Uniting Expertise with Your Vision"
