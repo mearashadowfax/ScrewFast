@@ -94,8 +94,13 @@ ScrewFast is an open-source template designed for quick and efficient web projec
     - The Icon Component offers a centralized location for all SVG Icons across the project in one TypeScript file - allowing unified updates and easy maintenance.
     - **Note:** Users have the option to use other community integrations like [astro-icons](https://github.com/natemoo-re/astro-icon). However, the author decided to create a custom icon set component for managing custom icons.
 
+### In Process
+- [ ] Internationalization (i18n)
+
+
 ### Planned Improvements
 - [ ] Implement a table of contents (ToC) sidebar for blog articles.
+
 
 ### Bug Fixes
 - Currently, there are no known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/mearashadowfax/ScrewFast/issues).
