@@ -5,6 +5,7 @@ import MainSection from "@/components/ui/blocks/MainSection.astro";
 import LeftSection from "@/components/ui/blocks/LeftSection.astro";
 import RightSection from "@/components/ui/blocks/RightSection.astro";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 // Import necessary images
 import blueprints from "@/images/blueprints-image.avif";
@@ -119,7 +120,7 @@ const articles: Article[] = [
     subTitle="Chez ScrewFast, nous sommes fiers de fournir des solutions complètes et un service exceptionnel dans l'industrie du matériel et de la construction. Notre équipe expérimentée est dédiée à soutenir votre projet de sa conception à son achèvement avec une gamme de services spécialisés."
     btnExists={true}
     btnTitle="Planifier une consultation"
-    btnURL="#"
+    btnURL={getRelativeLocaleUrl("fr", "#")}
   />
   <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.

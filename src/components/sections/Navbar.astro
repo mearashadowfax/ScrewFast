@@ -3,7 +3,11 @@
 import ThemeIcon from "../ThemeIcon.astro";
 import NavLink from "../ui/links/NavLink.astro";
 import Authentication from "./Authentication.astro";
-import { navBarLinks } from "@/utils/navigation.ts";
+import enStrings from "@/utils/navigation.ts";
+import frStrings from "@/utils/fr/navigation.ts";
+
+// Select the correct translation based on the page's lang prop:
+const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
 ---
 
 <!-- Main header component -->
@@ -131,7 +135,7 @@ import { navBarLinks } from "@/utils/navigation.ts";
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-7 md:gap-y-0 md:ps-7"
       >
         <!-- Navigation links and Authentication component -->
-        {navBarLinks.map(link => (
+        {strings.navBarLinks.map(link => (
           <NavLink url={link.url} name={link.name} />
         ))}
 

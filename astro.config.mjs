@@ -25,10 +25,11 @@ export default defineConfig({
     sitemap(),
     starlight({
       title: "ScrewFast Docs",
-      defaultLocale: "en",
+      defaultLocale: "root",
       locales: {
-        en: {
+        root: {
           label: "English",
+          lang: "en",
         },
         de: { label: "Deutsch", lang: "de" },
         es: { label: "Español", lang: "es" },
@@ -76,6 +77,16 @@ export default defineConfig({
       components: {
         SiteTitle: "./src/components/ui/starlight/SiteTitle.astro",
       },
+      head: [
+        {
+          tag: "meta",
+          attrs: { property: "og:image", content: "https://screwfast.uk" + "/social.png" },
+        },
+        {
+          tag: "meta",
+          attrs: { property: "twitter:image", content: "https://screwfast.uk" + "/social.png" },
+        },
+      ],
     }),
     compressor({
       gzip: false,

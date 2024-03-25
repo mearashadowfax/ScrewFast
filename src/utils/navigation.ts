@@ -1,5 +1,5 @@
 // An array of links for navigation bar
-export const navBarLinks = [
+const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Products", url: "/products" },
   { name: "Services", url: "/services" },
@@ -7,11 +7,11 @@ export const navBarLinks = [
   { name: "Contact", url: "/contact" },
 ];
 // An array of links for footer
-export const footerLinks = [
+const footerLinks = [
   {
     section: "Ecosystem",
     links: [
-      { name: "Documentation", url: "/en/welcome-to-docs/" },
+      { name: "Documentation", url: "/welcome-to-docs/" },
       { name: "Tools & Equipment", url: "/products" },
       { name: "Construction Services", url: "/services" },
     ],
@@ -27,10 +27,16 @@ export const footerLinks = [
   },
 ];
 // An object of links for social icons
-export const socialLinks = {
+const socialLinks = {
   facebook: "#",
   x: "#",
   github: "https://github.com/mearashadowfax/ScrewFast",
   google: "#",
   slack: "#",
+};
+
+export default {
+  navBarLinks,
+  footerLinks,
+  socialLinks,
 };

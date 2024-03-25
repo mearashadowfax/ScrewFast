@@ -3,8 +3,10 @@ import logo from "@/images/starlight/screwfast_logo_dark.svg?raw";
 import docs from "@/images/starlight/docs_logo.svg?raw";
 import type { Props } from "@astrojs/starlight/props";
 
+
 const main = "/";
-const self = "/" + (Astro.props.locale || "en") + "/welcome-to-docs/";
+const locale = Astro.props.locale ? Astro.props.locale + "/" : "";
+const self = "/" + locale + "welcome-to-docs/";
 ---
 
 <span class="site-title flex">
