@@ -1,13 +1,13 @@
 ---
 // Import necessary components and utilities
-import MainLayout from "../../layouts/MainLayout.astro";
-import AvatarBlogLarge from "../../components/ui/avatars/AvatarBlogLarge.astro";
-import CardRelated from "../../components/ui/cards/CardRelated.astro";
-import Bookmark from "../../components/ui/buttons/Bookmark.astro";
-import SocialShare from "../../components/ui/buttons/SocialShare.astro";
-import PostFeedback from "../../components/ui/feedback/PostFeedback.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import AvatarBlogLarge from "@/components/ui/avatars/AvatarBlogLarge.astro";
+import CardRelated from "@/components/ui/cards/CardRelated.astro";
+import Bookmark from "@/components/ui/buttons/Bookmark.astro";
+import SocialShare from "@/components/ui/buttons/SocialShare.astro";
+import PostFeedback from "@/components/ui/feedback/PostFeedback.astro";
 import { Image } from "astro:assets";
-import { capitalize, formatDate } from "../../utils/utils";
+import { capitalize, formatDate } from "@/utils/utils";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
