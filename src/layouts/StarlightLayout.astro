@@ -5,6 +5,32 @@ import "../styles/starlight.css";
 ---
 <html lang="en">
 <head>
+    <script is:inline>
+        const setDarkMode = () => {
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("starlight-theme")
+                ) {
+                    return localStorage.getItem("starlight-theme");
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            })();
+
+            if (theme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                document.documentElement.classList.add("dark");
+            }
+            window.localStorage.setItem("starlight-theme", theme);
+        };
+
+        setDarkMode();
+        document.addEventListener("astro:after-swap", setDarkMode);
+    </script>
     <ViewTransitions />
 </head>
 <body>
