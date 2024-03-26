@@ -191,7 +191,6 @@ Static files served directly to the browser are within the `public` directory at
 ```md
 
 public/
-├── favicon.ico
 ├── scripts/
 │   └── vendor/
 │       ├── gsap/ # Animations powered by GSAP (GreenSock Animation Platform)
