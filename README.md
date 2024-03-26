@@ -171,7 +171,8 @@ src/
 │   └── MainLayout.astro  # The main wrapping layout for all pages
 ├── pages/                # Astro files representing individual pages and website sections
 │   ├── 404.astro         # Custom 404 page
-│   ├── blog/             
+│   ├── blog/   
+│   ├── fr/               # Localized content
 │   ├── contact.astro     
 │   ├── index.astro       # The landing/home page
 │   ├── insights/         
@@ -329,7 +330,7 @@ export const socialLinks: SocialLinks = {
 
 > [!NOTE]
 > Remember to add complete and valid URLs for the navigation to function properly. These customizations will reflect throughout your Astro site, promoting consistency across all pages.
-</details>
+
 
 ## Integrations and Enhancements
 
@@ -374,18 +375,22 @@ Here's how we set up Lenis in `src/layouts/MainLayout.astro`:
   requestAnimationFrame(raf); // Start the loop
 </script>
 <style>
-html.lenis {
+html.lenis, html.lenis body {
   height: auto;
 }
+
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
+
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
+
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
@@ -578,7 +583,6 @@ Configure the compressor in `astro.config.mjs` file:
 ### Flexibility with Integrations
 
 The great thing about Astro is its rich ecosystem of integrations, allowing you to tailor project functionalities to your exact needs. Feel free to explore [Astro integrations page](https://astro.build/integrations/) and add additional capabilities as you see fit.
-</details>
 
 ## Tools and Technologies
 

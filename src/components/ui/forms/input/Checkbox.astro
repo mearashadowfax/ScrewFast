@@ -1,5 +1,5 @@
 ---
-const { label = "Remember me", id } = Astro.props;
+const { label = Astro.currentLocale === "fr" ? "Me rappeler" : "Remember me", id } = Astro.props;
 
 interface Props {
   label?: string;
