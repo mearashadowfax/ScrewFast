@@ -23,8 +23,6 @@ const favicons: Favicon[] = [
    },
 ];
 
-console.log(favicons);
-
 export const GET: APIRoute = async () => {
   const icons = await Promise.all(
     favicons.flatMap((favicon) =>
@@ -55,10 +53,6 @@ export const GET: APIRoute = async () => {
     theme_color: "#FFEDD5",
     background_color: "#262626",
   };
-
-  console.log(
-    JSON.stringify(manifest, null, 2),
-  );
 
   return new Response(JSON.stringify(manifest));
 };
