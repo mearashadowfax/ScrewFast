@@ -1,3 +1,5 @@
+import ogImageSrc from "@/images/social.png";
+
 export const SITE = {
   title: "ScrewFast",
   tagline: "Top-quality Hardware Tools",
@@ -33,4 +35,5 @@ export const OG = {
   url: SITE.url,
   title: `${SITE.title}: : Hardware Tools & Construction Services`,
   description: "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  image: ogImageSrc,
 };

@@ -20,7 +20,9 @@ const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
 const ogTitle = OG.title;
 const ogDescription = OG.description;
-const socialImage: string = `${Astro.site}/social.png`; // Set the path for the social media image
+const socialImageRes = await getImage({ src: OG.image, width: 1200, height: 600 });
+const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+
 ---
 
 <!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
