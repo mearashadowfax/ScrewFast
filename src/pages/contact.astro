@@ -2,11 +2,14 @@
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@/components/sections/ContactSection.astro";
+import { SITE } from "@/data_files/constants";
+
+const pageTitle: string = `Contact | ${SITE.title}`;
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout
-  title="Contact | ScrewFast"
+  title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",

@@ -15,6 +15,7 @@ import aerialView from "@/images/aerial-view.avif";
 import usingTools from "@/images/using-tools.avif";
 import progressBuilding from "@/images/progress-building.avif";
 import underConstruction from "@/images/under-construction.avif";
+import { SITE } from "@/data_files/constants";
 
 interface Article {
   isRightSection: boolean;
@@ -90,10 +91,12 @@ const articles: Article[] = [
     btnURL: "#",
   },
 ];
+
+const pageTitle: string = `Services | ${SITE.title}`;
 ---
 
-<MainLayout 
-  title="Services | ScrewFast" 
+<MainLayout
+  title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
