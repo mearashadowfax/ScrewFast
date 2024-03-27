@@ -6,6 +6,7 @@ import CardBlogRecent from "@/components/ui/cards/CardBlogRecent.astro";
 import CardInsight from "@/components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { SITE } from "@/data_files/constants";
 
 // Get all blogs post and sort them based on publish date
 const blogPosts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
@@ -15,7 +16,7 @@ const blogPosts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
 // Get all insights posts
 const insightPosts: CollectionEntry<"insights">[] =
   await getCollection("insights");
-  
+
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
@@ -27,10 +28,12 @@ const subTitle: string =
 const secondTitle: string = "Insights";
 const secondSubTitle: string =
   "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+
+const pageTitle: string = `Blog | ${SITE.title}`;
 ---
 
-<MainLayout 
-  title="Blog | ScrewFast" 
+<MainLayout
+  title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",

@@ -1,5 +1,6 @@
 ---
 // Import section components
+import { SITE } from "@/data_files/constants";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
@@ -14,9 +15,13 @@ export async function getStaticPaths() {
 }
 // Get the props for this page that define a specific insight post
 const { post } = Astro.props;
+
+const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 ---
 
-<MainLayout title={post.data.title + " | ScrewFast"}>
+<MainLayout
+  title={pageTitle}
+>
   <section class="py-6 sm:py-8 lg:py-12">
     <div class="mx-auto max-w-screen-xl px-4 md:px-8">
       <div class="grid gap-8 md:grid-cols-2 lg:gap-12">

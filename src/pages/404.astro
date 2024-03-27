@@ -2,6 +2,10 @@
 // Import section components
 import MainLayout from "@/layouts/MainLayout.astro";
 import Btn404 from "@/components/ui/buttons/Btn404.astro";
+import { SITE } from "@/data_files/constants";
+
+const pageTitle: string = `Page Not Found | ${SITE.title}`;
+
 
 // Define variables for page content
 const title: string = "404";
@@ -12,7 +16,8 @@ const btnTitle: string = "Go Back";
 ---
 
 <MainLayout
-  title="Page Not Found | ScrewFast">
+  title={pageTitle}
+>
   <section class="grid h-svh place-content-center">
     <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
       <div class="mx-auto max-w-screen-sm text-center">
