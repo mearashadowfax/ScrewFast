@@ -1,4 +1,8 @@
 ---
+import { getImage } from "astro:assets";
+import faviconSvgSrc from "@/images/icon.svg";
+import faviconSrc from "@/images/icon.png";
+
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'title' sets the default page title for the website.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -35,6 +39,20 @@ const ogDescription: string =
   "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!"; // Set the Open Graph description
 const URL: string = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const socialImage: string = `${Astro.site}/social.png`; // Set the path for the social media image
+
+// Generate and optimize the favicon images
+const faviconSvg = await getImage({
+  src: faviconSvgSrc,
+  format: 'svg',
+});
+
+const appleTouchIcon = await getImage({
+  src: faviconSrc,
+  width: 180,
+  height: 180,
+  format: 'png',
+});
+
 ---
 
 <!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
@@ -73,15 +91,15 @@ const socialImage: string = `${Astro.site}/social.png`; // Set the path for the 
 <meta name="twitter:image" content={socialImage} />
 
 <!-- Links to the webmanifest and sitemap -->
-<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="manifest" href="/manifest.json" />
 <!-- https://docs.astro.build/en/guides/integrations-guide/sitemap/ -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Links for favicons -->
 <link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
-<link href="/icon.svg" rel="icon" type="image/svg+xml" sizes="any" />
+<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
 <meta name="mobile-web-app-capable" content="yes" />
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" />
-<link href="/apple-touch-icon.png" rel="shortcut icon" />
+<link href={appleTouchIcon.src} rel="apple-touch-icon" />
+<link href={appleTouchIcon.src} rel="shortcut icon" />
 <!-- Set theme color -->
 <meta name="theme-color" content="#facc15" />
