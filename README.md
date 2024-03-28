@@ -191,19 +191,19 @@ Static files served directly to the browser are within the `public` directory at
 ```md
 
 public/
-├── scripts/
-│   └── vendor/
-│       ├── gsap/ # Animations powered by GSAP (GreenSock Animation Platform)
-│       │   └── gsap.min.js 
-│       ├── lenis/ # Lenis script for smooth scrolling effects
-│       │   └── lenis.js
-│       └── preline/   # Preline UI plugins
-│           ├── accordion/
-│           ├── collapse/
-│           ├── dropdown/
-│           ├── overlay/
-│           └── tabs/
-└── social.png # Image used for social media sharing previews
+└── scripts/
+    └── vendor/
+        ├── gsap/ # Animations powered by GSAP (GreenSock Animation Platform)
+        │   └── gsap.min.js 
+        ├── lenis/ # Lenis script for smooth scrolling effects
+        │   └── lenis.js
+        └── preline/   # Preline UI plugins
+            ├── accordion/
+            ├── collapse/
+            ├── dropdown/
+            ├── overlay/
+            └── tabs/
+
 
 ```
 
@@ -451,21 +451,32 @@ Additionally, update the `<html>` tag to remove the `scrollbar-hide` class, resu
 
 ### SEO Configuration
 
-The ScrewFast template incorporates a flexible SEO configuration that empowers you to effectively optimize each page for search engines as well as social media platforms. By utilizing the `Meta.astro` component, you can easily customize important metadata such as page titles, descriptions, author information, and social media images to improve your site's visibility and engagement.
+The SEO Configuration in the ScrewFast template is designed to empower users in optimizing their website's visibility on search engines and social media platforms. This documentation outlines the implementation details and usage instructions for effectively managing SEO settings.
 
-#### Customizing Metadata with Meta.astro
+#### Using constants.ts
 
-The `Meta.astro` component is pre-configured with default metadata values that should be defined to align with your website's content, ensuring out-of-the-box SEO readiness. These defaults can be overridden on a per-page basis:
+The SEO configuration has been centralized using the `constants.ts` file. This file manages SEO-related data such as page titles, descriptions, structured data, and Open Graph tags, providing a more structured and manageable approach to SEO management.
+
+To customize SEO settings, modify the values in the `constants.ts` file. Key configurations include SITE, SEO, and OG, allowing developers to define site-wide SEO parameters.
 
 ```astro
----
-// In Meta.astro component
-const defaultDescription = "ScrewFast offers top-tier hardware tools and expert construction services.";
-const { meta = defaultDescription } = Astro.props;
----
-```
+// constants.ts
 
-By setting the `defaultDescription` to a value that accurately reflects the content of your website, you ensure that all pages will have a relevant default meta description unless otherwise specified.
+export const SITE = {
+  title: "ScrewFast",
+  // Other SITE properties...
+};
+
+export const SEO = {
+  title: SITE.title,
+  // Other SEO properties...
+};
+
+export const OG = {
+  title: `${SITE.title}: Hardware Tools & Construction Services`,
+  // Other OG properties...
+};
+```
 
 #### Applying Metadata in Layouts
 
@@ -484,19 +495,24 @@ interface Props {
 <Meta meta={meta} />
 ```
 
-#### Customizing Metadata on Individual Pages
+#### Passing Individual Schema
 
-Finally, custom metadata can be passed to your layout component within individual page files, allowing for page-specific overrides:
+For page-specific SEO overrides, developers can pass individual schema properties within specific page files.
 
 ```astro
 ---
-// In your individual page file
-import MainLayout from '../layouts/MainLayout.astro';
+import { SITE } from "@/data_files/constants";
 ---
-
-<MainLayout meta="Find the perfect hardware tools with ScrewFast for all your construction needs.">
+<MainLayout
+  title={`Example Page | ${SITE.title}`}
+  structuredData={{
+    "@type": "WebPage",
+    // Other structured data properties...
+  }}
+>
   <!-- Page content -->
 </MainLayout>
+
 ```
 
 With this setup, the Meta component receives the custom meta description and applies it to the page's metadata. If no custom value is passed, the default from `Meta.astro` will be used instead.

@@ -8,6 +8,7 @@ import frStrings from "@/utils/fr/navigation.ts";
 
 // Select the correct translation based on the page's lang prop:
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
+const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
 ---
 
 <!-- Main header component -->
@@ -23,7 +24,7 @@ const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
       <!-- Brand logo -->
       <a
         class="flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-        href="/"
+        href={homeUrl}
         aria-label="Brand"
       >
         <svg class="h-auto w-24" viewBox="0 0 521 226" fill="none">
