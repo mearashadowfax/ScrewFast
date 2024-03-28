@@ -48,7 +48,7 @@ export const GET: APIRoute = async () => {
     name: "ScrewFast",
     icons,
     display: "minimal-ui",
-    id: "some-unique-id",
+    id: "/",
     start_url: "/",
     theme_color: "#FFEDD5",
     background_color: "#262626",
