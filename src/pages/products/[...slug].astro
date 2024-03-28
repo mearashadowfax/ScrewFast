@@ -5,6 +5,7 @@ import ProductTabBtn from "@/components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import { SITE } from "@/data_files/constants";
 
 // Global declaration for gsap animation library
 declare global {
@@ -22,9 +23,13 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+
+const pageTitle: string = `${product.data.main.title} | ${SITE.title}`;
 ---
 
-<MainLayout title={product.data.main.title + " | ScrewFast"}>
+<MainLayout
+  title={pageTitle}
+>
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
   </div>
 

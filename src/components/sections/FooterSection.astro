@@ -5,6 +5,7 @@ import EmailFooterInput from "../ui/forms/input/EmailFooterInput.astro";
 import enStrings from "@/utils/navigation.ts";
 import frStrings from "@/utils/fr/navigation.ts";
 import Icon from "../ui/icons/Icon.astro";
+import { SITE } from "@/data_files/constants";
 
 // Select the correct translation based on the page's lang prop:
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
@@ -124,7 +125,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © <span id="current-year"></span> ScrewFast. {crafted}
+          © <span id="current-year"></span> {SITE.title}. {crafted}
           <a
             class="rounded-lg font-medium underline underline-offset-2 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-none focus-visible:ring dark:ring-zinc-200 dark:hover:text-neutral-300"
             href="https://sobstvennoai.dev"

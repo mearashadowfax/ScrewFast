@@ -10,6 +10,7 @@ import TestimonialsSectionAlt from "@/components/sections/testimonials/Testimoni
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { SITE } from "@/data_files/constants";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
@@ -57,10 +58,12 @@ const testimonials = [
     avatarAlt: "Image Description",
   },
 ];
+
+const pageTitle: string = `Products | ${SITE.title}`;
 ---
 
-<MainLayout 
-  title="Products | ScrewFast" 
+<MainLayout
+  title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",

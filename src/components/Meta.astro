@@ -1,29 +1,15 @@
 ---
 import { getImage } from "astro:assets";
+import { OG, SEO, SITE } from "@/data_files/constants";
 import faviconSvgSrc from "@/images/icon.svg";
 import faviconSrc from "@/images/icon.png";
 
 // Default properties for the Meta component. These values are used if props are not provided.
-// 'title' sets the default page title for the website.
 // 'meta' sets a default description meta tag to describe the page content.
 // 'structuredData' defines default structured data in JSON-LD format to enhance search engine understanding of the page (for SEO purposes).
 const defaultProps = {
-  meta: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  structuredData: {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://screwfast.uk",
-    "url": "https://screwfast.uk",
-    "name": "ScrewFast | Top-quality Hardware Tools",
-    "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "url": "https://screwfast.uk",
-      "name": "ScrewFast",
-      "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
-    },
-    "inLanguage": "en-US"
-  },
+  meta: SITE.description,
+  structuredData: SEO.structuredData,
 };
 
 // Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
@@ -32,13 +18,12 @@ const defaultProps = {
 const { meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
 
 // Define the metadata for your website and individual pages
-const title: string = "ScrewFast"; // Set default title
-const ogTitle: string = "ScrewFast: Hardware Tools & Construction Services"; // Set the Open Graph title
-const author: string = "Emil Gulamov"; // Set the author's name
-const ogDescription: string =
-  "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!"; // Set the Open Graph description
-const URL: string = `${Astro.site}`; // Set the website URL in astro.config.mjs
-const socialImage: string = `${Astro.site}/social.png`; // Set the path for the social media image
+const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
+const author = SITE.author;
+const ogTitle = OG.title;
+const ogDescription = OG.description;
+const socialImageRes = await getImage({ src: OG.image, width: 1200, height: 600 });
+const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
 
 // Generate and optimize the favicon images
 const faviconSvg = await getImage({
@@ -75,7 +60,7 @@ const appleTouchIcon = await getImage({
 <meta property="og:url" content={URL} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />
-<meta property="og:site_name" content={title} />
+<meta property="og:site_name" content={SITE.title} />
 <meta property="og:description" content={ogDescription} />
 <meta property="og:image" content={socialImage} />
 <meta content="1200" property="og:image:width" />

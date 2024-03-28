@@ -3,9 +3,10 @@
 import Meta from "@/components/Meta.astro";
 import Navbar from "@/components/sections/Navbar.astro";
 import FooterSection from "@/components/sections/FooterSection.astro";
+import { SITE } from "@/data_files/constants";
 
 // Setting expected props
-const { title = "ScrewFast", meta, structuredData, lang = "en" } = Astro.props;
+const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
 
 // Interface to type-check the properties
 interface Props {
@@ -75,7 +76,7 @@ We set the language of the page to English and add classes for scrollbar and scr
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
-      
+
       html.lenis,
       html.lenis body {
         height: auto;
