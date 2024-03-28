@@ -3,10 +3,8 @@
 import SecondaryCTA from "../../ui/buttons/SecondaryCTA.astro";
 import Icon from "../../ui/icons/Icon.astro";
 
-// Set heading and sub-heading for the pricing section
-const title: string = "Simple, Transparent Pricing";
-const subTitle: string =
-  "Boost efficiency with ScrewFast's clear, value-driven plans.";
+// Define props from Astro
+const { pricing } = Astro.props;
 
 // Define TypeScript type for products.
 type Product = {
@@ -19,37 +17,20 @@ type Product = {
   purchaseBtnTitle: string;
   purchaseLink: string;
 };
-// Define two products for display - Starter Kit and Professional Toolbox.
-const starterKit: Product = {
-  name: "Starter Kit",
-  description: "Best option for DIY projects",
-  price: "$49",
-  cents: ".00",
-  billingFrequency: "USD / monthly",
-  features: [
-    "Key hardware tools",
-    "Access to guides & tutorials",
-    "Standard support",
-  ],
-  purchaseBtnTitle: "Get the Starter Kit",
-  purchaseLink: "#",
-};
 
-const professionalToolbox: Product = {
-  name: "Professional Toolbox",
-  description: "Best for large scale uses",
-  price: "$89",
-  cents: ".00",
-  billingFrequency: "USD / monthly",
-  features: [
-    "Premium tool selection",
-    "Priority support",
-    "Exclusive content & deals",
-    "Bulk order discounts",
-  ],
-  purchaseBtnTitle: "Get the Professional Toolbox",
-  purchaseLink: "#",
-};
+interface PricingSectionProps {
+  title: string;
+  subTitle: string;
+  badge: string;
+  thirdOption: string;
+  btnText: string;
+  pricing: {
+    title: string;
+    subTitle: string;
+    starterKit: Product;
+    professionalToolbox: Product;
+  };
+}
 ---
 
 <section
@@ -60,10 +41,10 @@ const professionalToolbox: Product = {
     <h2
       class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
     >
-      {title}
+      {pricing.title}
     </h2>
     <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-      {subTitle}
+      {pricing.subTitle}
     </p>
   </div>
   <!-- Contains two main product blocks -->
@@ -74,26 +55,26 @@ const professionalToolbox: Product = {
     >
       <div class="mb-4">
         <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
-          {starterKit.name}
+          {pricing.starterKit.name}
         </h3>
-        <p class="text-indigo-300">{starterKit.description}</p>
+        <p class="text-indigo-300">{pricing.starterKit.description}</p>
       </div>
 
       <div class="mb-4">
         <span class="text-4xl font-bold text-neutral-200"
-          >{starterKit.price}</span
+          >{pricing.starterKit.price}</span
         >
         <span class="text-lg font-bold text-neutral-300"
-          >{starterKit.cents}</span
+          >{pricing.starterKit.cents}</span
         >
         <span class="ms-3 text-sm text-indigo-200"
-          >{starterKit.billingFrequency}</span
+          >{pricing.starterKit.billingFrequency}</span
         >
       </div>
       <!-- Features list - automatically created by mapping over `features` array -->
       <ul class="mb-6 space-y-2 text-neutral-300">
         {
-          starterKit.features.map((feature) => (
+          pricing.starterKit.features.map((feature: string) => (
             <li class="flex items-center gap-1.5">
               <Icon name="checkCircle" />
 
@@ -104,9 +85,9 @@ const professionalToolbox: Product = {
       </ul>
       <!-- CTA for purchasing the product -->
       <a
-        href={starterKit.purchaseLink}
+        href={pricing.starterKit.purchaseLink}
         class="block rounded-lg bg-gray-500 px-8 py-3 text-center text-sm font-bold text-gray-100 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-600 focus-visible:ring active:text-gray-300 md:text-base"
-        >{starterKit.purchaseBtnTitle}</a
+        >{pricing.starterKit.purchaseBtnTitle}</a
       >
     </div>
     <!-- Professional Toolbox product details -->
@@ -118,32 +99,32 @@ const professionalToolbox: Product = {
       >
         <div>
           <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
-            {professionalToolbox.name}
+            {pricing.professionalToolbox.name}
           </h3>
-          <p class="text-orange-200">{professionalToolbox.description}</p>
+          <p class="text-orange-200">{pricing.professionalToolbox.description}</p>
         </div>
 
         <span
-          class="order-first inline-block rounded-full bg-orange-200 bg-opacity-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-600 lg:order-none"
-          >Best value</span
+          class="order-first inline-block rounded-full bg-orange-200 bg-opacity-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-center text-orange-600 lg:order-none"
+          >{pricing.badge}</span
         >
       </div>
 
       <div class="mb-4">
         <span class="text-6xl font-bold text-neutral-200"
-          >{professionalToolbox.price}</span
+          >{pricing.professionalToolbox.price}</span
         >
         <span class="text-lg font-bold text-orange-100"
-          >{professionalToolbox.cents}</span
+          >{pricing.professionalToolbox.cents}</span
         >
         <span class="ms-3 text-orange-200"
-          >{professionalToolbox.billingFrequency}</span
+          >{pricing.professionalToolbox.billingFrequency}</span
         >
       </div>
       <!-- Features list - automatically created by mapping over `features` array -->
       <ul class="mb-6 space-y-2 text-orange-100">
         {
-          professionalToolbox.features.map((feature) => (
+          pricing.professionalToolbox.features.map((feature: string) => (
             <li class="flex items-center gap-1.5">
               <Icon name="checkCircle" />
 
@@ -154,18 +135,18 @@ const professionalToolbox: Product = {
       </ul>
       <!-- CTA for purchasing the product -->
       <a
-        href={professionalToolbox.purchaseLink}
+        href={pricing.professionalToolbox.purchaseLink}
         class="block rounded-lg bg-orange-200 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-none ring-orange-300 transition duration-100 hover:bg-orange-300 hover:bg-opacity-50 focus-visible:ring active:bg-orange-400 md:text-base"
-        >{professionalToolbox.purchaseBtnTitle}</a
+        >{pricing.professionalToolbox.purchaseBtnTitle}</a
       >
     </div>
   </div>
   <!-- Call to action for Enterprise Solutions -->
   <div class="mt-8 flex items-center justify-center gap-x-3 md:mt-12">
     <p class="text-sm text-neutral-600 dark:text-neutral-400">
-      Enterprise Solutions?
+      {pricing.thirdOption}
     </p>
 
-    <SecondaryCTA title="Get a Custom Quote" url="#" />
+    <SecondaryCTA title={pricing.btnText} url="#" />
   </div>
 </section>

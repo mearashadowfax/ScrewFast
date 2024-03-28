@@ -1,0 +1,38 @@
+{
+  "title": "Simple, Transparent Pricing",
+  "subTitle": "Boost efficiency with ScrewFast's clear, value-driven plans.",
+  "badge": "Best value",
+  "thirdOption": "Enterprise Solutions?",
+  "btnText": "Get a Custom Quote",
+
+  "starterKit": {
+    "name": "Starter Kit",
+    "description": "Best option for DIY projects",
+    "price": "$49",
+    "cents": ".00",
+    "billingFrequency": "USD / monthly",
+    "features": [
+      "Key hardware tools",
+      "Access to guides & tutorials",
+      "Standard support"
+    ],
+    "purchaseBtnTitle": "Get the Starter Kit",
+    "purchaseLink": "#"
+  },
+
+  "professionalToolbox": {
+    "name": "Professional Toolbox",
+    "description": "Best for large scale uses",
+    "price": "$89",
+    "cents": ".00",
+    "billingFrequency": "USD / monthly",
+    "features": [
+      "Premium tool selection",
+      "Priority support",
+      "Exclusive content & deals",
+      "Bulk order discounts"
+    ],
+    "purchaseBtnTitle": "Get the Professional Toolbox",
+    "purchaseLink": "#"
+  }
+}

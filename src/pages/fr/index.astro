@@ -13,6 +13,7 @@ import AnnouncementBanner from "@/components/ui/banners/AnnouncementBanner.astro
 import heroImage from "@/images/hero-image.avif";
 import faqs from "@/data_files/fr/faqs.json";
 import features from "@/data_files/fr/features.json";
+import pricing from "@/data_files/fr/pricing.json";
 import featureImage from "@/images/features-image.avif";
 import construction from "@/images/construction-image.avif";
 import tools from "@/images/automated-tools.avif";
@@ -132,7 +133,7 @@ const avatarSrcs: Array<string> = [
     ]}
   />
 
-  <PricingSection />
+  <PricingSection pricing={pricing} />
 
   <FAQ title="Questions<br />fréquemment posées" faqs={faqs} />
 
