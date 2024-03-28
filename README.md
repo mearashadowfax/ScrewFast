@@ -191,14 +191,6 @@ Static files served directly to the browser are within the `public` directory at
 ```md
 
 public/
-├── apple-touch-icon.png
-├── favicon.ico
-├── icon-192.png
-├── icon-512.png
-├── icon.svg
-├── manifest.webmanifest
-├── maskable_icon.png
-├── maskable_icon_x512.png
 ├── scripts/
 │   └── vendor/
 │       ├── gsap/ # Animations powered by GSAP (GreenSock Animation Platform)
