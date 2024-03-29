@@ -16,7 +16,7 @@ We assign an ID matching the URL for easy reference in our script.
 If URL is '/' (home page), assign ID as 'home' 
 -->
 <a
-  id={url === "/" ? "home" : url.split("/")[1]}
+  id={url === "/" ? "home" : url.replace("/", "")}
   href={url}
   data-astro-prefetch
   class="rounded-lg text-base font-medium text-neutral-600 outline-none ring-zinc-500 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-none md:py-3 md:text-sm 2xl:text-base"
@@ -25,21 +25,28 @@ If URL is '/' (home page), assign ID as 'home'
 </a>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let url = window.location.pathname;
-        let urlSegments = url.split("/");
-        let navId = urlSegments[1] === 'fr' ? urlSegments[2] : urlSegments[1];
-        navId = navId ? navId : 'home';
-        let nav = document.getElementById(navId);
-        if (nav) {
-            nav.classList.remove(
-                "text-neutral-600",
-                "dark:text-neutral-400",
-                "hover:text-neutral-500",
-                "dark:hover:text-neutral-500",
-            );
-            nav.classList.add("text-[#fa5a15]", "dark:text-[#fb713b]");
-            nav.setAttribute("aria-current", "page");
-        }
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    let url = window.location.pathname;
+    let urlSegments = url.split("/");
+    let navId;
+
+    if (url === "/") {
+      navId = "home";
+    } else {
+      navId = url.replace("/", "");
+    }
+
+    let nav = document.getElementById(navId);
+
+    if (nav) {
+      nav.classList.remove(
+        "text-neutral-600",
+        "dark:text-neutral-400",
+        "hover:text-neutral-500",
+        "dark:hover:text-neutral-500"
+      );
+      nav.classList.add("text-[#fa5a15]", "dark:text-[#fb713b]");
+      nav.setAttribute("aria-current", "page");
+    }
+  });
 </script>
