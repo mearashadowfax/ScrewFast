@@ -15,36 +15,74 @@ const defaultProps = {
 // Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
 // For example:
 // <MainLayout title="Custom Title" meta="Custom description." />
-const { meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
+const {
+  meta = defaultProps.meta,
+  structuredData = defaultProps.structuredData,
+} = Astro.props;
 
 // Define the metadata for your website and individual pages
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
+const canonical = Astro.url.href;
+const basePath = Astro.url.pathname;
 const ogTitle = OG.title;
 const ogDescription = OG.description;
-const socialImageRes = await getImage({ src: OG.image, width: 1200, height: 600 });
+const socialImageRes = await getImage({
+  src: OG.image,
+  width: 1200,
+  height: 600,
+});
 const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+
+const languages: { [key: string]: string } = {
+  en: "",
+  fr: "fr",
+};
+
+function createHref(lang: string, prefix: string, path: string): string {
+  const hasPrefix = path.startsWith(`/${prefix}/`);
+
+  const basePath = hasPrefix ? path : `/${prefix}${path}`;
+  const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
+  return `${URL.slice(0, -1)}${normalizedBasePath}`;
+}
+
+const fullPath: string = Astro.url.pathname;
+
+const alternateLanguageLinks: string = Object.entries(languages)
+  .map(([lang, prefix]: [string, string]) => {
+    const basePath: string =
+      lang === "en" ? fullPath.replace(/^\/fr\//, "/") : fullPath;
+
+    const href: string = createHref(lang, prefix, basePath);
+
+    return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;
+  })
+  .join("\n");
 
 // Generate and optimize the favicon images
 const faviconSvg = await getImage({
   src: faviconSvgSrc,
-  format: 'svg',
+  format: "svg",
 });
 
 const appleTouchIcon = await getImage({
   src: faviconSrc,
   width: 180,
   height: 180,
-  format: 'png',
+  format: "png",
 });
-
 ---
 
 <!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
-     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->
-{structuredData && (
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
-)}
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->{
+  structuredData && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
+}
 <!-- Define the character set, description, author, and viewport settings -->
 <meta charset="utf-8" />
 <meta content={meta} name="description" />
@@ -54,6 +92,8 @@ const appleTouchIcon = await getImage({
   content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
 />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="canonical" href={canonical} />
+<Fragment set:html={alternateLanguageLinks} />
 
 <!-- Facebook Meta Tags -->
 <meta property="og:locale" content="en_US" />
