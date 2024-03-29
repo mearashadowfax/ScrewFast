@@ -31,9 +31,9 @@ ScrewFast is an open-source template designed for quick and efficient web projec
     + [GSAP Integration](#gsap-integration)
     + [Hiding Scrollbar](#hiding-scrollbar)
     + [SEO Configuration](#seo-configuration)
-      - [Customizing Metadata with Meta.astro](#customizing-metadata-with-metaastro)
+      - [Using constants.ts](#using-constantsts)
       - [Applying Metadata in Layouts](#applying-metadata-in-layouts)
-      - [Customizing Metadata on Individual Pages](#customizing-metadata-on-individual-pages)
+      - [Passing Individual Schema](#passing-individual-schema)
       - [Extending Metadata for SEO](#extending-metadata-for-seo)
       - [Structured Data and Rich Snippets](#structured-data-and-rich-snippets)
       - [Using Astro SEO Integrations](#using-astro-seo-integrations)
@@ -94,9 +94,9 @@ ScrewFast is an open-source template designed for quick and efficient web projec
     - The Icon Component offers a centralized location for all SVG Icons across the project in one TypeScript file - allowing unified updates and easy maintenance.
     - **Note:** Users have the option to use other community integrations like [astro-icons](https://github.com/natemoo-re/astro-icon). However, the author decided to create a custom icon set component for managing custom icons.
 
-### In Process
-- [ ] Internationalization (i18n)
-
+- [x] **Internationalization (i18n) Features**:
+    - Integrates [Astro’s internationalization (i18n) features](https://docs.astro.build/en/guides/internationalization/).
+    - Additionally, a custom LanguagePicker component has been developed to facilitate language selection.
 
 ### Planned Improvements
 - [ ] Implement a table of contents (ToC) sidebar for blog articles.
