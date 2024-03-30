@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 
-const pageTitle: string = `${product.data.main.title} | ${SITE.title}`;
+const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 ---
 
 <MainLayout
@@ -51,10 +51,10 @@ const pageTitle: string = `${product.data.main.title} | ${SITE.title}`;
         <h1
           class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          {product.data.main.title}
+          {product.data.title}
         </h1>
         <p class="text-lg text-neutral-600 dark:text-neutral-400">
-          {product.data.main.subTitle}
+          {product.data.description}
         </p>
       </div>
       <div>
@@ -96,17 +96,17 @@ const pageTitle: string = `${product.data.main.title} | ${SITE.title}`;
               <h2
                 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl"
               >
-                {product.data.description.title}
+                {product.data.longDescription.title}
               </h2>
               <p
                 class="mt-3 text-pretty text-neutral-600 dark:text-neutral-400"
               >
-                {product.data.description.subTitle}
+                {product.data.longDescription.subTitle}
               </p>
               <p class="mt-5">
                 <PrimaryCTA
-                  title={product.data.description.btnTitle}
-                  url={product.data.description.btnURL}
+                  title={product.data.longDescription.btnTitle}
+                  url={product.data.longDescription.btnURL}
                 />
               </p>
             </div>

@@ -6,10 +6,10 @@ import { docsSchema } from '@astrojs/starlight/schema';
 const productsCollection = defineCollection({
   type: 'content',
     schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
     main: z.object({
       id: z.number(),
-      title: z.string(),
-      subTitle: z.string(),
       content: z.string(),
       imgCard: image(),
       imgMain: image(),
@@ -22,7 +22,7 @@ const productsCollection = defineCollection({
         title: z.string(),
       })
     ),
-    description: z.object({
+    longDescription: z.object({
       title: z.string(),
       subTitle: z.string(),
       btnTitle: z.string(),
