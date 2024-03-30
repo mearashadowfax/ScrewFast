@@ -26,7 +26,7 @@ ScrewFast is an open-source template designed for quick and efficient web projec
       - [Footer Links](#footer-links)
       - [Social Media Links](#social-media-links)
   * [Integrations and Enhancements](#integrations-and-enhancements)
-  * + [Starlight Documentation](#starlight-documentation)
+    + [Starlight Documentation](#starlight-documentation)
     + [Lenis for Smooth Scrolling](#lenis-for-smooth-scrolling)
     + [GSAP Integration](#gsap-integration)
     + [Hiding Scrollbar](#hiding-scrollbar)
@@ -38,6 +38,8 @@ ScrewFast is an open-source template designed for quick and efficient web projec
       - [Structured Data and Rich Snippets](#structured-data-and-rich-snippets)
       - [Using Astro SEO Integrations](#using-astro-seo-integrations)
     + [Robots.txt](#robotstxt)
+    + [Markdown/MDX](#markdownmdx)
+      - [Image Integration](#image-integration)
     + [Astro Integrations](#astro-integrations)
     + [Flexibility with Integrations](#flexibility-with-integrations)
   * [Tools and Technologies](#tools-and-technologies)
@@ -563,6 +565,25 @@ export const GET: APIRoute = () => {
   });
 };
 ```
+### Markdown/MDX
+
+#### Image Integration
+
+The addition of `.vscode/settings.json` file in the root directory facilitates image integration directly into content collections within Markdown editors. This feature enables effortless creation of Markdown links with media files and seamless copying into the workspace.
+
+##### Usage
+- **Paste/Drop Images**: Activate by pressing <kbd>Shift</kbd> while dropping the file.
+- **Markdown Link**: Image is linked using Markdown syntax `(![alt text](../../images/content/<path>))`.
+- **File Handling**: Images are organized in `src/images/content/<path>`.
+
+##### Example
+Pasting `getting-started.png` into `src/content/post-1.md` results in:
+
+- Adding `![alt text](../../images/content/post-1/getting-started.png)` to `post-1.md`.
+- Moving the image file to `src/images/content/post-1/getting-started.png`.
+
+> [!NOTE]
+> Remember to press <kbd>Shift</kbd> while dropping images.
 
 ### Astro Integrations
 
