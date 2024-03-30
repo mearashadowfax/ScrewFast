@@ -285,6 +285,7 @@ export const Icons = {
       "h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "currentColor",
+    title: "Twitter",
   },
   facebookFooter: {
     paths: [
@@ -296,6 +297,7 @@ export const Icons = {
       "h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "currentColor",
+    title: "Facebook",
   },
   githubFooter: {
     paths: [
@@ -307,6 +309,7 @@ export const Icons = {
       "h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "currentColor",
+    title: "GitHub",
   },
   googleFooter: {
     paths: [
@@ -318,6 +321,7 @@ export const Icons = {
       "h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "currentColor",
+    title: "Google",
   },
   slackFooter: {
     paths: [
@@ -329,6 +333,7 @@ export const Icons = {
       "h-4 w-4 flex-shrink-0 fill-current text-neutral-700 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "currentColor",
+    title: "Slack",
   },
   quotation: {
     paths: [
