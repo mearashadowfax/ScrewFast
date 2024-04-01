@@ -13,15 +13,16 @@ export async function getStaticPaths() {
     props: { post },
   }));
 }
+
 // Get the props for this page that define a specific insight post
 const { post } = Astro.props;
+
+const { Content } = await post.render();
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 ---
 
-<MainLayout
-  title={pageTitle}
->
+<MainLayout title={pageTitle}>
   <section class="py-6 sm:py-8 lg:py-12">
     <div class="mx-auto max-w-screen-xl px-4 md:px-8">
       <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
@@ -35,6 +36,12 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
               format={"avif"}
             />
           </div>
+          <div id="pin" class="mt-10">
+            <div class="mb-4 h-0.5 w-full bg-[#fa5a15]" id="progress"></div>
+            <h2 class="text-pretty text-sm font-light text-neutral-500">
+              Table of Contents:
+            </h2>
+          </div>
         </div>
 
         <div class="md:pt-8">
@@ -43,17 +50,77 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
           >
             {post.data.title}
           </h1>
-          <div class="space-y-8">
-            {
-              post.data.contents.map((content) => (
-                <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
-                  {content}
-                </p>
-              ))
-            }
-          </div>
+
+          <article
+            class="text-pretty text-lg text-neutral-700 dark:text-neutral-300"
+          >
+            <Content />
+          </article>
         </div>
       </div>
     </div>
   </section>
 </MainLayout>
+
+<style is:global>
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    margin-top: 2.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  p {
+    margin-top: 1.5rem;
+  }
+
+  @keyframes grow-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  #progress {
+    transform-origin: 0 50%;
+    animation: grow-progress auto linear;
+    animation-timeline: scroll(block root);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({
+    scrollTrigger: {
+      scrub: 1,
+      pin: true,
+      trigger: "#pin",
+      markers: true,
+      start: "top 20%",
+      endTrigger: "footer",
+      end: "top bottom",
+    },
+  });
+</script>

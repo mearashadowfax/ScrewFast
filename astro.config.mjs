@@ -16,11 +16,11 @@ export default defineConfig({
     defaultLocale: "en",
     locales: ["en", "fr"],
     fallback: {
-      fr: "en"
+      fr: "en",
     },
     routing: {
-      prefixDefaultLocale: false
-    }
+      prefixDefaultLocale: false,
+    },
   },
   prefetch: true,
   integrations: [
@@ -83,11 +83,17 @@ export default defineConfig({
       head: [
         {
           tag: "meta",
-          attrs: { property: "og:image", content: "https://screwfast.uk" + "/social.png" },
+          attrs: {
+            property: "og:image",
+            content: "https://screwfast.uk" + "/social.png",
+          },
         },
         {
           tag: "meta",
-          attrs: { property: "twitter:image", content: "https://screwfast.uk" + "/social.png" },
+          attrs: {
+            property: "twitter:image",
+            content: "https://screwfast.uk" + "/social.png",
+          },
         },
       ],
     }),
