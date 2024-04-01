@@ -16,7 +16,7 @@
     "@astrojs/starlight-tailwind": "^2.0.1",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.4.0",
-    "astro": "^4.5.9",
+    "astro": "^4.5.12",
     "astro-compressor": "^0.4.1",
     "globby": "^14.0.1",
     "gsap": "^3.12.5",
