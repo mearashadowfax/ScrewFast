@@ -16,11 +16,11 @@ export default defineConfig({
     defaultLocale: "en",
     locales: ["en", "fr"],
     fallback: {
-      fr: "en"
+      fr: "en",
     },
     routing: {
-      prefixDefaultLocale: false
-    }
+      prefixDefaultLocale: false,
+    },
   },
   prefetch: true,
   integrations: [
