@@ -82,6 +82,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
   html {
     scroll-behavior: smooth;
   }
+
   article h2,
   article h3,
   article h4,
@@ -91,21 +92,26 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     margin-top: 2.5rem;
     scroll-margin-top: 3rem;
   }
+
   h2 {
     font-size: 1.5rem;
     line-height: 2rem;
   }
+
   h3 {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+
   h4 {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+
   p {
     margin-top: 1.5rem;
   }
+
   @keyframes grow-progress {
     from {
       transform: scaleX(0);
@@ -114,20 +120,24 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
       transform: scaleX(1);
     }
   }
+
   #progress {
     transform-origin: 0 50%;
     animation: grow-progress auto linear;
     animation-timeline: scroll(block root);
   }
+
   #toc li {
     display: flex;
     align-items: center;
     opacity: 0.8;
     transition: all 300ms var(--transition-cubic);
   }
+
   #toc li.selected {
     opacity: 1;
   }
+
   #toc li svg {
     width: 0;
     height: 0;
@@ -135,6 +145,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
       height 400ms var(--transition-cubic),
       width 400ms var(--transition-cubic);
   }
+
   #toc li.selected svg {
     width: 1.25rem;
     height: 1.25rem;
