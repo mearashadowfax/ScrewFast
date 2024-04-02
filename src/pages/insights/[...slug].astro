@@ -159,70 +159,57 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     },
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // The article element that contains the Markdown content
-    const article: HTMLElement | null = document.querySelector("article");
+  // Function to create and add an item to the ToC list
+  function addToC(heading, tocList) {
+    const li = document.createElement("li");
+    li.className = "toc-level-" + heading.tagName.toLowerCase();
+    li.innerHTML =`
+      <svg class="w-0 h-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z">
+          </path>
+      </svg>
+      <a href="#${heading.id}">${heading.textContent}</a>`;
+    tocList?.appendChild(li);
+    return li;
+  }
 
-    // The ToC container <ul> element
-    const tocList: HTMLElement | null = document.querySelector("#toc ul");
-
-    // Function to create and add an item to the ToC list
-    function addToC(heading: HTMLElement) {
-      const li = document.createElement("li");
-      li.className = "toc-level-" + heading.tagName.toLowerCase();
-
-      const tempDiv = document.createElement("div");
-      tempDiv.innerHTML =
-        '<svg class="w-0 h-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></svg>';
-      const svg = tempDiv.firstChild;
-
-      li.appendChild(svg as Node);
-
-      const link = document.createElement("a");
-      link.href = "#" + heading.id;
-      link.textContent = heading.textContent;
-
-      li.appendChild(link);
-
-      tocList?.appendChild(li);
-
-      return li;
+  function setActiveLink(id) {
+    document.querySelectorAll("#toc li").forEach((li) => {
+      li.classList.remove("selected");
+    });
+    const activeLink = document.querySelector(`#toc a[href="#${id}"]`);
+    if (activeLink) {
+      const li: HTMLElement | null = activeLink.parentElement;
+      li?.classList.add("selected");
     }
+  }
 
-    // Helper function to toggle the 'selected' class
-    function setActiveLink(id: string) {
-      document.querySelectorAll("#toc li").forEach((li) => {
-        li.classList.remove("selected");
-      });
-
-      const activeLink = document.querySelector(`#toc a[href="#${id}"]`);
-      if (activeLink) {
-        const li: HTMLElement | null = activeLink.parentElement;
-        li?.classList.add("selected");
-      }
-    }
-
+  function generateToC(article, tocList) {
     // Observe headings and add them to the ToC
     let headings: NodeListOf<HTMLElement> | [] = article
-      ? article.querySelectorAll("h1, h2, h3, h4, h5, h6")
-      : [];
-
+        ? article.querySelectorAll("h1, h2, h3, h4, h5, h6")
+        : [];
     headings.forEach((heading: Element, i: number) => {
       if (heading instanceof HTMLElement) {
-        addToC(heading);
-
+        addToC(heading, tocList);
         gsap.timeline({
           scrollTrigger: {
             trigger: heading,
             start: "top 20%",
             end: () =>
-              `bottom top+=${i === headings.length - 1 ? 0 : headings[i + 1].getBoundingClientRect().height}`,
+                `bottom top+=${i === headings.length - 1 ? 0 : headings[i + 1].getBoundingClientRect().height}`,
             onEnter: () => setActiveLink(heading.id),
-            onLeaveBack: () =>
-              setActiveLink((headings[i - 1] || { id: null }).id),
           },
         });
       }
     });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // The article element that contains the Markdown content
+    const article: HTMLElement | null = document.querySelector("article");
+    // The ToC container <ul> element
+    const tocList: HTMLElement | null = document.querySelector("#toc ul");
+    generateToC(article, tocList);
   });
 </script>
