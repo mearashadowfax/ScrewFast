@@ -160,7 +160,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
   });
 
   // Function to create and add an item to the ToC list
-  function addToC(heading, tocList) {
+  function addToC(heading: HTMLElement, tocList: HTMLElement | null) {
     const li = document.createElement("li");
     li.className = "toc-level-" + heading.tagName.toLowerCase();
     li.innerHTML =`
@@ -173,7 +173,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     return li;
   }
 
-  function setActiveLink(id) {
+  function setActiveLink(id: string) {
     document.querySelectorAll("#toc li").forEach((li) => {
       li.classList.remove("selected");
     });
@@ -184,7 +184,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     }
   }
 
-  function generateToC(article, tocList) {
+  function generateToC(article: HTMLElement | null, tocList: HTMLElement | null) {
     // Observe headings and add them to the ToC
     let headings: NodeListOf<HTMLElement> | [] = article
         ? article.querySelectorAll("h1, h2, h3, h4, h5, h6")

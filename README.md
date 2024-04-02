@@ -107,7 +107,6 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 ### Planned Improvements
 - Currently, there are no planned improvements. We'll update this section as plans develop.
 
-
 ### Bug Fixes
 - Currently, there are no known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/mearashadowfax/ScrewFast/issues).
 
