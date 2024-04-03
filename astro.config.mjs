@@ -25,7 +25,15 @@ export default defineConfig({
   prefetch: true,
   integrations: [
     tailwind(),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: "en", // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
+        locales: {
+          en: "en-US", // The `defaultLocale` value must present in `locales` keys
+          fr: "fr-CA",
+        },
+      },
+    }),
     starlight({
       title: "ScrewFast Docs",
       defaultLocale: "root",
@@ -84,11 +92,17 @@ export default defineConfig({
       head: [
         {
           tag: "meta",
-          attrs: { property: "og:image", content: "https://screwfast.uk" + "/social.webp" },
+          attrs: {
+            property: "og:image",
+            content: "https://screwfast.uk" + "/social.webp",
+          },
         },
         {
           tag: "meta",
-          attrs: { property: "twitter:image", content: "https://screwfast.uk" + "/social.webp" },
+          attrs: {
+            property: "twitter:image",
+            content: "https://screwfast.uk" + "/social.webp",
+          },
         },
       ],
     }),
