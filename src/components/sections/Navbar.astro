@@ -3,14 +3,8 @@
 import ThemeIcon from "../ThemeIcon.astro";
 import NavLink from "../ui/links/NavLink.astro";
 import Authentication from "./Authentication.astro";
-import enStrings from "@/utils/navigation.ts";
-import frStrings from "@/utils/fr/navigation.ts";
+import strings from "@/utils/navigation.ts";
 import BrandLogo from "../BrandLogo.astro";
-import LanguagePicker from "../ui/LanguagePicker.astro";
-
-// Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
-const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
 ---
 
 <!-- Main header component -->
@@ -26,7 +20,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
       <!-- Brand logo -->
       <a
         class="flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-        href={homeUrl}
+        href="/"
         aria-label="Brand"
       >
         <BrandLogo class="h-auto w-24" />
@@ -83,15 +77,17 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
     >
       <!-- Navigation links container -->
       <div
-        class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 lg:gap-x-7 md:gap-y-0 md:ps-7"
+        class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
       >
         <!-- Navigation links and Authentication component -->
-        {strings.navBarLinks.map(link => (
-          <NavLink url={link.url} name={link.name} />
-        ))}
+        {
+          strings.navBarLinks.map((link) => (
+            <NavLink url={link.url} name={link.name} />
+          ))
+        }
 
         <Authentication />
-        <LanguagePicker />
+
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">
           <ThemeIcon />
@@ -144,7 +140,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
 
       if (dispatchEvent) {
         window.dispatchEvent(
-          new CustomEvent("on-hs-appearance-change", { detail: theme }),
+          new CustomEvent("on-hs-appearance-change", { detail: theme })
         );
       }
     },
@@ -174,10 +170,10 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
 
   window.addEventListener("load", () => {
     const $clickableThemes = document.querySelectorAll(
-      "[data-hs-theme-click-value]",
+      "[data-hs-theme-click-value]"
     );
     const $switchableThemes = document.querySelectorAll(
-      "[data-hs-theme-switch]",
+      "[data-hs-theme-switch]"
     );
 
     $clickableThemes.forEach(($item) => {
@@ -185,8 +181,8 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
         HSThemeAppearance.setAppearance(
           $item.getAttribute("data-hs-theme-click-value"),
           true,
-          $item,
-        ),
+          $item
+        )
       );
     });
 
