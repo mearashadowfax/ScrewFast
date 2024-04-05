@@ -36,8 +36,15 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
               format={"avif"}
             />
           </div>
+          <div
+            id="progress-mobile"
+            class="fixed left-0 top-0 h-2 w-full bg-gradient-to-r from-[#fa5a15]/30 to-[#fa5a15] md:hidden"
+          >
+          </div>
           <div id="pin" class="mt-10 hidden space-y-4 md:block">
-            <div class="h-px w-full bg-neutral-300 dark:bg-neutral-700">
+            <div
+              class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700"
+            >
               <div
                 id="progress"
                 class="h-px w-full bg-gradient-to-r from-[#fa5a15]/30 to-[#fa5a15]"
@@ -112,21 +119,6 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     margin-top: 1.5rem;
   }
 
-  @keyframes grow-progress {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
-
-  #progress {
-    transform-origin: 0 50%;
-    animation: grow-progress auto linear;
-    animation-timeline: scroll(block root);
-  }
-
   #toc li {
     display: flex;
     align-items: center;
@@ -154,6 +146,45 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 </style>
 
 <script>
+  const onScroll = (): void => {
+    const article = document.querySelector("article");
+    if (!article) return;
+
+    const articleHeight = article.offsetHeight;
+    const articleOffsetTop = article.offsetTop;
+
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (articleHeight && articleOffsetTop && scrollTop) {
+      const progress =
+        ((scrollTop - articleOffsetTop) /
+          (articleHeight - window.innerHeight)) *
+        100;
+
+      const progressBar = document.getElementById("progress");
+      const progressBarMobile = document.getElementById("progress-mobile");
+
+      if (progressBar && progressBarMobile) {
+        progressBar.style.width = `${progress}%`;
+        progressBarMobile.style.width = `${progress}%`;
+      }
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    window.onscroll = onScroll;
+
+    // Set initial width of progress bar
+    const progressBar = document.getElementById("progress");
+    const progressBarMobile = document.getElementById("progress-mobile");
+
+    if (progressBar && progressBarMobile) {
+      progressBar.style.width = "0%";
+      progressBarMobile.style.width = "0%";
+    }
+  });
+</script>
+<script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -170,11 +201,12 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     },
   });
 
-  const SVG_HTML_STRING = '<svg class="w-0 h-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></svg>';
+  const SVG_HTML_STRING =
+    '<svg class="w-0 h-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></svg>';
 
   function setActiveLinkById(id: string | null) {
     const listItems = document.querySelectorAll("#toc li");
-    listItems.forEach(item => item.classList.remove("selected"));
+    listItems.forEach((item) => item.classList.remove("selected"));
 
     if (!id) return;
 
@@ -192,7 +224,9 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     // The ToC container <ul> element
     const tocList: HTMLElement | null = document.querySelector("#toc ul");
 
-    const headings: NodeListOf<HTMLElement> | [] = article ? article.querySelectorAll("h1, h2, h3, h4, h5, h6") : [];
+    const headings: NodeListOf<HTMLElement> | [] = article
+      ? article.querySelectorAll("h1, h2, h3, h4, h5, h6")
+      : [];
 
     headings.forEach((heading, i) => {
       if (heading instanceof HTMLElement) {
@@ -216,9 +250,11 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
           scrollTrigger: {
             trigger: heading,
             start: "top 20%",
-            end: () => `bottom top+=${i === headings.length - 1 ? 0 : (headings[i + 1] as HTMLElement).getBoundingClientRect().height}`,
+            end: () =>
+              `bottom top+=${i === headings.length - 1 ? 0 : (headings[i + 1] as HTMLElement).getBoundingClientRect().height}`,
             onEnter: () => setActiveLinkById(heading.id),
-            onLeaveBack: () => setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
+            onLeaveBack: () =>
+              setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
           },
         });
       }
