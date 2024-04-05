@@ -63,6 +63,8 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 - **Preline UI:** Implement prebuilt UI components for added elegance.
 - **GSAP Integration:** Impress with professional and polished animations.
 - **Markdown Content Collections:** Organize and manage your content seamlessly.
+- **Starlight Documentation:** A sleek, user-friendly, full-featured documentation theme.
+- **Internationalization (i18n):** Integrates Astro’s internationalization features.
 - **SEO and Responsiveness:** Ensure your site is discoverable and accessible on any device.
 
 ## What's New
@@ -85,7 +87,7 @@ ScrewFast is an open-source template designed for quick and efficient web projec
   - Serves as a UI demonstration with no live back-end integration.
   
 - [x] **Starlight Documentation Theme Integration**:
-  - A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of our documentation.
+  - A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of documentation.
   - Offers a range of features such as site navigation, built-in search functionality, dark mode, syntax highlighting for code, and improved SEO.
   - Seamlessly integrates internationalization (i18n) to provide support for documentation in multiple languages, catering to a global audience.
   - Designed to facilitate ease of use while offering a modern aesthetic in both light and dark themes to accommodate user preferences.
@@ -99,6 +101,7 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 - [x] **Internationalization (i18n) Features**:
   - Integrates [Astro’s internationalization (i18n) features](https://docs.astro.build/en/guides/internationalization/).
   - Additionally, a custom LanguagePicker component has been developed to facilitate language selection.
+  - Developers can access the monolingual version directly from [`monolingual-site` branch](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site).
 
 - [x] **Dynamic Table of Contents (ToC) with Scroll Progress Indicator**:
   - Enhances ease of navigation in insight posts by highlighting the relevant section in the ToC, and includes a progress indicator to visually represent scroll progress.
