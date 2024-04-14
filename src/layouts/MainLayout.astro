@@ -42,7 +42,7 @@ We set the language of the page to English and add classes for scrollbar and scr
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline>
       // Script to handle Lenis library settings for smooth scrolling
-      const lenis = new Lenis({ smooth: true, smoothTouch: false });
+      const lenis = new Lenis();
 
       function raf(time) {
         lenis.raf(time);
