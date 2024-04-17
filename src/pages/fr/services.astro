@@ -1,21 +1,21 @@
 ---
 // Import necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import MainSection from "@/components/ui/blocks/MainSection.astro";
-import LeftSection from "@/components/ui/blocks/LeftSection.astro";
-import RightSection from "@/components/ui/blocks/RightSection.astro";
-import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 // Import necessary images
-import blueprints from "@/images/blueprints-image.avif";
-import personWorking from "@/images/person-working.avif";
-import beforeAfter from "@/images/before-after.avif";
-import constructionWorkers from "@/images/construction-workers.avif";
-import aerialView from "@/images/aerial-view.avif";
-import usingTools from "@/images/using-tools.avif";
-import progressBuilding from "@/images/progress-building.avif";
-import underConstruction from "@/images/under-construction.avif";
+import blueprints from "@images/blueprints-image.avif";
+import personWorking from "@images/person-working.avif";
+import beforeAfter from "@images/before-after.avif";
+import constructionWorkers from "@images/construction-workers.avif";
+import aerialView from "@images/aerial-view.avif";
+import usingTools from "@images/using-tools.avif";
+import progressBuilding from "@images/progress-building.avif";
+import underConstruction from "@images/under-construction.avif";
 
 interface Article {
   isRightSection: boolean;

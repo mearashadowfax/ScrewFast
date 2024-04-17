@@ -1,12 +1,12 @@
 ---
 // Import the necessary dependencies
-import FooterSocialLink from "../ui/links/FooterSocialLink.astro";
-import EmailFooterInput from "../ui/forms/input/EmailFooterInput.astro";
-import enStrings from "@/utils/navigation.ts";
-import frStrings from "@/utils/fr/navigation.ts";
-import Icon from "../ui/icons/Icon.astro";
-import BrandLogo from "@/components/BrandLogo.astro";
-import { SITE } from "@/data_files/constants";
+import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
+import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
+import enStrings from "@utils/navigation.ts";
+import frStrings from "@utils/fr/navigation.ts";
+import Icon from "@components/ui/icons/Icon.astro";
+import BrandLogo from "@components/BrandLogo.astro";
+import { SITE } from "@data/constants";
 
 // Select the correct translation based on the page's lang prop:
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
