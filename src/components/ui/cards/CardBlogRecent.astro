@@ -2,8 +2,8 @@
 // Import all required components and utilities
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import AvatarBlogLarge from "../avatars/AvatarBlogLarge.astro";
-import PrimaryCTA from "../buttons/PrimaryCTA.astro";
+import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
 const { blogEntry } = Astro.props;
 
@@ -34,7 +34,7 @@ interface Props {
       class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight"
     >
       <a
-        class="outline-none ring-zinc-500 transition duration-300 hover:text-[#fa5a15] focus-visible:ring dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-none"
+        class="outline-none ring-zinc-500 transition duration-300 hover:text-orange-400 focus-visible:ring dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-none"
         href={`/blog/${blogEntry.slug}/`}
       >
         {blogEntry.data.description}

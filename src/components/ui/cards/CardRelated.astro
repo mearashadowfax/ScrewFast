@@ -1,7 +1,7 @@
 ---
 // Import necessary modules and utilities
 import { Image } from "astro:assets";
-import { formatDate } from "@/utils/utils";
+import { formatDate } from "@utils/utils";
 import type { CollectionEntry } from "astro:content";
 
 const { blogEntry } = Astro.props;
@@ -26,7 +26,7 @@ interface Props {
     />
     <!-- The title of the blog post -->
     <h3
-      class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-[#fa5a15] dark:text-neutral-300 dark:group-hover:text-neutral-50"
+      class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-orange-400 dark:text-neutral-300 dark:group-hover:text-neutral-50"
     >
       {blogEntry.data.title}
     </h3>

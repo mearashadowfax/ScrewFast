@@ -1,11 +1,11 @@
 ---
 // Import section components
 import MainLayout from "@/layouts/MainLayout.astro";
-import ProductTabBtn from "@/components/ui/buttons/ProductTabBtn.astro";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { SITE } from "@/data_files/constants";
+import { SITE } from "@data/constants";
 
 // Global declaration for gsap animation library
 declare global {
@@ -269,7 +269,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
           changeHeadingStyle(
             btn,
             ["text-neutral-800", "dark:text-neutral-200"],
-            ["text-[#fa5a15]", "dark:text-[#fb713b]"],
+            ["text-orange-400", "dark:text-orange-300"],
           );
         }
       }
@@ -292,7 +292,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
         changeHeadingStyle(
           button,
-          ["text-[#fa5a15]", "dark:text-[#fb713b]"],
+          ["text-orange-400", "dark:text-orange-300"],
           ["text-neutral-800", "dark:text-neutral-200"],
         );
       }
@@ -314,7 +314,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       if (tabButtons.length > 0) {
         changeHeadingStyle(
           tabButtons[0],
-          ["text-[#fa5a15]", "dark:text-[#fb713b]"],
+          ["text-orange-400", "dark:text-orange-300"],
           [],
         );
       }

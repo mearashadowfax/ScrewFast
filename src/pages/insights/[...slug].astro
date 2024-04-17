@@ -1,6 +1,6 @@
 ---
 // Import section components
-import { SITE } from "@/data_files/constants";
+import { SITE } from "@data/constants";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
@@ -38,7 +38,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
           </div>
           <div
               id="progress-mobile"
-              class="fixed left-0 top-0 h-2 w-full bg-gradient-to-r from-[#fa5a15]/30 to-[#fa5a15] md:hidden"
+              class="fixed left-0 top-0 h-2 w-full bg-gradient-to-r from-orange-400/30 to-orange-400 md:hidden"
           >
           </div>
           <div id="pin" class="mt-10 hidden space-y-4 md:block">
@@ -47,7 +47,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             >
               <div
                   id="progress"
-                  class="h-px w-full bg-gradient-to-r from-[#fa5a15]/30 to-[#fa5a15]"
+                  class="h-px w-full bg-gradient-to-r from-orange-400/30 to-orange-400"
               >
               </div>
             </div>

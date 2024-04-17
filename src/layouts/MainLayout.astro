@@ -1,9 +1,9 @@
 ---
 // Importing necessary components
-import Meta from "@/components/Meta.astro";
-import Navbar from "@/components/sections/Navbar.astro";
-import FooterSection from "@/components/sections/FooterSection.astro";
-import { SITE } from "@/data_files/constants";
+import Meta from "@components/Meta.astro";
+import Navbar from "@components/sections/Navbar.astro";
+import FooterSection from "@components/sections/FooterSection.astro";
+import { SITE } from "@data/constants";
 
 // Setting expected props
 const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;

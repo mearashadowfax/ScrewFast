@@ -1,11 +1,11 @@
 ---
 // Import the necessary dependencies
-import FooterSocialLink from "../ui/links/FooterSocialLink.astro";
-import EmailFooterInput from "../ui/forms/input/EmailFooterInput.astro";
-import strings from "@/utils/navigation.ts";
-import Icon from "../ui/icons/Icon.astro";
-import BrandLogo from "@/components/BrandLogo.astro";
-import { SITE } from "@/data_files/constants";
+import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
+import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
+import strings from "@utils/navigation.ts";
+import Icon from "@components/ui/icons/Icon.astro";
+import BrandLogo from "@components/BrandLogo.astro";
+import { SITE } from "@data/constants";
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string = "Stay up to date";
@@ -39,7 +39,7 @@ const crafted: string = "Crafted by";
                     {link.name}
                   </a>
                   {section.section === "Company" && index === 2 ? (
-                    <span class="ms-1 inline rounded-lg bg-[#e14d0b] px-2 py-1 text-xs font-bold text-neutral-50">
+                    <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
                       We're hiring!
                     </span>
                   ) : null}

@@ -3,8 +3,8 @@
 import EmailInput from "./input/EmailInput.astro";
 import PasswordInput from "./input/PasswordInput.astro";
 import Checkbox from "./input/Checkbox.astro";
-import AuthBtn from "../buttons/AuthBtn.astro";
-import GoogleBtn from "../buttons/GoogleBtn.astro";
+import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
+import GoogleBtn from "@components/ui/buttons/GoogleBtn.astro";
 
 // Variables for customization of the LoginModal Component
 
@@ -38,7 +38,7 @@ const config = {
             <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               {config.subTitle}
               <button
-                class="rounded-lg p-1 font-medium text-[#fa5a15] decoration-2 outline-none ring-zinc-500 hover:underline focus-visible:ring dark:text-[#fa5a15] dark:ring-zinc-200 dark:focus:outline-none"
+                class="rounded-lg p-1 font-medium text-orange-400 decoration-2 outline-none ring-zinc-500 hover:underline focus-visible:ring dark:text-orange-400 dark:ring-zinc-200 dark:focus:outline-none"
                 data-hs-overlay={config.registerBtnDataHS}
               >
                 {config.registerBtn}
