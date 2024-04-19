@@ -19,7 +19,7 @@ const {
   rating,
   reviews,
   src,
-  alt
+  alt,
 } = Astro.props;
 
 // Define TypeScript interface for props
@@ -53,42 +53,52 @@ interface Props {
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
     </h1>
-    {subTitle &&
-    <p
-      class="mt-3 text-pretty text-lg leading-relaxed text-neutral-700 dark:text-neutral-400 lg:w-4/5"
-    >
-      {subTitle}
-    </p>
-  }
+    {
+      subTitle && (
+        <p class="mt-3 text-pretty text-lg leading-relaxed text-neutral-700 dark:text-neutral-400 lg:w-4/5">
+          {subTitle}
+        </p>
+      )
+    }
     <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
     <div class="mt-7 grid w-full gap-3 sm:inline-flex">
-      {primaryBtn && 
-      <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
-      }
-      {secondaryBtn && 
-      <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+      {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
+      {
+        secondaryBtn && (
+          <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+        )
       }
     </div>
 
     <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
-    { withReview ? (
-    <ReviewComponent avatars={avatars} starCount={starCount} rating={rating} reviews={reviews} />
-    ) : "" }
-
+    {
+      withReview ? (
+        <ReviewComponent
+          avatars={avatars}
+          starCount={starCount}
+          rating={rating}
+          reviews={reviews}
+        />
+      ) : (
+        ""
+      )
+    }
   </div>
   <!-- Hero Image Section -->
   <div class="flex w-full">
-      <div class="top-12 overflow-hidden">
-	{src && alt &&
-	<Image
-        src={src}
-        alt={alt}
-        class="h-full w-full scale-110 object-cover object-center"
-        draggable={"false"}
-        loading={"eager"}
-        format={"avif"}
-	 />
-	}
+    <div class="top-12 overflow-hidden">
+      {
+        src && alt && (
+          <Image
+            src={src}
+            alt={alt}
+            class="h-full w-full scale-110 object-cover object-center"
+            draggable={"false"}
+            loading={"eager"}
+            format={"avif"}
+          />
+        )
+      }
     </div>
   </div>
 </section>

@@ -3,7 +3,6 @@
 import { Image } from "astro:assets";
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
-import Authentication from "./Authentication.astro";
 import enStrings from "@utils/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
 import Logo from "@images/logo.png";
@@ -95,7 +94,6 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
           ))
         }
 
-        <Authentication />
         <LanguagePicker />
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">
