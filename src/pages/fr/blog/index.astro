@@ -8,8 +8,13 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Get all blogs post and sort them based on publish date
-const blogPosts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
+// Get all blogs post in French and sort them based on publish date
+
+const frenchBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("fr/");
+});
+
+const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
@@ -22,12 +27,12 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+const title: string = "Votre Passerelle vers l'Excellence en Construction";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
+  "Explorez les dernières actualités, astuces et analyses de ScrewFast pour améliorer vos projets de construction. Des mises en avant de produits aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne les outils et la construction.";
 const secondTitle: string = "Insights";
 const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+  "Restez à jour avec les dernières tendances et évolutions de l'industrie de la construction grâce aux analyses de l'équipe d'experts de ScrewFast.";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 ---
@@ -47,7 +52,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
       "name": "ScrewFast",
       "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
     },
-    "inLanguage": "en-US"
+    "inLanguage": "fr"
   }}
 >
   <section
@@ -74,14 +79,14 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   >
     <!--Blog posts grid-->
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="fr"/>)}
     </div>
   </section>
   <!--Most recent blog post-->
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <CardBlogRecent blogEntry={mostRecentPost} />
+    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" />
   </section>
   <!--Insights section-->
   <section

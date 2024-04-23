@@ -25,10 +25,11 @@ import Icon from "./icons/Icon.astro";
   </button>
 
   <div
-    class="hs-dropdown-menu duration mt-2 hidden rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:-top-4 before:start-0 before:h-4 before:w-full after:absolute after:-bottom-4 after:start-0 after:h-4 after:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800 !transform-none !top-[98%] !left-[20%] md:!top-[80%] md:!left-[90%]"
+    class="hs-dropdown-menu duration !left-[20%] !top-[98%] mt-2 hidden !transform-none rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:-top-4 before:start-0 before:h-4 before:w-full after:absolute after:-bottom-4 after:start-0 after:h-4 after:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800 md:!left-[90%] md:!top-[80%]"
     aria-labelledby="hs-dropdown-hover-event"
   >
     {
+      // Map through the list of languages, creating a link for each language
       Object.entries(languages).map(([lang, label]) => (
         <a
           class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-800 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
@@ -46,7 +47,9 @@ import Icon from "./icons/Icon.astro";
 <script is:inline src="/scripts/vendor/preline/dropdown/index.js"></script>
 
 <script>
+  // Type alias for supported languages
   type TLanguage = "en" | "fr";
+  // array of supported languages
   const languages: TLanguage[] = ["en", "fr"];
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -68,8 +71,18 @@ import Icon from "./icons/Icon.astro";
 
         if (lang === url.pathname.split("/")[1]) return;
 
-        if (lang !== "en") {
-          pathParts.unshift(lang);
+        if (url.pathname.includes("/post")) {
+          if (url.pathname.includes("en")) {
+            pathParts.unshift(lang);
+            pathParts.splice(2, 0, lang);
+          } else {
+            pathParts.unshift(lang);
+            pathParts.splice(2, 0, "en");
+          }
+        } else {
+          if (lang !== "en") {
+            pathParts.unshift(lang);
+          }
         }
 
         url.pathname = pathParts.join("/");

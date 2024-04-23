@@ -14,7 +14,9 @@ import { SITE } from "@data/constants";
 
 // getStaticPaths is used to pre-render all routes based on the blog posts
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog");
+  const blogPosts = await getCollection("blog", ({ id }) => {
+    return id.startsWith("en/");
+  });
   return blogPosts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
@@ -24,7 +26,12 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 
 // Get all blog posts
-const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
+const blogPosts: CollectionEntry<"blog">[] = await getCollection(
+  "blog",
+  ({ id }) => {
+    return id.startsWith("en/");
+  }
+);
 
 // Filter out the current post to get related posts
 // Note: This is a very basic way of choosing related posts, just for the purpose of the example.
@@ -35,12 +42,9 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
-
 ---
 
-<MainLayout
-  title={pageTitle}
->
+<MainLayout title={pageTitle}>
   <section class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
     <div class="max-w-2xl">
       <div class="mb-6 flex items-center justify-between">
