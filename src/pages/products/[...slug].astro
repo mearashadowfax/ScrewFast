@@ -148,20 +148,65 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                 ))
               }
             </div>
-            <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
-              {
-                product.data.specificationsRight?.map((spec) => (
-                  <div>
-                    <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
-                      {spec.title}
-                    </h3>
-                    <p class="text-neutral-600 dark:text-neutral-400">
-                      {spec.subTitle}
-                    </p>
+            {
+              product.data.specificationsRight ? (
+                <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
+                  {product.data.specificationsRight?.map((spec) => (
+                    <div>
+                      <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
+                        {spec.title}
+                      </h3>
+                      <p class="text-neutral-600 dark:text-neutral-400">
+                        {spec.subTitle}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : product.data.tableData ? (
+                <div class="mt-6 space-y-6 md:ml-auto md:mt-0">
+                  <div class="flex flex-col">
+                    <div class="-m-1.5 overflow-x-auto">
+                      <div class="inline-block min-w-full p-1.5 align-middle">
+                        <div class="overflow-hidden">
+                          <table class="min-w-full divide-y divide-neutral-300 dark:divide-neutral-700">
+                            <thead>
+                              <tr>
+                                {product.data.tableData?.[0].feature?.map(
+                                  (header) => (
+                                    <th
+                                      scope="col"
+                                      class="px-6 py-3 text-start text-xs font-medium uppercase text-neutral-500 dark:text-neutral-500"
+                                    >
+                                      {header}
+                                    </th>
+                                  )
+                                )}
+                              </tr>
+                            </thead>
+                            <tbody class="divide-y divide-neutral-300 dark:divide-neutral-700">
+                              {product.data.tableData?.map((row) =>
+                                // Wrap each row's content in a separate <tr> element
+                                row.description.map((rowData) => (
+                                  <tr>
+                                    {/* Iterate through each cell value in the row's description array */}
+                                    {rowData.map((cellValue) => (
+                                      // Render each cell value in its own <td> element
+                                      <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                                        {cellValue}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                ))
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                ))
-              }
-            </div>
+                </div>
+              ) : null
+            }
           </div>
         </div>
       </div>
@@ -199,7 +244,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       </div>
     </div>
   </div>
-
+</MainLayout>
   <script is:inline src="/scripts/vendor/gsap/gsap.min.js"></script>
   <script>
     window.addEventListener("load", () => {
@@ -327,4 +372,3 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       });
     });
   </script>
-</MainLayout>
