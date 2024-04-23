@@ -1,11 +1,12 @@
 ---
 import Icon from "@components/ui/icons/Icon.astro";
 // Destructure the properties from Astro.props
-const { pageTitle } = Astro.props;
+const { pageTitle, title = Astro.currentLocale === "fr" ? "Partager" : "Share", } = Astro.props;
 
 // Define TypeScript interface for the properties
 interface Props {
   pageTitle: string;
+  title?: string;
 }
 
 type SocialPlatform = {
@@ -43,7 +44,7 @@ const socialPlatforms: SocialPlatform[] = [
   >
     <Icon name="share" />
 
-    Share
+    {title}
   </button>
 
   <div
