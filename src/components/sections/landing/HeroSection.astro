@@ -3,7 +3,6 @@
 import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
-import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
 
 // Define props from Astro
 const {
@@ -13,11 +12,6 @@ const {
   primaryBtnURL,
   secondaryBtn,
   secondaryBtnURL,
-  withReview,
-  avatars,
-  starCount,
-  rating,
-  reviews,
   src,
   alt,
 } = Astro.props;
@@ -48,7 +42,7 @@ interface Props {
   <div>
     <!-- Each h1 and p tag renders a portion of the title and subTitle defined above -->
     <h1
-      class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
+      class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-5xl lg:leading-tight"
     >
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
@@ -69,20 +63,6 @@ interface Props {
         )
       }
     </div>
-
-    <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
-    {
-      withReview ? (
-        <ReviewComponent
-          avatars={avatars}
-          starCount={starCount}
-          rating={rating}
-          reviews={reviews}
-        />
-      ) : (
-        ""
-      )
-    }
   </div>
   <!-- Hero Image Section -->
   <div class="flex w-full">

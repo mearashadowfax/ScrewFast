@@ -15,7 +15,7 @@ export const SEO = {
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    inLanguage: "en-US",
+    inLanguage: "ro-RO",
     "@id": SITE.url,
     url: SITE.url,
     name: SITE.title,
@@ -30,7 +30,7 @@ export const SEO = {
 };
 
 export const OG = {
-  locale: "en_US",
+  locale: "ro_RO",
   type: "website",
   url: SITE.url,
   title: `${SITE.title}: : Servicii de recuperare medicală`,
