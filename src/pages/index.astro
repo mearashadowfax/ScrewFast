@@ -13,7 +13,6 @@ import heroImage from "@images/hero-image.avif";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
-import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
@@ -50,10 +49,8 @@ const avatarSrcs: Array<string> = [
   />
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
-    src={featureImage}
-    alt="ScrewFast products in floating boxes"
+    title="De ce sa alegi HealthAcademy?"
+    subTitle="Ne gandim la un text fain si il scriem aici, un rezumat a ceea ce suntem"
     features={features}
   />
 
@@ -124,15 +121,5 @@ const avatarSrcs: Array<string> = [
         description: "quicker assembly using innovative fastening solutions",
       },
     ]}
-  />
-
-  <PricingSection pricing={pricing} />
-
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
-
-  <HeroSectionAlt
-    title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/mearashadowfax/ScrewFast"
   />
 </MainLayout>
