@@ -1,8 +1,8 @@
 ---
 import { getImage } from "astro:assets";
 import { OG, SEO, SITE } from "@data/constants";
-import faviconSvgSrc from "@images/icon.svg";
-import faviconSrc from "@images/icon.png";
+import faviconIcoSrc from "@images/favicon.ico";
+import faviconSrc from "@images/apple-touch-icon.png";
 
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -62,8 +62,10 @@ const alternateLanguageLinks: string = Object.entries(languages)
 
 // Generate and optimize the favicon images
 const faviconSvg = await getImage({
-  src: faviconSvgSrc,
-  format: "svg",
+  src: faviconIcoSrc,
+  format: "ico",
+  width: 180,
+  height: 180,
 });
 
 const appleTouchIcon = await getImage({
@@ -122,7 +124,6 @@ const appleTouchIcon = await getImage({
 
 <!-- Links for favicons -->
 <link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
-<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
 <meta name="mobile-web-app-capable" content="yes" />
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />
