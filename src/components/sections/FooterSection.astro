@@ -4,13 +4,13 @@ import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import strings from "@utils/navigation.ts";
 import Icon from "@components/ui/icons/Icon.astro";
 import { Image } from "astro:assets";
-import Logo from "@images/logo.png";
+import Logo from "@images/logo-transparent-light.png";
 import { SITE } from "@data/constants";
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
   <div
-    class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-screen-2xl"
+    class="mx-auto w-full max-w-[85rem] px-4 py-4 sm:px-6 lg:px-16 lg:pt-6 2xl:max-w-screen-2xl"
   >
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
       <div class="col-span-full lg:col-span-1">
@@ -19,11 +19,10 @@ import { SITE } from "@data/constants";
           <Image src={Logo} alt="Health Academy Logo" />
         </div>
       </div>
-      <!-- An array of links for Product and Company sections -->
     </div>
 
     <div
-      class="mt-9 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
+      class="mt-2 grid gap-y-2 sm:mt-4 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
