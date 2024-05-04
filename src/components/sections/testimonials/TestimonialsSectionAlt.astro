@@ -1,6 +1,4 @@
 ---
-// Import AvatarTestimonialSection component for use in this module
-import AvatarTestimonialSection from "../../ui/avatars/AvatarTestimonialSection.astro";
 
 // Define props from Astro
 const { title, testimonials } = Astro.props;
@@ -10,8 +8,6 @@ interface Testimonial {
   content: string;
   author: string;
   role: string;
-  avatarSrc: string;
-  avatarAlt: string;
 }
 
 // Define TypeScript interface for props
@@ -49,11 +45,6 @@ interface Props {
 
             <div class="rounded-b-xl bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7">
               <div class="flex items-center">
-                <AvatarTestimonialSection
-                  src={testimonial.avatarSrc}
-                  alt={testimonial.avatarAlt}
-                />
-
                 <div class="ms-3 grow">
                   <p class="text-sm font-bold text-neutral-800 dark:text-neutral-200 sm:text-base">
                     {testimonial.author}

@@ -4,10 +4,11 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
+import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
-import knee from "@images/knee.webp";
-import crioterapie from "@images/crioterapie.webp";
+import desmotec from "@images/desmotec.png";
+import theragun from "@images/theragun.webp";
 import { SITE } from "@data/constants";
 
 interface Article {
@@ -29,23 +30,23 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Kinetoterapie",
-    subTitle: "Este stiinta de a va tortura pana va faceti bine.",
+    title: "Desmotec",
+    subTitle: "Desmotec e un aparat care te verifica de iti sar fulgii.",
     single: true,
-    imgOne: knee,
-    imgOneAlt: "Knee picture.",
+    imgOne: desmotec,
+    imgOneAlt: "Desmotec picture.",
   },
   {
     isRightSection: false,
-    title: "Crioterapie",
-    subTitle: "Iti ingheata genunchii, dar te faci bine",
-    img: crioterapie,
-    imgAlt: "Crioterapie",
+    title: "Theragun Pro",
+    subTitle: "Nu e Laser, e Theragun Pro. Iti face muschii grozavi, repejos",
+    img: theragun,
+    imgAlt: "Theragun Pro",
     btnExists: false,
   },
 ];
 
-const pageTitle: string = `Servicii | ${SITE.title}`;
+const pageTitle: string = `Tehnologii | ${SITE.title}`;
 ---
 
 <MainLayout
@@ -53,9 +54,9 @@ const pageTitle: string = `Servicii | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://healthacademy.ro/services",
-    url: "https://healthacademy.ro/services",
-    name: "Serviciile noastre | HealthAcademy",
+    "@id": "https://healthacademy.ro/tehnologii",
+    url: "https://healthacademy.ro/tehnologii",
+    name: "Tehnologii moderne | HealthAcademy",
     description: "Ne ocupam de sanatatea ta.",
     isPartOf: {
       "@type": "WebSite",
@@ -68,8 +69,8 @@ const pageTitle: string = `Servicii | ${SITE.title}`;
 >
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
-    title="Serviciile noastre"
-    subTitle="La HealthAcademy va oferim servicii profesioniste. Si le oferim cum ai tu nevoie pentru sanatatea ta."
+    title="Tehnologiile viitorului"
+    subTitle="La HealthAcademy folosim cele mai moderne tehnologii din fizioterapie. Si le folosim exact cum ai tu nevoie pentru sanatatea ta."
     btnExists={true}
     btnTitle="Contacteaza-ne"
     btnURL="/contact"
