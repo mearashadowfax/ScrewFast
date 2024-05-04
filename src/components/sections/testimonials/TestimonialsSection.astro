@@ -1,19 +1,12 @@
 ---
 import TestimonialItem from "./TestimonialItem.astro";
-import StatsGrid from "../../ui/blocks/StatsGrid.astro";
 
-const {
-  title,
-  subTitle,
-  testimonials,
-  statistics
-} = Astro.props;
+const { title, subTitle, testimonials } = Astro.props;
 
 interface Props {
   title: string;
   subTitle?: string;
   testimonials?: Testimonial[];
-  statistics?: StatProps[];
 }
 
 // TypeScript type for testimonials
@@ -22,12 +15,6 @@ type Testimonial = {
   author: string;
   role: string;
   avatarSrc: string;
-};
-
-// TypeScript type for stats.
-type StatProps = {
-  count: string;
-  description: string;
 };
 ---
 
@@ -46,35 +33,25 @@ type StatProps = {
         >
           {title}
         </h2>
-        {subTitle &&
-        <p class="text-neutral-600 dark:text-neutral-400">
-          {subTitle}
-        </p>
-      }
+        {
+          subTitle && (
+            <p class="text-neutral-600 dark:text-neutral-400">{subTitle}</p>
+          )
+        }
       </div>
 
       <!-- Generate a blockquote for each testimonial in the testimonials array by mapping over the array. -->
-      { testimonials &&
-        testimonials.map((testimonial) => (
-        <TestimonialItem content={testimonial.content} author={testimonial.author} role={testimonial.role} avatarSrc={testimonial.avatarSrc} />
-        ))
+      {
+        testimonials &&
+          testimonials.map((testimonial) => (
+            <TestimonialItem
+              content={testimonial.content}
+              author={testimonial.author}
+              role={testimonial.role}
+              avatarSrc={testimonial.avatarSrc}
+            />
+          ))
       }
     </div>
-{ statistics &&
-    <div class="mt-10 lg:col-span-6 lg:col-end-13 lg:mt-0">
-      <div class="space-y-6 sm:space-y-8">
-        <ul
-          class="grid grid-cols-2 divide-x-2 divide-y-2 divide-neutral-300 overflow-hidden dark:divide-neutral-700"
-        >
-          <!-- Generate a list item for each stat in the statistics array by mapping over the array. -->
-          {
-            statistics.map((stat, index) => (
-            <StatsGrid count={stat.count} description={stat.description} index={index}/>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  }
   </div>
 </section>

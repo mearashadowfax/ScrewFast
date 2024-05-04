@@ -1,8 +1,4 @@
 ---
-// Import the necessary components
-import StatsBig from "@components/ui/blocks/StatsBig.astro";
-import StatsSmall from "@components/ui/blocks/StatsSmall.astro";
-
 const { title, subTitle, stats, mainStatTitle, mainStatSubTitle } = Astro.props;
 
 interface Props {
@@ -43,10 +39,6 @@ type Stat = {
   <div class="grid items-center gap-6 lg:grid-cols-12 lg:gap-12">
     <!-- First grid item, showing a big statistics -->
     <div class="lg:col-span-4">
-      <StatsBig
-        title={mainStatTitle}
-        subTitle={mainStatSubTitle}
-      />
     </div>
     <!-- Second grid item, showing multiple small statistics -->
     {stats &&
@@ -57,11 +49,6 @@ type Stat = {
         class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:grid-cols-3"
       >
         <!-- Iterate over the 'stats' array and create a 'StatsSmall' component for each object in the array -->
-        {
-          stats.map((stat) => (
-            <StatsSmall title={stat.stat} subTitle={stat.description} />
-          ))
-        }
       </div>
     </div>
     }
