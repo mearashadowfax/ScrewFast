@@ -24,7 +24,6 @@ const {
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
 const canonical = Astro.url.href;
-const basePath = Astro.url.pathname;
 const ogTitle = OG.title;
 const ogDescription = OG.description;
 const socialImageRes = await getImage({
@@ -35,8 +34,7 @@ const socialImageRes = await getImage({
 const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
 
 const languages: { [key: string]: string } = {
-  en: "",
-  fr: "fr",
+  ro: "",
 };
 
 function createHref(lang: string, prefix: string, path: string): string {
@@ -61,7 +59,7 @@ const alternateLanguageLinks: string = Object.entries(languages)
   .join("\n");
 
 // Generate and optimize the favicon images
-const faviconSvg = await getImage({
+const faviconIco = await getImage({
   src: faviconIcoSrc,
   format: "ico",
   width: 180,
@@ -123,7 +121,7 @@ const appleTouchIcon = await getImage({
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Links for favicons -->
-<link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
+<link href={faviconIco.src} rel="icon" type="image/x-icon" sizes="any" />
 <meta name="mobile-web-app-capable" content="yes" />
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />
