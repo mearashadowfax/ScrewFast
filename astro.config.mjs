@@ -10,19 +10,8 @@ export default defineConfig({
   image: {
     domains: ["images.unsplash.com"]
   },
-  i18n: {
-    defaultLocale: "ro",
-    locales: ["ro"],
-    routing: {
-      prefixDefaultLocale: false
-    }
-  },
   prefetch: true,
-  integrations: [tailwind(), sitemap({
-    i18n: {
-      defaultLocale: "ro"
-    }
-  }), compressor({
+  integrations: [tailwind(), sitemap(), compressor({
     gzip: false,
     brotli: true
   })],
