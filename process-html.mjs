@@ -12,7 +12,7 @@ await Promise.all(
    	 let html = await fs.readFile(file, 'utf-8')
 
    	 // Minify the HTML
-   	 html = minify(html, {
+   	 html = await minify(html, {
    		 removeComments: true,
    		 preserveLineBreaks: true,
    		 collapseWhitespace: true,
