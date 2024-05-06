@@ -1,22 +1,33 @@
 [
   {
-    "heading": "Echipa dedicata",
-    "content": "Doi profesionisti seriosi, cu expertiza in toate chestiile.",
+    "heading": "Reabilitare bazată pe dovezi științifice",
+    "content": "Protocoale de recuperare de cea mai înalta calitate. Pentru a nu experimenta pe pacienții noștri și a le oferi maximul de siguranță și succes în drumul lor către recuperarea completă, aplicăm în practică principii și tehnici deja dovedite la nivel internațional ca fiind de succes.",
     "svg": "groups"
   },
   {
-    "heading": "Tehnologii",
-    "content": "Avem tot felul de aparate.",
-    "svg": "verified"
+    "heading": "Suport pentru pacienți",
+    "content": "Fiecare caz este tratat cu maximă importanță și suntem implicați complet în căutarea soluțiilor optime. Pacientul nu trebuie transformat într-o simplă fișă, iar recuperarea completă vine în urma unui drum complex care presupune educație, colaborare și sprijin permanent către persoana aflată în dificultate.",
+    "svg": "frame"
   },
   {
-    "heading": "Profilaxie",
-    "content": "Mergi la schi peste o luna? Nu fii bleg, hai sa te antrenezi.",
+    "heading": "Asistență medicală ultra-personalizată",
+    "content": "Fiecare caz este unic în felul său, motiv pentru care stransa colaborare cu echipa ortopedică chirurgicală este vitală pentru a garanta succesul. Suntem norocoși să avem în spate o echipa ortopedică de excelență, împreună cu care putem gestiona fiecare pacient în funcție de necesitățile sale, la cele mai înalte standarde din domeniu. În anumite cazuri, recuperarea începe chiar în sala de operație, unde doar participând atent se pot observa particularitățile cazului, pe baza cărora vor fi fundamentate măsurile ulterioare, restricțiile și structura protocolului recuperator, pentru a proteja intervenția chirurgicală și a maximiza rezultatele ei.",
     "svg": "books"
   },
   {
-    "heading": "Servicii",
-    "content": "Evaluam situatia dumneavoastra, gasim cel mai bun program, facem sa fie bine.",
+    "heading": "Criterii obiective de progresie și revenire la sport",
+    "content": "Medicină modernă presupune desprinderea de subiectivism, prin obiectivizarea și monitorizarea constantă a evoluției și a nivelului pacientului. Criteriile de progres între etapele de recuperare și cele de reîntoarcere la activitatea sportivă / profesională au în spate o baza științifică fermă care minimalizează riscurile complicațiilor și a recidivei, prin diverse metode precise de măsurare și testare.",
+    "svg": "verified"
+  },
+
+  {
+    "heading": "Echipă multidisciplinară ",
+    "content": "Locul în care fizio-kinetoterapia, ortopedia, imagistica, nutriția, terapia manuală și pregătirea atletică vorbesc aceeași limbă și formează o echipă unită a cărei singur scop este binele pacientului.",
+    "svg": "frame"
+  },
+  {
+    "heading": "Educație continuă",
+    "content": "Evoluția continuă a medicinei ne obligă să ținem pasul cu ea, atât din punct de vedere a cunoștiințelor, cât și a infrastructurii. Rigurozitatea din rândul personalului și a colaboratorilor este extrem de ridicată, tocmai pentru a menține standardele de calitate la cel mai înalt nivel.",
     "svg": "frame"
   }
 ]
