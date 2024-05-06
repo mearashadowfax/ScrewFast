@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import { globby } from 'globby'
-import { minify } from 'html-minifier'
+import { minify } from 'html-minifier-terser'
 
 // Get all HTML files from the output directory
 const path = './.vercel/output/static'
@@ -12,7 +12,7 @@ await Promise.all(
    	 let html = await fs.readFile(file, 'utf-8')
 
    	 // Minify the HTML
-   	 html = minify(html, {
+   	 html = await minify(html, {
    		 removeComments: true,
    		 preserveLineBreaks: true,
    		 collapseWhitespace: true,
