@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/sitemap": "^3.1.4",
-    "@astrojs/starlight": "^0.21.5",
+    "@astrojs/starlight": "^0.22.1",
     "@astrojs/starlight-tailwind": "^2.0.2",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.5.4",
