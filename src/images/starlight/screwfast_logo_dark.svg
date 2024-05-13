@@ -11,7 +11,7 @@
       fill: #d4d4d4;
     }
     [data-theme="dark"] .main-logo-screw-svg {
-      fill: #facc15;
+      fill: #00AEEF;
     }
 </style>
 </svg>

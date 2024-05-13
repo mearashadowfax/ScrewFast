@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import colors from 'tailwindcss/colors';
+import colors, { blue } from 'tailwindcss/colors';
 export default {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
@@ -15,19 +15,33 @@ export default {
       gray: colors.gray,
       indigo: colors.indigo,
       neutral: colors.neutral,  // Used mainly for text color
+      blue: {
+        50: "#78d0f0",
+        100: "#3CBFF0",
+        400: "#00AEEF",
+        500: "#0083b3",
+      },
       yellow: {
-        50: "#fefce8",
-        100: "#fef9c3",
-        400: "#facc15",
-        500: "#eab308",
+        50: "#78d0f0",
+        100: "#3CBFF0",
+        400: "#00AEEF",
+        500: "#0083b3",
       }, // Accent colors, used mainly for star color, heading and buttons
+      pink: {
+        100: "#ed77be",
+        200: "#ED4FAD",
+        300: "#EC289D",
+        400: "#EC008C",
+        500: "#9D0861",
+        600: "#4E0F36",
+      },
       orange: {
-        100: "#ffedd5",
-        200: "#fed7aa",
-        300: "#fb713b",
-        400: "#fa5a15",
-        500: "#e14d0b",
-        600: "#ea580c",
+        100: "#ed77be",
+        200: "#ED4FAD",
+        300: "#EC289D",
+        400: "#EC008C",
+        500: "#9D0861",
+        600: "#4E0F36",
       }, // Primary colors, used mainly for links, buttons and svg icons
       red: colors.red, // Used for bookmark icon
       zinc: colors.zinc, // Used mainly for box-shadow
