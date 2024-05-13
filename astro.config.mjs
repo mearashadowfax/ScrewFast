@@ -17,40 +17,23 @@ export default defineConfig({
     tailwind(),
     sitemap(),
     starlight({
-      title: "ScrewFast Docs",
+      title: "CommerceQuest Docs",
       defaultLocale: "root",
       locales: {
         root: {
           label: "English",
           lang: "en",
         },
-        de: { label: "Deutsch", lang: "de" },
-        es: { label: "Español", lang: "es" },
-        fa: { label: "Persian", lang: "fa", dir: "rtl" },
-        fr: { label: "Français", lang: "fr" },
-        ja: { label: "日本語", lang: "ja" },
-        "zh-cn": { label: "简体中文", lang: "zh-CN" },
       },
       // https://starlight.astro.build/guides/sidebar/
       sidebar: [
         {
           label: "Quick Start Guides",
-          translations: {
-            de: "Schnellstartanleitungen",
-            es: "Guías de Inicio Rápido",
-            fa: "راهنمای شروع سریع",
-            fr: "Guides de Démarrage Rapide",
-            ja: "クイックスタートガイド",
-            "zh-cn": "快速入门指南",
-          },
           autogenerate: { directory: "guides" },
         },
         {
           label: "Tools & Equipment",
-          items: [
-            { label: "Tool Guides", link: "tools/tool-guides/" },
-            { label: "Equipment Care", link: "tools/equipment-care/" },
-          ],
+          autogenerate: { directory: "tools" },
         },
         {
           label: "Construction Services",
@@ -62,7 +45,7 @@ export default defineConfig({
         },
       ],
       social: {
-        github: "https://github.com/mearashadowfax/ScrewFast",
+        github: "https://github.com/spryker-community",
       },
       disable404Route: true,
       customCss: ["./src/styles/starlight.css"],
