@@ -273,8 +273,8 @@ Edit the `navBarLinks` array to adjust navigation bar links:
 export const navBarLinks: NavLink[] = [
   { name: "Home", url: "/" },
   { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
   { name: "Blog", url: "/blog" },
+  { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
 ```

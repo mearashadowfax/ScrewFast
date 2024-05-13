@@ -1,22 +1,22 @@
 [
   {
-    "heading": "Dedicated Teams",
-    "content": "Benefit from our committed teams who ensure your success is personal. Count on expert guidance and exceptional results throughout your project journey.",
+    "heading": "Platform Contributions",
+    "content": "Platform Contributions are ecosystem-led contributions to be built into and enhance Spryker’s core product. These include bug fixes, core improvements, and documentation updates across Spryker’s product portfolio.",
     "svg": "groups"
   },
   {
-    "heading": "Simplicity and Affordability",
-    "content": "Find easy-to-use, affordable solutions with ScrewFast's line of tools and equipment. Our products make procurement simple and keep projects within budget.",
-    "svg": "verified"
+    "heading": "Innovation Lab",
+    "content": "Innovation Lab contributions are ecosystem-led submissions demonstrating innovative but often experimental use cases built for use with Spryker. E.g. hackathon projects, tools, and customer & partner innovation ideas. They may be utilized in any part of the Spryker platform, including the products listed above.",
+    "svg": "frame"
   },
   {
-    "heading": "Comprehensive Documentation",
-    "content": "Integrate with ease using ScrewFast's exhaustive guides and libraries. Achieve seamless product adoption with our full suite of documentation designed for your success.",
+    "heading": "Commercial Contribution",
+    "content": "To be announced later this year",
     "svg": "books"
   },
   {
-    "heading": "User-Centric Design",
-    "content": "Experience the difference with ScrewFast's user-focused design — where functionality meets practicality for an enhanced work experience.",
-    "svg": "frame"
+    "heading": "Submission Review",
+    "content": "Spryker endeavors to have all submissions acknowledged within two weeks. Submissions will be accepted or returned with feedback.",
+    "svg": "verified"
   }
 ]

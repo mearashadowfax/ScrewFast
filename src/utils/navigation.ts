@@ -3,7 +3,7 @@ const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Docs", url: "/welcome-to-docs" },
   { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
+  { name: "About", url: "/about" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
@@ -13,18 +13,18 @@ const footerLinks = [
     section: "Ecosystem",
     links: [
       { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Community Tools", url: "/products" },
+      { name: "Code of Conduct", url: "https://spryker.com/sprykercodeofconduct/" },
     ],
   },
   {
     section: "Company",
     links: [
-      { name: "About us", url: "#" },
+      { name: "About us", url: "/about" },
       { name: "Forum", url: "https://commercequest.space/" },
       { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "Careers", url: "https://spryker.com/career/" },
+      { name: "Customers", url: "https://spryker.com/customer-overview/" },
     ],
   },
 ];

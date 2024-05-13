@@ -10,14 +10,14 @@ import TestimonialsSection from "@components/sections/testimonials/TestimonialsS
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "@images/hero-image.avif";
+import heroImage from "@images/CQ_Vegas_Sticker.png";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
-import featureImage from "@images/features-image.avif";
-import construction from "@images/construction-image.avif";
-import tools from "@images/automated-tools.avif";
-import dashboard from "@images/dashboard-image.avif";
+import featureImage from "@images/Asteroids.png";
+import construction from "@images/community-3.jpg";
+import tools from "@images/community-1.jpg";
+import dashboard from "@images/community-2.jpg";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -41,15 +41,15 @@ const avatarSrcs: Array<string> = [
     subTitle="Commerce Resources for the driven Spryker, Propel & Oryx developer."
     primaryBtn="Explore community tools"
     primaryBtnURL="/products"
-    secondaryBtn="Contribute code"
-    secondaryBtnURL="/contact"
+    secondaryBtn="Upcoming events"
+    secondaryBtnURL="https://commercequest.space/events/category"
     withReview={true}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+    reviews=`Developers rating our events`
     src={heroImage}
-    alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+    alt="Oskar in an astronaut suit"
   />
 
   <ClientsSection
@@ -58,38 +58,38 @@ const avatarSrcs: Array<string> = [
   />
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+    title="Igniting Community. Celebrating Contributors."
+    subTitle="Spryker is reenergizing its pull request and contributions process for fast acknowledgment of contributed code or documentation updates. Starting today, we’re excited to kickstart a new era of collaborative development with the wider Spryker community!"
     src={featureImage}
-    alt="ScrewFast products in floating boxes"
+    alt="Products in floating boxes"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Customize <span class="text-blue-500 dark:text-blue-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
+    title=`Why attend community <span class="text-blue-500 dark:text-blue-400">events</span>?`
     tabs={[
       {
-        heading: "Cutting-Edge Tools",
+        heading: "Collaborative Innovation",
         content:
-          "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
+          "Make it easier to work with Spryker, and create a more attractive ecosystem.",
         svg: "tools",
         src: tools,
         alt: "Yellow and black heavy equipment on brown grass field",
         first: true,
       },
       {
-        heading: "Intuitive Dashboards",
+        heading: "Learning in practice",
         content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
+          "Practical challenges. You learn from us, we learn from you.",
         svg: "dashboard",
         src: dashboard,
         alt: "A screenshot or graphic representation of the intuitive dashboard",
         second: true,
       },
       {
-        heading: "Robust Features",
+        heading: "Get to know your peers & have fun!",
         content:
-          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+          "Build your network, solve problems better and faster.",
         svg: "house",
         src: construction,
         alt: "Gray metal building frame near tower crane during daytime",
@@ -99,12 +99,12 @@ const avatarSrcs: Array<string> = [
 
   <TestimonialsSection
     title="Fast-Track Your Projects"
-    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
+    subTitle="At CommerceQuest, we ensure a swift start of your developer journey. Experience the power of community."
     ;
     testimonials={[
       {
         content:
-          "ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
+          "Oryx dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in commerce and support!",
         author: "Samantha Ruiz",
         role: "Chief Operating Officer | ConstructIt Inc.",
         avatarSrc:
@@ -113,14 +113,14 @@ const avatarSrcs: Array<string> = [
     ]}
     statistics={[
       {
-        count: "70k+",
+        count: "50+",
         description:
-          "customers equipped — from DIY to major construction firms",
+          "Community repositories — from Translation to OpenTelemetry and AI",
       },
       {
         count: "35%",
         description:
-          "uptick in project efficiency with ScrewFast tools and services",
+          "uptick in project efficiency with Community tools",
       },
       {
         count: "15.3%",
@@ -128,8 +128,8 @@ const avatarSrcs: Array<string> = [
           "reduction in maintenance costs reported by long-term clients",
       },
       {
-        count: "2x",
-        description: "quicker assembly using innovative fastening solutions",
+        count: "MIT",
+        description: "collaboration made easy",
       },
     ]}
   />
@@ -140,7 +140,7 @@ const avatarSrcs: Array<string> = [
 
   <HeroSectionAlt
     title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
+    subTitle="Spryker is a meticulously crafted open commerce platform."
     url="https://github.com/spryker-community"
   />
 </MainLayout>
