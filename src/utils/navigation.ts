@@ -30,11 +30,11 @@ const footerLinks = [
 ];
 // An object of links for social icons
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
+  facebook: "https://www.facebook.com/Spryker/",
+  x: "https://twitter.com/sprysys",
   github: "https://github.com/spryker-community",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  youtube: "https://www.youtube.com/channel/UC6lVOEbqXxUh0W5FMTvlPDQ",
+  linkedin: "https://www.linkedin.com/company/spryker-systems-gmbh",
 };
 
 export default {
