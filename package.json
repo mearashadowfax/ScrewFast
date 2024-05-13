@@ -10,7 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
+    "@astrojs/check": "^0.6.0",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/starlight": "^0.22.1",
     "@astrojs/starlight-tailwind": "^2.0.2",
