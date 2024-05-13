@@ -1,1 +1,0 @@
-import{i}from"./index.wMCdClr5.js";i();
