@@ -17,6 +17,10 @@ export default defineConfig({
     sitemap(),
     starlight({
       title: "CommerceQuest Docs",
+      logo: {
+        src: './src/images/starlight/CQ_logo.svg',
+        replacesTitle: true,
+      },
       defaultLocale: "root",
       locales: {
         root: {

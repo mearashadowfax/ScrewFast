@@ -2,10 +2,10 @@
 const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Forum", url: "https://commercequest.space/" },
-  { name: "Docs", url: "/welcome-to-docs" },
-  { name: "Products", url: "/products" },
+  { name: "Docs", url: "./guides/getting-started/" },
+//  { name: "Products", url: "/products" },
   { name: "About", url: "/about" },
-  { name: "Blog", url: "/blog" },
+//  { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
 // An array of links for footer
@@ -13,7 +13,7 @@ const footerLinks = [
   {
     section: "Ecosystem",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
+      { name: "Documentation", url: "./guides/getting-started/" },
       { name: "Community Tools", url: "/products" },
       { name: "Code of Conduct", url: "https://spryker.com/sprykercodeofconduct/" },
     ],
