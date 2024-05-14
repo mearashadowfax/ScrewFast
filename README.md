@@ -21,8 +21,8 @@ Welcome to our website repo!
 
 ### Challenge
 We're creating an number of evergreen "community docs":
-- hackathon/meetup blueprint
-- guides on how to contribute to Open Platform (Spryker/Propel/Oryx)
+- Hackathon/meetup blueprint
+- Guides on how to contribute to Open Platform (Spryker/Propel/Oryx)
 - Community Ranks (individual/company)
 - (historical) hackathon projects/logs.
 - etc …
