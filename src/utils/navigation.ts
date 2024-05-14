@@ -3,9 +3,9 @@ const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Forum", url: "https://commercequest.space/" },
   { name: "Docs", url: "./guides/getting-started/" },
-//  { name: "Products", url: "/products" },
+  { name: "Products", url: "/products" },
+  { name: "Blog", url: "/blog" },
   { name: "About", url: "/about" },
-//  { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
 // An array of links for footer
