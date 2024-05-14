@@ -1,10 +1,12 @@
 // An array of links for navigation bar
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Forum", url: "https://commercequest.space/" },
-  { name: "Docs", url: "./guides/getting-started/" },
-  { name: "Products", url: "/products" },
-  { name: "Blog", url: "/blog" },
+//  { name: "Home", url: "/" },
+  { name: "Discussions", url: "https://commercequest.space/" },
+  { name: "Events", url: "https://commercequest.space/events/category" },
+  { name: "Resources", url: "./guides/getting-started/" },
+  { name: "Jobs", url: "https://commercequest.space/categories/jobs" },
+//  { name: "Products", url: "/products" },
+//  { name: "Blog", url: "/blog" },
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
