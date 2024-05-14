@@ -17,6 +17,9 @@ export default defineConfig({
     sitemap(),
     starlight({
       title: "CommerceQuest Docs",
+      editLink: {
+        baseUrl: 'https://github.com/spryker-community/spryker-community.github.io/edit/',
+      },
       logo: {
         src: './src/images/starlight/CQ_logo.svg',
         replacesTitle: true,
