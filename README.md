@@ -2,9 +2,9 @@
 <br/>
 <div align="center">
 <a href="https://commercequest.space">
-<img src="src/images/starlight/CQ_logo.svg" alt="CQ Logo" width="80" height="80">
+<img src="src/images/starlight/CQ_logo.svg" alt="CQ Logo" width="400" height="100">
 </a>
-<h3 align="center">CommerceQuest Landingpage & Docs</h3>
+<h3 align="center">Landingpage & Docs</h3>
 <p align="center">
 Welcome to our website repo!
 <br/>
