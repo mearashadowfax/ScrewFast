@@ -1,6 +1,7 @@
 // An array of links for navigation bar
 const navBarLinks = [
   { name: "Home", url: "/" },
+  { name: "Forum", url: "https://commercequest.space/" },
   { name: "Docs", url: "/welcome-to-docs" },
   { name: "Products", url: "/products" },
   { name: "About", url: "/about" },

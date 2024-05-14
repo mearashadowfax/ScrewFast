@@ -1,9 +1,9 @@
 /* Dark mode colors. */
 :root {
-    --primary-button-hover: #ff801f;
+    --primary-button-hover: #ED4FAD;
     --backdrop-color: #272727cc;
-    --sl-color-accent: #ff801f;
-    --sl-color-accent-high: #ffa057;
+    --sl-color-accent: #EC008C;
+    --sl-color-accent-high: #ed77be;
     --sl-color-accent-low: #562800;
     --sl-color-black: #181818;
     --sl-color-gray-1: #eee;
@@ -13,17 +13,17 @@
     --sl-color-gray-5: #383838;
     --sl-color-gray-6: #272727;
     --sl-color-white: #fff;
-    --yellow-hsl: 43.3, 96.4%, 56.3%;
+    --yellow-hsl: 196, 100%, 47%;
     --overlay-yellow: hsla(var(--yellow-hsl), .2);
 }
 
 /* Light mode colors. */
 :root[data-theme='light'] {
-    --primary-button-hover: #ff801f;
+    --primary-button-hover: #ED4FAD;
     --backdrop-color: #f6f6f699;
-    --sl-color-accent: #f76b15;
+    --sl-color-accent: #EC008C;
     --sl-color-accent-high: #562800;
-    --sl-color-accent-low: #ffa057;
+    --sl-color-accent-low: #ed77be;
     --sl-color-black: #fff;
     --sl-color-gray-1: #272727;
     --sl-color-gray-2: #383838;
@@ -33,7 +33,7 @@
     --sl-color-gray-6: #eee;
     --sl-color-gray-7: #f6f6f6;
     --sl-color-white: #181818;
-    --yellow-hsl: 47.9, 95.8%, 53.1%;
+    --yellow-hsl: 196, 100%, 47%;
 }
 
 .page {
