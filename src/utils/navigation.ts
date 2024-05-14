@@ -3,7 +3,7 @@ const navBarLinks = [
 //  { name: "Home", url: "/" },
   { name: "Discussions", url: "https://commercequest.space/" },
   { name: "Events", url: "https://commercequest.space/events/category" },
-  { name: "Resources", url: "./guides/getting-started/" },
+  { name: "Resources", url: "/guides/intro" },
   { name: "Jobs", url: "https://commercequest.space/categories/jobs" },
 //  { name: "Products", url: "/products" },
 //  { name: "Blog", url: "/blog" },
@@ -15,7 +15,7 @@ const footerLinks = [
   {
     section: "Ecosystem",
     links: [
-      { name: "Documentation", url: "./guides/getting-started/" },
+      { name: "Documentation", url: "/guides/intro" },
       { name: "Community Tools", url: "/products" },
       { name: "Code of Conduct", url: "https://spryker.com/sprykercodeofconduct/" },
     ],

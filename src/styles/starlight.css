@@ -1,9 +1,9 @@
 /* Dark mode colors. */
 :root {
     --backdrop-color: #272727cc;
-    --sl-color-accent: #ff801f;
-    --sl-color-accent-high: #ffa057;
-    --sl-color-accent-low: #562800;
+    --sl-color-accent: #00AEEF;
+    --sl-color-accent-high: #78d0f0;
+    --sl-color-accent-low: #0083b3;
     --sl-color-black: #181818;
     --sl-color-gray-1: #eee;
     --sl-color-gray-2: #c2c2c2;
@@ -12,15 +12,15 @@
     --sl-color-gray-5: #383838;
     --sl-color-gray-6: #272727;
     --sl-color-white: #fff;
-    --list-marker-color: #fb923c;
+    --list-marker-color: #EC008C;
 }
 
 /* Light mode colors. */
 :root[data-theme="light"] {
     --backdrop-color: #f6f6f699;
-    --sl-color-accent: #b73d00;
-    --sl-color-accent-high: #562800;
-    --sl-color-accent-low: #ffa057;
+    --sl-color-accent: #00AEEF;
+    --sl-color-accent-high: #0083b3;
+    --sl-color-accent-low: #78d0f0;
     --sl-color-black: #fff;
     --sl-color-gray-1: #272727;
     --sl-color-gray-2: #383838;
@@ -30,7 +30,7 @@
     --sl-color-gray-6: #eee;
     --sl-color-gray-7: #f6f6f6;
     --sl-color-white: #181818;
-    --list-marker-color: #fb923c;
+    --list-marker-color: #00AEEF;
 }
 
 header {
@@ -52,7 +52,7 @@ article.card {
 }
 
 .starlight-aside--tip {
-    background: linear-gradient(45deg, #ff512f, #f09819);
+    background: linear-gradient(45deg, #EC008C, #ed77be);
     border: none;
     border-radius: 0.5rem;
     color: #66350c;
@@ -70,7 +70,7 @@ article.card {
 }
 
 .starlight-aside--tip .starlight-aside__title {
-    color: #ffe0c2;
+    color: #4E0F36;
 }
 
 .starlight-aside--note .starlight-aside__title {

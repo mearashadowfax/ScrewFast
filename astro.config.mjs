@@ -35,16 +35,20 @@ export default defineConfig({
           autogenerate: { directory: "guides" },
         },
         {
-          label: "Tools & Equipment",
+          label: "Community Projects",
           autogenerate: { directory: "tools" },
         },
         {
-          label: "Construction Services",
-          autogenerate: { directory: "construction" },
+          label: "Contributing",
+          autogenerate: { directory: "contributing" },
         },
         {
-          label: "Advanced Topics",
-          autogenerate: { directory: "advanced" },
+          label: "Events",
+          autogenerate: { directory: "events" },
+        },
+        {
+          label: "Other Resources",
+          autogenerate: { directory: "other" },
         },
       ],
       social: {
