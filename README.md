@@ -66,6 +66,8 @@ Don't forget to give the project a star! Thanks again!
 
  ## Contact
 
-Your Name - [@guido](https://twitter.com/guido) - guido.jansen@spryker.com
+Guido X Jansen
+Global Business & Technology Evangelist @ [Spryker](https://www.spryker.com)
+[@guido](https://twitter.com/guido) - guido.jansen@spryker.com
 
 Project Link: [https://github.com/spryker-community/spryker-community.github.io/](https://github.com/spryker-community/spryker-community.github.io/)
