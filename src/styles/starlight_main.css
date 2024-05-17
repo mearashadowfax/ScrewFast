@@ -1,17 +1,17 @@
 /* Dark mode colors. */
 :root {
     --primary-button-hover: #ED4FAD;
-    --backdrop-color: #272727cc;
+    --backdrop-color: #011427cc;
     --sl-color-accent: #EC008C;
     --sl-color-accent-high: #ed77be;
     --sl-color-accent-low: #562800;
-    --sl-color-black: #181818;
+    --sl-color-black: #011427;
     --sl-color-gray-1: #eee;
     --sl-color-gray-2: #c2c2c2;
     --sl-color-gray-3: #8b8b8b;
     --sl-color-gray-4: #585858;
     --sl-color-gray-5: #383838;
-    --sl-color-gray-6: #272727;
+    --sl-color-gray-6: #011427;
     --sl-color-white: #fff;
     --yellow-hsl: 196, 100%, 47%;
     --overlay-yellow: hsla(var(--yellow-hsl), .2);
@@ -25,14 +25,14 @@
     --sl-color-accent-high: #562800;
     --sl-color-accent-low: #ed77be;
     --sl-color-black: #fff;
-    --sl-color-gray-1: #272727;
+    --sl-color-gray-1: #011427;
     --sl-color-gray-2: #383838;
     --sl-color-gray-3: #585858;
     --sl-color-gray-4: #8b8b8b;
     --sl-color-gray-5: #c2c2c2;
     --sl-color-gray-6: #eee;
     --sl-color-gray-7: #f6f6f6;
-    --sl-color-white: #181818;
+    --sl-color-white: #011427;
     --yellow-hsl: 196, 100%, 47%;
 }
 
