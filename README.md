@@ -6,56 +6,92 @@
 </a>
 <h3 align="center">Landingpage & Docs</h3>
 <p align="center">
-Welcome to our website repo!
+Welcome to our website & docs repo!
 <br/>
 <br/>
-<a href="https://spryker-community.github.io/docs"><strong>Explore the docs »</strong></a>
+<a href="https://spryker-community.github.io/guides/intro/"><strong>Explore the docs »</strong></a>
 <br/>
 <br/>
-<a href="#">Report Bug</a>
-<a href="#">Request Feature</a>
+<a href="https://github.com/spryker-community/spryker-community.github.io/issues">Report an issue</a>
 </p>
 </div>
 
- ## About The Project
+ ## Background:
 
 ### Challenge
-We're creating an number of evergreen "community docs":
-- Hackathon/meetup blueprint
-- Guides on how to contribute to Open Platform (Spryker/Propel/Oryx)
-- Community Ranks (individual/company)
-- (historical) hackathon projects/logs.
+At CommerceQuest, we're creating an increasing number of evergreen "community docs", e.g.:
+- Hackathon/meetup blueprint;
+- Guides on how to contribute to our Open Platform (Spryker/Propel/Oryx);
+- Community Ranks (individual/company);
+- Overview of community extensions;
+- (historical) hackathon projects/logs;
 - etc …
 
-These docs don't really fit the CQ forum format, neither do they fit in other Spryker web properties
+These docs don't really fit the [CQ forum format](https://commercequest.space/discussions), neither do these articles fit on other Spryker web properties
 (OR we can't integrate these in short term because those other properties are currently being reworked).
 
-So we needed a (at minimum temporary) solution.
+So we needed an (at minimum temporary) solution.
 
 ### Solution
 
-- Create a new community website/landingpage that can host our (non-software) community docs.
-- Free & easy to host (e.g. Github)
-- Easy to contribute to for Devs and Non-Devs (Markdown)
-- Fast (SSG/ Flat file)
-- CommerceQuest brand
-- Some decent template available to get up-and running quickly
+Create a new community website/landingpage that can host our (non Spryker/Propel/Oryx software related) community docs.
 
-So at our Turbine x Spryker hackathon in May 2024, this repo was created 😊
+Prerequisites:
+- Free & easy to host (e.g. Github);
+- Easy to contribute to for Devs and Non-Devs (e.g. Markdown);
+- Fast (SSG/ Flat file);
+- CommerceQuest branded;
+- Avoid confusion with other Spryker/Propel/Oryx websites;
+- Some decent template available to get up-and running quickly.
+
+So at our Turbine x Spryker hackathon in May 2024, this repo was created to make this happen 😊
 
  ### Built With
 
 - [Astro](https://astro.build)
 - [ScrewFast Monolingual template](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site)
+- Turbine's Hamburgers 🍔 & Club-Mate 🧃
 
  ## Roadmap
-See the [open issues](https://github.com/spryker-community/spryker-community.github.io/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/spryker-community/spryker-community.github.io/issues) for a full list of known issues 🪲 and proposed features.
 
  ## Contributing
 
 Contributions are what make our open community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+A. Content contributions
+If you simply want to update any of [our existing docs](https://spryker-community.github.io/guides/intro/):
+1. Go to [/src/content/docs](https://github.com/spryker-community/spryker-community.github.io/tree/monolingual-site/src/content/docs) and select a folder (these act as categories);
+2. Click on the .MDX file you want to edit;
+3. On the new page, click on the "Edit this file" Pencil ✏️ in the top right;
+4. Make your edits;
+5. Click the green "Commit changes" button in the top right.
+
+OR, if you want to create a new article:
+1. Go to [/src/content/docs](https://github.com/spryker-community/spryker-community.github.io/tree/monolingual-site/src/content/docs) and create a new folder (these act as categories);
+2. In the new folder, create a new .MDX document by clicking "Add file > Create a new file" in the top right;
+3. Name your file (ideally the same as the label you use below);
+4. Create your new article, starting the the frontmatter code below:
+
+    ---
+    title: Title of your new page
+    description: Description of your new page 
+    sidebar:
+        label: Short name for your page
+        order: single or two digit number
+    ---
+
+    import {
+    Tabs,
+    TabItem,
+    } from "@astrojs/starlight/components";
+
+    Your article content goes here
+5. Click the green "Commit changes" button in the top right.
+
+B. Code contributions
+
+If you have a suggestion that would make our community website better, please fork the repo and create a pull request. You can also simply open an issue with the tag "bug" or "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -64,10 +100,12 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch
 5. Open a Pull Request
 
- ## Contact
+> In your local environment, you can use `➜  ~ npm install` to get Astro installed and   `➜  ~ npm run dev` to start your local environment.
 
-Guido X Jansen
-Global Business & Technology Evangelist @ [Spryker](https://www.spryker.com)
-[@guido](https://twitter.com/guido) - guido.jansen@spryker.com
+## Contact
+
+Guido X Jansen\
+Global Business & Technology Evangelist @ [Spryker](https://www.spryker.com)\
+[@gxjansen](https://github.com/gxjansen) - guido.jansen@spryker.com\
 
 Project Link: [https://github.com/spryker-community/spryker-community.github.io/](https://github.com/spryker-community/spryker-community.github.io/)
