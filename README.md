@@ -9,7 +9,7 @@
 Welcome to our website & docs repo!
 <br/>
 <br/>
-<a href="https://spryker-community.github.io/guides/intro/"><strong>Explore the docs »</strong></a>
+<a href="https://spryker-community.github.io/"><strong>Explore the website »</strong></a> | <a href="https://spryker-community.github.io/guides/intro/"><strong>Explore the docs »</strong></a>
 <br/>
 <br/>
 <a href="https://github.com/spryker-community/spryker-community.github.io/issues">Report an issue</a>
@@ -72,21 +72,22 @@ OR, if you want to create a new article:
 2. In the new folder, create a new .MDX document by clicking "Add file > Create a new file" in the top right;
 3. Name your file (ideally the same as the label you use below);
 4. Create your new article, starting the the frontmatter code below:
+```
+---
+title: Title of your new page
+description: Description of your new page 
+sidebar:
+    label: Short name for your page
+    order: single or two digit number
+---
 
-    ---
-    title: Title of your new page
-    description: Description of your new page 
-    sidebar:
-        label: Short name for your page
-        order: single or two digit number
-    ---
+import {
+Tabs,
+TabItem,
+} from "@astrojs/starlight/components";
 
-    import {
-    Tabs,
-    TabItem,
-    } from "@astrojs/starlight/components";
-
-    Your article content goes here
+Your article content goes here
+```
 5. Click the green "Commit changes" button in the top right.
 
 B. Code contributions
@@ -100,12 +101,13 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch
 5. Open a Pull Request
 
+> [!NOTE]
 > In your local environment, you can use `➜  ~ npm install` to get Astro installed and   `➜  ~ npm run dev` to start your local environment.
 
 ## Contact
 
 Guido X Jansen\
 Global Business & Technology Evangelist @ [Spryker](https://www.spryker.com)\
-[@gxjansen](https://github.com/gxjansen) - guido.jansen@spryker.com\
+[@gxjansen](https://github.com/gxjansen) - guido.jansen@spryker.com
 
 Project Link: [https://github.com/spryker-community/spryker-community.github.io/](https://github.com/spryker-community/spryker-community.github.io/)
