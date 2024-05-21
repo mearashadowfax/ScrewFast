@@ -63,8 +63,8 @@ See the [open issues](https://github.com/spryker-community/spryker-community.git
 
 Contributions are what make our open community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated** 🙇.
 
-<details>
-<summary>### A. Content contributions</summary>
+
+### A. Content contributions
 If you simply want to update any of [our existing docs](https://spryker-community.github.io/guides/intro/):
 1. Go to [/src/content/docs](https://github.com/spryker-community/spryker-community.github.io/tree/monolingual-site/src/content/docs) and select a folder (these act as categories);
 2. Click on the .MDX file you want to edit;
@@ -94,10 +94,8 @@ TabItem,
 Your article content goes here.
 ```
 5. Click the green "Commit changes" button in the top right.
-</details>
 
-<details>
-<summary>### B. Code contributions</summary>
+### B. Code contributions
 
 If you have a suggestion that would make our community website better, please fork the repo and create a pull request. You can also simply open an issue with the tag "bug" or "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -110,9 +108,6 @@ Don't forget to give the project a star! Thanks again!
 
 > [!NOTE]
 > In your local environment, you can use `➜  ~ npm install` to get Astro installed and   `➜  ~ npm run dev` to start your local environment.
-
-</details>
-
 
 ## Contact 📬
 
