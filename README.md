@@ -66,11 +66,10 @@ Contributions are what make our open community such an amazing place to learn, i
 
 ### A. Content contributions
 If you simply want to update any of [our existing docs](https://spryker-community.github.io/guides/intro/):
-1. Go to [/src/content/docs](https://github.com/spryker-community/spryker-community.github.io/tree/monolingual-site/src/content/docs) and select a folder (these act as categories);
-2. Click on the .MDX file you want to edit;
-3. On the new page, click on the "Edit this file" Pencil ✏️ in the top right;
-4. Make your edits, but leave the frontmatter intact (the text on top of the page between the --- lines);
-5. Click the green "Commit changes" button in the top right.
+1. Go to [the docs](https://spryker-community.github.io/guides/intro/) and browse to the article you want to adjust;
+2. On the bottom of the page, click "✏︎ Edit page"
+4. Make your edits, but leave the frontmatter (= the text on top of the page between the --- lines) intact;
+5. Click the green "Commit changes" button in the top right, add your commit message and click the green sign off button.
 
 OR, if you want to create a new article:
 1. Go to [/src/content/docs](https://github.com/spryker-community/spryker-community.github.io/tree/monolingual-site/src/content/docs) and create a new folder (these act as categories);
@@ -93,7 +92,7 @@ TabItem,
 
 Your article content goes here.
 ```
-5. Click the green "Commit changes" button in the top right.
+5. Click the green "Commit changes" button in the top right, add your commit message and click the green sign off button.
 
 ### B. Code contributions
 
