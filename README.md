@@ -41,7 +41,7 @@ So we needed a (at minimum temporary) solution.
 - CommerceQuest brand
 - Some decent template available to get up-and running quickly
 
-So at our Turbine x Spryker hackathon in May 2024, this repo was created :)
+So at our Turbine x Spryker hackathon in May 2024, this repo was created 😊
 
  ### Built With
 
