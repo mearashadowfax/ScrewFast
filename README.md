@@ -47,7 +47,7 @@ Prerequisites:
 
 So at our Turbine x Spryker hackathon in May 2024, this repo was created to make this happen 😊
 
- ### Built With
+ ### Built With...
 
 - [Astro](https://astro.build)
 - [ScrewFast Monolingual template](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site)
@@ -59,9 +59,9 @@ So at our Turbine x Spryker hackathon in May 2024, this repo was created to make
  ## Roadmap
 See the [open issues](https://github.com/spryker-community/spryker-community.github.io/issues) for a full list of known issues 🪲 and proposed features.
 
- ## Contributing
+ ## Contributing 
 
-Contributions are what make our open community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make our open community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated** 🙇.
 
 Option A: Contribute content
 Option B: Contribute code
@@ -93,7 +93,7 @@ Tabs,
 TabItem,
 } from "@astrojs/starlight/components";
 
-Your article content goes here
+Your article content goes here.
 ```
 5. Click the green "Commit changes" button in the top right.
 
@@ -102,19 +102,17 @@ Your article content goes here
 If you have a suggestion that would make our community website better, please fork the repo and create a pull request. You can also simply open an issue with the tag "bug" or "enhancement".
 Don't forget to give the project a star! Thanks again!
 
-1. Fork the Project
-2. Create your Feature Branch
-3. Commit your Changes
-4. Push to the Branch
-5. Open a Pull Request
+1. Fork the Project;
+2. Create your Feature Branch;
+3. Commit your Changes;
+4. Push to the Branch;
+5. Open a Pull Request.
 
 > [!NOTE]
 > In your local environment, you can use `➜  ~ npm install` to get Astro installed and   `➜  ~ npm run dev` to start your local environment.
 
-## Contact
+## Contact 📬
 
 Guido X Jansen\
 Global Business & Technology Evangelist @ [Spryker](https://www.spryker.com)\
 [@gxjansen](https://github.com/gxjansen) - guido.jansen@spryker.com
-
-Project Link: [https://github.com/spryker-community/spryker-community.github.io/](https://github.com/spryker-community/spryker-community.github.io/)
