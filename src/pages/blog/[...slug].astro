@@ -53,16 +53,12 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
           <div class="grow">
             <div class="flex items-center justify-between gap-x-2">
               <div>
-                <div
-                  class="hs-tooltip inline-block [--placement:bottom] [--trigger:hover]"
-                >
-                  <!--Post metadata and author info-->
-                  <span
+                <!--Post metadata and author info-->
+                <span
                     class="font-bold text-neutral-700 dark:text-neutral-300"
-                  >
+                >
                     {post.data.author}
-                  </span>
-                </div>
+                </span>
                 <ul class="text-xs text-neutral-500">
                   <li
                     class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
