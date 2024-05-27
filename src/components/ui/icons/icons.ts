@@ -84,10 +84,58 @@ export const Icons = {
     strokeLinejoin: "round",
     stroke: "currentColor",
   },
+  arrowDown: {
+    paths: [
+      {
+        d:"M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z",
+      },
+    ],
+    class: "h-5 w-5 flex-shrink-0 text-pink-400 dark:text-pink-300",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    stroke: "currentColor",
+  },
+  repo: {
+    paths: [
+      {
+        d:"M21.561 16l-1.2 6h-16.721l-1.2-6h19.121zm2.439-2h-24l2 10h20l2-10zm-3.444-12.001l.439-1.999h-17.994l.439 1.999h17.116zm1.7 4.001l.37-2h-21.256l.37 2h20.516zm-19.731 6l-.255-2h19.45l-.262 2h2.017l.525-4h-24l.509 4h2.016z",
+      },
+    ],
+    class: "h-5 w-5 flex-shrink-0 text-pink-400 dark:text-pink-300",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    strokeWidth: "0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    stroke: "currentColor",
+  },
+  github2: {
+    paths: [
+      {
+        d: "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z",
+      },
+    ],
+    class: "h-5 w-5 flex-shrink-0 text-pink-400 dark:text-pink-300",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    strokeWidth: "0",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    stroke: "currentColor",
+  },
   arrowUp: {
     paths: [
       {
-        d: "m5 12 7-7 7 7",
+        d: "M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z",
       },
       {
         d: "M12 19V5",
