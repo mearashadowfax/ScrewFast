@@ -53,6 +53,10 @@ export default defineConfig({
           label: "Other Resources",
           autogenerate: { directory: "other" },
         },
+/*         {
+          label: "[Templates]]",
+          autogenerate: { directory: "templates" },
+        }, */
       ],
       social: {
         github: "https://github.com/spryker-community",
