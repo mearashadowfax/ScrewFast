@@ -16,12 +16,13 @@ const footerLinks = [
     section: "Ecosystem",
     links: [
       { name: "Documentation", url: "/guides/intro" },
-      { name: "Community Tools", url: "/products" },
+      { name: "Community Tools", url: "https://github.com/orgs/spryker-community/repositories" },
       { name: "Code of Conduct", url: "https://spryker.com/sprykercodeofconduct/" },
+      { name: "Help improve this site", url: "https://github.com/spryker-community/spryker-community.github.io?tab=readme-ov-file#landingpage--docs" },
     ],
   },
   {
-    section: "Company",
+    section: "CommerceQuest",
     links: [
       { name: "About us", url: "/about" },
       { name: "Forum", url: "https://commercequest.space/" },
