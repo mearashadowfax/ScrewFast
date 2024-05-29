@@ -1,4 +1,3 @@
-                         
 <br/>
 <div align="center">
 <a href="https://commercequest.space">
@@ -10,10 +9,8 @@ Welcome to our website & docs repo!
 <br/>
 <br/>
 <a href="https://spryker-community.github.io/"><strong>Explore the website »</strong></a> | <a href="https://spryker-community.github.io/guides/intro/"><strong>Explore the docs »</strong></a>
-<br/>
-<br/>
-<a href="https://github.com/spryker-community/spryker-community.github.io/issues">Report an issue</a>
-</p>
+
+  ![GitHub last commit](https://img.shields.io/github/last-commit/spryker-community/spryker-community.github.io?label=latest%20website%20update) [![Report an issue](https://img.shields.io/badge/Report%20an-issue-red?style=flat-square)](https://www.gui.do/presentation)
 </div>
 
  ## Background:
@@ -57,11 +54,10 @@ So at our Turbine x Spryker hackathon in May 2024, this repo was created to make
 > [!IMPORTANT]
 > Note that this repo contains the [website](https://spryker-community.github.io/) and the [docs](https://spryker-community.github.io/guides/intro/) contained within that website, NOT the [CommerceQuest forum](https://commercequest.space/).
 
- ## Roadmap
+## Roadmap
 See the [open issues](https://github.com/spryker-community/spryker-community.github.io/issues) for a full list of known issues 🪲 and proposed features.
 
- ## Contributing 
-
+## Contributing 
 Contributions are what make our open community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated** 🙇.
 
 
