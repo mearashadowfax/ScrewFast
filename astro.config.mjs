@@ -46,7 +46,7 @@ export default defineConfig({
           autogenerate: { directory: "contributing" },
         },
         {
-          label: "Events",
+          label: "Event Blueprints",
           autogenerate: { directory: "events" },
         },
         {
