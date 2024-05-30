@@ -4,6 +4,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
 import ClientsSection from "@components/sections/landing/ClientsSection.astro";
+import PlatformsSection from "@components/sections/landing/PlatformsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
@@ -52,9 +53,14 @@ const avatarSrcs: Array<string> = [
     alt="Oskar in an astronaut suit"
   />
 
+  <PlatformsSection
+    title="Optimized, Efficient Enterprise Commerce..."
+    subTitle="Community of Commerce Experts, Developers, and Architects building the future of commerce."
+  />
+
   <ClientsSection
-    title="Build with our Solution & Technology Partners"
-    subTitle="Join engineers, architects and commerce experts from all over the world."
+  title="...build with our Solution & Technology Partners"
+  subTitle="Join our community and events with engineers, architects and commerce experts from all over the world."
   />
 
   <FeaturesGeneral
@@ -64,6 +70,8 @@ const avatarSrcs: Array<string> = [
     alt="Products in floating boxes"
     features={features}
   />
+
+
 
   <FeaturesNavs
     title=`Why attend community <span class="text-blue-500 dark:text-blue-400">events</span>?`

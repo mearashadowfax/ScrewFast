@@ -8,10 +8,9 @@ interface Props {
   subTitle?: string;
 }
 import { Image } from 'astro:assets';
-import valantic from '/src/images/homepage/valantic.png';
-import nagarro from '/src/images/homepage/nagarro.png';
-import turbine from '/src/images/homepage/turbine.png';
-import towa from '/src/images/homepage/towa.png';
+import spryker from '/src/images/homepage/spryker_horizontal_grey.png';
+import oryx from '/src/images/homepage/oryx_horizontal_grey.png';
+import propel from '/src/images/homepage/propel_horizontal_grey.png';
 
 ---
 
@@ -36,17 +35,15 @@ import towa from '/src/images/homepage/towa.png';
   <div
     class="flex flex-col items-center justify-center gap-y-2 sm:flex-row sm:gap-x-12 sm:gap-y-0 lg:gap-x-24"
   >
-    <!-- Clients Group SVGs -->
+    <!-- Platforms Group SVGs -->
     <!-- First -->
-    <Image src={turbine} alt="Turbine" width="140" height="50" />
+    <Image src={spryker} alt="Spryker" width="140" height="50" />
 
     <!-- Second -->
-    <Image src={nagarro} alt="Nagarro" width="140" height="50" />
+    <Image src={oryx} alt="Oryx" width="120" height="30" />
+  
     <!-- Third -->
-    <Image src={towa} alt="Towa" width="140" height="50" />
-
-    <!-- Fourth -->
-    <Image src={valantic} alt="valantic" width="140" height="50" />
+    <Image src={propel} alt="Propel" width="120" height="30" />
 
   </div>
 </section>
