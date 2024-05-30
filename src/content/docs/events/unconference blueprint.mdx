@@ -9,6 +9,8 @@ sidebar:
 import {
   Card
 } from "@astrojs/starlight/components";
+import { Image } from 'astro:assets';
+import Unconfschedule from '/src/images/starlight/unconference-schedule.jpg';
 
 ## What is a ***Un***conference?
 
@@ -78,7 +80,7 @@ The kickoff is the first part of the Unconference and consists of the following 
 * A living agenda where topics are posted and updated.
 * Sessions are typically 20-30 minutes with 10-minute breaks.
 
-![unconference](/src/images/starlight/unconference-schedule.jpg)
+<Image src={Unconfschedule} alt="Unconference Schedule" />
 <center>_Template for a hackathon agenda._</center>
 
 ![unconference](/src/images/starlight/unconference.jpg)
