@@ -8,6 +8,10 @@ interface Props {
   subTitle?: string;
 }
 import { Image } from 'astro:assets';
+import valantic from '/src/images/homepage/valantic.png';
+import nagarro from '/src/images/homepage/nagarro.png';
+import turbine from '/src/images/homepage/turbine.png';
+
 ---
 
 <section
@@ -33,10 +37,10 @@ import { Image } from 'astro:assets';
   >
     <!-- Clients Group SVGs -->
     <!-- First -->
-    <Image src="/src/images/homepage/turbine.png" alt="Turbine" width="140" height="50" />
+    <Image src={turbine} alt="Turbine" width="140" height="50" />
 
     <!-- Second -->
-    <Image src="/src/images/homepage/nagarro.png" alt="Nagarro" width="140" height="50" />
+    <Image src={nagarro} alt="Nagarro" width="140" height="50" />
     <!-- Third -->
     <svg
       class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5"
@@ -80,7 +84,7 @@ import { Image } from 'astro:assets';
 	<path fill="#6B7280" d="M156.031,44.491c0-9.924,0-19.566,0-29.563c10.674,0,21.226,0,32.108,0c0,9.809,0,19.561,0,29.563
 		C177.397,44.491,166.84,44.491,156.031,44.491z"/>    </svg>
     <!-- Fourth -->
-    <Image src="/src/images/homepage/valantic.png" alt="valantic" width="140" height="50" />
+    <Image src={valantic} alt="valantic" width="140" height="50" />
 
   </div>
 </section>
