@@ -10,7 +10,10 @@ import {
   Card
 } from "@astrojs/starlight/components";
 import { Image } from 'astro:assets';
+import Unconffrom from '/src/images/starlight/unconference-form.jpg';
 import Unconfschedule from '/src/images/starlight/unconference-schedule.jpg';
+import Unconfphoto from '/src/images/starlight/unconference.jpg';
+
 
 ## What is a ***Un***conference?
 
@@ -72,7 +75,7 @@ The kickoff is the first part of the Unconference and consists of the following 
 	4.	**Voting**: Participants vote on topics; sessions are scheduled based on votes.
 	5.	**Scheduling**: Host schedules sessions; participants break before the first session.
 
-<center><img src="/src/images/starlight/unconference-form.jpg" alt="unconference form" width="300"/></center>
+<Image src={Unconfform} alt="Unconference Form" />
 <center>_Example of a proposal form._</center>
 
 
@@ -83,7 +86,7 @@ The kickoff is the first part of the Unconference and consists of the following 
 <Image src={Unconfschedule} alt="Unconference Schedule" />
 <center>_Template for a hackathon agenda._</center>
 
-![unconference](/src/images/starlight/unconference.jpg)
+<Image src={Unconfphoto} alt="Unconference" />
 <center>_Example of a Wall in use during a hackathon._</center>
 
 ## After the event
