@@ -5,6 +5,8 @@ import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import SimpleBlock from "@components/sections/features/SimpleBlock.astro";
+
 
 // Import necessary images
 import blueprints from "@images/blueprints-image.avif";
@@ -25,7 +27,7 @@ import { SITE } from "@data/constants";
 interface Article {
   isRightSection: boolean;
   title: string;
-  subTitle: string;
+  subTitle: any;
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
@@ -59,10 +61,10 @@ const articles: Article[] = [
     subTitle:
       "Oryx Front-end Framework can be utilized across a wide range of industries and sectors, offering a robust solution to modern client-side interfaces. Tailored but not limited to meeting the demands of e-commerce, the open-sourcing of Oryx Framework allows developers to actively steer the evolution of front-end development through vibrant, ecosystem-led innovation. This unique solution offers high performance independent of any specific framework or vendor, empowering a broader range of developments and innovations.",
     img: OTP_2pc,
-    imgAlt: "Construction site before and after",
+    imgAlt: "Two people collaborating on a project",
     btnExists: true,
-    btnTitle: "Learn More",
-    btnURL: "#",
+    btnTitle: "Official Oryx Documentation",
+    btnURL: "https://docs.spryker.com/docs/dg/dev/frontend-development/202404.0/oryx/oryx.html",
   },
   {
     isRightSection: true,
@@ -72,8 +74,6 @@ const articles: Article[] = [
     single: true,
     imgOne: howtoContribute,
     imgOneAlt: "How to contribute to Oryx Front-end Framework",
-    imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
     btnExists: true,
     btnTitle: "Oryx Contribution Guidelines",
     btnURL: "https://docs.spryker.com/docs/dg/dev/frontend-development/202311.0/oryx/contribute-to-oryx.html",
@@ -168,10 +168,30 @@ const pageTitle: string = `Oryx Contributions | ${SITE.title}`;
       );
     })
   }
-  <!--FeaturesStats section showcases essential stats valuable to users-->
+  <!--SimpleBlock section showcases essential follow-up actions for developers-->
+  <SimpleBlock
+    title="Next Steps"
+    subTitle="Explore the Framework"
+    content="Familiarize yourself with the documentation. Get a feel for the existing codebase and understand how your contributions can enhance its functionality."
+    secondaryBtn="Oryx Front-end Framework’s documentation"
+    secondaryBtnURL="https://docs.spryker.com/docs/dg/dev/frontend-development/202404.0/oryx/oryx.html"
+  />
+  <SimpleBlock
+    subTitle="Join the CommerceQuest Community"
+    content="Engage with fellow contributors, ask questions, and share your thoughts on our dedicated Oryx community forum. Collaboration is key to success, and your input will shape the direction of evolution."
+    secondaryBtn="Oryx subforum"
+    secondaryBtnURL="https://commercequest.space/categories/oryx"
+  />
+<SimpleBlock
+    subTitle="Contribute Code, Ideas, or Documentation"
+    content="Check out the Oryx Framework Contribution Guidelines to submit your pull requests, suggest new features, or enhance existing documentation."
+    secondaryBtn="Oryx Contribution Guidelines"
+    secondaryBtnURL="https://docs.spryker.com/docs/dg/dev/frontend-development/202311.0/oryx/contribute-to-oryx.html"
+  />
+  <!--FeaturesStats section showcases essential stats valuable to users
   <FeaturesStats
     title="Next Steps"
-    subTitle="Explore the Framework: Familiarize yourself with Oryx Front-end Framework’s documentation. Get a feel for the existing codebase and understand how your contributions can enhance its functionality. Join Spryker’s CommerceQuest Community: Engage with fellow contributors, ask questions, and share your thoughts on our dedicated Oryx community forum. Collaboration is key to success, and your input will shape the direction of evolution. Contribute Code, Ideas, or Documentation: Check out the Oryx Framework Contribution Guidelines to submit your pull requests, suggest new features, or enhance existing documentation."
+    subTitle="Familiarize yourself with Oryx Front-end Framework’s documentation. Get a feel for the existing codebase and understand how your contributions can enhance its functionality. Join Spryker’s CommerceQuest Community: Engage with fellow contributors, ask questions, and share your thoughts on our dedicated Oryx community forum. Collaboration is key to success, and your input will shape the direction of evolution. Contribute Code, Ideas, or Documentation: Check out the Oryx Framework Contribution Guidelines to submit your pull requests, suggest new features, or enhance existing documentation."
     mainStatTitle="96%"
     mainStatSubTitle="of our clients rate their experience with CommerceQuest as exceptional"
     stats={[
@@ -188,7 +208,5 @@ const pageTitle: string = `Oryx Contributions | ${SITE.title}`;
         description: "client growth year-over-year",
       },
     ]}
-  />
+  />-->
 </MainLayout>
-
-

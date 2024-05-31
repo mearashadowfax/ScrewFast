@@ -1,0 +1,83 @@
+---
+// Import the necessary dependencies
+import { Image } from "astro:assets";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
+
+// Define props from Astro
+const {
+  mainTitle,
+  description,
+  title1,
+  content1,
+  title2,
+  content2,
+  title3,
+  content3,
+  title4,
+  content4,
+  title5,
+  content5,
+  title6,
+  content6,
+} = Astro.props;
+
+  // Define TypeScript interface for props
+interface Props {
+  mainTitle: string;
+  description: string;
+  title1: string;
+  content1: string;
+  title2?: string;
+  content2?: string;
+  title3?: string;
+  content3?: string;
+  title4?: string;
+  content4?: string;
+  title5?: string;
+  content5?: string;
+  title6?: string;
+  content6?: string;
+}
+
+---
+<!-- Defining a grid container that holds all the content -->
+
+<section
+  class="mx-auto max-w-[85rem] px-4 py-15 sm:px-6 lg:px-8 lg:py-5 2xl:max-w-full"
+>
+  <div class="max-w-screen-md">
+    <!-- mainTitle -->
+    <h2
+      class="mb-5 text-balance text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
+      {mainTitle}
+    </h2>
+    <!-- description -->
+    {description &&
+      <p
+        class="mb-5 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-xl"
+      >
+        {description}
+      </p>
+      }
+    <!-- Subtitle -->
+    {title1 &&
+    <h3
+      class="mb-5 max-w-prose text-pretty font-bold text-neutral-700 dark:text-neutral-300 sm:text-xl"
+    >
+      {title1}
+    </h3>
+    }
+    <!-- Content -->
+    {content1 &&
+      <p
+        class="mb-5 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-xl"
+      >
+        {content1}
+      </p>
+      }
+
+    </div>
+  </div>
+</section>

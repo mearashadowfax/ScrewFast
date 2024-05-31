@@ -1,0 +1,61 @@
+---
+// Import the necessary dependencies
+import { Image } from "astro:assets";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
+
+// Define props from Astro
+const {
+  title,
+  subTitle,
+  content,
+  secondaryBtn,
+  secondaryBtnURL,
+} = Astro.props;
+
+  // Define TypeScript interface for props
+interface Props {
+  title?: string;
+  subTitle?: string;
+  content: string;
+  secondaryBtn?: string;
+  secondaryBtnURL?: string;
+}
+
+---
+<!-- Defining a grid container that holds all the content -->
+
+<section
+  class="mx-auto max-w-[85rem] px-4 py-15 sm:px-6 lg:px-8 lg:py-5 2xl:max-w-full"
+>
+  <div class="max-w-screen-md">
+    <!-- Main title -->
+    <h2
+      class="mb-5 text-balance text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
+      {title}
+    </h2>
+    <!-- Subtitle -->
+    {subTitle &&
+    <h3
+      class="mb-5 max-w-prose text-pretty font-bold text-neutral-700 dark:text-neutral-300 sm:text-xl"
+    >
+      {subTitle}
+    </h3>
+    }
+    <!-- Content -->
+    {content &&
+      <p
+        class="mb-5 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-xl"
+      >
+        {content}
+      </p>
+      }
+    <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
+    <div class="mt-0 grid w-full gap-3 sm:inline-flex">
+      {secondaryBtn && 
+      <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+      }
+    </div>
+  </div>
+</section>
