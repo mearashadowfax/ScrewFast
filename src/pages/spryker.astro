@@ -36,7 +36,7 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Flourishing Forums",
+    title: "Delivering Expert Guidance",
     subTitle:
       "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
     single: false,
@@ -47,7 +47,7 @@ const articles: Article[] = [
   },
   {
     isRightSection: false,
-    title: "Monthly Meetups",
+    title: "Transforming Designs into Reality",
     subTitle:
       "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, CommerceQuest offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
     img: beforeAfter,
@@ -58,7 +58,7 @@ const articles: Article[] = [
   },
   {
     isRightSection: true,
-    title: "Hands-on Hackathons",
+    title: "Navigating Projects with Professional Oversight",
     subTitle:
       "Effective project management is at the heart of any successful build. CommerceQuest provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
     single: false,
@@ -69,7 +69,7 @@ const articles: Article[] = [
   },
   {
     isRightSection: false,
-    title: "Ultimate Unconferences",
+    title: "Ensuring Long-lasting Performance",
     subTitle:
       "Our commitment to your project doesn't end at completion. CommerceQuest offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
     img: usingTools,
@@ -92,7 +92,7 @@ const articles: Article[] = [
   },
 ];
 
-const pageTitle: string = `About | ${SITE.title}`;
+const pageTitle: string = `Spryker | ${SITE.title}`;
 ---
 
 <MainLayout
@@ -115,11 +115,11 @@ const pageTitle: string = `About | ${SITE.title}`;
 >
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
-    title="Uniting Passion with Your Vision"
-    subTitle="At CommerceQuest, we take pride in bringing together a growing community of passionate commerce professionals and build great things together. Our community team is dedicated to supporting your Spryker, Oryx or Propel projects from inception to completion and having fun while doing so."
+    title="Uniting Expertise with Your Vision"
+    subTitle="At CommerceQuest, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
     btnExists={true}
-    btnTitle="Become a member today!"
-    btnURL="https://commercequest.space/entry/register?target=https://commercequest.space/"
+    btnTitle="Schedule a Consultation"
+    btnURL="#"
   />
   <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.
@@ -160,21 +160,21 @@ const pageTitle: string = `About | ${SITE.title}`;
   <!--FeaturesStats section showcases essential stats valuable to users-->
   <FeaturesStats
     title="By the Numbers"
-    subTitle="At CommerceQuest, we are dedicated to delivering an industry-leading community experience."
-    mainStatTitle="250+"
-    mainStatSubTitle="weekly active members"
+    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At CommerceQuest, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+    mainStatTitle="4.3 / 5"
+    mainStatSubTitle="Gartner Peer Insights rating"
     stats={[
       {
-        stat: "25+",
-        description: "annual community events",
+        stat: "150+",
+        description: "global customers",
       },
       {
         stat: "50+",
-        description: "community Github repositories",
+        description: "nationalities in our talented global herd.",
       },
       {
-        stat: "3K+",
-        description: "Community members and growing.",
+        stat: "Top 100",
+        description: "Flexible Employers 2023 by Jobgether",
       },
     ]}
   />
