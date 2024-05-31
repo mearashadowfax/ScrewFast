@@ -13,8 +13,11 @@ const navBarLinks = [
 // An array of links for footer
 const footerLinks = [
   {
-    section: "Ecosystem",
+    section: "CQ Ecosystem",
     links: [
+      { name: "Spryker", url: "https://spryker.com/" },
+      { name: "Oryx", url: "/oryx-contributions" },
+      { name: "Propel", url: "https://propelorm.org/" },
       { name: "Documentation", url: "/guides/intro" },
       { name: "Community Tools", url: "https://github.com/orgs/spryker-community/repositories" },
       { name: "Code of Conduct", url: "https://spryker.com/sprykercodeofconduct/" },
