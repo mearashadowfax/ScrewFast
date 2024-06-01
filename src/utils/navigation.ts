@@ -4,9 +4,9 @@ const navBarLinks = [
   { name: "Discussions", url: "https://commercequest.space/" },
   { name: "Events", url: "https://commercequest.space/events/category" },
   { name: "Resources", url: "/guides/intro" },
-  { name: "Jobs", url: "https://commercequest.space/categories/jobs" },
+//  { name: "Jobs", url: "https://commercequest.space/categories/jobs" },
 //  { name: "Products", url: "/products" },
-  { name: "Blog", url: "/blog" },
+//  { name: "Blog", url: "/blog" },
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
