@@ -6,22 +6,21 @@
     xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
     xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
     xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
     xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/"
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
    exif:ExifVersion="0231"
    tiff:Orientation="1"
-   xmpMM:DocumentID="0F17A28A9A43FCC17050386C6B3AD746"
-   xmpMM:OriginalDocumentID="0F17A28A9A43FCC17050386C6B3AD746"
-   xmpMM:InstanceID="xmp.iid:08503af5-4739-4de9-974f-2da69935d102"
+   xmpMM:DocumentID="47F09FDF236EAB543BFEFD8D94193490"
+   xmpMM:OriginalDocumentID="47F09FDF236EAB543BFEFD8D94193490"
+   xmpMM:InstanceID="xmp.iid:6afe0799-e229-42d3-9a60-0a75340e8576"
    dc:format="image/avif"
-   xmp:MetadataDate="2024-06-01T11:37:11+02:00"
    crs:Version="16.2.1"
    crs:ProcessVersion="15.4"
    crs:WhiteBalance="As Shot"
    crs:IncrementalTemperature="0"
    crs:IncrementalTint="0"
-   crs:Exposure2012="+0.15"
+   crs:Exposure2012="0.00"
    crs:Contrast2012="0"
    crs:Highlights2012="0"
    crs:Shadows2012="0"
@@ -117,19 +116,14 @@
    crs:HasCrop="False"
    crs:AlreadyApplied="False"
    photoshop:SidecarForExtension="AVIF"
-   photoshop:EmbeddedXMPDigest="00000000000000000000000000000000">
+   photoshop:EmbeddedXMPDigest="00000000000000000000000000000000"
+   xmp:MetadataDate="2024-06-01T12:27:06+02:00">
    <xmpMM:History>
     <rdf:Seq>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:786a2eca-2ab4-4b5c-badb-c2f41c05bf1b"
-      stEvt:when="2024-05-31T23:19:38+02:00"
-      stEvt:softwareAgent="Adobe Photoshop Camera Raw 16.3 (Macintosh)"
-      stEvt:changed="/metadata"/>
-     <rdf:li
-      stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:08503af5-4739-4de9-974f-2da69935d102"
-      stEvt:when="2024-06-01T11:37:11+02:00"
+      stEvt:instanceID="xmp.iid:6afe0799-e229-42d3-9a60-0a75340e8576"
+      stEvt:when="2024-06-01T12:27:06+02:00"
       stEvt:softwareAgent="Adobe Photoshop Camera Raw 16.2.1 (Macintosh)"
       stEvt:changed="/metadata"/>
     </rdf:Seq>

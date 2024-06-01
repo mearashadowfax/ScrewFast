@@ -7,14 +7,14 @@ import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
-import blueprints from "@images/blueprints-image.avif";
-import personWorking from "@images/person-working.avif";
-import beforeAfter from "@images/before-after.avif";
-import constructionWorkers from "@images/construction-workers.avif";
-import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/using-tools.avif";
 import sprykerOskar from "@images/spryker-oskar.png";
 import exciteStage from "@images/excite-stage.png";
+import hackathon1 from "@images/spryker-event-1.jpg";
+import hackathon2 from "@images/spryker-event-2.jpg";
+import ugfeb2024 from "@images/ug-feb-2024.png";
+import forumDiscussions from "@images/forum-discussions.png";
+import demo from "@images/demo.jpg";
+import devCorner from "@images/devcorner.png";
 import { SITE } from "@data/constants";
 
 interface Article {
@@ -38,57 +38,66 @@ const articles: Article[] = [
     isRightSection: true,
     title: "Flourishing Forums",
     subTitle:
-      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+      "Our Discussion Forum is the go-to place for Spryker, Oryx and Propel developers seeking peer-to-peer support and collaboration. Here, you can search through past discussions to find solutions to common challenges, post your own questions or requests for assistance, and benefit from the collective knowledge of the community. Additionally, the forum features the latest community news & announcements and allows you to directly RSVP to upcoming community events.",
     single: false,
-    imgOne: blueprints,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
-    imgTwo: personWorking,
-    imgTwoAlt: "Person working in the office",
+    imgOne: devCorner,
+    imgOneAlt: "Developer sub on the CommerceQuest forum.",
+    imgTwo: forumDiscussions,
+    imgTwoAlt: "Recent discussions on the CommerceQuest forum.",
+    btnExists: true,
+    btnTitle: "Become a member today!",
+    btnURL: "https://commercequest.space/entry/register?target=https://commercequest.space/",
   },
   {
     isRightSection: false,
     title: "Monthly Meetups",
     subTitle:
-      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, CommerceQuest offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
-    img: beforeAfter,
-    imgAlt: "Construction site before and after",
+      "Our Monthly Meetups are held online during the last week of every month, providing a regular touchpoint for our developer community. These virtual sessions feature presentations and discussions led by experts and community members, covering a broad spectrum of topics. Whether you’re interested in the latest platform updates, best practices, or innovative use cases, the Monthly Meetup offers a valuable opportunity to stay informed, engage with peers, and deepen your expertise.",
+    img: ugfeb2024,
+    imgAlt: "Screenshot of our Februari 2024 meetup",
     btnExists: true,
-    btnTitle: "Learn More",
-    btnURL: "#",
+    btnTitle: "View upcoming events",
+    btnURL: "https://commercequest.space/events/category",
   },
   {
     isRightSection: true,
     title: "Hands-on Hackathons",
     subTitle:
-      "Effective project management is at the heart of any successful build. CommerceQuest provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
+      "Hackathons are dynamic, high-energy events held 5-8 times a year, organized either by CommerceQuest or one of our partners at their offices. These 1-3 day sessions bring together developers to collaborate in teams of 3-5, working intensively to create a working MVP / POC. At the end of each hackathon, teams present their solutions, which are then published in a community GitHub repository under the MIT license. This ensures that everyone in the community can benefit from and build upon the innovative work produced. Hackathons are an excellent opportunity to test your skills, learn from peers, and contribute meaningful code to the community.",
     single: false,
-    imgOne: constructionWorkers,
-    imgOneAlt: "Construction workers orchestrating a project",
-    imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
+    imgOne: hackathon2,
+    imgOneAlt: "Winners of the March 2024 hackathon event.",
+    imgTwo: hackathon1,
+    imgTwoAlt: "Discussion during a hackathon event.",
+    btnExists: true,
+    btnTitle: "Organize a hackathon yourself",
+    btnURL: "/events/hackathon-blueprint/",
   },
   {
     isRightSection: false,
     title: "Ultimate Unconferences",
     subTitle:
-      "Our commitment to your project doesn't end at completion. CommerceQuest offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
-    img: usingTools,
+      "Unconferences are held twice a year in exciting and engaging locations, designed to spark both learning and networking among Spryker developers. Unlike traditional conferences, these events are participant-driven, allowing attendees to shape the agenda and lead discussions on topics they are passionate about. This format fosters open, dynamic exchanges of ideas and experiences, making each unconference a unique and valuable experience. Join us to connect with fellow developers, gain fresh insights, and contribute to the vibrant Spryker community in a relaxed, informal setting.",
+    img: demo,
     imgAlt:
       "Man in orange and black vest wearing white helmet holding yellow and black power tool",
+    btnExists: true,
+    btnTitle: "Organize an Unconference yourself",
+    btnURL: "/events/unconference-blueprint/",
   },
   {
     isRightSection: true,
-    title: "About Spryker",
+    title: "Developer Stage @ Spryker EXCITE",
     subTitle:
-      "Spryker is the leading composable commerce platform for enterprises with sophisticated business models to enable growth, innovation, and differentiation. Designed specifically for sophisticated transactional business, Spryker’s easy-to-use, headless, API-first model offers a best-of-breed approach that provides businesses the flexibility to adapt, scale, and quickly go to market while facilitating faster time-to-value throughout their digital transformation journey. As a global platform leader for B2B and B2C Enterprise Marketplaces, Thing Commerce, and Unified Commerce, Spryker has empowered 150+ global enterprise customers worldwide and is trusted by brands such as ALDI, Siemens, Hilti, and Ricoh. Spryker was recognized by Gartner® as a Visionary in the 2023 Magic Quadrant™ for Digital Commerce and was also ranked as a Strong Performer in The Forrester Wave™: B2B Commerce Solutions, Q2 2022. Spryker is a privately held technology company headquartered in Berlin and New York. Find out more at spryker.com",
+      "The Developer Stage at the annual Spryker EXCITE event in Berlin is the focal point for cutting-edge discussions and presentations tailored specifically for our developer community. Curated by the Spryker Engineering and Community Team, this track features the latest and most impactful topics, with speakers often sourced from our meetups, hackathons, and unconferences. Attendees can expect to dive deep into advanced technical content, hear firsthand experiences from their peers, and engage in lively discussions about the future of e-commerce technology.",
     single: false,
     imgOne: sprykerOskar,
     imgOneAlt: "Oskar, the Spryker Mascot.",
     imgTwo: exciteStage,
     imgTwoAlt: "Guido and Yara on stage at Spryker EXCITE 2023",
     btnExists: true,
-    btnTitle: "spryker.com",
-    btnURL: "https://spryker.com/",
+    btnTitle: "Join us at EXCITE",
+    btnURL: "https://spryker.com/excite",
   },
 ];
 
@@ -101,23 +110,25 @@ const pageTitle: string = `About | ${SITE.title}`;
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://commercequest.space/",
-    "url": "https://commercequest.space/",
-    "name": "Hack, Build, Win. | CommerceQuest",
-    "description": "Commerce Resources for the driven Spryker, Propel & Oryx developer.",
-    "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://commercequest.space/",
-        "name": "CommerceQuest",
-        "description": "Commerce Resources for the driven Spryker, Propel & Oryx developer."
+    url: "https://commercequest.space/",
+    name: "Hack, Build, Win. | CommerceQuest",
+    description:
+      "Commerce Resources for the driven Spryker, Propel & Oryx developer.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://commercequest.space/",
+      name: "CommerceQuest",
+      description:
+        "Commerce Resources for the driven Spryker, Propel & Oryx developer.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Uniting Passion with Your Vision"
-    subTitle="At CommerceQuest, we take pride in bringing together a growing community of passionate commerce professionals and build great things together. Our community team is dedicated to supporting your Spryker, Oryx or Propel projects from inception to completion and having fun while doing so."
-    btnExists={true}
+    subTitle="At Commercequest, our overarching goal is to foster an open, collaborative environment that enhances the Spryker, Oryx, and Propel platforms. Here, you’ll find a variety of activities and resources designed to engage, educate, and inspire you as our developer community. Explore our offerings and join us in shaping the future of these platforms."
+    btnExists={false}
     btnTitle="Become a member today!"
     btnURL="https://commercequest.space/entry/register?target=https://commercequest.space/"
   />
@@ -130,7 +141,7 @@ const pageTitle: string = `About | ${SITE.title}`;
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
   {
-    articles.map(article => {
+    articles.map((article) => {
       return article.isRightSection ? (
         <RightSection
           title={article.title}
@@ -160,7 +171,7 @@ const pageTitle: string = `About | ${SITE.title}`;
   <!--FeaturesStats section showcases essential stats valuable to users-->
   <FeaturesStats
     title="By the Numbers"
-    subTitle="At CommerceQuest, we are dedicated to delivering an industry-leading community experience."
+    subTitle="We are dedicated to delivering an industry-leading community experience."
     mainStatTitle="250+"
     mainStatSubTitle="weekly active members"
     stats={[
@@ -174,7 +185,7 @@ const pageTitle: string = `About | ${SITE.title}`;
       },
       {
         stat: "3K+",
-        description: "Community members and growing.",
+        description: "community members and growing.",
       },
     ]}
   />
