@@ -7,7 +7,7 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://spryker-community.github.io",
+  site: "https://site.commercequest.space/",
   image: {
     domains: ["images.unsplash.com"],
   },

@@ -8,7 +8,7 @@
 Welcome to our website & docs repo!
 <br/>
 <br/>
-<a href="https://spryker-community.github.io/"><strong>Explore the website »</strong></a> | <a href="https://spryker-community.github.io/guides/intro/"><strong>Explore the docs »</strong></a>
+<a href="https://site.commercequest.space/"><strong>Explore the website »</strong></a> | <a href="https://site.commercequest.space/guides/intro/"><strong>Explore the docs »</strong></a>
 
   ![GitHub last commit](https://img.shields.io/github/last-commit/spryker-community/spryker-community.github.io?label=latest%20website%20update) [![Report an issue](https://img.shields.io/badge/Report%20an-issue-red?style=flat-square)](https://www.gui.do/presentation)
 </div>
@@ -52,7 +52,7 @@ So at our Turbine x Spryker hackathon in May 2024, this repo was created to make
 - Turbine's Hamburgers 🍔 & Club-Mate 🧃 (as the first iteration of this site was made at the Spryker x Turbine hackathon)
 
 > [!IMPORTANT]
-> Note that this repo contains the [website](https://spryker-community.github.io/) and the [docs](https://spryker-community.github.io/guides/intro/) contained within that website, NOT the [CommerceQuest forum](https://commercequest.space/).
+> Note that this repo contains the [website](https://site.commercequest.space/) and the [docs](https://site.commercequest.space/guides/intro/) contained within that website, NOT the [CommerceQuest forum](https://commercequest.space/).
 
 ## Roadmap
 See the [open issues](https://github.com/spryker-community/spryker-community.github.io/issues) for a full list of known issues 🪲 and proposed features.
@@ -62,8 +62,8 @@ Contributions are what make our open community such an amazing place to learn, i
 
 
 ### A. Content contributions
-If you simply want to update any of [our existing docs](https://spryker-community.github.io/guides/intro/):
-1. Go to [the docs](https://spryker-community.github.io/guides/intro/) and browse to the article you want to adjust;
+If you simply want to update any of [our existing docs](https://site.commercequest.space/guides/intro/):
+1. Go to [the docs](https://site.commercequest.space/guides/intro/) and browse to the article you want to adjust;
 2. On the bottom of the page, click "✏︎ Edit page"
 4. Make your edits, but leave the frontmatter (= the text on top of the page between the --- lines) intact;
 5. Click the green "Commit changes" button in the top right, add your commit message and click the green sign off button.
