@@ -16,8 +16,8 @@ const footerLinks = [
     section: "CQ Ecosystem",
     links: [
       { name: "Spryker", url: "/spryker" },
-      { name: "Oryx", url: "/oryx-contributions" },
-      { name: "Propel", url: "https://propelorm.org/" },
+      { name: "Oryx", url: "/oryx" },
+      { name: "Propel", url: "/propel" },
       { name: "Documentation", url: "/guides/intro" },
       { name: "Community Tools", url: "https://github.com/orgs/spryker-community/repositories" },
       { name: "Code of Conduct", url: "https://spryker.com/sprykercodeofconduct/" },

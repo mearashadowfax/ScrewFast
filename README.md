@@ -49,7 +49,7 @@ So at our Turbine x Spryker hackathon in May 2024, this repo was created to make
 - [Astro](https://astro.build)
 - [TailwindCSS](https://tailwindcss.com/)
 - [ScrewFast Monolingual template](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site)
-- Turbine's Hamburgers 🍔 & Club-Mate 🧃
+- Turbine's Hamburgers 🍔 & Club-Mate 🧃 (as the first iteration of this site was made at the Spryker x Turbine hackathon)
 
 > [!IMPORTANT]
 > Note that this repo contains the [website](https://spryker-community.github.io/) and the [docs](https://spryker-community.github.io/guides/intro/) contained within that website, NOT the [CommerceQuest forum](https://commercequest.space/).
