@@ -1,15 +1,15 @@
 ---
-title: "Simplify Procurement and Stay Within Budget with ScrewFast"
+title: "Double your development speed!"
 description: "Affordable, durable tools for efficient construction projects"
 author: "Olga Zabegina"
 role: "Strategic Marketing Manager"
 authorImage: "@/images/blog/anna.avif"
 authorImageAlt: "Avatar Description"
-pubDate: 2024-02-18
+pubDate: 2024-03-13
 cardImage: "@/images/blog/post-3.avif"
 cardImageAlt: "Side view worker wearing gloves"
 readTime: 3
-tags: ["procurement", "affordable", "efficiency" ]
+tags: ["hackathon", "performance", "Berlin" ]
 contents: [
         "Managing a construction project can be overwhelming, especially when it comes to procurement. That's why ScrewFast is committed to simplifying the process and keeping your projects within budget.",
         "With our line of affordable tools and equipment, you can find everything you need without breaking the bank. Our user-centric design ensures that our products are easy to use, saving you time and frustration on the job site.",

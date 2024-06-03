@@ -6,7 +6,7 @@ const navBarLinks = [
   { name: "Resources", url: "/guides/intro" },
 //  { name: "Jobs", url: "https://commercequest.space/categories/jobs" },
 //  { name: "Products", url: "/products" },
-//  { name: "Blog", url: "/blog" },
+  { name: "Hackathon Log", url: "/blog" },
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
