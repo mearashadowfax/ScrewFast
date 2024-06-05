@@ -150,7 +150,6 @@ src/
 │   ├── blog/
 │   ├── docs/           
 │   ├── insights/         
-│   ├── products/         
 │   └── config.ts         # Contains site-wide configuration options
 ├── data_files/           # Strings stored as JSON files
 ├── images/               # Static image assets for use across the website
