@@ -87,8 +87,8 @@ Your article content goes here.
 5. Click the green "Commit changes" button in the top right, add your commit message and click the green sign off button.
 
 > [!TIP]
-> If this is your first encounter with Markdown or you need a refresher, [Check out this video](https://youtu.be/_PPWWRV6gbA?si=pzZhA7JsL0wFk42U&t=60) and/or this (Markdown Cheatsheet)[https://www.kdnuggets.com/publications/sheets/Markdown_Cheatsheet_KDnuggets.pdf]\
-> If you feel the need to go the extra mile, Astro also has some bonus [https://youtu.be/_PPWWRV6gbA?si=pzZhA7JsL0wFk42U&t=60](Markdown features and even MDX).
+> If this is your first encounter with Markdown or you need a refresher, [Check out this video](https://youtu.be/_PPWWRV6gbA?si=pzZhA7JsL0wFk42U&t=60) and/or this [Markdown Cheatsheet](https://www.kdnuggets.com/publications/sheets/Markdown_Cheatsheet_KDnuggets.pdf)\
+> If you feel the need to go the extra mile, Astro also has some bonus [Markdown features and even MDX](https://youtu.be/_PPWWRV6gbA?si=pzZhA7JsL0wFk42U&t=60).
 
 ### B. Code contributions
 
