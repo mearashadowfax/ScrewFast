@@ -89,8 +89,8 @@ Your article content goes here.
 > [!TIP]
 > If this is your first encounter with Markdown or you need a refresher, [Check out this video](https://youtu.be/_PPWWRV6gbA?si=pzZhA7JsL0wFk42U&t=60) and/or this (Markdown Cheatsheet)[https://www.kdnuggets.com/publications/sheets/Markdown_Cheatsheet_KDnuggets.pdf]
 
-[!BONUSTIP]
-If you feel the need to go the extra mile, Astro also has some bonus [https://youtu.be/_PPWWRV6gbA?si=pzZhA7JsL0wFk42U&t=60](Markdown features and even MDX).
+> [!BONUSTIP]
+> If you feel the need to go the extra mile, Astro also has some bonus [https://youtu.be/_PPWWRV6gbA?si=pzZhA7JsL0wFk42U&t=60](Markdown features and even MDX).
 
 ### B. Code contributions
 
