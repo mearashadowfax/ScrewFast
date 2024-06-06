@@ -19,15 +19,8 @@ import featureImage from "@images/Asteroids.png";
 import construction from "@images/community-3.jpg";
 import tools from "@images/community-1.jpg";
 import dashboard from "@images/community-2.jpg";
-import jacob from "@images/blog/jacob.avif";
 import anna from "@images/blog/anna.avif";
-import brad from "@images/blog/brad.avif";
 
-const avatarSrcs: Array<string> = [
-  jacob,
-  brad,
-  anna,
-];
 ---
 
 <MainLayout>
@@ -42,12 +35,11 @@ const avatarSrcs: Array<string> = [
     class="text-pink-500 dark:text-pink-400">Build</span>, <span
         class="text-blue-500 dark:text-blue-400">Win</span>.`
     subTitle="Community-driven tools, guides & support for the driven Spryker, Propel & Oryx engineer."
-    primaryBtn="Explore community tools"
+    primaryBtn="Explore Extensions & Tools"
     primaryBtnURL="https://github.com/orgs/spryker-community/repositories"
-    secondaryBtn="Community guides"
+    secondaryBtn="Community Guides"
     secondaryBtnURL="/guides/intro"
     withReview={false}
-    avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
     reviews=`Developers rating our events`
@@ -116,7 +108,7 @@ const avatarSrcs: Array<string> = [
           "The hackathon dramatically boosted my knowledge of Spryker. I was able to learn from the best and get hands-on with our specific coding challenge. I can't wait for the next one!",        author: "Maher H.",
         role: "Full Stack Developer | Meesenburg International",
         avatarSrc:
-          anna,
+          "@images/blog/anna.avif",
       },
     ]}
     statistics={[
