@@ -1,7 +1,7 @@
 // An array of links for navigation bar
 const navBarLinks = [
 //  { name: "Home", url: "/" },
-  { name: "Home", url: "https://site.commercequest.space/" },
+  { name: "Home", url: "/" },
   { name: "Forum", url: "https://commercequest.space/" },
   { name: "Extensions & Tools", url: "https://github.com/orgs/spryker-community/repositories" },
   { name: "Upcoming Events", url: "https://commercequest.space/events/category" },
@@ -25,7 +25,7 @@ const footerLinks = [
   {
     section: "Community",
     links: [
-      { name: "Forum", url: "https://commercequest.space/" },
+      { name: "Forum", url: "/" },
       { name: "Extensions & Tools", url: "https://github.com/orgs/spryker-community/repositories" },
       { name: "Upcoming Events", url: "https://commercequest.space/events/category" },
       { name: "Event Recaps", url: "/blog" },
