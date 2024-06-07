@@ -5,6 +5,7 @@ import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 
 // Import necessary images
 import blueprints from "@images/blueprints-image.avif";
@@ -15,6 +16,9 @@ import aerialView from "@images/aerial-view.avif";
 import usingTools from "@images/using-tools.avif";
 import sprykerOskar from "@images/spryker-oskar.png";
 import exciteStage from "@images/excite-stage.png";
+import jacob from "@images/blog/jacob.avif";
+import anna from "@images/blog/anna.avif";
+import brad from "@images/blog/brad.avif";
 import { SITE } from "@data/constants";
 
 interface Article {
@@ -92,6 +96,40 @@ const articles: Article[] = [
   },
 ];
 
+// Testimonial data that will be rendered in the component
+const testimonials = [
+  // First testimonial data
+  {
+    content:
+      " \"We use Spryker as our e-commerce solution and customer frontend. We have very extensive product data (3 million SKUs, 8 million images, 60 million technical attributes, etc.) and a use lot of APIs. What I like best are the Code Quality, Modularity, APIs, Customer Success and the Scalability.\" ",
+    author: "Jason Clark",
+    role: "Frontent developer | TopBuild",
+    avatarSrc:
+      jacob,
+    avatarAlt: "Image Description",
+  },
+  // Second testimonial data
+  {
+    content:
+      " \"100% customizable processes with the state machine, Clean architecture, Nothing is impossible! With PaaS+, many helpful tools are given, which help reduce project maintenance and keep the code clean. Helpful community!\" ",
+    author: "Maria Gonzalez",
+    role: "Senior Architect | Creative Spaces",
+    avatarSrc:
+      anna,
+    avatarAlt: "Image Description",
+  },
+  // Third testimonial data
+  {
+    content:
+      " \"The ability to customize a decent amount of the codebases's functionality without overwriting it will probably be my favorite aspect of Spryker once it comes time to upgrade major versions. For the day-to-day side of things, the built-in code style, functionality, and structure tests are helpful in maintaining the current standards when adding new code. The built-in code generators are also a significant help, speeding up the overall pace of development. Spryker's technical support reps are also competent and responsive. The customizability and flexibility of the Spryker system (as well as the wealth of additional add-ons) meant that it was easy to pair Spryker with our current systems.\" ",
+    author: "Richard Kim",
+    role: "Senior Engineer | WoodWright",
+    avatarSrc:
+      brad,
+    avatarAlt: "Image Description",
+  },
+];
+
 const pageTitle: string = `Spryker | ${SITE.title}`;
 ---
 
@@ -157,6 +195,11 @@ const pageTitle: string = `Spryker | ${SITE.title}`;
       );
     })
   } -->
+  <!--Testimonials section-->
+  <TestimonialsSectionAlt
+    title="What our community members say"
+    testimonials={testimonials}
+  />
   <!--FeaturesStats section showcases essential stats valuable to users-->
   <FeaturesStats
     title="By the Numbers"

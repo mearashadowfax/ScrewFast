@@ -34,7 +34,7 @@ export default defineConfig({
       // https://starlight.astro.build/guides/sidebar/
       sidebar: [
         {
-          label: "Quick Start Guides",
+          label: "Community Guides",
           autogenerate: { directory: "guides" },
         },
         {
