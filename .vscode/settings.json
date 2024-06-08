@@ -15,4 +15,20 @@
   "markdown.copyFiles.destination": {
     "/src/content/**/*": "/src/images/content/${documentBaseName}/"
   },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#95addb",
+    "titleBar.activeForeground": "#FFFFFF",
+    "titleBar.inactiveBackground": "#95addb",
+    "titleBar.inactiveForeground": "#FFFFFF",
+    "titleBar.border": "#95addb",
+    "activityBar.background": "#95addb",
+    "activityBar.foreground": "#FFFFFF",
+    "statusBar.background": "#95addb",
+    "statusBar.foreground": "#FFFFFF",
+    "statusBar.debuggingBackground": "#95addb",
+    "statusBar.debuggingForeground": "#FFFFFF",
+    "tab.activeBorder": "#95addb",
+    "iLoveWorkSpaceColors": true,
+    "iLoveWorkSpaceRandom": false
+  },
 }
