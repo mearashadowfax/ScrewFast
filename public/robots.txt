@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dutchento.org/sitemap-index.xml
+Sitemap: https://site.commercequest.space/sitemap-index.xml
