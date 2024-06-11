@@ -35,7 +35,7 @@ OR, if you want to create a **new** article:
 - In the new folder, create a new .MDX document by clicking "Add file > Create a new file" in the top right;
 - Name your file (ideally the same as the label you use in the frontmatter below);
 - Create your new article, starting with this frontmatter code:
-```
+```mdx title="src/pages/post-1.mdx"
 ---
 title: Title of your new page
 description: Description of your new page 
@@ -60,15 +60,20 @@ For more information on how to work with Markdown in Astro:
 For more info about routing and the structure of the project, check out the [Astro documentation](https://docs.astro.build/en/guides/routing/).
 
 ### Adding an image to an MD(X) file
+
 #### Upload the image
 - Go to [/src/images](https://github.com/spryker-community/spryker-community.github.io/tree/monolingual-site/src/images) and on the top right click "Add file" > "Upload files"
 - Drag the file(s) onto your browser or click "choose your files" to upload them.
 - Add a description (just the title is enough), keep other settings and click the green "Sign off and commit changes" button
+
 #### Embed the image into your document
+
 ##### For .MD files:
-Use standard Markdown ![alt](src) syntax in your .md files. This syntax works with Astro’s Image Service API to optimize your local images stored in src/. Remote images and images stored in the public/ folder are not optimized.\
+Use standard Markdown `![alt](src)` syntax in your `.md` files. This syntax works with Astro’s Image Service API to optimize your local images stored in src/. Remote images and images stored in the public/ folder are not optimized.\
 Example:
-````
+```md
+<!-- src/pages/post-1.md -->
+
 # My Markdown Page
 
 <!-- Local image stored in src/assets/ -->
@@ -82,14 +87,14 @@ Example:
 <!-- Remote image on another server -->
 <!-- Use the full URL of the image -->
 ![Astro](https://example.com/images/remote-image.png)
-````
+```
 
 ##### For .MDX files:
-If you require more control over your image attributes, we recommend using the .mdx file format, which allows you to include Astro’s <Image /> component or a JSX <img /> tag in addition to the Markdown syntax.\
+If you require more control over your image attributes, we recommend using the `.mdx` file format, which allows you to include Astro's `<Image />` component or a JSX `<img />` tag in addition to the Markdown syntax.
 
 
 Example:
-````
+```mdx title="src/pages/post-1.mdx"
 ---
 title: My Page title
 ---
@@ -115,7 +120,9 @@ import rocket from '../assets/rocket.png';
 <Image src="https://example.com/images/remote-image.png" />
 <img src="https://example.com/images/remote-image.png" />
 ![Astro](https://example.com/images/remote-image.png)
-````
+
+```
+
 
 For more details on what you can do with images in Markdown files, check out the [Astro documentation](https://docs.astro.build/en/guides/images/#images-in-markdown-files).
 
