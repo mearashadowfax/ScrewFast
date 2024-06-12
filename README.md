@@ -139,9 +139,9 @@ With dependencies installed, you can utilize the following npm scripts to manage
 For detailed help with Astro CLI commands, visit [Astro's documentation](https://docs.astro.build/en/reference/cli-reference/).
 
 ### Docker
-To run these command you can either open a bash into the container by executing `docker exec -ti astro-commercequest /bin/bash` or use the proxy command `docker compose run -p 4321:4321 web <INSERT NPM COMMAND HERE>`.
-
-**Note:** The `astro dev` and `astro build` commands currently not properly work within the container due to port conflicts.
+To run these command you can either:
+1. Open a bash into the container by executing `docker compose run -p 4321:4321 web /bin/bash` 
+2. Use the command directly `docker compose run -p 4321:4321 web <INSERT NPM COMMAND HERE>`
 
 ## Deployment
 
