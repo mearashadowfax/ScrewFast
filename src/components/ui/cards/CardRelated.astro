@@ -4,16 +4,17 @@ import { Image } from "astro:assets";
 import { formatDate } from "@utils/utils";
 import type { CollectionEntry } from "astro:content";
 
-const { blogEntry } = Astro.props;
+const { blogEntry, recentBlogLocale = "" } = Astro.props;
 
 interface Props {
   blogEntry: CollectionEntry<"blog">;
+  recentBlogLocale?: string;
 }
 ---
 
 <a
   class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-  href={`/blog/${blogEntry.slug}/`}
+  href={recentBlogLocale !== "" ? `/${recentBlogLocale}/blog/${blogEntry.slug}/` : `/blog/${blogEntry.slug}/`}
   data-astro-prefetch
 >
   <div>
