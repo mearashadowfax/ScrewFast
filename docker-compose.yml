@@ -1,0 +1,11 @@
+services:
+  web:
+    build:  .
+    ports:
+      - "4321:4321"
+    volumes:
+      - "./:/app"
+      - "/app/.tscache"
+      - "/app/dist"
+      - "/app/node_modules"
+    container_name: astro-commercequest
