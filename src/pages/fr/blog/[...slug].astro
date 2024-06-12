@@ -159,7 +159,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     </div>
 
     <div class="grid grid-cols-2 gap-6">
-      {relatedPosts.map((entry) => <CardRelated blogEntry={entry} />)}
+      {relatedPosts.map((entry) => <CardRelated blogEntry={entry} recentBlogLocale="fr" /> )}
     </div>
   </section>
 </MainLayout>
