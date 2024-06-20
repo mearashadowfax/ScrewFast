@@ -103,15 +103,34 @@ Don't forget to give the project a star! Thanks again!
 
 ## Installation
 
-Start by installing the project dependencies. Open your terminal, navigate to the project's root directory, and execute:
+Once your cloned the repository to your computer, open your terminal and navigate to the project's root directory.
+
+### Using Node.js (npm) on Your Host Machine
+
+Start by installing the project dependencies by executing:
 
 ```bash
-npm install
+npm ci
 ```
 
-This command will install all the necessary dependencies defined in the `package.json` file.
+This command will install all the necessary dependencies defined in the `package.lock` file.
 
-### Development Commands
+### Using Docker
+
+To use Docker for setting up your local environment, follow these steps:
+
+1. Ensure Docker and Docker Compose are installed on your machine.
+2. Build and start the Docker container by running the following command from the project's root directory:
+3. Execute:
+    ```bash
+    docker compose up
+    ```
+
+This will build the Docker image and start the container with all necessary dependencies.
+
+If you need a copy of the `node_modules` directory on your host machine you can run the following command: `docker cp $(docker compose ps -q web):/app/node_modules .`;
+
+## Development Commands
 
 With dependencies installed, you can utilize the following npm scripts to manage your project's development lifecycle:
 
@@ -121,9 +140,14 @@ With dependencies installed, you can utilize the following npm scripts to manage
 
 For detailed help with Astro CLI commands, visit [Astro's documentation](https://docs.astro.build/en/reference/cli-reference/).
 
-### Deployment
+### Docker
+To run these command you can either:
+1. Open a bash into the container by executing `docker compose run -p 4321:4321 web /bin/bash` 
+2. Use the command directly `docker compose run -p 4321:4321 web <INSERT NPM COMMAND HERE>`
 
-#### Building Your Site
+## Deployment
+
+### Building Your Site
 
 Before deployment, you need to create a production build:
 

@@ -96,4 +96,9 @@ export default defineConfig({
     directRenderScript: true,
   },
   outdir: "dist", // Add the default astro outdir path
+  vite: {
+    server: {
+      watch: { usePolling: true },
+    },
+  },
 });
