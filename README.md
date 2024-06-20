@@ -128,6 +128,8 @@ To use Docker for setting up your local environment, follow these steps:
 
 This will build the Docker image and start the container with all necessary dependencies.
 
+If you need a copy of the `node_modules` directory on your host machine you can run the following command: `docker cp $(docker compose ps -q web):/app/node_modules .`;
+
 ## Development Commands
 
 With dependencies installed, you can utilize the following npm scripts to manage your project's development lifecycle:
