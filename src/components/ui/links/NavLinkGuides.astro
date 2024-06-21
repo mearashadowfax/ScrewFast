@@ -1,0 +1,76 @@
+---
+import { getSidebar } from '../../../../node_modules/@astrojs/starlight/utils/navigation.ts';
+
+const sidebar = getSidebar(Astro.url.pathname, Astro.props.locale);
+---
+
+<div class="hs-dropdown [--trigger:hover] relative inline-flex">
+  <a
+    id="hs-dropdown-default"
+    role="button"
+    data-astro-prefetch
+    href="/guides/intro"
+    class="hs-dropdown-toggle inline-flex rounded-lg items-center text-base font-medium text-neutral-600 outline-none ring-zinc-500 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-none md:py-3 md:text-sm 2xl:text-base"
+  >
+    Guides
+    <svg
+      class="size-4 hs-dropdown-open:rotate-180"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+    >
+  </a>
+  <div
+    class="hs-dropdown-menu duration !left-[-15%] !top-[98%] min-w-50 mt-2 hidden !transform-none rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:-top-4 before:start-0 before:h-4 before:w-full after:absolute after:-bottom-4 after:start-0 after:h-4 after:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800 md:!left-[85%] md:!top-[80%]"
+    aria-labelledby="hs-dropdown-hover-event"
+  >
+    {
+      sidebar.map((group) => (
+        <div class="py-2 first:pt-0 last:pb-0">
+          <span class="block py-2 px-3 text-xs font-medium uppercase text-gray-400 dark:text-neutral-500">
+            {group.label}
+          </span>
+          {"entries" in group ? group.entries.map((entry) => (
+            <a
+              class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+              href={entry.href}>
+              {entry.label}
+            </a>
+          )) : ''}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<!--Import the necessary Dropdown plugin-->
+<!--https://preline.co/plugins/html/dropdown.html-->
+<script is:inline src="/scripts/vendor/preline/dropdown/index.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let url = window.location.pathname;
+    let urlSegments = url.split("/");
+    let navId = 'hs-dropdown-default';
+
+    {/* TODO: each docs element can have a different url - fix the highlight of current one in main navigation*/}
+
+    let nav = document.getElementById(navId);
+
+    if (urlSegments[1] && urlSegments[1] === 'guides') {
+      nav.classList.remove(
+        "text-neutral-600",
+        "dark:text-neutral-400",
+        "hover:text-neutral-500",
+        "dark:hover:text-neutral-500"
+      );
+      nav.classList.add("text-pink-400", "dark:text-pink-300");
+      nav.setAttribute("aria-current", "page");
+    }
+  });
+</script>

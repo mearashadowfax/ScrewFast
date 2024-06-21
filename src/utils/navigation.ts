@@ -6,7 +6,6 @@ const navBarLinks = [
   { name: "Extensions & Tools", url: "https://github.com/orgs/spryker-community/repositories" },
   { name: "Upcoming Events", url: "https://commercequest.space/events/category" },
   { name: "Event Recaps", url: "/blog" },
-  { name: "Guides", url: "/guides/intro" },
   //  { name: "Jobs", url: "https://commercequest.space/categories/jobs" },
   //  { name: "Products", url: "/products" },
   // { name: "About", url: "/about" },
