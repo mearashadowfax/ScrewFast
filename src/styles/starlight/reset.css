@@ -1,0 +1,12 @@
+html {
+    color-scheme: dark;
+}
+
+html[data-theme='light'] {
+    color-scheme: light;
+}
+
+body {
+    color: var(--sl-color-text);
+    background-color: var(--sl-color-bg);
+}
