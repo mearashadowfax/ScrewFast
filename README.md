@@ -208,16 +208,8 @@ Static files served directly to the browser are within the `public` directory at
 public/
 └── scripts/
     └── vendor/
-        ├── gsap/ # Animations powered by GSAP (GreenSock Animation Platform)
-        │   └── gsap.min.js 
-        ├── lenis/ # Lenis script for smooth scrolling effects
-        │   └── lenis.js
-        └── preline/   # Preline UI plugins
-            ├── accordion/
-            ├── collapse/
-            ├── dropdown/
-            ├── overlay/
-            └── tabs/
+        └── gsap/ # Animations powered by GSAP (GreenSock Animation Platform)
+            └── gsap.min.js
 
 
 ```
@@ -367,41 +359,23 @@ Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com
 Here's how we set up Lenis in `src/layouts/MainLayout.astro`:
 
 ```astro
-<script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
-<script is:inline>
-  // Script to handle Lenis library settings for smooth scrolling
-  const lenis = new Lenis({
-    smooth: true,
-    smoothTouch: false
-  });
-
-  function raf(time) {
-    lenis.raf(time); // Update Lenis on each animation frame
-    requestAnimationFrame(raf); // Continuously invoke the raf function at refresh rate
-  }
-  requestAnimationFrame(raf); // Start the loop
+<script>
+    import "@scripts/lenisSmoothScroll.js";
 </script>
-<style>
-html.lenis, html.lenis body {
-  height: auto;
+
+// src/assets/scripts/lenisSmoothScroll.js
+import "@styles/lenis.css";
+
+import Lenis from "lenis";
+
+const lenis = new Lenis();
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-</style>
+requestAnimationFrame(raf);
 ```
 
 Please note that smooth scrolling can affect accessibility and performance on some devices, so be sure to test it comprehensively across different environments.
