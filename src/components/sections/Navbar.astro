@@ -137,6 +137,9 @@ import BrandLogo from "@components/BrandLogo.astro";
         .querySelector("html")
         .classList.add(this.getOriginalAppearance());
 
+      // proxy for starlight
+      document.documentElement.dataset.theme = theme;
+
       setTimeout(() => {
         $resetStylesEl.remove();
       });

@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
+import { fileURLToPath } from 'node:url';
 
 // https://astro.build/config
 export default defineConfig({
@@ -67,6 +68,7 @@ export default defineConfig({
       components: {
         SiteTitle: "./src/components/ui/starlight/SiteTitle.astro",
         Head: "./src/components/ui/starlight/Head.astro",
+        Page: "./src/components/ui/starlight/Page.astro",
       },
       head: [
         {
@@ -99,6 +101,16 @@ export default defineConfig({
   vite: {
     server: {
       watch: { usePolling: true },
+    },
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/Page\.astro$/,
+          replacement: fileURLToPath(
+            new URL('./src/components/ui/starlight/Page.astro', import.meta.url)
+          ),
+        },
+      ],
     },
   },
 });

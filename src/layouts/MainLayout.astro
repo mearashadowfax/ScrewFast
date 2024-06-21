@@ -21,7 +21,11 @@ interface Props {
 This is the main structure for the page.
 We set the language of the page to English and add classes for scrollbar and scroll behavior.
 -->
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html
+  lang={lang}
+  class="scrollbar-hide lenis lenis-smooth scroll-pt-16"
+  data-theme="dark"
+>
   <head>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
@@ -35,8 +39,12 @@ We set the language of the page to English and add classes for scrollbar and scr
           window.matchMedia("(prefers-color-scheme: dark)").matches)
       ) {
         document.documentElement.classList.add("dark");
+        // proxy for starlight
+        document.documentElement.dataset.theme = 'dark';
       } else {
         document.documentElement.classList.remove("dark");
+        // proxy for starlight
+        document.documentElement.dataset.theme = 'light';
       }
     </script>
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
