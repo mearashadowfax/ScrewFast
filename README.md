@@ -69,7 +69,7 @@ If you simply want to update any of [our existing docs](https://site.commerceque
 5. Click the green "Commit changes" button in the top right, add your commit message and click the green sign off button.
 
 OR, if you want to create a new article:
-1. Go to [/src/content/docs](https://github.com/spryker-community/spryker-community.github.io/tree/monolingual-site/src/content/docs) and create a new folder (these act as categories);
+1. Go to [/src/content/docs](https://github.com/spryker-community/spryker-community.github.io/tree/main/src/content/docs) and create a new folder (these act as categories);
 2. In the new folder, create a new .MDX document by clicking "Add file > Create a new file" in the top right;
 3. Name your file (ideally the same as the label you use below);
 4. Create your new article, starting with the frontmatter code below:
