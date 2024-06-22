@@ -16,7 +16,6 @@ ScrewFast is an open-source template designed for quick and efficient web projec
   * [Deployment](#deployment)
     + [Building Your Site](#building-your-site)
     + [Deploying to Vercel](#deploying-to-vercel)
-    + [Deploying to Netlify](#deploying-to-netlify)
   * [Project Structure](#project-structure)
   * [Static Assets and Public Resources](#static-assets-and-public-resources)
   * [Customization](#customization)
@@ -155,12 +154,6 @@ This creates a `dist/` directory with your built site (configurable via [outDir 
 Click the button below to start deploying your project on Vercel:  
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast)
-
-### Deploying to Netlify
-
-Click the button below to start deploying your project on Netlify:  
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mearashadowfax/ScrewFast)
 
 ## Project Structure
 
