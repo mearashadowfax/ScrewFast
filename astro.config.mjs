@@ -93,6 +93,7 @@ export default defineConfig({
       components: {
         SiteTitle: "./src/components/ui/starlight/SiteTitle.astro",
         Head: "./src/components/ui/starlight/Head.astro",
+        ThemeSelect: "./src/components/ui/starlight/ThemeSelect.astro",
       },
       head: [
         {
