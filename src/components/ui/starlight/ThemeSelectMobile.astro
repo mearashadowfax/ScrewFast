@@ -1,0 +1,104 @@
+<!-- Dark Theme Toggle Button -->
+<button
+  type="button"
+  aria-label="Dark Theme Toggle"
+  id="dark-theme-toggle-mobile"
+  class="group flex h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400"
+  data-hs-theme-click-value="dark"
+>
+  <svg
+    class="h-4 w-4 flex-shrink-0"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+  </svg>
+</button>
+
+<!-- Light Theme Toggle Button -->
+<button
+  type="button"
+  aria-label="Light Theme Toggle"
+  id="light-theme-toggle-mobile"
+  class="group flex hidden h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-400 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-700 hover:text-orange-400"
+  data-hs-theme-click-value="light"
+>
+  <svg
+    class="h-4 w-4 flex-shrink-0"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 8a2 2 0 1 0 4 4"></path>
+    <path d="M12 2v2"></path>
+    <path d="M12 20v2"></path>
+    <path d="m4.93 4.93 1.41 1.41"></path>
+    <path d="m17.66 17.66 1.41 1.41"></path>
+    <path d="M2 12h2"></path>
+    <path d="M20 12h2"></path>
+    <path d="m6.34 17.66-1.41 1.41"></path>
+    <path d="m19.07 4.93-1.41 1.41"></path>
+  </svg>
+</button>
+
+<script>
+  // Define the Theme type
+  type Theme = "light" | "dark";
+
+  // Function to set the theme
+  function setTheme(theme: Theme): void {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("starlight-theme", theme);
+    updateButtons(theme);
+  }
+
+  // Function to update the button visibility
+  function updateButtons(theme: Theme): void {
+    const darkButton = document.getElementById("dark-theme-toggle-mobile");
+    const lightButton = document.getElementById("light-theme-toggle-mobile");
+
+    if (theme === "dark") {
+      darkButton?.classList.add("hidden");
+      lightButton?.classList.remove("hidden");
+    } else {
+      darkButton?.classList.remove("hidden");
+      lightButton?.classList.add("hidden");
+    }
+  }
+
+  // Event listeners for theme toggle buttons
+  document
+    .getElementById("dark-theme-toggle-mobile")
+    ?.addEventListener("click", () => {
+      setTheme("dark");
+    });
+
+  document
+    .getElementById("light-theme-toggle-mobile")
+    ?.addEventListener("click", () => {
+      setTheme("light");
+    });
+
+  // Initial theme setup
+  document.addEventListener("DOMContentLoaded", () => {
+    const storedTheme = localStorage.getItem("starlight-theme") as Theme | null;
+    const theme: Theme =
+      storedTheme ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+    setTheme(theme);
+  });
+</script>

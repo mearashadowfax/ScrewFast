@@ -46,12 +46,16 @@
 }
 
 header {
+    padding: 0 !important;
+    border: none !important;
+}
+
+header.header {
     background-color: transparent !important;
     height: 4.5rem !important;
     margin-inline: auto !important;
     padding-block: 0 !important;
-    padding-inline: 1.5rem !important;
-    padding-inline-end: 0 !important;
+    padding-inline: 2rem !important;
 }
 
 header > div:first-of-type {

@@ -39,12 +39,15 @@
 }
 
 header {
+    padding: 0 !important;
+}
+
+header.header {
     background-color: transparent !important;
     height: 4.5rem !important;
     margin-inline: auto !important;
     padding-block: 0 !important;
-    padding-inline: 1.5rem !important;
-    padding-inline-end: 0 !important;
+    padding-inline: 2rem !important;
 }
 
 header > div:first-of-type {
@@ -71,6 +74,11 @@ header > div:first-of-type {
 
 .right-sidebar {
     top: 2rem !important;
+}
+
+mobile-starlight-toc > nav {
+    border-radius: 1rem;
+    margin-top: 2rem !important;
 }
 
 select {
@@ -136,4 +144,26 @@ article.card {
     position: absolute;
     top: 13px;
     width: 0.875rem;
+}
+
+@media screen and (max-width: 800px) {
+    mobile-starlight-toc > nav {
+        border-radius: 1rem;
+        margin-top: 3rem !important;
+    }
+
+    header > div:first-of-type {
+        padding-inline-end: 5rem !important;
+    }
+
+    starlight-menu-button > button {
+        right: 3rem !important;
+        top: 2.2rem !important;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    header.header {
+        padding-inline: 1.5rem !important;
+    }
 }
