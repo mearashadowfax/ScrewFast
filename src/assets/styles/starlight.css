@@ -1,5 +1,6 @@
 /* Dark mode colors. */
 :root {
+    --border: hsla(var(--border-neutral), .4);
     --backdrop-color: #272727cc;
     --sl-color-accent: #ff801f;
     --sl-color-accent-high: #ffa057;
@@ -13,10 +14,12 @@
     --sl-color-gray-6: #272727;
     --sl-color-white: #fff;
     --list-marker-color: #fb923c;
+    --border-neutral: 0, 0%, 25.1%;
 }
 
 /* Light mode colors. */
 :root[data-theme="light"] {
+    --border: hsla(var(--border-yellow), .4);
     --backdrop-color: #f6f6f699;
     --sl-color-accent: #b73d00;
     --sl-color-accent-high: #562800;
@@ -31,11 +34,43 @@
     --sl-color-gray-7: #f6f6f6;
     --sl-color-white: #181818;
     --list-marker-color: #fb923c;
+    --border-yellow: 54.9, 96.7%, 88%;
+
 }
 
 header {
+    background-color: transparent !important;
+    height: 4.5rem !important;
+    margin-inline: auto !important;
+    padding-block: 0 !important;
+    padding-inline: 1.5rem !important;
+    padding-inline-end: 0 !important;
+}
+
+header > div:first-of-type {
     backdrop-filter: blur(12px) !important;
     background-color: var(--backdrop-color) !important;
+    border: 1px var(--border) solid;
+    border-radius: 36px;
+    height: 100% !important;
+    margin-inline: auto !important;
+    margin-top: 1rem !important;
+    max-width: 1536px;
+    padding-inline: 2rem !important;
+    width: auto !important;
+}
+
+#starlight__sidebar {
+    border-radius: 1rem;
+    margin-top: 2rem !important;
+}
+
+.content-panel:first-of-type {
+    margin-top: 2rem !important;
+}
+
+.right-sidebar {
+    top: 2rem !important;
 }
 
 select {
