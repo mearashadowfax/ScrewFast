@@ -46,8 +46,8 @@
 }
 
 header {
-    padding: 0 !important;
     border: none !important;
+    padding: 0 !important;
 }
 
 header.header {

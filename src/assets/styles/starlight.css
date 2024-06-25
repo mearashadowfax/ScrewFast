@@ -39,6 +39,7 @@
 }
 
 header {
+    border: none !important;
     padding: 0 !important;
 }
 
@@ -76,7 +77,12 @@ header > div:first-of-type {
     top: 2rem !important;
 }
 
+#starlight__on-this-page--mobile {
+    border: none !important;
+}
+
 mobile-starlight-toc > nav {
+    border: none !important;
     border-radius: 1rem;
     margin-top: 2rem !important;
 }
