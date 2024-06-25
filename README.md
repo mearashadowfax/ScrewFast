@@ -162,6 +162,9 @@ ScrewFast organizes modular components, content, and layouts to streamline devel
 ```md
 
 src/
+├── assets/               
+│   ├── scripts/          # JS scripts
+│   └── styles/           # CSS styles
 ├── components/           # Reusable components
 │   ├── Meta.astro        # Meta component for SEO
 │   ├── sections/         # Components for various sections of the website
@@ -187,7 +190,6 @@ src/
 │   ├── products/         
 │   ├── robots.txt.ts     # Dynamically generates robots.txt
 │   └── services.astro
-├── styles/               # CSS styles
 └── utils/                # Shared utility functions and helpers
 
 ```
