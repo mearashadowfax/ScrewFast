@@ -32,6 +32,7 @@ export default defineConfig({
           lang: "en",
         },
       },
+      lastUpdated: true,
       // https://starlight.astro.build/guides/sidebar/
       sidebar: [
         {
