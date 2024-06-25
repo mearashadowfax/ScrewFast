@@ -15,6 +15,8 @@
     --sl-color-white: #fff;
     --yellow-hsl: 43.3, 96.4%, 56.3%;
     --overlay-yellow: hsla(var(--yellow-hsl), .2);
+    --border: hsla(var(--border-neutral), .4);
+    --border-neutral: 0, 0%, 25.1%;
 }
 
 /* Light mode colors. */
@@ -34,6 +36,8 @@
     --sl-color-gray-7: #f6f6f6;
     --sl-color-white: #181818;
     --yellow-hsl: 47.9, 95.8%, 53.1%;
+    --border-yellow: 54.9, 96.7%, 88%;
+    --border: hsla(var(--border-yellow), .4);
 }
 
 .page {
@@ -42,8 +46,29 @@
 }
 
 header {
+    border: none !important;
+    padding: 0 !important;
+}
+
+header.header {
+    background-color: transparent !important;
+    height: 4.5rem !important;
+    margin-inline: auto !important;
+    padding-block: 0 !important;
+    padding-inline: 2rem !important;
+}
+
+header > div:first-of-type {
     backdrop-filter: blur(12px) !important;
     background-color: var(--backdrop-color) !important;
+    border: 1px var(--border) solid;
+    border-radius: 36px;
+    height: 100% !important;
+    margin-inline: auto !important;
+    margin-top: 1rem !important;
+    max-width: 1536px;
+    padding-inline: 2rem !important;
+    width: auto !important;
 }
 
 select {

@@ -107,10 +107,11 @@ const socialPlatforms: SocialPlatform[] = [
 
 <!--Import the necessary Dropdown and Clipboard plugins-->
 <!--https://preline.co/plugins/html/dropdown.html-->
-<script is:inline src="/scripts/vendor/preline/dropdown/index.js"></script>
-
 <!-- https://clipboardjs.com/ -->
-<script is:inline src="/scripts/vendor/clipboard.min.js"></script>
+<script>
+  import "@preline/dropdown/index.js";
+  import "clipboard/dist/clipboard.min.js";
+</script>
 
 <script is:inline>
   // Initialization of Clipboard

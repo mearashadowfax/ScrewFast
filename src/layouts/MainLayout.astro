@@ -39,17 +39,8 @@ We set the language of the page to English and add classes for scrollbar and scr
         document.documentElement.classList.remove("dark");
       }
     </script>
-    <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
-    <script is:inline>
-      // Script to handle Lenis library settings for smooth scrolling
-      const lenis = new Lenis({ smooth: true, smoothTouch: false });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
+    <script>
+      import "@scripts/lenisSmoothScroll.js";
     </script>
   </head>
   <body
@@ -67,7 +58,7 @@ We set the language of the page to English and add classes for scrollbar and scr
     </div>
     <FooterSection />
     <style>
-      /* CSS rules for the page scrollbar and scrolling experience with lenis library */
+      /* CSS rules for the page scrollbar */
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }
@@ -75,27 +66,6 @@ We set the language of the page to English and add classes for scrollbar and scr
       .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
-      }
-
-      html.lenis,
-      html.lenis body {
-        height: auto;
-      }
-
-      .lenis.lenis-smooth {
-        scroll-behavior: auto !important;
-      }
-
-      .lenis.lenis-smooth [data-lenis-prevent] {
-        overscroll-behavior: contain;
-      }
-
-      .lenis.lenis-stopped {
-        overflow: hidden;
-      }
-
-      .lenis.lenis-scrolling iframe {
-        pointer-events: none;
       }
     </style>
   </body>
