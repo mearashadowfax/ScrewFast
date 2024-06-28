@@ -354,7 +354,7 @@ Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com
 
 Here's how we set up Lenis in `src/assets/scripts/lenisSmoothScroll.js`:
 
-```astro
+```js
 // src/assets/scripts/lenisSmoothScroll.js
 import "@styles/lenis.css";
 
