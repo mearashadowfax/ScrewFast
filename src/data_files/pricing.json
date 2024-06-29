@@ -8,7 +8,7 @@
   "starterKit": {
     "name": "Starter Kit",
     "description": "Best option for DIY projects",
-    "price": "$49",
+    "price": "49",
     "cents": ".00",
     "billingFrequency": "USD / monthly",
     "features": [
@@ -23,7 +23,7 @@
   "professionalToolbox": {
     "name": "Professional Toolbox",
     "description": "Best for large scale uses",
-    "price": "$89",
+    "price": "89",
     "cents": ".00",
     "billingFrequency": "USD / monthly",
     "features": [
