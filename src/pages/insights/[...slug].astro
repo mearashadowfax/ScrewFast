@@ -202,7 +202,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
   });
 
   const SVG_HTML_STRING =
-      '<svg class="w-0 h-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></svg>';
+    '<svg class="w-0 h-0 flex-none" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></svg>';
 
   function setActiveLinkById(id: string | null) {
     const listItems = document.querySelectorAll("#toc li");
@@ -225,8 +225,8 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     const tocList: HTMLElement | null = document.querySelector("#toc ul");
 
     const headings: NodeListOf<HTMLElement> | [] = article
-        ? article.querySelectorAll("h1, h2, h3, h4, h5, h6")
-        : [];
+      ? article.querySelectorAll("h1, h2, h3, h4, h5, h6")
+      : [];
 
     headings.forEach((heading, i) => {
       if (heading instanceof HTMLElement) {
@@ -251,10 +251,10 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             trigger: heading,
             start: "top 20%",
             end: () =>
-                `bottom top+=${i === headings.length - 1 ? 0 : (headings[i + 1] as HTMLElement).getBoundingClientRect().height}`,
+              `bottom top+=${i === headings.length - 1 ? 0 : (headings[i + 1] as HTMLElement).getBoundingClientRect().height}`,
             onEnter: () => setActiveLinkById(heading.id),
             onLeaveBack: () =>
-                setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
+              setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
           },
         });
       }
