@@ -24,7 +24,7 @@
     "astro": "^4.11.3",
     "astro-compressor": "^0.4.1",
     "clipboard": "^2.0.11",
-    "globby": "^14.0.1",
+    "globby": "^14.0.2",
     "gsap": "^3.12.5",
     "html-minifier-terser": "^7.2.0",
     "lenis": "^1.1.5",
