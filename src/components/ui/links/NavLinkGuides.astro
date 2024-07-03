@@ -1,6 +1,13 @@
 ---
 import { getSidebar } from '../../../../node_modules/@astrojs/starlight/utils/navigation.ts';
 
+// Define the interface for the sidebar entry
+interface SidebarEntry {
+  label: string;
+  href?: string;
+  // Add other properties as needed
+}
+
 const sidebar = getSidebar(Astro.url.pathname, Astro.props.locale);
 ---
 
@@ -35,10 +42,10 @@ const sidebar = getSidebar(Astro.url.pathname, Astro.props.locale);
           <span class="block py-2 px-3 text-xs font-medium uppercase text-gray-400 dark:text-neutral-500">
             {group.label}
           </span>
-          {"entries" in group ? group.entries.map((entry) => (
+          {"entries" in group ? group.entries.map((entry: SidebarEntry) => (
             <a
               class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-              href={entry.href}>
+              href={entry.href || '#'}>
               {entry.label}
             </a>
           )) : ''}
@@ -63,14 +70,14 @@ const sidebar = getSidebar(Astro.url.pathname, Astro.props.locale);
     let nav = document.getElementById(navId);
 
     if (urlSegments[1] && urlSegments[1] === 'guides') {
-      nav.classList.remove(
+      nav?.classList.remove(
         "text-neutral-600",
         "dark:text-neutral-400",
         "hover:text-neutral-500",
         "dark:hover:text-neutral-500"
       );
-      nav.classList.add("text-pink-400", "dark:text-pink-300");
-      nav.setAttribute("aria-current", "page");
+      nav?.classList.add("text-pink-400", "dark:text-pink-300");
+      nav?.setAttribute("aria-current", "page");
     }
   });
 </script>

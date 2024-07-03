@@ -91,7 +91,7 @@ export default defineConfig({
     gzip: false,
     brotli: true
   }), playformCompress()],
-  output: "static",
+  output: "hybrid",
   experimental: {
     clientPrerender: true,
     directRenderScript: true
