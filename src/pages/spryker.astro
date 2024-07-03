@@ -37,6 +37,20 @@ interface Article {
   imgTwoAlt?: string;
 }
 
+export interface Testimonial {
+
+  content: string;
+
+  author: string;
+
+  role: string;
+
+  avatarSrc: any;
+
+  avatarAlt: string;
+
+}
+
 const articles: Article[] = [
   {
     isRightSection: true,
@@ -97,7 +111,7 @@ const articles: Article[] = [
 ];
 
 // Testimonial data that will be rendered in the component
-const testimonials = [
+const testimonials: Testimonial[] = [
   // First testimonial data
   {
     content:
