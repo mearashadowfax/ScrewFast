@@ -4,8 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
 import { fileURLToPath } from 'node:url';
-
 import playformCompress from "@playform/compress";
+
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
@@ -110,5 +111,6 @@ export default defineConfig({
         replacement: fileURLToPath(new URL('./src/components/ui/starlight/Page.astro', import.meta.url))
       }]
     }
-  }
+  },
+  adapter: netlify()
 });
