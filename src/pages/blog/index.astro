@@ -14,13 +14,16 @@ const englishBlogEntries = await getCollection("blog", ({ id }) => {
   return id.startsWith("en/");
 });
 
+const englishInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("en/");
+});
+
 const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] =
-  await getCollection("insights");
+const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
