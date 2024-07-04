@@ -14,13 +14,16 @@ const frenchBlogEntries = await getCollection("blog", ({ id }) => {
   return id.startsWith("fr/");
 });
 
+const frenchInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("fr/");
+});
+
 const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] =
-  await getCollection("insights");
+const insightPosts: CollectionEntry<"insights">[] = frenchInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
@@ -30,7 +33,7 @@ const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 const title: string = "Votre Passerelle vers l'Excellence en Construction";
 const subTitle: string =
   "Explorez les dernières actualités, astuces et analyses de ScrewFast pour améliorer vos projets de construction. Des mises en avant de produits aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne les outils et la construction.";
-const secondTitle: string = "Insights";
+const secondTitle: string = "Perspectives";
 const secondSubTitle: string =
   "Restez à jour avec les dernières tendances et évolutions de l'industrie de la construction grâce aux analyses de l'équipe d'experts de ScrewFast.";
 
