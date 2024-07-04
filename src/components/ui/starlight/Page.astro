@@ -1,4 +1,5 @@
 ---
+import type { Props } from '../../../../node_modules/@astrojs/starlight/props';
 
 // Built-in CSS styles.
 import '../../../../node_modules/@astrojs/starlight/style/props.css';
@@ -23,12 +24,10 @@ import 'virtual:starlight/user-css';
 
 import Hero from "@astrojs/starlight/components/Hero.astro";
 import Banner from "@astrojs/starlight/components/Banner.astro";
-import PageSidebar from "@astrojs/starlight/components/PageSidebar.astro";
 import TwoColumnContent from "@astrojs/starlight/components/TwoColumnContent.astro";
-import MobileMenuToggle from "@astrojs/starlight/components/MobileMenuToggle.astro";
 
 // disables page-sidebar (the right-side one)
-Astro.props.toc = false;
+Astro.props.toc = undefined;
 
 const pagefindEnabled =
   Astro.props.entry.slug !== '404' &&
@@ -42,7 +41,6 @@ const pagefindEnabled =
 
   <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
     <TwoColumnContent {...Astro.props }>
-      <!--<PageSidebar slot="right-sidebar" {...Astro.props} />-->
       <main
         data-pagefind-body={pagefindEnabled}
         lang={Astro.props.entryMeta.lang}
