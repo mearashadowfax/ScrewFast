@@ -6,17 +6,18 @@ import { SITE } from "@data/constants";
 
 // Define variables for page content
 
-const pageTitle: string = Astro.currentLocale === "fr" ? `Page Non Trouvée | ${SITE.title}` : `Page Not Found | ${SITE.title}`;
 const title: string = "404";
 
 const {
   subTitle = Astro.currentLocale === "fr" ? "Oops, ce n'est pas l'outil que vous recherchiez!" : "Oops, this isn't the tool you were looking for!", content = Astro.currentLocale === "fr" ? "Ne laissez pas ce contretemps vous ralentir. Revenons à la construction de votre chef-d'œuvre." : "Don't let this hiccup slow you down. Let's get you back to building your masterpiece.", btnTitle = Astro.currentLocale === "fr" ? "Retournez" : "Go Back",
+  pageTitle = Astro.currentLocale === "fr" ? `Page Non Trouvée | ${SITE.title}` : `Page Not Found | ${SITE.title}`
 } = Astro.props;
 
 interface Props {
-  subTitle?: string;
-  content?: string;
-  btnTitle?: string;
+  pageTitle: string;
+  subTitle: string;
+  content: string;
+  btnTitle: string;
 }
 ---
 
