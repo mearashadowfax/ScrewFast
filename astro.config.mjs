@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
 import { fileURLToPath } from 'node:url';
-import playformCompress from "@playform/compress";
 
 import netlify from "@astrojs/netlify";
 
@@ -91,7 +90,8 @@ export default defineConfig({
   }), compressor({
     gzip: false,
     brotli: true
-  }), playformCompress()],
+  }),
+],
   output: "hybrid",
   experimental: {
     clientPrerender: true,

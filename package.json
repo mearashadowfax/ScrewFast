@@ -17,7 +17,6 @@
     "@astrojs/starlight": "^0.24.5",
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@astrojs/tailwind": "^5.1.0",
-    "@playform/compress": "^0.0.13",
     "astro": "^4.11.4",
     "astro-compressor": "^0.4.1",
     "globby": "^14.0.1",
