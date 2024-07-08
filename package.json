@@ -27,7 +27,7 @@
     "globby": "^14.0.2",
     "gsap": "^3.12.5",
     "html-minifier-terser": "^7.2.0",
-    "lenis": "^1.1.5",
+    "lenis": "^1.1.6",
     "preline": "^2.3.0",
     "sharp": "^0.33.4",
     "sharp-ico": "^0.1.5",
