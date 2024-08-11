@@ -381,7 +381,7 @@ And then add it to `MainLayout.astro`:
 Please note that smooth scrolling can affect accessibility and performance on some devices, so be sure to test it comprehensively across different environments.
 
 > [!NOTE]
-> If you would like to remove Lenis and return to the browser's default scrolling behavior, simply comment out or delete these lines from the `MainLayout.astro` file.
+> If you would like to remove Lenis and return to the browser's default scrolling behavior, simply comment out or delete these lines from the `MainLayout.astro` file and `/starlight/Head.astro` if you are using Docs.
 
 ### GSAP Integration
 
