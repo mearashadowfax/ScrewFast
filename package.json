@@ -31,7 +31,7 @@
     "lenis": "^1.1.9",
     "preline": "^2.4.1",
     "rimraf": "^6.0.1",
-    "sharp": "^0.33.4",
+    "sharp": "^0.33.5",
     "sharp-ico": "^0.1.5",
     "tailwindcss": "^3.4.9"
   },
