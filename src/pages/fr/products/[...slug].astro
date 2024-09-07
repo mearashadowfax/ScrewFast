@@ -13,11 +13,10 @@ declare global {
     gsap: any;
   }
 }
-
 // This gets the static paths for all the unique products
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) => {
-    return id.startsWith("en/");
+    return id.startsWith("fr/");
   });
   return productEntries.map((product) => ({
     params: { slug: product.slug },

@@ -4,7 +4,12 @@ import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
 
-const { product } = Astro.props;
+const { productEntry, productLocale = "" } = Astro.props;
+
+interface Props {
+  productEntry: CollectionEntry<"products">;
+  productLocale?: string;
+}
 
 interface Props {
   product: CollectionEntry<"products">;
@@ -16,14 +21,14 @@ const imageClass =
 
 <!-- The anchor tag is the main container for the product card. When clicked, this leads to the details of the product. -->
 <a
-  href={"/products/" + product.slug}
+  href={productLocale !== "" ? `/${productLocale}/products/${productEntry.slug}/` : `/products/${productEntry.slug}/`}
   data-astro-prefetch
   class="group relative flex h-48 items-end overflow-hidden rounded-lg shadow-xl outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none md:col-span-2 md:h-80"
 >
   <!-- The product's main image -->
   <Image
-    src={product.data.main.imgCard}
-    alt={product.data.main.imgAlt}
+    src={productEntry.data.main.imgCard}
+    alt={productEntry.data.main.imgAlt}
     draggable={"false"}
     class={imageClass}
     format={"avif"}
@@ -36,6 +41,6 @@ const imageClass =
   <!-- This container includes product's subtitle and an SVG icon-->
   <span
     class="relative mb-3 ml-4 inline-block text-sm font-bold text-neutral-50 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-5 md:text-lg"
-    >{product.data.description} <Icon name="openInNew" /></span
+    >{productEntry.data.description} <Icon name="openInNew" /></span
   >
 </a>
