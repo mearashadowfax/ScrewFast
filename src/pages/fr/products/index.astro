@@ -13,7 +13,9 @@ import type { CollectionEntry } from "astro:content";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
-  await getCollection("products")
+  await getCollection("products", ({ id }) => {
+    return id.startsWith("fr/");
+  })
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
     a.data.main.id - b.data.main.id
@@ -110,9 +112,9 @@ const testimonials = [
         product.map((product, index) => {
           const position = index % 4;
           if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
+            return <CardSmall product={product} productLocale="fr" />;
           } else {
-            return <CardWide product={product} />;
+            return <CardWide product={product} productLocale="fr" />;
           }
         })
       }
