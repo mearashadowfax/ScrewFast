@@ -109,9 +109,9 @@ const pageTitle: string = `Products | ${SITE.title}`;
         product.map((product, index) => {
           const position = index % 4;
           if (position === 0 || position === 3) {
-            return <CardSmall productEntry={product} />;
+            return <CardSmall product={product} />;
           } else {
-            return <CardWide productEntry={product} />;
+            return <CardWide product={product} />;
           }
         })
       }
