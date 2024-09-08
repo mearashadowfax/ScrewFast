@@ -74,29 +74,10 @@ import Icon from "./icons/Icon.astro";
         // Disable the selection of the same language
         if (lang === url.pathname.split("/")[1]) return;
 
-        // If on product detail page, adjust the slug
-        if (url.pathname.includes("/products/")) {
-          let productSlug = pathParts[pathParts.length - 1]; // Get the last part of the URL which is the slug
-
-          if (lang === "fr") {
-            // If switching to French, ensure the slug has "-fr"
-            if (!productSlug.endsWith("-fr")) {
-              productSlug += "-fr";
-            }
-          } else {
-            // If switching to English, remove "-fr" from the slug
-            if (productSlug.endsWith("-fr")) {
-              productSlug = productSlug.replace("-fr", "");
-            }
-          }
-
-          // Update the last part of the path with the adjusted slug
-          pathParts[pathParts.length - 1] = productSlug;
-        }
-
         if (
           url.pathname.includes("/post") ||
-          url.pathname.includes("/insight")
+          url.pathname.includes("/insight") ||
+          url.pathname.includes("/products")
         ) {
           if (url.pathname.includes("en")) {
             pathParts.unshift(lang);
