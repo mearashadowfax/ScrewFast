@@ -15,14 +15,18 @@ declare global {
 }
 
 // This gets the static paths for all the unique products
+
 export async function getStaticPaths() {
-  const productEntries = await getCollection("products", ({ id }) => {
-    return id.startsWith("en/");
+  const productEntries = await getCollection("products", ({ id }) =>
+    id.startsWith("en/")
+  );
+  return productEntries.map((product) => {
+    const slugWithoutLang = product.slug.replace(/^en\//, ""); // Remove the "en/" prefix
+    return {
+      params: { slug: slugWithoutLang },
+      props: { product },
+    };
   });
-  return productEntries.map((product) => ({
-    params: { slug: product.slug },
-    props: { product },
-  }));
 }
 
 const { product } = Astro.props;

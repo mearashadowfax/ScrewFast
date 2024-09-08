@@ -12,25 +12,26 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// getStaticPaths is used to pre-render all routes based on the blog posts
+// Update getStaticPaths for English posts
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog", ({ id }) => {
-    return id.startsWith("en/");
+  const blogPosts = await getCollection("blog", ({ id }) =>
+    id.startsWith("en/")
+  );
+  return blogPosts.map((post) => {
+    const slugWithoutLang = post.slug.replace(/^en\//, ""); // Remove the "en/" prefix
+    return {
+      params: { slug: slugWithoutLang },
+      props: { post },
+    };
   });
-  return blogPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
 }
+
 // Get the current post's data
 const { post } = Astro.props;
 
-// Get all blog posts
 const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   "blog",
-  ({ id }) => {
-    return id.startsWith("en/");
-  }
+  ({ id }) => id.startsWith("en/")
 );
 
 // Filter out the current post to get related posts
@@ -54,10 +55,8 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             <div class="flex items-center justify-between gap-x-2">
               <div>
                 <!--Post metadata and author info-->
-                <span
-                    class="font-bold text-neutral-700 dark:text-neutral-300"
-                >
-                    {post.data.author}
+                <span class="font-bold text-neutral-700 dark:text-neutral-300">
+                  {post.data.author}
                 </span>
                 <ul class="text-xs text-neutral-500">
                   <li

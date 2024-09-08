@@ -12,41 +12,35 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// getStaticPaths is used to pre-render all routes based on the blog posts
+// Update getStaticPaths for French posts
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog", ({ id }) => {
-    return id.startsWith("fr/");
+  const blogPosts = await getCollection("blog", ({ id }) =>
+    id.startsWith("fr/")
+  );
+  return blogPosts.map((post) => {
+    const slugWithoutLang = post.slug.replace(/^fr\//, ""); // Remove the "fr/" prefix
+    return {
+      params: { lang: "fr", slug: slugWithoutLang },
+      props: { post },
+    };
   });
-  return blogPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
 }
-// Get the current post's data
+
 const { post } = Astro.props;
 
-// Get all blog posts
-const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog",
-  ({ id }) => {
-    return id.startsWith("fr/");
-  }
+// Fetch related posts
+const blogPosts: CollectionEntry<"blog">[] = await getCollection(
+  "blog",
+  ({ id }) => id.startsWith("fr/")
 );
-
-// Filter out the current post to get related posts
-// Note: This is a very basic way of choosing related posts, just for the purpose of the example.
-// In a production site, you might want to implement a more robust algorithm, choosing related posts based on tags, categories, dates, authors, or keywords.
-// See example: https://blog.codybrunner.com/2024/adding-related-articles-with-astro-content-collections/
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   (blogEntry) => blogEntry.slug !== post.slug
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
-
 ---
 
-<MainLayout
-  title={pageTitle}
->
+<MainLayout title={pageTitle}>
   <section class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
     <div class="max-w-2xl">
       <div class="mb-6 flex items-center justify-between">
@@ -159,7 +153,11 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     </div>
 
     <div class="grid grid-cols-2 gap-6">
-      {relatedPosts.map((entry) => <CardRelated blogEntry={entry} recentBlogLocale="fr" /> )}
+      {
+        relatedPosts.map((entry) => (
+          <CardRelated blogEntry={entry} recentBlogLocale="fr" />
+        ))
+      }
     </div>
   </section>
 </MainLayout>

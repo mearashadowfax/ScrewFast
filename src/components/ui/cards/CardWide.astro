@@ -18,7 +18,9 @@ const imageClass =
 
 <!-- The anchor tag is the main container for the product card. When clicked, this leads to the details of the product. -->
 <a
-  href={productLocale !== "" ? `/${productLocale}/products/${product.slug}/` : `/products/${product.slug}/`}
+  href={productLocale && productLocale !== "en"
+    ? `/${productLocale}/products/${product.slug.replace(/^fr\//, "")}/`
+    : `/products/${product.slug.replace(/^en\//, "")}/`}
   data-astro-prefetch
   class="group relative flex h-48 items-end overflow-hidden rounded-lg shadow-xl outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none md:col-span-2 md:h-80"
 >

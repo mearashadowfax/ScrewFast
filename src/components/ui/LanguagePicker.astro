@@ -74,20 +74,18 @@ import Icon from "./icons/Icon.astro";
         // Disable the selection of the same language
         if (lang === url.pathname.split("/")[1]) return;
 
-        if (
-          url.pathname.includes("/post") ||
-          url.pathname.includes("/insight") ||
-          url.pathname.includes("/item")
-        ) {
-          if (url.pathname.includes("en")) {
-            pathParts.unshift(lang);
-            pathParts.splice(2, 0, lang);
-          } else {
-            pathParts.unshift(lang);
-            pathParts.splice(2, 0, "en");
-          }
-        } else {
+        // Determine if the current URL already has a language prefix
+        const currentLang = languages.includes(pathParts[0] as TLanguage) ? pathParts[0] : "en";
+
+        // Remove current language prefix from pathParts
+        if (languages.includes(pathParts[0] as TLanguage)) {
+          pathParts.shift();
+        }
+
+        // Determine if we are switching to a different language
+        if (lang !== currentLang) {
           if (lang !== "en") {
+            // Add the new language prefix for non-English
             pathParts.unshift(lang);
           }
         }

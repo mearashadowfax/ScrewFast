@@ -108,7 +108,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} />
+          <CardInsight insightEntry={insightEntry} insightLocale="fr" />
         ))
       }
     </div>
