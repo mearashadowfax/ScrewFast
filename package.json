@@ -16,7 +16,7 @@
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@astrojs/tailwind": "^5.1.1",
     "@preline/accordion": "^2.4.1",
-    "@preline/collapse": "^2.4.1",
+    "@preline/collapse": "^2.5.0",
     "@preline/dropdown": "^2.4.1",
     "@preline/overlay": "^2.4.1",
     "@preline/tabs": "^2.4.1",
