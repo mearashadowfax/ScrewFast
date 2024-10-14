@@ -333,21 +333,26 @@ ScrewFast leverages the power of Astro — a modern, cutting-edge site building 
 
 ### Starlight Documentation
 
-ScrewFast is now equipped with the Starlight, which is designed to elevate the user's experience with documentation. This modern and elegant theme comes with a suite of features to make the content more accessible and pleasant to navigate.
+ScrewFast is now equipped with Starlight, designed to elevate the user experience with documentation. This modern and elegant theme includes a suite of features to make content more accessible and enjoyable to navigate.
 
 Key Features:
 
-* **Site Navigation and Search**: Navigate through the documentation with ease using intuitive sidebar and built-in search functionality.
-* **Internationalization**: Cater to a global audience with the ability to switch languages, making documentation accessible to everyone, everywhere.
-* **SEO Friendly**: Optimized for search engines to help users quickly find the information they need.
-* **Code Highlighting and Dark Mode**: Enhances code readability with syntax highlighting, and offers a dark mode to reduce eye strain for users.
-* **Mobile Responsive Design**: Whether you're on a phone, tablet, or desktop, the documentation adapts to your screen size for optimal readability.
+* **Site Navigation and Search**: Navigate effortlessly using the intuitive sidebar and built-in search functionality.
+* **Internationalization**: Reach a global audience with language-switching capabilities, making the documentation accessible worldwide.
+* **SEO Friendly**: Optimized for search engines, helping users quickly find the information they need.
+* **Code Highlighting and Dark Mode**: Improves code readability with syntax highlighting, and offers a dark mode to reduce eye strain.
+* **Mobile Responsive Design**: Adapts to any screen size, whether you're on a phone, tablet, or desktop, for optimal readability.
 
-With Starlight, you gain access to a wealth of powerful features and integrations, along with extensive customization options to fit your needs.
+With Starlight, you gain access to powerful features and integrations, as well as extensive customization options to suit your needs.
 
 > [!NOTE]
 > Dive into the Starlight's comprehensive feature list and learn how it can streamline your development process by visiting the theme's [documentation site](https://starlight.astro.build/).
->
+
+
+> [!IMPORTANT]  
+> If the sidebar in your Starlight site is not scrolling, and you have to manually drag the scrollbar, remove the script tag related to the Lenis smooth scroll library from `src/components/ui/starlight/Head.astro`.
+
+
 ### Lenis for Smooth Scrolling
 
 Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com/). We've integrated Lenis to provide an enhanced scrolling experience that's both fluid and responsive.
