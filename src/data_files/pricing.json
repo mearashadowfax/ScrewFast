@@ -4,35 +4,40 @@
   "badge": "Best value",
   "thirdOption": "Enterprise Solutions?",
   "btnText": "Get a Custom Quote",
-
   "starterKit": {
-    "name": "Starter Kit",
-    "description": "Best option for DIY projects",
-    "price": "49",
-    "cents": ".00",
+    "name": "Initial Plan",
+    "description": "For 7 days, and then $83.99 USD per month",
+    "price": "7",
+    "cents": ".99",
     "billingFrequency": "USD / monthly",
     "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
+      "3 users",
+      "Unlimited messages",
+      "Unlimited funnels",
+      "Whatsapp Integration",
+      "Academy Access"
     ],
-    "purchaseBtnTitle": "Get the Starter Kit",
+    "purchaseBtnTitle": "BUY NOW",
     "purchaseLink": "#"
   },
-
   "professionalToolbox": {
-    "name": "Professional Toolbox",
-    "description": "Best for large scale uses",
+    "name": "Monthly Plan",
+    "description": "Monthly Subscription",
     "price": "89",
-    "cents": ".00",
+    "cents": ".99",
     "billingFrequency": "USD / monthly",
     "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
+      "3 users",
+      "Unlimited messages",
+      "Unlimited funnels",
+      "Whatsapp Integration",
+      "Academy Access",
+      "AI Tools",
+      "Instagram Integration",
+      "Facebook Integration",
+      "Appoitments Integration"
     ],
-    "purchaseBtnTitle": "Get the Professional Toolbox",
+    "purchaseBtnTitle": "BUY NOW",
     "purchaseLink": "#"
   }
 }
