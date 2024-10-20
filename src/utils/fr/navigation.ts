@@ -1,7 +1,6 @@
 
 const navBarLinks = [
   { name: "Accueil", url: "/fr" },
-  { name: "Blog", url: "/fr/blog" },
 ];
 
 const footerLinks = [

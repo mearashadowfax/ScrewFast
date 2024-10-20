@@ -1,12 +1,12 @@
 import ogImageSrc from "@images/social.png";
 
 export const SITE = {
-  title: "ScrewFast",
-  tagline: "Top-quality Hardware Tools",
-  description: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  description_short: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
-  url: "https://screwfast.uk",
-  author: "Emil Gulamov",
+  title: "Kasumi CRM",
+  tagline: "Centralize your chats with Kasumi CRM",
+  description: "Seamlessly manage conversations across WhatsApp, Facebook, and Instagram from a single, intuitive platform.",
+  description_short: "Centralize your chats into columns, automatically assign them to your sales and customer support teams.",
+  url: "https://kasumi.app",
+  author: "Rick Dev",
 };
 
 export const SEO = {
@@ -33,7 +33,7 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description: "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  title: `${SITE.title}: : Seamlessly manage conversations across WhatsApp, Facebook`,
+  description: "Streamline your communication with our centralized messaging system. Manage WhatsApp conversations, send mass messages, and organize contacts using tags—all from one intuitive platform.",
   image: ogImageSrc,
 };
