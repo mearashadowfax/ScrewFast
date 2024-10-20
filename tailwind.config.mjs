@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 import colors from 'tailwindcss/colors';
+const { nextui } = require("@nextui-org/react");
+import clerk from '@clerk/astro'
+
 export default {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./node_modules/preline/preline.js",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   darkMode: "class",
   theme: {
@@ -38,5 +42,6 @@ export default {
     require("tailwindcss/nesting"),
     require("preline/plugin"),
     require("@tailwindcss/forms"),
+    nextui()
   ],
 };
