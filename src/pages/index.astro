@@ -3,21 +3,18 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
-import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
-import FAQ from "@components/sections/misc/FAQ.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "@images/banner.png";
-import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
 import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
+
+const promoSource ="/public/media/video_promotion.mp4";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -45,10 +42,17 @@ const avatarSrcs: Array<string> = [
     alt="Kasumi CRM a CRM for Whatsapp, Instagram and more..."
   />
 
+  <video 
+  src={promoSource} 
+  muted 
+  autoplay 
+  loop 
+  playsinline 
+  controls
+></video>
   <FeaturesGeneral
     title="Discover the benefits that Kasumi offers you!"
     subTitle="Streamline your customer communication with our all-in-one messaging CRM. Seamlessly manage conversations across WhatsApp, Facebook, and Instagram from a single, intuitive platform. Our powerful tool helps you build stronger relationships, boost engagement, and drive sales by centralizing your social messaging channels."
-    src={featureImage}
     alt="Kasumi features in floating boxes"
     features={features}
   />
