@@ -1,4 +1,47 @@
-// https://docs.astro.build/en/guides/integrations-guide/sitemap/#usage
+import type { APIRoute } from 'astro';
+
+const robotsTxt = `
+User-agent: *
+Disallow: /
+
+# Explicitly disallow all known major bot user agents
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: Exabot
+Disallow: /
+
+# No sitemap in development environment
+`.trim();
+
+export const GET: APIRoute = () => {
+  return new Response(robotsTxt, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
+  });
+};
+
+/* // https://docs.astro.build/en/guides/integrations-guide/sitemap/#usage
 import type { APIRoute } from 'astro';
 
 const robotsTxt = `
@@ -29,4 +72,4 @@ export const GET: APIRoute = () => {
       'Content-Type': 'text/plain; charset=utf-8',
     },
   });
-};
+}; */
