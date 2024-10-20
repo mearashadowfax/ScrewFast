@@ -121,6 +121,17 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 
 This guide will provide you with the necessary steps to set up and familiarize yourself with the Astro project on your local development machine.
 
+### Use This Template
+To get started, click the `Use this template` button (the big green one at the top right) to create your own repo from this template in your GitHub account.
+
+### Clone the Repository
+Once your repository is created, you can clone it to your local machine using the following commands:
+
+```bash
+git clone https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME].git
+cd [YOUR_REPO_NAME]
+```
+
 ### Installation
 
 Start by installing the project dependencies. Open your terminal, navigate to the project's root directory, and execute:
