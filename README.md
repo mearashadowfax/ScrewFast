@@ -338,6 +338,8 @@ export const socialLinks: SocialLinks = {
 
 We also have `Navbar.astro` and `NavbarMegaMenu.astro` components located in `src/components/sections/navbar&footer`. Ensure to update these components if additional customization or specific configurations are required for the navigation bar or mega menu.
 
+https://github.com/user-attachments/assets/9aa2039a-b92f-45ac-9698-ce4aab6dac56
+
 ## Integrations and Enhancements
 
 ScrewFast leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
