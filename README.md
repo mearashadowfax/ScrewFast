@@ -338,7 +338,9 @@ export const socialLinks: SocialLinks = {
 
 We also have `Navbar.astro` and `NavbarMegaMenu.astro` components located in `src/components/sections/navbar&footer`. Ensure to update these components if additional customization or specific configurations are required for the navigation bar or mega menu.
 
-https://github.com/user-attachments/assets/9aa2039a-b92f-45ac-9698-ce4aab6dac56
+
+![ScrewFast MegaMenu](https://github.com/user-attachments/assets/690482af-f1a4-4ebf-be58-eca0b5862973)
+
 
 ## Integrations and Enhancements
 
