@@ -2,14 +2,13 @@
 
 ![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
 
-ScrewFast is an open-source template designed for quick and efficient web project setup, blending minimalism with functionality. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
+ScrewFast is an **open-source template** designed for quick and efficient web project setup, blending **minimalism with functionality**. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
 
 **[View Live Demo](https://screwfast.uk)**
 
 ## Table of Contents
 
 * [Why Choose ScrewFast?](#why-choose-screwfast)
-* [Features](#features)
 * [What's New](#whats-new)
 * [Getting Started](#getting-started)
   * [Installation](#installation)
@@ -57,7 +56,7 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 * **Optimized for Small Projects:** Perfect for crisp, professional web personas without excess complexity.
 * **Highly Customizable:** Flexibly adapt and style your site using Astro and Tailwind CSS.
 
-## Features
+### Features
 
 * **Astro-Powered:** Utilize a modern static-site generation framework.
 * **Tailwind CSS:** Enjoy rapid UI development with a utility-first CSS framework.
@@ -70,53 +69,41 @@ ScrewFast is an open-source template designed for quick and efficient web projec
 
 ## What's New
 
-### Added Features
-
 * [x] **Social Share Component**:
   * Enables users to share blog posts on social media platforms.
   * Provides easy sharing of a blog post's title and URL.
-  * Integrates Clipboard.js for link URL copy functionality.
+  * Integrates Clipboard.js for easy link copying.
 
 * [x] **Bookmark Button Component**:
-  * Allows users to bookmark blog posts for later reference.
+  * Allows users to bookmark blog posts for later reference using `localStorage`.
   * Provides a visual indication of whether a post is bookmarked.
-  * Utilizes `localStorage` to store bookmarks locally in the browser.
   * For SSR, replace `localStorage` with cookies to persist bookmarked posts.
     * This setup opens up the possibility for the server to dynamically render content based on user-specific bookmarks, should you choose to implement this feature.
 
 * [x] **Post Feedback Component**:
-  * Collects user feedback at the end of each blog post.
-  * Serves as a UI demonstration with no live back-end integration.
+  * Collects user feedback at the end of blog posts.
+  * Serves as a UI demonstration (no back-end integration currently).
   
 * [x] **Starlight Documentation Theme Integration**:
   * A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of documentation.
-  * Offers a range of features such as site navigation, built-in search functionality, dark mode, syntax highlighting for code, and improved SEO.
-  * Seamlessly integrates internationalization (i18n) to provide support for documentation in multiple languages, catering to a global audience.
-  * Designed to facilitate ease of use while offering a modern aesthetic in both light and dark themes to accommodate user preferences.
+  * Enhances readability and usability of documentation with features like site navigation, search, dark mode, code highlighting, and internationalization support.
 
 * [x] **Icon Set Component**:
-  * Convenient and reusable Icon component that allows adding icons simply by providing a name prop.
+  * Centralizes SVG icons for easy management and updates.
   * Render any pre-defined icon SVG using `<Icon name="iconName" />` in your Astro components.
-  * The Icon Component offers a centralized location for all SVG Icons across the project in one TypeScript file - allowing unified updates and easy maintenance.
   * **Note:** Developers have the option to use other community integrations like [astro-icons](https://github.com/natemoo-re/astro-icon). However, the author decided to create a custom icon set component for managing custom icons.
 
 * [x] **Internationalization (i18n) Features**:
-  * Integrates [Astro’s internationalization (i18n) features](https://docs.astro.build/en/guides/internationalization/).
-  * Additionally, a custom LanguagePicker component has been developed to facilitate language selection.
+  * Integrates [Astro's i18n features](https://docs.astro.build/en/guides/internationalization/) and includes a custom `LanguagePicker` component.
   * Developers can access the monolingual version directly from [`monolingual-site` branch](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site).
 
 * [x] **Dynamic Table of Contents (ToC) with Scroll Progress Indicator**:
-  * Enhances ease of navigation in insight posts by highlighting the relevant section in the ToC, and includes a progress indicator to visually represent scroll progress.
+  * Highlights the relevant section in the ToC with a scroll progress indicator. 
   * Developers seeking alternatives might consider the [remark-toc](https://github.com/remarkjs/remark-toc) plugin.
 
-### Planned Improvements
-
-* Currently, there are no planned improvements. We'll update this section as plans develop.
-
-### Bug Fixes
-
-* Currently, there are no known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/mearashadowfax/ScrewFast/issues).
-
+> [!NOTE]
+> Currently, there are no planned improvements or known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/mearashadowfax/ScrewFast/issues).
+  
 ## Getting Started
 
 This guide will provide you with the necessary steps to set up and familiarize yourself with the Astro project on your local development machine.
@@ -344,8 +331,6 @@ The `Navbar.astro` and `NavbarMegaMenu.astro` components can be configured withi
 
 
 ## Integrations and Enhancements
-
-ScrewFast leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
 
 ### Starlight Documentation
 
