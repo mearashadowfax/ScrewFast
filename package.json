@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/starlight": "^0.28.3",
+    "@astrojs/starlight": "^0.28.6",
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@astrojs/tailwind": "^5.1.2",
     "@preline/accordion": "^2.5.0",
@@ -20,7 +20,7 @@
     "@preline/dropdown": "^2.5.0",
     "@preline/overlay": "^2.5.0",
     "@preline/tabs": "^2.5.0",
-    "astro": "^4.16.7",
+    "astro": "^4.16.9",
     "astro-compressor": "^0.4.1",
     "clipboard": "^2.0.11",
     "globby": "^14.0.2",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",
-    "astro-vtbot": "^1.10.5",
+    "astro-vtbot": "^1.10.6",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.8",
