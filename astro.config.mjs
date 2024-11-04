@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import vercelStatic from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
@@ -95,10 +94,8 @@ export default defineConfig({
       brotli: true,
     }),
   ],
-  output: "static",
   experimental: {
     clientPrerender: true,
     directRenderScript: true,
   },
-  adapter: vercelStatic(),
 });
