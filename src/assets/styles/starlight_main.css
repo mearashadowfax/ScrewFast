@@ -76,12 +76,12 @@ select {
     box-shadow: none;
 }
 
-.sl-flex.action.primary:hover {
+.sl-link-button.primary:hover {
     background-color: var(--primary-button-hover);
     transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sl-flex.action.primary:hover svg {
+.sl-link-button.primary:hover svg {
     transform: translateX(0.25rem);
     transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
