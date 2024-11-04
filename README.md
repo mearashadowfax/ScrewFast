@@ -7,3 +7,10 @@ This branch is designed to deliver content in a single language, making it strai
 Click the button below to start deploying your project on Vercel:  
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast%2Ftree%2Fmonolingual-site)
+
+### Deploying to Netlify
+
+Click the button below to start deploying your project on Netlify:  
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site)
+
