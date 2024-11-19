@@ -1,9 +1,7 @@
 ---
+import type { Props } from "@astrojs/starlight/props";
 import StarlightHead from "@astrojs/starlight/components/Head.astro";
-import {
-  default as VtbotStarlight,
-  type Props,
-} from "astro-vtbot/components/starlight/Base.astro";
+import VtbotStarlight from "astro-vtbot/components/starlight/Base.astro";
 
 // https://docs.astro.build/en/guides/view-transitions/#fallback-control
 Astro.props.viewTransitionsFallback = "animate";
