@@ -1,14 +1,14 @@
 ---
-import type { Props } from "@astrojs/starlight/props";
-import StarlightHead from "@astrojs/starlight/components/Head.astro";
-import VtbotStarlight from "astro-vtbot/components/starlight/Base.astro";
+import type { Props } from '@astrojs/starlight/props';
+import StarlightHead from '@astrojs/starlight/components/Head.astro';
+import VtbotStarlight from 'astro-vtbot/components/starlight/Base.astro';
 
 // https://docs.astro.build/en/guides/view-transitions/#fallback-control
 Astro.props.viewTransitionsFallback = "animate";
 ---
 
 <VtbotStarlight {...Astro.props}>
-  <StarlightHead {...Astro.props} />
+  <StarlightHead {...Astro.props}><slot /></StarlightHead>
   <script>
     import "@scripts/lenisSmoothScroll.js";
   </script>
