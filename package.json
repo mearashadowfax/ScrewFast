@@ -20,7 +20,7 @@
     "@preline/dropdown": "^2.5.0",
     "@preline/overlay": "^2.6.0",
     "@preline/tabs": "^2.6.0",
-    "astro": "^4.16.16",
+    "astro": "^4.16.17",
     "astro-compressor": "^1.0.0",
     "clipboard": "^2.0.11",
     "globby": "^14.0.2",
