@@ -18,7 +18,7 @@
     "@astrojs/tailwind": "^5.1.4",
     "@preline/accordion": "^2.5.0",
     "@preline/collapse": "^2.6.0",
-    "@preline/dropdown": "^2.5.0",
+    "@preline/dropdown": "^2.6.0",
     "@preline/overlay": "^2.6.0",
     "@preline/tabs": "^2.6.0",
     "astro": "^5.1.2",
@@ -32,11 +32,11 @@
     "rimraf": "^6.0.1",
     "sharp": "^0.33.5",
     "sharp-ico": "^0.1.5",
-    "tailwindcss": "^3.4.16"
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",
-    "astro-vtbot": "^1.10.7",
+    "astro-vtbot": "^2.0.0",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
