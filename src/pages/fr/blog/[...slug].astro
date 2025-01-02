@@ -18,9 +18,9 @@ export async function getStaticPaths() {
     id.startsWith("fr/")
   );
   return blogPosts.map((post) => {
-    const slugWithoutLang = post.slug.replace(/^fr\//, ""); // Remove the "fr/" prefix
+    const idWithoutLang = post.id.replace(/^fr\//, ""); // Remove the "fr/" prefix
     return {
-      params: { lang: "fr", slug: slugWithoutLang },
+      params: { lang: "fr", id: idWithoutLang },
       props: { post },
     };
   });
@@ -34,7 +34,7 @@ const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   ({ id }) => id.startsWith("fr/")
 );
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
-  (blogEntry) => blogEntry.slug !== post.slug
+  (blogEntry) => blogEntry.id !== post.id
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;

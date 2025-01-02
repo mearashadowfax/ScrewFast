@@ -9,9 +9,9 @@ import { getCollection, render } from "astro:content";
 export async function getStaticPaths() {
   const insightPosts = await getCollection("insights", ({ id }) => id.startsWith("fr/"));
   return insightPosts.map((post) => {
-    const slugWithoutLang = post.id.replace(/^fr\//, ''); // Remove the "fr/" prefix
+    const idWithoutLang = post.id.replace(/^fr\//, ''); // Remove the "fr/" prefix
     return {
-      params: { lang: 'fr', id: slugWithoutLang },
+      params: { lang: 'fr', id: idWithoutLang },
       props: { post },
     };
   });

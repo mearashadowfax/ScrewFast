@@ -20,9 +20,9 @@ export async function getStaticPaths() {
     id.startsWith("fr/")
   );
   return productEntries.map((product) => {
-    const slugWithoutLang = product.slug.replace(/^fr\//, ""); // Remove the "fr/" prefix
+    const idWithoutLang = product.id.replace(/^fr\//, ""); // Remove the "fr/" prefix
     return {
-      params: { lang: "fr", slug: slugWithoutLang },
+      params: { lang: "fr", id: idWithoutLang },
       props: { product },
     };
   });
