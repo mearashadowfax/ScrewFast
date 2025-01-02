@@ -18,9 +18,9 @@ export async function getStaticPaths() {
     id.startsWith("en/")
   );
   return blogPosts.map((post) => {
-    const slugWithoutLang = post.slug.replace(/^en\//, ""); // Remove the "en/" prefix
+    const idWithoutLang = post.id.replace(/^en\//, ""); // Remove the "en/" prefix
     return {
-      params: { slug: slugWithoutLang },
+      params: { id: idWithoutLang },
       props: { post },
     };
   });
@@ -39,7 +39,7 @@ const blogPosts: CollectionEntry<"blog">[] = await getCollection(
 // In a production site, you might want to implement a more robust algorithm, choosing related posts based on tags, categories, dates, authors, or keywords.
 // See example: https://blog.codybrunner.com/2024/adding-related-articles-with-astro-content-collections/
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
-  (blogEntry) => blogEntry.slug !== post.slug
+  (blogEntry) => blogEntry.id !== post.id
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;

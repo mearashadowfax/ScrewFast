@@ -21,8 +21,8 @@ interface Props {
 <a
   class="group rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
   href={insightLocale && insightLocale !== "en"
-    ? `/${insightLocale}/insights/${insightEntry.slug.replace(/^fr\//, "")}/`
-    : `/insights/${insightEntry.slug.replace(/^en\//, "")}/`}
+    ? `/${insightLocale}/insights/${insightEntry.id.replace(/^fr\//, "")}/`
+    : `/insights/${insightEntry.id.replace(/^en\//, "")}/`}
 >
   <!-- This is the container for the insight's cover image. -->
   <div class="relative overflow-hidden rounded-xl pt-[50%] sm:pt-[70%]">
