@@ -3,7 +3,7 @@
 import { SITE } from "@data/constants";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 // Use `getStaticPaths` to generate static routes for generated pages on build
 export async function getStaticPaths() {
@@ -11,9 +11,9 @@ export async function getStaticPaths() {
     id.startsWith("en/")
   );
   return insightPosts.map((post) => {
-    const slugWithoutLang = post.slug.replace(/^en\//, ""); // Remove the "fr/" prefix
+    const idWithoutLang = post.id.replace(/^en\//, ""); // Remove the "fr/" prefix
     return {
-      params: { slug: slugWithoutLang },
+      params: { id: idWithoutLang },
       props: { post },
     };
   });
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 // Get the props for this page that define a specific insight post
 const { post } = Astro.props;
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 ---
@@ -56,7 +56,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
               >
               </div>
             </div>
-            <p class="text-pretty text-sm font-light text-neutral-500">
+            <p class="text-pretty text-sm text-neutral-500">
               Table of Contents:
             </p>
             <div id="toc" class="">
