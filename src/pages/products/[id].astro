@@ -17,7 +17,7 @@ declare global {
 export async function getStaticPaths() {
   const productEntries = await getCollection("products");
   return productEntries.map((product) => ({
-    params: { slug: product.slug },
+    params: { id: product.id },
     props: { product },
   }));
 }

@@ -16,7 +16,7 @@ import { SITE } from "@data/constants";
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog");
   return blogPosts.map((post) => ({
-    params: { slug: post.slug },
+    params: { id: post.id },
     props: { post },
   }));
 }
@@ -31,7 +31,7 @@ const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 // In a production site, you might want to implement a more robust algorithm, choosing related posts based on tags, categories, dates, authors, or keywords.
 // See example: https://blog.codybrunner.com/2024/adding-related-articles-with-astro-content-collections/
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
-  (blogEntry) => blogEntry.slug !== post.slug
+  (blogEntry) => blogEntry.id !== post.id
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
