@@ -100,6 +100,11 @@ article.card {
     border-radius: 0.5rem;
 }
 
+.pagination-links a:hover,
+.sl-link-card:hover {
+    border-color: var(--sl-color-accent);
+}
+
 .starlight-aside--tip {
     background: linear-gradient(45deg, #ff512f, #f09819);
     border: none;
