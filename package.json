@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.0.3",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/starlight": "^0.30.3",
+    "@astrojs/starlight": "^0.31.0",
     "@astrojs/starlight-tailwind": "^3.0.0",
     "@astrojs/tailwind": "^5.1.4",
     "@preline/accordion": "^2.5.0",
