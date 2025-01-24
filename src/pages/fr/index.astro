@@ -18,7 +18,8 @@ import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { partnersData } from "@/data_files/constants";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -54,6 +55,7 @@ const avatarSrcs: Array<string> = [
   <ClientsSection
     title="Faites confiance aux leaders de l'industrie"
     subTitle="Découvrez la fiabilité choisie par les géants de l'industrie."
+    partners={partnersData}
   />
 
   <FeaturesGeneral
