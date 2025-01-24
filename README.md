@@ -183,8 +183,7 @@ src/
 │   ├── blog/
 │   ├── docs/           
 │   ├── insights/         
-│   ├── products/         
-│   └── config.ts         # Contains site-wide configuration options
+│   └── products/         
 ├── data_files/           # Strings stored as JSON files
 ├── images/               # Static image assets for use across the website
 ├── layouts/              # Components defining layout templates
@@ -199,8 +198,8 @@ src/
 │   ├── products/         
 │   ├── robots.txt.ts     # Dynamically generates robots.txt
 │   └── services.astro
-└── utils/                # Shared utility functions and helpers
-
+├── utils/                # Shared utility functions and helpers
+└── content.config.ts     # Contains content collections configuration options
 ```
 
 ## Static Assets and Public Resources
