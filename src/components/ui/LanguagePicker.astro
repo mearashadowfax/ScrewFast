@@ -55,7 +55,9 @@ import Icon from "./icons/Icon.astro";
   const languages: TLanguage[] = ["en", "fr"];
 
   document.addEventListener("DOMContentLoaded", function () {
-    const languageLinks = document.querySelectorAll(".hs-dropdown-menu a");
+    // Only target language picker links
+    const languageLinks = document.querySelectorAll(".hs-dropdown-menu[aria-labelledby='hs-dropdown-hover-event'] a");
+    
     languageLinks.forEach((element) => {
       const link = element as HTMLAnchorElement;
       const lang = link
@@ -67,31 +69,23 @@ import Icon from "./icons/Icon.astro";
         event.preventDefault();
 
         const url = new URL(window.location.href);
-        const pathParts = url.pathname
+        
+        const currentPath = url.pathname
           .split("/")
-          .filter((part) => part && !languages.includes(part as TLanguage));
+          .filter((part) => part && !languages.includes(part as TLanguage))
+          .join("/");
 
-        // Disable the selection of the same language
-        if (lang === url.pathname.split("/")[1]) return;
-
-        // Determine if the current URL already has a language prefix
-        const currentLang = languages.includes(pathParts[0] as TLanguage) ? pathParts[0] : "en";
-
-        // Remove current language prefix from pathParts
-        if (languages.includes(pathParts[0] as TLanguage)) {
-          pathParts.shift();
+        let newPath = "";
+        if (lang && lang !== "en") {
+          newPath = `/${lang}/${currentPath}`;
+        } else {
+          newPath = `/${currentPath}`;
         }
 
-        // Determine if we are switching to a different language
-        if (lang !== currentLang) {
-          if (lang !== "en") {
-            // Add the new language prefix for non-English
-            pathParts.unshift(lang);
-          }
-        }
-
-        url.pathname = pathParts.join("/");
-        window.location.href = url.toString();
+        newPath = newPath.replace(/\/+/g, "/");
+        if (newPath === "") newPath = "/";
+        
+        window.location.href = `${url.origin}${newPath}${url.search}`;
       });
     });
   });
