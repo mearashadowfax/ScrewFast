@@ -14,20 +14,22 @@ type SocialPlatform = {
   svg: string;
 };
 
+const encoded_url = encodeURIComponent(Astro.url.href);
+
 const socialPlatforms: SocialPlatform[] = [
   {
     name: "Facebook",
-    url: `https://www.facebook.com/share.php?u=${Astro.url}&title=${pageTitle}`,
+    url: `https://www.facebook.com/sharer/sharer.php?u=${encoded_url}`,
     svg: "facebook",
   },
   {
     name: "X",
-    url: `https://twitter.com/home/?status=${pageTitle}${Astro.url}`,
+    url: `https://twitter.com/intent/tweet?url=${encoded_url}&text=${pageTitle}`,
     svg: "x",
   },
   {
     name: "LinkedIn",
-    url: `https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url}&title=${pageTitle}`,
+    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encoded_url}&title=${pageTitle}`,
     svg: "linkedIn",
   },
 ];
@@ -56,6 +58,9 @@ const socialPlatforms: SocialPlatform[] = [
           <a
             class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100  focus:outline-none dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 "
             href={platform.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Share on ${platform.name}`}
           >
             <Icon name={platform.svg} />
             Share on {platform.name}
