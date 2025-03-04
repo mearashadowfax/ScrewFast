@@ -17,13 +17,13 @@ interface Props {
      The data-astro-prefetch is an Astro specific Dynamic HTML feature,
      which automatically prefetches the linked page to speed up navigation. -->
 <a
-  class="group relative block rounded-xl outline-none ring-zinc-500 transition duration-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
+  class="group relative block rounded-xl outline-hidden ring-zinc-500 transition duration-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
   href={`/blog/${blogEntry.id}/`}
   data-astro-prefetch
 >
   <!-- The container for the blog post's cover image. Uses astro:assets' Image for image source -->
   <div
-    class="relative h-[350px] w-full flex-shrink-0 overflow-hidden rounded-xl before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-neutral-900/[.7]"
+    class="relative h-[350px] w-full shrink-0 overflow-hidden rounded-xl before:absolute before:inset-x-0 before:z-1 before:size-full before:bg-linear-to-t before:from-neutral-900/[.7]"
   >
     <Image
       class="absolute start-0 top-0 size-full object-cover transition duration-500 group-hover:scale-110"

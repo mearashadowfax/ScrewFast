@@ -20,7 +20,7 @@ import BrandLogo from "@components/BrandLogo.astro";
         <div class="flex items-center justify-between">
             <!-- Brand logo -->
             <a
-                    class="flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
+                    class="flex-none rounded-lg text-xl font-bold outline-hidden ring-zinc-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
                     href="/"
                     aria-label="Brand"
             >
@@ -30,13 +30,13 @@ import BrandLogo from "@components/BrandLogo.astro";
             <div class="ml-auto mr-5 md:hidden">
                 <button
                         type="button"
-                        class="hs-collapse-toggle flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:outline-none"
+                        class="hs-collapse-toggle flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:outline-hidden"
                         data-hs-collapse="#navbar-collapse-with-animation"
                         aria-controls="navbar-collapse-with-animation"
                         aria-label="Toggle navigation"
                 >
                     <svg
-                            class="h-[1.25rem] w-[1.25rem] flex-shrink-0 hs-collapse-open:hidden"
+                            class="h-[1.25rem] w-[1.25rem] shrink-0 hs-collapse-open:hidden"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -51,7 +51,7 @@ import BrandLogo from "@components/BrandLogo.astro";
                         <line x1="3" x2="21" y1="18" y2="18"></line>
                     </svg>
                     <svg
-                            class="hidden h-[1.25rem] w-[1.25rem] flex-shrink-0 hs-collapse-open:block"
+                            class="hidden h-[1.25rem] w-[1.25rem] shrink-0 hs-collapse-open:block"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -204,13 +204,4 @@ import BrandLogo from "@components/BrandLogo.astro";
             });
         });
     });
-</script>
-<!--Import the necessary Collapse and Overlay plugins-->
-<!--https://preline.co/plugins/html/collapse.html-->
-<!--https://preline.co/plugins/html/overlay.html-->
-<!--https://preline.co/plugins/html/dropdown.html-->
-<script>
-    import "@preline/collapse/index.js";
-    import "@preline/overlay/index.js";
-    import "@preline/dropdown/index.js";
 </script>
