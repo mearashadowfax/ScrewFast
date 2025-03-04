@@ -1,3 +1,4 @@
+@import 'tailwindcss';
 /* Dark mode colors. */
 :root {
   --border: hsla(var(--border-neutral), 0.4);

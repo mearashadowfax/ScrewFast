@@ -1,9 +1,8 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
-
+import tailwindcss from '@tailwindcss/vite'
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
@@ -13,7 +12,6 @@ export default defineConfig({
   },
   prefetch: true,
   integrations: [
-    tailwind(),
     sitemap(),
     starlight({
       title: "ScrewFast Docs",
@@ -94,6 +92,9 @@ export default defineConfig({
       brotli: true,
     }),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   experimental: {
     clientPrerender: true,
   },

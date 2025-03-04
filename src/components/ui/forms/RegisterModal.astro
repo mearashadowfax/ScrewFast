@@ -25,7 +25,7 @@ const config = {
   >
     <div class="mx-auto w-full max-w-md p-6">
       <div
-        class="mt-7 max-h-full overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+        class="mt-7 max-h-full overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 shadow-xs dark:border-neutral-700 dark:bg-neutral-800"
       >
         <div class="p-4 sm:p-7">
           <div class="text-center">
@@ -38,7 +38,7 @@ const config = {
               {config.subTitle}
               <!-- Button to toggle login modal -->
               <button
-                class="rounded-lg p-1 font-medium text-orange-400 decoration-2 outline-none ring-zinc-500 hover:underline focus-visible:ring dark:text-orange-400 dark:ring-zinc-200 dark:focus:outline-none"
+                class="rounded-lg p-1 font-medium text-orange-400 decoration-2 outline-hidden ring-zinc-500 hover:underline focus-visible:ring-3 dark:text-orange-400 dark:ring-zinc-200 dark:focus:outline-hidden"
                 data-hs-overlay={config.loginBtnDataHS}
               >
                 {config.loginBtn}
@@ -76,7 +76,7 @@ const config = {
                 <!-- Checkbox with a label and a link for accepting the terms and conditions -->
                 <Checkbox label="I accept the " , id="terms-agree">
                   <a
-                    class="font-medium text-orange-400 decoration-2 hover:underline dark:text-orange-400 dark:focus:outline-none"
+                    class="font-medium text-orange-400 decoration-2 hover:underline dark:text-orange-400 dark:focus:outline-hidden"
                     href="#">Terms and Conditions</a
                   >
                 </Checkbox>
