@@ -6,14 +6,14 @@ interface Props {
 }
 
 const baseClasses =
-  "flex items-center gap-x-2 text-base md:text-sm font-medium text-neutral-600 ring-zinc-500 transition duration-300 focus-visible:ring outline-none";
+  "flex items-center gap-x-2 text-base md:text-sm font-medium text-neutral-600 ring-zinc-500 transition duration-300 focus-visible:ring-3 outline-hidden";
 const hoverClasses = "hover:text-orange-400 dark:hover:text-orange-300";
 const darkClasses =
-  "dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:focus:outline-none";
+  "dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:focus:outline-hidden";
 const mdClasses = "md:my-6 md:border-s md:border-neutral-300 md:ps-6";
 const txtSizeClasses = "2xl:text-base";
 const userSVG = `<svg
-      class="h-4 w-4 flex-shrink-0"
+      class="h-4 w-4 shrink-0"
       width="24"
       height="24"
       viewBox="0 0 24 24"
