@@ -1,3 +1,12 @@
+@import 'tailwindcss';
+
+@layer base {
+    button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 /* Dark mode colors. */
 :root {
   --border: hsla(var(--border-neutral), 0.4);

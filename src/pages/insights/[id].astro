@@ -29,7 +29,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 
 <MainLayout title={pageTitle}>
   <section class="py-6 sm:py-8 lg:py-12">
-    <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+    <div class="mx-auto max-w-(--breakpoint-xl) px-4 md:px-8">
       <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
         <div>
           <div class="h-64 overflow-hidden rounded-lg shadow-lg md:h-auto">
@@ -43,7 +43,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
           </div>
           <div
             id="progress-mobile"
-            class="fixed left-0 top-0 h-2 w-full bg-gradient-to-r from-orange-400/30 to-orange-400 md:hidden"
+            class="fixed left-0 top-0 h-2 w-full bg-linear-to-r from-orange-400/30 to-orange-400 md:hidden"
           >
           </div>
           <div id="pin" class="mt-10 hidden space-y-4 md:block">
@@ -52,7 +52,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             >
               <div
                 id="progress"
-                class="h-px w-full bg-gradient-to-r from-orange-400/30 to-orange-400"
+                class="h-px w-full bg-linear-to-r from-orange-400/30 to-orange-400"
               >
               </div>
             </div>

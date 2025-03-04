@@ -22,7 +22,7 @@ const imageClass =
     ? `/${productLocale}/products/${product.id.replace(/^fr\//, "")}/`
     : `/products/${product.id.replace(/^en\//, "")}/`}
   data-astro-prefetch
-  class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none md:h-80"
+  class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg outline-hidden ring-zinc-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden md:h-80"
 >
   <!-- The product's main image -->
   <Image
@@ -34,7 +34,7 @@ const imageClass =
   />
   <!-- An overlay gradient that sits on top of the product image-->
   <div
-    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-800 via-transparent to-transparent opacity-50"
+    class="pointer-events-none absolute inset-0 bg-linear-to-t from-neutral-800 via-transparent to-transparent opacity-50"
   >
   </div>
   <!-- The product's subtitle and the anchor SVG icon-->
