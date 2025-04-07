@@ -24,7 +24,7 @@
     "lenis": "^1.2.3",
     "preline": "^3.0.1",
     "rimraf": "^6.0.1",
-    "sharp": "^0.33.5",
+    "sharp": "^0.34.0",
     "sharp-ico": "^0.1.5",
     "tailwindcss": "^4.0.17"
   },
