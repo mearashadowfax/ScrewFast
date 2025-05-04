@@ -5,27 +5,36 @@ import Navbar from "@components/sections/Navbar.astro";
 import FooterSection from "@components/sections/FooterSection.astro";
 import { SITE } from "@data/constants";
 import "@styles/global.css";
+
 // Setting expected props
-const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
+const {
+  title = SITE.title,
+  meta,
+  structuredData,
+  customDescription = null,
+  customOgTitle = null,
+} = Astro.props;
 
 // Interface to type-check the properties
 interface Props {
   title?: string;
   meta?: string;
   structuredData?: object;
-  lang?: string;
+  customDescription?: string | null;
+  customOgTitle?: string | null;
 }
 ---
 
-<!--
-This is the main structure for the page.
-We set the language of the page to English and add classes for scrollbar and scroll behavior.
--->
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html lang="en" class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
-    <!-- Adding metadata to the HTML document -->
-    <Meta meta={meta} structuredData={structuredData} />
-    <!-- Define the title of the page -->
+    {/* Adding metadata to the HTML document */}
+    <Meta
+      meta={meta}
+      structuredData={structuredData}
+      customDescription={customDescription}
+      customOgTitle={customOgTitle}
+    />
+    {/* Define the title of the page */}
     <title>{title}</title>
     <script is:inline>
       // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
@@ -46,10 +55,9 @@ We set the language of the page to English and add classes for scrollbar and scr
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
-    <!--
-    Setting up the main structure of the page.
+    {/* Setting up the main structure of the page.
     The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
-    -->
+    */}
     <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
       <Navbar />
       <main>

@@ -17,7 +17,7 @@ const product: CollectionEntry<"products">[] = (
   await getCollection("products")
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id,
+    a.data.main.id - b.data.main.id
 );
 
 // Define variables for page content
@@ -50,7 +50,7 @@ const testimonials = [
   // Third testimonial data
   {
     content:
-      " \"I’ve been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast’s tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
+      " \"I've been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast's tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
     author: "Richard Kim",
     role: "Master Carpenter | WoodWright",
     avatarSrc:
@@ -60,24 +60,31 @@ const testimonials = [
 ];
 
 const pageTitle: string = `Products | ${SITE.title}`;
+const metaDescription =
+  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each product is crafted with precision and built to last.";
+const ogTitle = "Hardware Tools | ScrewFast";
 ---
 
 <MainLayout
   title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://screwfast.uk/products",
-    "url": "https://screwfast.uk/products",
-    "name": "Hardware Tools | ScrewFast",
-    "description": "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
-    "isPartOf": {
+    url: "https://screwfast.uk/products",
+    name: "Hardware Tools | ScrewFast",
+    description:
+      "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
+    isPartOf: {
       "@type": "WebSite",
-      "url": "https://screwfast.uk",
-      "name": "ScrewFast",
-      "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+      url: "https://screwfast.uk",
+      name: "ScrewFast",
+      description:
+        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
   <div
@@ -86,13 +93,13 @@ const pageTitle: string = `Products | ${SITE.title}`;
     <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
       <div class="flex items-center gap-12">
         <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
         >
           {title}
         </h1>
         {
           subTitle && (
-            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
               {subTitle}
             </p>
           )
@@ -100,8 +107,12 @@ const pageTitle: string = `Products | ${SITE.title}`;
       </div>
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+    {
+      /* Displaying products in alternating styles. Alternative product gets different card styling. */
+    }
+    {
+      /* Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */
+    }
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
@@ -115,7 +126,7 @@ const pageTitle: string = `Products | ${SITE.title}`;
       }
     </section>
   </div>
-  <!--Features statistics section-->
+  {/* Features statistics section */}
   <FeaturesStatsAlt
     title="Why Choose ScrewFast?"
     subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
@@ -125,7 +136,7 @@ const pageTitle: string = `Products | ${SITE.title}`;
       "Customer support dedicated to your project's success.",
     ]}
   />
-  <!--Testimonials section-->
+  {/* Testimonials section */}
   <TestimonialsSectionAlt
     title="What Our Customers Say"
     testimonials={testimonials}
