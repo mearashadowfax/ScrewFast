@@ -58,11 +58,18 @@ const testimonials = [
     avatarAlt: "Description de l'image",
   },
 ];
+
+const pageTitle = "Produits | ScrewFast";
+const metaDescription =
+  "Explorez la durabilité et la précision des outils ScrewFast, conçus aussi bien pour les professionnels que pour les passionnés.";
+const ogTitle = "Outils Matériels | ScrewFast";
 ---
 
 <MainLayout
-  title="Produits | ScrewFast"
+  title={pageTitle}
   lang="fr"
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -87,13 +94,13 @@ const testimonials = [
     <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
       <div class="flex items-center gap-12">
         <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
         >
           {title}
         </h1>
         {
           subTitle && (
-            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
               {subTitle}
             </p>
           )
@@ -105,8 +112,8 @@ const testimonials = [
         noArrow={true}
       />
     </div>
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+    {/* Displaying products in alternating styles. Alternative product gets different card styling. */}
+    {/* Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */}
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
@@ -120,7 +127,7 @@ const testimonials = [
       }
     </section>
   </div>
-  <!--Features statistics section-->
+  {/* Features statistics section */}
   <FeaturesStatsAlt
     title="Pourquoi choisir ScrewFast ?"
     subTitle="Transformez vos idées en résultats tangibles avec les outils ScrewFast. Que vous commenciez par un croquis sur un coin de table ou plongiez dans un projet de construction complet, nos outils sont conçus pour vous aider à construire en toute confiance."
@@ -130,7 +137,7 @@ const testimonials = [
       "Support client dédié au succès de votre projet.",
     ]}
   />
-  <!--Testimonials section-->
+  {/* Testimonials section */}
   <TestimonialsSectionAlt
     title="Ce que disent nos clients"
     testimonials={testimonials}

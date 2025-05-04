@@ -2,12 +2,19 @@
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/fr/ContactSection_fr.astro";
+import { SITE } from "@data/constants";
+
+const pageTitle: string = `Nous Contacter | ${SITE.title}`;
+const metaDescription =
+  "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et élaborons ensemble la solution parfaite avec nos outils et services.";
+const ogTitle = "Nous Contacter | ScrewFast";
 ---
 
-<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout
-  title="Contact | ScrewFast"
+  title={pageTitle}
   lang="fr"
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",

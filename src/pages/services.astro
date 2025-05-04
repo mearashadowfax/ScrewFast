@@ -93,27 +93,34 @@ const articles: Article[] = [
 ];
 
 const pageTitle: string = `Services | ${SITE.title}`;
+const metaDescription =
+  "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.";
+const ogTitle = "Expert Consultation Services | ScrewFast";
 ---
 
 <MainLayout
   title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://screwfast.uk/services",
-    "url": "https://screwfast.uk/services",
-    "name": "Expert Consultation Services | ScrewFast",
-    "description": "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
-    "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://screwfast.uk",
-        "name": "ScrewFast",
-        "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+    url: "https://screwfast.uk/services",
+    name: "Expert Consultation Services | ScrewFast",
+    description:
+      "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://screwfast.uk",
+      name: "ScrewFast",
+      description:
+        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
-  <!--MainSection is the introductory section of the page, it also contains a CTA button-->
+  {/* MainSection is the introductory section of the page, it also contains a CTA button */}
   <MainSection
     title="Uniting Expertise with Your Vision"
     subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
@@ -121,16 +128,16 @@ const pageTitle: string = `Services | ${SITE.title}`;
     btnTitle="Schedule a Consultation"
     btnURL="#"
   />
-  <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
+  {/* RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.
   The 'btnExists' property is used to toggle the display of a button in these sections.
   When btnExists={true}, a button is displayed.
   This can be used to link to more detailed information or related resources.
   RightSection can also conditionally render one or two images based on the 'single' property.
   If 'single' is true, it displays one image, otherwise it displays two.
-  -->
+  */}
   {
-    articles.map(article => {
+    articles.map((article) => {
       return article.isRightSection ? (
         <RightSection
           title={article.title}
@@ -157,7 +164,7 @@ const pageTitle: string = `Services | ${SITE.title}`;
       );
     })
   }
-  <!--FeaturesStats section showcases essential stats valuable to users-->
+  {/* FeaturesStats section showcases essential stats valuable to users */}
   <FeaturesStats
     title="By the Numbers"
     subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."

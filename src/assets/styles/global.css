@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import "preline/variants.css";
+@import 'preline/variants.css';
 @plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:is(.dark *));

@@ -32,9 +32,26 @@ export async function getStaticPaths() {
 const { product } = Astro.props;
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
+const metaDescription = product.data.description;
+const ogTitle = `${product.data.title} | Hardware Tools | ScrewFast`;
 ---
 
-<MainLayout title={pageTitle}>
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `https://screwfast.uk/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
+    name: product.data.title,
+    description: product.data.description,
+    brand: {
+      "@type": "Brand",
+      name: "ScrewFast",
+    },
+  }}
+>
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
   </div>
 
@@ -44,7 +61,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
     <div>
       <p
         id="fadeText"
-        class="mb-8 max-w-prose text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl"
+        class="mb-8 max-w-prose font-light text-pretty text-neutral-700 sm:text-xl dark:text-neutral-300"
       >
         {product.data.main.content}
       </p>
@@ -54,7 +71,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
     >
       <div id="fadeInUp">
         <h1
-          class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl"
+          class="block text-4xl font-bold tracking-tighter text-neutral-800 sm:text-5xl md:text-6xl lg:text-7xl dark:text-neutral-200"
         >
           {product.data.title}
         </h1>
@@ -99,7 +116,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
           <div class="grid gap-12 md:grid-cols-2">
             <div class="lg:w-3/4">
               <h2
-                class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl"
+                class="text-3xl font-bold tracking-tight text-balance text-neutral-800 md:leading-tight lg:text-4xl dark:text-neutral-200"
               >
                 {product.data.longDescription.title}
               </h2>
@@ -121,7 +138,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                 product.data.descriptionList.map((list) => (
                   <div class="flex">
                     <div>
-                      <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
+                      <h3 class="text-base font-bold text-neutral-800 sm:text-lg dark:text-neutral-200">
                         {list.title}
                       </h3>
                       <p class="mt-1 text-neutral-600 dark:text-neutral-400">
@@ -155,7 +172,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             </div>
             {
               product.data.specificationsRight ? (
-                <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
+                <div class="mt-6 max-w-md space-y-6 md:mt-0 md:ml-auto">
                   {product.data.specificationsRight?.map((spec) => (
                     <div>
                       <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
@@ -168,7 +185,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                   ))}
                 </div>
               ) : product.data.tableData ? (
-                <div class="mt-6 space-y-6 md:ml-auto md:mt-0">
+                <div class="mt-6 space-y-6 md:mt-0 md:ml-auto">
                   <div class="flex flex-col">
                     <div class="-m-1.5 overflow-x-auto">
                       <div class="inline-block min-w-full p-1.5 align-middle">
@@ -180,7 +197,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                                   (header) => (
                                     <th
                                       scope="col"
-                                      class="px-6 py-3 text-start text-xs font-medium uppercase text-neutral-500 dark:text-neutral-500"
+                                      class="px-6 py-3 text-start text-xs font-medium text-neutral-500 uppercase dark:text-neutral-500"
                                     >
                                       {header}
                                     </th>
@@ -196,7 +213,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                                     {/* Iterate through each cell value in the row's description array */}
                                     {rowData.map((cellValue) => (
                                       // Render each cell value in its own <td> element
-                                      <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                                      <td class="px-6 py-4 text-sm font-medium whitespace-nowrap text-neutral-600 dark:text-neutral-400">
                                         {cellValue}
                                       </td>
                                     ))}
@@ -221,7 +238,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
   <div id="tabs-with-card-3" class="hidden" role="tabpanel">
     <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
       <div
-        class="relative left-12 top-12 z-10 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 md:-ml-12 lg:ml-0"
+        class="relative top-12 left-12 z-10 overflow-hidden rounded-xl shadow-lg md:top-16 md:left-12 md:-ml-12 lg:ml-0"
       >
         {
           product.data.blueprints.first && (

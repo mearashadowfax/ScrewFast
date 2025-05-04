@@ -10,6 +10,8 @@ import faviconSrc from "@images/icon.png";
 const defaultProps = {
   meta: SITE.description,
   structuredData: SEO.structuredData,
+  customDescription: null,
+  customOgTitle: null,
 };
 
 // Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
@@ -18,15 +20,21 @@ const defaultProps = {
 const {
   meta = defaultProps.meta,
   structuredData = defaultProps.structuredData,
+  customDescription = defaultProps.customDescription,
+  customOgTitle = defaultProps.customOgTitle,
 } = Astro.props;
+
+// Use custom description if provided, otherwise use default meta
+const description = customDescription || meta;
+// Use custom OG title if provided, otherwise use default OG title
+const ogTitle = customOgTitle || OG.title;
+const ogDescription = customDescription || OG.description;
 
 // Define the metadata for your website and individual pages
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
 const canonical = Astro.url.href;
 const basePath = Astro.url.pathname;
-const ogTitle = OG.title;
-const ogDescription = OG.description;
 const socialImageRes = await getImage({
   src: OG.image,
   width: 1200,
@@ -40,10 +48,13 @@ const languages: { [key: string]: string } = {
 };
 
 function createHref(lang: string, prefix: string, path: string): string {
-  const hasPrefix = path.startsWith(`/${prefix}/`);
+  // Remove any existing language prefix
+  const cleanPath = path.replace(/^\/(fr|en)\//, "/");
 
-  const basePath = hasPrefix ? path : `/${prefix}${path}`;
+  // Add the correct language prefix if needed
+  const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
   const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
+
   return `${URL.slice(0, -1)}${normalizedBasePath}`;
 }
 
@@ -51,10 +62,8 @@ const fullPath: string = Astro.url.pathname;
 
 const alternateLanguageLinks: string = Object.entries(languages)
   .map(([lang, prefix]: [string, string]) => {
-    const basePath: string =
-      lang === "en" ? fullPath.replace(/^\/fr\//, "/") : fullPath;
-
-    const href: string = createHref(lang, prefix, basePath);
+    const cleanPath = fullPath.replace(/^\/(fr|en)\//, "/");
+    const href: string = createHref(lang, prefix, cleanPath);
 
     return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;
   })
@@ -74,8 +83,8 @@ const appleTouchIcon = await getImage({
 });
 ---
 
-<!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
-     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->{
+{/*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */}{
   structuredData && (
     <script
       type="application/ld+json"
@@ -83,9 +92,9 @@ const appleTouchIcon = await getImage({
     />
   )
 }
-<!-- Define the character set, description, author, and viewport settings -->
+{/* Define the character set, description, author, and viewport settings */}
 <meta charset="utf-8" />
-<meta content={meta} name="description" />
+<meta content={description} name="description" />
 <meta name="web_author" content={author} />
 <meta
   name="viewport"
@@ -95,7 +104,7 @@ const appleTouchIcon = await getImage({
 <link rel="canonical" href={canonical} />
 <Fragment set:html={alternateLanguageLinks} />
 
-<!-- Facebook Meta Tags -->
+{/* Facebook Meta Tags */}
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content={URL} />
 <meta property="og:type" content="website" />
@@ -107,7 +116,7 @@ const appleTouchIcon = await getImage({
 <meta content="600" property="og:image:height" />
 <meta content="image/png" property="og:image:type" />
 
-<!-- Twitter Meta Tags -->
+{/* Twitter Meta Tags */}
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:domain" content={URL} />
 <meta property="twitter:url" content={URL} />
@@ -115,16 +124,16 @@ const appleTouchIcon = await getImage({
 <meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={socialImage} />
 
-<!-- Links to the webmanifest and sitemap -->
+{/* Links to the webmanifest and sitemap */}
 <link rel="manifest" href="/manifest.json" />
-<!-- https://docs.astro.build/en/guides/integrations-guide/sitemap/ -->
+{/* https://docs.astro.build/en/guides/integrations-guide/sitemap/ */}
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-<!-- Links for favicons -->
+{/* Links for favicons */}
 <link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
 <link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
 <meta name="mobile-web-app-capable" content="yes" />
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />
-<!-- Set theme color -->
+{/* Set theme color */}
 <meta name="theme-color" content="#facc15" />
