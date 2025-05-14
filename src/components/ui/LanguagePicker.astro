@@ -33,7 +33,7 @@ import Icon from "./icons/Icon.astro";
       Object.entries(languages).map(([lang, label]) => (
         <a
           class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-800 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-hidden dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-          href={`/${lang === "en" ? "" : lang}`}
+          href={`/${lang}`}
         >
           {label}
         </a>
@@ -51,7 +51,7 @@ import Icon from "./icons/Icon.astro";
   document.addEventListener("DOMContentLoaded", function () {
     // Only target language picker links
     const languageLinks = document.querySelectorAll(".hs-dropdown-menu[aria-labelledby='hs-dropdown-hover-event'] a");
-    
+
     languageLinks.forEach((element) => {
       const link = element as HTMLAnchorElement;
       const lang = link
@@ -63,23 +63,19 @@ import Icon from "./icons/Icon.astro";
         event.preventDefault();
 
         const url = new URL(window.location.href);
-        
+
         const currentPath = url.pathname
           .split("/")
           .filter((part) => part && !languages.includes(part as TLanguage))
           .join("/");
 
-        let newPath = "";
-        if (lang && lang !== "en") {
-          newPath = `/${lang}/${currentPath}`;
-        } else {
-          newPath = `/${currentPath}`;
-        }
+        // Always include language prefix for all languages including English
+        const newPath = `/${lang}/${currentPath}`;
 
-        newPath = newPath.replace(/\/+/g, "/");
-        if (newPath === "") newPath = "/";
-        
-        window.location.href = `${url.origin}${newPath}${url.search}`;
+        // Clean up multiple slashes
+        const cleanPath = newPath.replace(/\/+/g, "/");
+
+        window.location.href = `${url.origin}${cleanPath}${url.search}`;
       });
     });
   });

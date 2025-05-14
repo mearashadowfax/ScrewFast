@@ -1,10 +1,10 @@
 // An array of links for navigation bar
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Home", url: "/en" },
+  { name: "Products", url: "/en/products" },
+  { name: "Services", url: "/en/services" },
+  { name: "Blog", url: "/en/blog" },
+  { name: "Contact", url: "/en/contact" },
 ];
 // An array of links for footer
 const footerLinks = [
@@ -12,15 +12,15 @@ const footerLinks = [
     section: "Ecosystem",
     links: [
       { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Tools & Equipment", url: "/en/products" },
+      { name: "Construction Services", url: "/en/services" },
     ],
   },
   {
     section: "Company",
     links: [
       { name: "About us", url: "#" },
-      { name: "Blog", url: "/blog" },
+      { name: "Blog", url: "/en/blog" },
       { name: "Careers", url: "#" },
       { name: "Customers", url: "#" },
     ],
@@ -40,3 +40,4 @@ export default {
   footerLinks,
   socialLinks,
 };
+
