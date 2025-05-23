@@ -5,13 +5,14 @@ import Btn404 from "@components/ui/buttons/Btn404.astro";
 import { SITE } from "@data/constants";
 
 // Define types for translations
-type TranslationKeys = "en" | "fr";
+type TranslationKeys = "en" | "fr" | "de" | "es" | "fa" | "ja" | "zh-cn";
 type Translations = {
   [key in TranslationKeys]: {
     pageTitle: string;
     subTitle: string;
     content: string;
     btnTitle: string;
+    homeUrl: string;
   };
 };
 
@@ -24,6 +25,7 @@ const translations: Translations = {
     content:
       "Don't let this hiccup slow you down. Let's get you back to building your masterpiece.",
     btnTitle: "Go Back",
+    homeUrl: "/en/",
   },
   fr: {
     pageTitle: `Page Non Trouvée | ${SITE.title}`,
@@ -31,20 +33,61 @@ const translations: Translations = {
     content:
       "Ne laissez pas ce contretemps vous ralentir. Revenons à la construction de votre chef-d'œuvre.",
     btnTitle: "Retournez",
+    homeUrl: "/fr/",
+  },
+  de: {
+    pageTitle: `Seite Nicht Gefunden | ${SITE.title}`,
+    subTitle: "Oops, das ist nicht das Werkzeug, nach dem Sie gesucht haben!",
+    content:
+      "Lassen Sie sich von diesem Rückschlag nicht aufhalten. Kommen wir zurück zum Bau Ihres Meisterwerks.",
+    btnTitle: "Zurück",
+    homeUrl: "/de/",
+  },
+  es: {
+    pageTitle: `Página No Encontrada | ${SITE.title}`,
+    subTitle: "¡Oops, esta no es la herramienta que estabas buscando!",
+    content:
+      "No dejes que este contratiempo te ralentice. Volvamos a construir tu obra maestra.",
+    btnTitle: "Volver",
+    homeUrl: "/es/",
+  },
+  fa: {
+    pageTitle: `صفحه یافت نشد | ${SITE.title}`,
+    subTitle: "اوه، این ابزاری نیست که دنبالش بودید!",
+    content:
+      "نگذارید این مانع باعث کندی شما بشود. بیایید به ساختن شاهکارتان برگردیم.",
+    btnTitle: "بازگشت",
+    homeUrl: "/fa/",
+  },
+  ja: {
+    pageTitle: `ページが見つかりません | ${SITE.title}`,
+    subTitle: "おっと、お探しのツールではありませんね！",
+    content:
+      "このちょっとした問題でペースを落とさないでください。傑作の構築に戻りましょう。",
+    btnTitle: "戻る",
+    homeUrl: "/ja/",
+  },
+  "zh-cn": {
+    pageTitle: `页面未找到 | ${SITE.title}`,
+    subTitle: "糟糕，这不是您要找的工具！",
+    content:
+      "别让这个小挫折拖慢您的进度。让我们回到构建您的杰作吧。",
+    btnTitle: "返回",
+    homeUrl: "/zh-cn/",
   },
 };
 
 // Determine language from the URL
 const urlPath = Astro.url.pathname;
-const langCodeMatch = urlPath.match(/^\/(en|fr)\//);
+const langCodeMatch = urlPath.match(/^\/(en|fr|de|es|fa|ja|zh-cn)\//);
 const lang: TranslationKeys = langCodeMatch
   ? (langCodeMatch[1] as TranslationKeys)
   : defaultLang;
 
-const { pageTitle, subTitle, content, btnTitle } = translations[lang];
+const { pageTitle, subTitle, content, btnTitle, homeUrl } = translations[lang];
 ---
 
-<MainLayout title={pageTitle}>
+<MainLayout title={pageTitle} lang={lang}>
   <section class="grid h-svh place-content-center">
     <div class="mx-auto max-w-(--breakpoint-xl) px-4 py-8 lg:px-6 lg:py-16">
       <div class="mx-auto max-w-(--breakpoint-sm) text-center">
@@ -61,12 +104,20 @@ const { pageTitle, subTitle, content, btnTitle } = translations[lang];
         </p>
         <p
           id="content"
-          class="mb-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
+          class="mb-6 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
         >
           {content}
         </p>
-        <!-- Display a button that navigates user back to the previous page -->
-        <Btn404 title={btnTitle} id="go-back" />
+        <!-- Display buttons for navigation -->
+        <div class="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-6">
+          <Btn404 title={btnTitle} id="go-back" />
+          <a
+            href={homeUrl}
+            class="group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-700 ring-zinc-500 transition duration-300 focus-visible:ring-3 outline-hidden border border-neutral-300 hover:bg-neutral-50 active:bg-neutral-100 dark:text-neutral-300 dark:border-neutral-600 dark:hover:bg-neutral-800 dark:focus:outline-hidden 2xl:text-base dark:ring-zinc-200"
+          >
+            {lang === "fa" ? "صفحه اصلی" : lang === "ja" ? "ホーム" : lang === "zh-cn" ? "首页" : lang === "de" ? "Startseite" : lang === "es" ? "Inicio" : lang === "fr" ? "Accueil" : "Home"}
+          </a>
+        </div>
       </div>
     </div>
   </section>
