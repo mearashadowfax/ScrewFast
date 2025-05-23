@@ -1,0 +1,17 @@
+
+> screwfast-template@0.0.1 dev
+> astro dev
+
+(node:12221) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+15:59:22 [types] Generated 0ms
+15:59:23 [content] Syncing content
+15:59:23 [content] Synced content
+
+ astro  v5.7.13 ready in 892 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+15:59:23 watching for file changes...
+15:59:28 [200] /de/ 142ms
