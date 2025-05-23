@@ -1,0 +1,38 @@
+{
+  "title": "シンプルで透明な価格設定",
+  "subTitle": "ScrewFastの明確で価値重視のプランで効率を向上させましょう。",
+  "badge": "最高の価値",
+  "thirdOption": "エンタープライズソリューション？",
+  "btnText": "カスタム見積もりを取得",
+
+  "starterKit": {
+    "name": "スターターキット",
+    "description": "DIYプロジェクトに最適",
+    "price": "5,500",
+    "cents": "",
+    "billingFrequency": "円 / 月額",
+    "features": [
+      "基本ハードウェア工具",
+      "ガイド・チュートリアルへのアクセス",
+      "標準サポート"
+    ],
+    "purchaseBtnTitle": "スターターキットを取得",
+    "purchaseLink": "#"
+  },
+
+  "professionalToolbox": {
+    "name": "プロフェッショナルツールボックス",
+    "description": "大規模使用に最適",
+    "price": "10,000",
+    "cents": "",
+    "billingFrequency": "円 / 月額",
+    "features": [
+      "プレミアム工具選択",
+      "優先サポート",
+      "限定コンテンツ・特典",
+      "大量注文割引"
+    ],
+    "purchaseBtnTitle": "プロフェッショナルツールボックスを取得",
+    "purchaseLink": "#"
+  }
+}

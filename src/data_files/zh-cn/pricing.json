@@ -1,0 +1,38 @@
+{
+  "title": "简单透明的定价",
+  "subTitle": "通过ScrewFast清晰、价值导向的计划提升效率。",
+  "badge": "最佳价值",
+  "thirdOption": "企业解决方案？",
+  "btnText": "获取定制报价",
+
+  "starterKit": {
+    "name": "新手套装",
+    "description": "DIY项目的最佳选择",
+    "price": "328",
+    "cents": ".00",
+    "billingFrequency": "元 / 月",
+    "features": [
+      "关键硬件工具",
+      "访问指南和教程",
+      "标准支持"
+    ],
+    "purchaseBtnTitle": "获取新手套装",
+    "purchaseLink": "#"
+  },
+
+  "professionalToolbox": {
+    "name": "专业工具箱",
+    "description": "最适合大规模使用",
+    "price": "596",
+    "cents": ".00",
+    "billingFrequency": "元 / 月",
+    "features": [
+      "优质工具选择",
+      "优先支持",
+      "独家内容和优惠",
+      "批量订购折扣"
+    ],
+    "purchaseBtnTitle": "获取专业工具箱",
+    "purchaseLink": "#"
+  }
+}

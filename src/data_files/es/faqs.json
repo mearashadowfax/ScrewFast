@@ -1,0 +1,29 @@
+{
+  "subTitle": "Pregúntanos cualquier cosa sobre nuestra marca y productos, y obtén respuestas reales.",
+  "faqs": [
+    {
+      "question": "¿Qué tipos de herramientas están incluidas en el Kit de Inicio?",
+      "answer": "El Kit de Inicio incluye herramientas manuales y eléctricas esenciales para diversos proyectos de bricolaje, incluyendo martillos, taladros, destornilladores y una variedad de elementos de fijación. Es una selección cuidadosa para ayudar tanto a principiantes como a expertos en bricolaje a abordar la mayoría de tareas de mejora del hogar."
+    },
+    {
+      "question": "¿Puedo actualizar del Kit de Inicio a la Caja de Herramientas Profesional?",
+      "answer": "¡Por supuesto! Puedes actualizar a la Caja de Herramientas Profesional en cualquier momento para acceder a una gama más amplia de herramientas de alta calidad, disfrutar de soporte prioritario al cliente y recibir contenido exclusivo. Contacta a nuestro equipo de soporte para una transición sin problemas."
+    },
+    {
+      "question": "¿Qué descuentos están disponibles para pedidos al por mayor a través del plan Caja de Herramientas Profesional?",
+      "answer": "Los miembros de la Caja de Herramientas Profesional tienen derecho a descuentos exclusivos en pedidos al por mayor, cuyo porcentaje puede variar dependiendo del volumen del pedido. Ponte en contacto con nosotros para discutir tus necesidades, y te proporcionaremos una estructura de descuento personalizada."
+    },
+    {
+      "question": "¿Qué tipo de soporte al cliente puedo esperar?",
+      "answer": "Todos nuestros clientes reciben soporte dedicado por correo electrónico. Con el Kit de Inicio, recibirás nuestro soporte estándar, mientras que el plan Caja de Herramientas Profesional te actualiza a soporte prioritario, lo que significa tiempos de respuesta más rápidos y asistencia especializada."
+    },
+    {
+      "question": "¿Qué tan actualizados están los recursos en línea y tutoriales?",
+      "answer": "Actualizamos regularmente nuestros recursos en línea y tutoriales para reflejar las últimas tendencias en bricolaje y construcción, así como introducciones a nuevas herramientas y técnicas. Nuestro material busca ser integral y fácil de usar para todos los niveles de habilidad."
+    },
+    {
+      "question": "¿ScrewFast ofrece servicios para proyectos de construcción a gran escala?",
+      "answer": "Sí, nuestras Soluciones Empresariales están diseñadas para empresas más grandes que requieren servicios integrales. Proporcionamos consultoría, planificación y suministro de herramientas y materiales de alta calidad, así como soluciones de personal para necesidades sustanciales de construcción. Contáctanos para una cotización personalizada."
+    }
+  ]
+}

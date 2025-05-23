@@ -2,20 +2,88 @@
 // Import the necessary dependencies
 import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
-import enStrings from "@utils/navigation.ts";
+import enStrings from "@utils/en/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
+import deStrings from "@utils/de/navigation.ts";
+import esStrings from "@utils/es/navigation.ts";
+import faStrings from "@utils/fa/navigation.ts";
+import jaStrings from "@utils/ja/navigation.ts";
+import zhStrings from "@utils/zh-cn/navigation.ts";
 import Icon from "@components/ui/icons/Icon.astro";
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@data/constants";
 
 // Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
+const getStrings = (locale: string) => {
+  switch (locale) {
+    case "fr": return frStrings;
+    case "de": return deStrings;
+    case "es": return esStrings;
+    case "fa": return faStrings;
+    case "ja": return jaStrings;
+    case "zh-cn": return zhStrings;
+    default: return enStrings;
+  }
+};
+const strings = getStrings(Astro.currentLocale || "en");
 
 // Define the variables that will be used in this component
-const sectionThreeTitle: string = Astro.currentLocale === "fr" ? "Rester à jour" : "Stay up to date";
-const sectionThreeContent: string = Astro.currentLocale === "fr" ? "Restez informé des derniers outils et des offres exclusives." :
-  "Stay updated with the latest tools and exclusive deals.";
-const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafted by";
+const getLocalizedStrings = (locale: string) => {
+  switch (locale) {
+    case "fr":
+      return {
+        sectionThreeTitle: "Rester à jour",
+        sectionThreeContent: "Restez informé des derniers outils et des offres exclusives.",
+        crafted: "Fabriqué par",
+        hiring: "Nous recrutons!"
+      };
+    case "de":
+      return {
+        sectionThreeTitle: "Auf dem Laufenden bleiben",
+        sectionThreeContent: "Bleiben Sie über die neuesten Werkzeuge und exklusiven Angebote informiert.",
+        crafted: "Entwickelt von",
+        hiring: "Wir stellen ein!"
+      };
+    case "es":
+      return {
+        sectionThreeTitle: "Mantente actualizado",
+        sectionThreeContent: "Mantente informado sobre las últimas herramientas y ofertas exclusivas.",
+        crafted: "Creado por",
+        hiring: "¡Estamos contratando!"
+      };
+    case "fa":
+      return {
+        sectionThreeTitle: "به‌روز باشید",
+        sectionThreeContent: "از آخرین ابزارها و پیشنهادات ویژه مطلع شوید.",
+        crafted: "ساخته شده توسط",
+        hiring: "استخدام می‌کنیم!"
+      };
+    case "ja":
+      return {
+        sectionThreeTitle: "最新情報を入手",
+        sectionThreeContent: "最新のツールと限定オファーについて最新情報を入手してください。",
+        crafted: "制作者",
+        hiring: "採用中！"
+      };
+    case "zh-cn":
+      return {
+        sectionThreeTitle: "保持更新",
+        sectionThreeContent: "及时了解最新工具和独家优惠。",
+        crafted: "制作者",
+        hiring: "我们正在招聘！"
+      };
+    default:
+      return {
+        sectionThreeTitle: "Stay up to date",
+        sectionThreeContent: "Stay updated with the latest tools and exclusive deals.",
+        crafted: "Crafted by",
+        hiring: "We're hiring!"
+      };
+  }
+};
+
+const localizedStrings = getLocalizedStrings(Astro.currentLocale || "en");
+const { sectionThreeTitle, sectionThreeContent, crafted, hiring } = localizedStrings;
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
@@ -43,9 +111,9 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
                   >
                     {link.name}
                   </a>
-                  {section.section === "Company" && index === 2 ? (
+                  {(section.section === "Company" || section.section === "Empresa" || section.section === "Unternehmen" || section.section === "شرکت" || section.section === "会社" || section.section === "公司") && index === 2 ? (
                     <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
-                      We're hiring!
+                      {hiring}
                     </span>
                   ) : null}
                 </li>
