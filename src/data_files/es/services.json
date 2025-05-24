@@ -1,0 +1,62 @@
+{
+  "pageTitle": "Servicios",
+  "metaDescription": "Uniendo la experiencia con su visión, ScrewFast proporciona un servicio excepcional y soluciones integrales en la industria del hardware y la construcción, desde la consulta hasta la finalización del proyecto.",
+  "ogTitle": "Servicios de Consultoría Experta | ScrewFast",
+  "mainSection": {
+    "title": "Uniendo la Experiencia con su Visión",
+    "subTitle": "En ScrewFast, nos enorgullecemos de brindar soluciones integrales y servicio excepcional en la industria del hardware y la construcción. Nuestro equipo experimentado se dedica a apoyar su proyecto desde la concepción hasta la finalización con una gama de servicios especializados.",
+    "btnTitle": "Programar una Consulta"
+  },
+  "articles": [
+    {
+      "title": "Proporcionando Orientación Experta",
+      "subTitle": "Emprender un proyecto de construcción puede ser abrumador. Con nuestros servicios de consultoría profesional, lo guiamos a través de cada etapa, asegurando que tome decisiones informadas. Ya sea que sea un entusiasta del bricolaje o un contratista experimentado, nuestros expertos están disponibles para ofrecer asesoramiento personalizado sobre selección de productos, alcance del proyecto y cumplimiento de las regulaciones locales.",
+      "imgOneAlt": "Planos y tableta digital con planes de construcción.",
+      "imgTwoAlt": "Persona trabajando en la oficina"
+    },
+    {
+      "title": "Transformando Diseños en Realidad",
+      "subTitle": "Nuestros artesanos calificados aportan precisión y excelencia a cada proyecto de construcción. Desde instalaciones menores hasta trabajos estructurales sustanciales, ScrewFast ofrece servicios de construcción confiables para convertir sus planes en resultados tangibles. Garantizamos los más altos estándares de seguridad y mano de obra, utilizando herramientas y materiales de alta calidad de nuestro extenso inventario.",
+      "imgAlt": "Sitio de construcción antes y después",
+      "btnTitle": "Saber Más"
+    },
+    {
+      "title": "Navegando Proyectos con Supervisión Profesional",
+      "subTitle": "La gestión efectiva de proyectos está en el corazón de cualquier construcción exitosa. ScrewFast proporciona planificación exhaustiva y servicios de gestión robustos que mantienen su proyecto a tiempo y dentro del presupuesto. Permítanos manejar las complejidades de la coordinación del flujo de trabajo, asignación de recursos y comunicación con los interesados mientras usted se concentra en su visión.",
+      "imgOneAlt": "Trabajadores de la construcción orquestando un proyecto",
+      "imgTwoAlt": "Vista aérea de construcción gestionada"
+    },
+    {
+      "title": "Asegurando Rendimiento Duradero",
+      "subTitle": "Nuestro compromiso con su proyecto no termina al completarse. ScrewFast ofrece servicios continuos de mantenimiento y soporte para asegurar la longevidad y rendimiento de su construcción. Desde chequeos regulares hasta asistencia de emergencia, nuestro equipo responsivo está ahí para proporcionar soporte sin problemas.",
+      "imgAlt": "Hombre en chaleco naranja y negro con casco blanco sosteniendo herramienta eléctrica amarilla y negra"
+    },
+    {
+      "title": "Creando Estrategias Personalizadas para Desafíos Únicos",
+      "subTitle": "Para nuestros clientes empresariales más grandes, ScrewFast ofrece soluciones personalizadas diseñadas para satisfacer desafíos específicos de la industria. Al entender sus necesidades únicas, diseñamos estrategias personalizadas destinadas a optimizar sus operaciones, mejorar la eficiencia e impulsar su negocio hacia adelante.",
+      "imgOneAlt": "Estructura de edificio en progreso",
+      "imgTwoAlt": "Edificio marrón y gris en construcción",
+      "btnTitle": "Leer Más"
+    }
+  ],
+  "featuresStats": {
+    "title": "Por los Números",
+    "subTitle": "Nuestro compromiso con la calidad y confiabilidad es evidente en cada proyecto que emprendemos. En ScrewFast, estamos dedicados a entregar servicios líderes en la industria que aseguran que sus proyectos de construcción estén construidos para durar.",
+    "mainStatTitle": "96%",
+    "mainStatSubTitle": "de nuestros clientes califican su experiencia con ScrewFast como excepcional",
+    "stats": [
+      {
+        "stat": "99,8%",
+        "description": "tasa de finalización de proyectos"
+      },
+      {
+        "stat": "5.000+",
+        "description": "instalaciones exitosas"
+      },
+      {
+        "stat": "85%",
+        "description": "crecimiento de clientes año tras año"
+      }
+    ]
+  }
+}

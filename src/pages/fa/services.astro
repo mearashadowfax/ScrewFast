@@ -16,6 +16,7 @@ import usingTools from "@images/using-tools.avif";
 import progressBuilding from "@images/progress-building.avif";
 import underConstruction from "@images/under-construction.avif";
 import { SITE } from "@data/constants";
+import servicesData from "@data/fa/services.json";
 
 interface Article {
   isRightSection: boolean;
@@ -36,80 +37,73 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Delivering Expert Guidance",
-    subTitle:
-      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+    title: servicesData.articles[0].title,
+    subTitle: servicesData.articles[0].subTitle,
     single: false,
     imgOne: blueprints,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgOneAlt: servicesData.articles[0].imgOneAlt,
     imgTwo: personWorking,
-    imgTwoAlt: "Person working in the office",
+    imgTwoAlt: servicesData.articles[0].imgTwoAlt,
   },
   {
     isRightSection: false,
-    title: "Transforming Designs into Reality",
-    subTitle:
-      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
+    title: servicesData.articles[1].title,
+    subTitle: servicesData.articles[1].subTitle,
     img: beforeAfter,
-    imgAlt: "Construction site before and after",
+    imgAlt: servicesData.articles[1].imgAlt,
     btnExists: true,
-    btnTitle: "Learn More",
+    btnTitle: servicesData.articles[1].btnTitle,
     btnURL: "#",
   },
   {
     isRightSection: true,
-    title: "Navigating Projects with Professional Oversight",
-    subTitle:
-      "Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
+    title: servicesData.articles[2].title,
+    subTitle: servicesData.articles[2].subTitle,
     single: false,
     imgOne: constructionWorkers,
-    imgOneAlt: "Construction workers orchestrating a project",
+    imgOneAlt: servicesData.articles[2].imgOneAlt,
     imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
+    imgTwoAlt: servicesData.articles[2].imgTwoAlt,
   },
   {
     isRightSection: false,
-    title: "Ensuring Long-lasting Performance",
-    subTitle:
-      "Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
+    title: servicesData.articles[3].title,
+    subTitle: servicesData.articles[3].subTitle,
     img: usingTools,
-    imgAlt:
-      "Man in orange and black vest wearing white helmet holding yellow and black power tool",
+    imgAlt: servicesData.articles[3].imgAlt,
   },
   {
     isRightSection: true,
-    title: "Crafting Bespoke Strategies for Unique Challenges",
-    subTitle:
-      "For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward.",
+    title: servicesData.articles[4].title,
+    subTitle: servicesData.articles[4].subTitle,
     single: false,
     imgOne: progressBuilding,
-    imgOneAlt: "In progress building structure",
+    imgOneAlt: servicesData.articles[4].imgOneAlt,
     imgTwo: underConstruction,
-    imgTwoAlt: "Brown and gray building under construction",
+    imgTwoAlt: servicesData.articles[4].imgTwoAlt,
     btnExists: true,
-    btnTitle: "Read more",
+    btnTitle: servicesData.articles[4].btnTitle,
     btnURL: "#",
   },
 ];
 
-const pageTitle: string = `Services | ${SITE.title}`;
-const metaDescription =
-  "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.";
-const ogTitle = "Expert Consultation Services | ScrewFast";
+const pageTitle: string = `${servicesData.pageTitle} | ${SITE.title}`;
+const metaDescription = servicesData.metaDescription;
+const ogTitle = servicesData.ogTitle;
 ---
 
 <MainLayout
   title={pageTitle}
+  lang="fa"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/services",
-    url: "https://screwfast.uk/services",
-    name: "Expert Consultation Services | ScrewFast",
-    description:
-      "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+    "@id": "https://screwfast.uk/fa/services",
+    url: "https://screwfast.uk/fa/services",
+    name: servicesData.ogTitle,
+    description: servicesData.metaDescription,
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk",
@@ -117,15 +111,15 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
       description:
         "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    inLanguage: "en-US",
+    inLanguage: "fa",
   }}
 >
   {/* MainSection is the introductory section of the page, it also contains a CTA button */}
   <MainSection
-    title="Uniting Expertise with Your Vision"
-    subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
+    title={servicesData.mainSection.title}
+    subTitle={servicesData.mainSection.subTitle}
     btnExists={true}
-    btnTitle="Schedule a Consultation"
+    btnTitle={servicesData.mainSection.btnTitle}
     btnURL="#"
   />
   {/* RightSection and LeftSection contain details about various services along with pertinent imagery.
@@ -166,23 +160,10 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
   }
   {/* FeaturesStats section showcases essential stats valuable to users */}
   <FeaturesStats
-    title="By the Numbers"
-    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
-    mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
-    stats={[
-      {
-        stat: "99.8%",
-        description: "project completion rate",
-      },
-      {
-        stat: "5,000+",
-        description: "successful installations",
-      },
-      {
-        stat: "85%",
-        description: "client growth year-over-year",
-      },
-    ]}
+    title={servicesData.featuresStats.title}
+    subTitle={servicesData.featuresStats.subTitle}
+    mainStatTitle={servicesData.featuresStats.mainStatTitle}
+    mainStatSubTitle={servicesData.featuresStats.mainStatSubTitle}
+    stats={servicesData.featuresStats.stats}
   />
 </MainLayout>
