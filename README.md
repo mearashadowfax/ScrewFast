@@ -76,6 +76,13 @@ ScrewFast is an **open-source template** designed for quick and efficient web pr
 
 ## What's New
 
+* [x] **Enhanced Multilingual Support (Latest)**:
+  * Complete multilingual i18n implementation with full language support for all pages
+  * Fixed data imports for non-English language pages to ensure proper localization
+  * Updated Meta component for complete multilingual support with proper language detection
+  * Enhanced 404 page with full multilingual support and proper language routing
+  * Improved internationalization routing with support for English prefix URLs (`/en/`)
+
 * [x] **Social Share Component**:
   * Enables users to share blog posts on social media platforms.
   * Provides easy sharing of a blog post's title and URL.
@@ -102,6 +109,7 @@ ScrewFast is an **open-source template** designed for quick and efficient web pr
 
 * [x] **Internationalization (i18n) Features**:
   * Integrates [Astro's i18n features](https://docs.astro.build/en/guides/internationalization/) and includes a custom `LanguagePicker` component.
+  * Full support for multiple languages with proper routing and content localization.
   * Developers can access the monolingual version directly from [`monolingual-site` branch](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site).
 
 * [x] **Dynamic Table of Contents (ToC) with Scroll Progress Indicator**:
@@ -178,34 +186,73 @@ ScrewFast organizes modular components, content, and layouts to streamline devel
 
 src/
 ├── assets/               
-│   ├── scripts/          # JS scripts
-│   └── styles/           # CSS styles
+│   ├── scripts/          # JS scripts including Lenis smooth scrolling
+│   └── styles/           # CSS styles including global, Lenis, and Starlight themes
 ├── components/           # Reusable components
-│   ├── Meta.astro        # Meta component for SEO
-│   ├── sections/         # Components for various sections of the website
+│   ├── BrandLogo.astro   # Brand logo component
+│   ├── Meta.astro        # Meta component for SEO with multilingual support
 │   ├── ThemeIcon.astro   # Component for toggling light/dark themes
+│   ├── sections/         # Components for various sections of the website
+│   │   ├── features/     # Feature-related components
+│   │   ├── landing/      # Landing page sections (hero, clients)
+│   │   ├── misc/         # Miscellaneous sections (contact, FAQ, auth)
+│   │   ├── navbar&footer/# Navigation and footer components
+│   │   ├── pricing/      # Pricing section components
+│   │   └── testimonials/ # Testimonial components
 │   └── ui/               # UI components categorized by functionality
-├── content/              # Markdown files for blog posts, insights, products, and site configuration
-│   ├── blog/
-│   ├── docs/           
-│   ├── insights/         
-│   └── products/         
-├── data_files/           # Strings stored as JSON files
-├── images/               # Static image assets for use across the website
-├── layouts/              # Components defining layout templates
-│   └── MainLayout.astro  # The main wrapping layout for all pages
-├── pages/                # Astro files representing individual pages and website sections
-│   ├── 404.astro         # Custom 404 page
-│   ├── blog/   
-│   ├── fr/               # Localized content
-│   ├── contact.astro     
-│   ├── index.astro       # The landing/home page
-│   ├── insights/         
-│   ├── products/         
-│   ├── robots.txt.ts     # Dynamically generates robots.txt
-│   └── services.astro
+│       ├── LanguagePicker.astro # Language selection component
+│       ├── avatars/      # Avatar components for different contexts
+│       ├── banners/      # Banner components
+│       ├── blocks/       # Content block components
+│       ├── buttons/      # Various button components
+│       ├── cards/        # Card components for blog, insights, products
+│       ├── forms/        # Form components and inputs
+│       ├── icons/        # Icon system with centralized SVG management
+│       ├── links/        # Link components
+│       ├── starlight/    # Starlight documentation theme components
+│       └── stars/        # Star rating components
+├── content/              # Markdown files organized by language and content type
+│   ├── blog/             # Blog posts in multiple languages
+│   │   ├── de/, en/, es/, fa/, fr/, ja/, zh-cn/
+│   ├── docs/             # Documentation in multiple languages
+│   │   ├── de/, en/, es/, fa/, fr/, ja/, zh-cn/
+│   ├── insights/         # Insights content in multiple languages
+│   │   ├── de/, en/, es/, fa/, fr/, ja/, zh-cn/
+│   └── products/         # Product descriptions in multiple languages
+│       ├── de/, en/, es/, fa/, fr/, ja/, zh-cn/
+├── data_files/           # Localized JSON data files
+│   ├── constants.ts      # Site-wide constants and configuration
+│   ├── mega_link.ts      # Mega menu link configurations
+│   └── [lang]/           # Language-specific data (de/, en/, es/, fa/, fr/, ja/, zh-cn/)
+│       ├── faqs.json     # Localized FAQ data
+│       ├── features.json # Localized feature data
+│       └── pricing.json  # Localized pricing data
+├── images/               # Static image assets organized by purpose
+│   ├── blog/             # Blog-related images
+│   ├── insights/         # Insights-related images
+│   ├── starlight/        # Starlight documentation theme images
+│   └── [various product and feature images]
+├── layouts/              # Layout templates
+│   └── MainLayout.astro  # Main layout with multilingual and SEO support
+├── pages/                # Astro files for pages with language-specific routing
+│   ├── 404.astro         # Multilingual 404 page
+│   ├── index.astro       # Root redirect to default language
+│   ├── favicon.ico.ts    # Dynamic favicon generation
+│   ├── manifest.json.ts  # PWA manifest generation
+│   ├── robots.txt.ts     # Dynamic robots.txt generation
+│   └── [lang]/           # Language-specific pages (de/, en/, es/, fa/, fr/, ja/, zh-cn/)
+│       ├── blog/         # Blog pages and individual post pages
+│       ├── contact.astro # Contact page
+│       ├── index.astro   # Language-specific home page
+│       ├── insights/     # Insights pages
+│       ├── products/     # Product pages and individual product pages
+│       └── services.astro# Services page
 ├── utils/                # Shared utility functions and helpers
-└── content.config.ts     # Contains content collections configuration options
+│   ├── ui.ts             # UI utility functions
+│   ├── utils.ts          # General utility functions
+│   └── [lang]/           # Language-specific navigation configurations
+│       └── navigation.ts # Localized navigation data
+└── content.config.ts     # Content collections configuration with multilingual support
 ```
 
 ## Static Assets and Public Resources
@@ -238,10 +285,10 @@ For collections of content like testimonials or statistics, edit the correspondi
 
 ```typescript
 // An array of testimonials
-const testimonials: Testimonial[] = [...];
+const testimonials: Testimonial[] = [/* testimonial objects */];
 
 // An array of statistics
-const statistics: StatProps[] = [...];
+const statistics: StatProps[] = [/* statistics objects */];
 ```
 
 Modify the content within these arrays to reflect your data.

@@ -215,7 +215,7 @@ const homeUrl = `/${Astro.currentLocale || "en"}`;
 
     $switchableThemes.forEach(($item) => {
       $item.addEventListener("change", (e) => {
-        HSThemeAppearance.setAppearance((e.target as HTMLInputElement).checked ? "dark" : "default");
+        HSThemeAppearance.setAppearance(e.target.checked ? "dark" : "default");
       });
 
       $item.checked = HSThemeAppearance.getAppearance() === "dark";
@@ -223,7 +223,7 @@ const homeUrl = `/${Astro.currentLocale || "en"}`;
 
     window.addEventListener("on-hs-appearance-change", (e) => {
       $switchableThemes.forEach(($item) => {
-        $item.checked = (e as any).detail === "dark";
+        $item.checked = e.detail === "dark";
       });
     });
   });
