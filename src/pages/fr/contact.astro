@@ -1,7 +1,8 @@
 ---
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import ContactSection from "@components/sections/fr/ContactSection_fr.astro";
+import ContactSection from "@components/sections/misc/ContactSection.astro";
+import contactData from "@data/fr/contact.json";
 import { SITE } from "@data/constants";
 
 const pageTitle: string = `Nous Contacter | ${SITE.title}`;
@@ -33,5 +34,5 @@ const ogTitle = "Nous Contacter | ScrewFast";
     inLanguage: "fr",
   }}
 >
-  <ContactSection />
+  <ContactSection contactData={contactData} />
 </MainLayout>

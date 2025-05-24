@@ -18,10 +18,10 @@ declare global {
 
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) =>
-    id.startsWith("en/")
+    id.startsWith("zh-cn/")
   );
   return productEntries.map((product) => {
-    const idWithoutLang = product.id.replace(/^en\//, ""); // Remove the "en/" prefix
+    const idWithoutLang = product.id.replace(/^zh-cn\//, ""); // Remove the "zh-cn/" prefix
     return {
       params: { id: idWithoutLang },
       props: { product },
@@ -33,23 +33,25 @@ const { product } = Astro.props;
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 const metaDescription = product.data.description;
-const ogTitle = `${product.data.title} | Hardware Tools | ScrewFast`;
+const ogTitle = `${product.data.title} | 硬件工具 | ScrewFast`;
 ---
 
 <MainLayout
   title={pageTitle}
+  lang="zh-cn"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": `https://screwfast.uk/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
+    "@id": `https://screwfast.uk/zh-cn/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
     name: product.data.title,
     description: product.data.description,
     brand: {
       "@type": "Brand",
       name: "ScrewFast",
     },
+    inLanguage: "zh-cn",
   }}
 >
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">

@@ -2,35 +2,37 @@
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
+import contactData from "@data/es/contact.json";
 import { SITE } from "@data/constants";
 
-const pageTitle: string = `Contact | ${SITE.title}`;
+const pageTitle: string = `Contacto | ${SITE.title}`;
 const metaDescription =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const ogTitle = "Contact Us | ScrewFast";
+  "¿Tienes preguntas o quieres discutir un proyecto? Comunícate con nosotros y creemos juntos la solución perfecta con nuestras herramientas y servicios.";
+const ogTitle = "Contáctanos | ScrewFast";
 ---
 
 <MainLayout
   title={pageTitle}
+  lang="es"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/contact",
-    url: "https://screwfast.uk/contact",
-    name: "Contact Us | ScrewFast",
+    "@id": "https://screwfast.uk/es/contact",
+    url: "https://screwfast.uk/es/contact",
+    name: "Contáctanos | ScrewFast",
     description:
-      "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+      "¿Tienes preguntas o quieres discutir un proyecto? Comunícate con nosotros y creemos juntos la solución perfecta con nuestras herramientas y servicios.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
+      url: "https://screwfast.uk/es/",
       name: "ScrewFast",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "ScrewFast ofrece herramientas de hardware de primera calidad y servicios de construcción expertos para satisfacer todas las necesidades de su proyecto.",
     },
-    inLanguage: "en-US",
+    inLanguage: "es",
   }}
 >
-  <ContactSection />
+  <ContactSection contactData={contactData} />
 </MainLayout>

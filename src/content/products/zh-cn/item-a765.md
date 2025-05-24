@@ -1,53 +1,53 @@
 ---
 title: "SF-AB A765"
-description: "Assorted Screw Set" 
+description: "螺丝套装" 
 main:
   id: 2
   content: |
-    Introducing the SF-AB A765 Assorted Screw Set – the ultimate solution for your screw fastening needs. This comprehensive set includes a wide variety of screws meticulously curated to tackle various projects with ease and precision.
+    介绍SF-AB A765螺丝套装 - 满足您螺丝紧固需求的终极解决方案。这套综合套装包含各种精心挑选的螺丝，能够轻松精确地处理各种项目。
   imgCard: "@/images/product-image-2.avif"
   imgMain: "@/images/product-image-main-2.avif"
   imgAlt: "Mockup boxes of assorted screw set"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
-    title: "Description"
+    title: "描述"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Specifications"
+    title: "规格"
   - id: "tabs-with-card-item-3"
     dataTab: "#tabs-with-card-3"
-    title: "Blueprints"
+    title: "蓝图"
 longDescription:
-  title: "Versatile Screw Fastening Solutions"
+  title: "多功能螺丝紧固解决方案"
   subTitle: |
-    The SF-AB A765 Assorted Screw Set offers unmatched versatility and convenience, making it the perfect choice for DIY enthusiasts and professionals alike. With a comprehensive selection of screws, you'll always have the right fastener for the job.
-  btnTitle: "Contact sales to learn more"
+    SF-AB A765螺丝套装提供无与伦比的多功能性和便利性，是DIY爱好者和专业人士的完美选择。凭借全面的螺丝选择，您总能找到适合工作的紧固件。
+  btnTitle: "联系销售了解更多"
   btnURL: "#"
 descriptionList:
-  - title: "Wide Variety"
-    subTitle: "Includes a diverse range of screw types and sizes to accommodate various applications and materials."
-  - title: "Ease of Use"
-    subTitle: "Each screw is designed for effortless installation, ensuring hassle-free fastening every time."
-  - title: "Convenience"
-    subTitle: "Eliminates the need for multiple trips to the hardware store, saving time and effort on your projects."
+  - title: "丰富多样"
+    subTitle: "包含多种螺丝类型和尺寸，适应各种应用和材料。"
+  - title: "易于使用"
+    subTitle: "每个螺丝都设计为轻松安装，确保每次都能无障碍紧固。"
+  - title: "便利性"
+    subTitle: "消除多次前往五金店的需要，为您的项目节省时间和精力。"
 specificationsLeft:
-  - title: "Material"
-    subTitle: "Constructed from high-quality materials such as stainless steel, ensuring durability and corrosion resistance."
-  - title: "Assortment"
-    subTitle: "Contains a generous assortment of screws, including wood screws, machine screws, and sheet metal screws."
-  - title: "Quantity"
-    subTitle: "Each set includes a sufficient quantity of screws to handle a wide range of projects and tasks."
-  - title: "Sizes"
-    subTitle: "Available in various sizes to suit different project requirements, ensuring compatibility and versatility."
+  - title: "材料"
+    subTitle: "采用不锈钢等高质量材料制造，确保耐用性和抗腐蚀性。"
+  - title: "分类"
+    subTitle: "包含丰富的螺丝分类，包括木螺丝、机械螺丝和薄板螺丝。"
+  - title: "数量"
+    subTitle: "每套包含足够数量的螺丝，能够处理各种项目和任务。"
+  - title: "尺寸"
+    subTitle: "提供各种尺寸以适应不同的项目要求，确保兼容性和多功能性。"
 tableData:
-  - feature: ["Specification", "Value"]
+  - feature: ["规格", "值"]
     description:
-      - ["Length (mm)", "Various"]
-      - ["Weight (g)", "N/A"]
-      - ["Material", "Stainless Steel"]
-      - ["Finish", "Assorted"]
-      - ["Package Contents", "Various screws in a set"]
+      - ["长度 (mm)", "各种"]
+      - ["重量 (g)", "不适用"]
+      - ["材料", "不锈钢"]
+      - ["表面处理", "多种"]
+      - ["包装内容", "套装中的各种螺丝"]
 blueprints:
   first: "@/images/blueprint-1.avif"
   second: "@/images/blueprint-2.avif"

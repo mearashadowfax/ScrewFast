@@ -8,12 +8,18 @@ import PhoneInput from "@components/ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
-// Define the variables that will be used in this component
-const title: string = "Contact us";
-const subTitle: string =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const formTitle: string = "Fill in the form below";
-const formSubTitle: string = "We'll get back to you in 1-2 business days.";
+// Accept contact data as props
+const { contactData } = Astro.props;
+
+// Extract data from the contactData prop
+const {
+  title,
+  subTitle,
+  formTitle,
+  formSubTitle,
+  form,
+  contactBlocks
+} = contactData;
 ---
 
 <!-- Contact Us -->
@@ -44,26 +50,26 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
-                label="First Name"
+                label={form.firstName}
                 name="hs-firstname-contacts"
               />
               <TextInput
                 id="hs-lastname-contacts"
-                label="Last Name"
-                name="hs-firstname-contacts"
+                label={form.lastName}
+                name="hs-lastname-contacts"
               />
             </div>
             <EmailContactInput id="hs-email-contacts" />
             <PhoneInput id="hs-phone-number" />
             <TextAreaInput
               id="hs-about-contacts"
-              label="Details"
+              label={form.details}
               name="hs-about-contacts"
             />
           </div>
 
           <div class="mt-4 grid">
-            <AuthBtn title="Send Message" />
+            <AuthBtn title={form.submitButton} />
           </div>
 
           <div class="mt-3 text-center">
@@ -77,38 +83,38 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
       <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
-          heading="Knowledgebase"
-          content="Browse through all of our knowledgebase articles."
+          heading={contactBlocks.knowledgeBase.heading}
+          content={contactBlocks.knowledgeBase.content}
           isLinkVisible={true}
-          linkTitle="Visit guides & tutorials"
+          linkTitle={contactBlocks.knowledgeBase.linkTitle}
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="question" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="FAQ"
-          content="Explore our FAQ for quick, clear answers to common queries."
+          heading={contactBlocks.faq.heading}
+          content={contactBlocks.faq.content}
           isLinkVisible={true}
-          linkTitle="Visit FAQ"
+          linkTitle={contactBlocks.faq.linkTitle}
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visit our office"
-          content="UK ScrewFast"
+          heading={contactBlocks.office.heading}
+          content={contactBlocks.office.content}
           isAddressVisible={true}
-          addressContent="72 Union Terrace, E10 4PE London"
+          addressContent={contactBlocks.office.address}
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Contact us by email"
-          content="Prefer the written word? Drop us an email at"
+          heading={contactBlocks.email.heading}
+          content={contactBlocks.email.content}
           isLinkVisible={true}
-          linkTitle="support@screwfast.uk"
+          linkTitle={contactBlocks.email.linkTitle}
           linkURL="#"
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>

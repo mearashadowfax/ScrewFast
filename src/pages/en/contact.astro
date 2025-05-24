@@ -2,6 +2,7 @@
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
+import contactData from "@data/en/contact.json";
 import { SITE } from "@data/constants";
 
 const pageTitle: string = `Contact | ${SITE.title}`;
@@ -17,14 +18,14 @@ const ogTitle = "Contact Us | ScrewFast";
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/contact",
-    url: "https://screwfast.uk/contact",
+    "@id": "https://screwfast.uk/en/contact",
+    url: "https://screwfast.uk/en/contact",
     name: "Contact Us | ScrewFast",
     description:
       "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
+      url: "https://screwfast.uk/en/",
       name: "ScrewFast",
       description:
         "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
@@ -32,5 +33,5 @@ const ogTitle = "Contact Us | ScrewFast";
     inLanguage: "en-US",
   }}
 >
-  <ContactSection />
+  <ContactSection contactData={contactData} />
 </MainLayout>

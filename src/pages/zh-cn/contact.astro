@@ -2,35 +2,37 @@
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
+import contactData from "@data/zh-cn/contact.json";
 import { SITE } from "@data/constants";
 
-const pageTitle: string = `Contact | ${SITE.title}`;
+const pageTitle: string = `联系我们 | ${SITE.title}`;
 const metaDescription =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const ogTitle = "Contact Us | ScrewFast";
+  "有问题或想讨论项目？请联系我们，让我们用我们的工具和服务为您打造完美的解决方案。";
+const ogTitle = "联系我们 | ScrewFast";
 ---
 
 <MainLayout
   title={pageTitle}
+  lang="zh-cn"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/contact",
-    url: "https://screwfast.uk/contact",
-    name: "Contact Us | ScrewFast",
+    "@id": "https://screwfast.uk/zh-cn/contact",
+    url: "https://screwfast.uk/zh-cn/contact",
+    name: "联系我们 | ScrewFast",
     description:
-      "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+      "有问题或想讨论项目？请联系我们，让我们用我们的工具和服务为您打造完美的解决方案。",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
+      url: "https://screwfast.uk/zh-cn/",
       name: "ScrewFast",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "ScrewFast提供顶级硬件工具和专业建筑服务，满足您所有项目需求。",
     },
-    inLanguage: "en-US",
+    inLanguage: "zh-CN",
   }}
 >
-  <ContactSection />
+  <ContactSection contactData={contactData} />
 </MainLayout>

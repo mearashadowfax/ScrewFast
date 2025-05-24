@@ -1,0 +1,34 @@
+{
+  "title": "Contactez-nous",
+  "subTitle": "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.",
+  "formTitle": "Remplissez le formulaire ci-dessous",
+  "formSubTitle": "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.",
+  "form": {
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "details": "Détails",
+    "submitButton": "Envoyer un message"
+  },
+  "contactBlocks": {
+    "knowledgeBase": {
+      "heading": "Base de connaissances",
+      "content": "Parcourez tous nos articles de base de connaissances.",
+      "linkTitle": "Visiter les guides et tutoriels"
+    },
+    "faq": {
+      "heading": "FAQ",
+      "content": "Explorez notre FAQ pour des réponses rapides et claires aux questions courantes.",
+      "linkTitle": "Visiter la FAQ"
+    },
+    "office": {
+      "heading": "Visitez notre bureau",
+      "content": "ScrewFast UK",
+      "address": "72 Union Terrace, E10 4PE London"
+    },
+    "email": {
+      "heading": "Contactez-nous par e-mail",
+      "content": "Préférez-vous le texte écrit ? Envoyez-nous un e-mail à",
+      "linkTitle": "support@screwfast.uk"
+    }
+  }
+}

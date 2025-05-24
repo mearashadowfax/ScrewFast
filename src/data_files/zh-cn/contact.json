@@ -1,0 +1,34 @@
+{
+  "title": "联系我们",
+  "subTitle": "有问题或想讨论项目？请联系我们，让我们用我们的工具和服务为您打造完美的解决方案。",
+  "formTitle": "请填写下面的表格",
+  "formSubTitle": "我们将在1-2个工作日内回复您。",
+  "form": {
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "details": "详情",
+    "submitButton": "发送消息"
+  },
+  "contactBlocks": {
+    "knowledgeBase": {
+      "heading": "知识库",
+      "content": "浏览我们所有的知识库文章。",
+      "linkTitle": "访问指南和教程"
+    },
+    "faq": {
+      "heading": "常见问题",
+      "content": "浏览我们的常见问题，获取快速、清晰的常见查询答案。",
+      "linkTitle": "访问常见问题"
+    },
+    "office": {
+      "heading": "访问我们的办公室",
+      "content": "ScrewFast UK",
+      "address": "72 Union Terrace, E10 4PE London"
+    },
+    "email": {
+      "heading": "通过电子邮件联系我们",
+      "content": "更喜欢书面交流？请发送电子邮件至",
+      "linkTitle": "support@screwfast.uk"
+    }
+  }
+}
