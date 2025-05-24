@@ -1,53 +1,53 @@
 ---
 title: "SF-AB A765"
-description: "Assorted Screw Set" 
+description: "مجموعه پیچ متنوع" 
 main:
   id: 2
   content: |
-    Introducing the SF-AB A765 Assorted Screw Set – the ultimate solution for your screw fastening needs. This comprehensive set includes a wide variety of screws meticulously curated to tackle various projects with ease and precision.
+    معرفی مجموعه پیچ متنوع SF-AB A765 – راهحل نهایی برای نیازهای بستن پیچ شما. این مجموعه جامع شامل طیف گسترده‌ای از پیچهای با دقت انتخاب شده برای مقابله با پروژههای مختلف با آسانی و دقت است.
   imgCard: "@/images/product-image-2.avif"
   imgMain: "@/images/product-image-main-2.avif"
-  imgAlt: "Mockup boxes of assorted screw set"
+  imgAlt: "جعبههای نمونه مجموعه پیچ متنوع"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
-    title: "Description"
+    title: "توضیحات"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Specifications"
+    title: "مشخصات"
   - id: "tabs-with-card-item-3"
     dataTab: "#tabs-with-card-3"
-    title: "Blueprints"
+    title: "نقشهها"
 longDescription:
-  title: "Versatile Screw Fastening Solutions"
+  title: "راهکارهای بستن پیچ چندمنظوره"
   subTitle: |
-    The SF-AB A765 Assorted Screw Set offers unmatched versatility and convenience, making it the perfect choice for DIY enthusiasts and professionals alike. With a comprehensive selection of screws, you'll always have the right fastener for the job.
-  btnTitle: "Contact sales to learn more"
+    مجموعه پیچ متنوع SF-AB A765 انعطاف‌پذیری و راحتی بی‌نظیر ارائه می‌دهد و آن را به انتخاب عالی برای علاقه‌مندان DIY و حرفه‌ایها تبدیل می‌کند. با انتخاب جامعی از پیچها، همیشه اتصال مناسب برای کار را خواهید داشت.
+  btnTitle: "برای دریافت اطلاعات بیشتر با فروش تماس بگیرید"
   btnURL: "#"
 descriptionList:
-  - title: "Wide Variety"
-    subTitle: "Includes a diverse range of screw types and sizes to accommodate various applications and materials."
-  - title: "Ease of Use"
-    subTitle: "Each screw is designed for effortless installation, ensuring hassle-free fastening every time."
-  - title: "Convenience"
-    subTitle: "Eliminates the need for multiple trips to the hardware store, saving time and effort on your projects."
+  - title: "تنوع گسترده"
+    subTitle: "شامل طیف متنوعی از انواع و اندازههای پیچ برای کاربردها و مواد مختلف."
+  - title: "آسانی استفاده"
+    subTitle: "هر پیچ برای نصب بدون زحمت طراحی شده و هر بار بستن بدون دردسر را تضمین می‌کند."
+  - title: "راحتی"
+    subTitle: "نیاز به سفرهای متعدد به فروشگاه ابزار را حذف می‌کند و زمان و تلاش پروژههای شما را ذخیره می‌کند."
 specificationsLeft:
-  - title: "Material"
-    subTitle: "Constructed from high-quality materials such as stainless steel, ensuring durability and corrosion resistance."
-  - title: "Assortment"
-    subTitle: "Contains a generous assortment of screws, including wood screws, machine screws, and sheet metal screws."
-  - title: "Quantity"
-    subTitle: "Each set includes a sufficient quantity of screws to handle a wide range of projects and tasks."
-  - title: "Sizes"
-    subTitle: "Available in various sizes to suit different project requirements, ensuring compatibility and versatility."
+  - title: "ماده"
+    subTitle: "از مواد باکیفیت بالا همانند فولاد ضدزنگ ساخته شده و داومی و مقاومت در برابر خوردگی را تضمین می‌کند."
+  - title: "طیف"
+    subTitle: "حاوی طیف فراوانی از پیچها شامل پیچهای چوب، پیچهای ماشین، و پیچهای ورق فلز."
+  - title: "مقدار"
+    subTitle: "هر مجموعه شامل مقدار کافی پیچ برای مدیریت طیف گسترده‌ای از پروژهها و وظایف."
+  - title: "اندازهها"
+    subTitle: "در اندازههای مختلف برای متناسب با نیازهای مختلف پروژه و تضمین سازگاری و انعطاف‌پذیری موجود."
 tableData:
-  - feature: ["Specification", "Value"]
+  - feature: ["مشخصات", "مقدار"]
     description:
-      - ["Length (mm)", "Various"]
-      - ["Weight (g)", "N/A"]
-      - ["Material", "Stainless Steel"]
-      - ["Finish", "Assorted"]
-      - ["Package Contents", "Various screws in a set"]
+      - ["طول (میلیمتر)", "متنوع"]
+      - ["وزن (گرم)", "برندارد"]
+      - ["ماده", "فولاد ضدزنگ"]
+      - ["پرداخت", "متنوع"]
+      - ["محتویات بسته", "پیچهای مختلف در یک مجموعه"]
 blueprints:
   first: "@/images/blueprint-1.avif"
   second: "@/images/blueprint-2.avif"

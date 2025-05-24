@@ -1,19 +1,19 @@
 ---
-title: "Simplify Procurement and Stay Within Budget with ScrewFast"
-description: "Affordable, durable tools for efficient construction projects"
+title: "ساده‌سازی تدارکات و حفظ بودجه با اسکروفست"
+description: "ابزارهای مقرون‌به‌صرفه و بادوام برای پروژه‌های ساخت و ساز کارآمد"
 author: "Olga Zabegina"
-role: "Strategic Marketing Manager"
+role: "مدیر بازاریابی استراتژیک"
 authorImage: "@/images/blog/anna.avif"
-authorImageAlt: "Avatar Description"
+authorImageAlt: "توضیح آواتار"
 pubDate: 2024-02-18
 cardImage: "@/images/blog/post-3.avif"
-cardImageAlt: "Side view worker wearing gloves"
+cardImageAlt: "نمای کناری کارگر با دستکش"
 readTime: 3
-tags: ["procurement", "affordable", "efficiency" ]
+tags: ["تدارکات", "مقرون‌به‌صرفه", "کارایی"]
 contents: [
-        "Managing a construction project can be overwhelming, especially when it comes to procurement. That's why ScrewFast is committed to simplifying the process and keeping your projects within budget.",
-        "With our line of affordable tools and equipment, you can find everything you need without breaking the bank. Our user-centric design ensures that our products are easy to use, saving you time and frustration on the job site.",
-        "But affordability doesn't mean sacrificing quality. ScrewFast products are built to last, providing reliable performance and durability when you need it most. And with our comprehensive documentation and tutorials, you can integrate our products seamlessly into your workflow, maximizing efficiency and productivity.",
-        "Whether you're a DIY enthusiast or a seasoned contractor, ScrewFast has the solutions you need to succeed. Experience the difference for yourself and see why ScrewFast is the trusted choice for hardware and construction needs."
+        "مدیریت یک پروژه ساخت و ساز می‌تواند طاقت‌فرسا باشد، به خصوص وقتی صحبت از تدارکات می‌شود. به همین دلیل اسکروفست متعهد به ساده‌سازی فرآیند و حفظ پروژه‌هایتان در چارچوب بودجه است.",
+        "با خط تولید ابزارهای مقرون‌به‌صرفه و تجهیزات ما، می‌توانید هر آنچه نیاز دارید را بدون شکستن بانک پیدا کنید. طراحی کاربرمحور ما اطمینان می‌دهد که محصولات ما آسان استفاده هستند و در محل کار وقت و ناراحتی شما را صرفه‌جویی می‌کنند.",
+        "اما مقرون‌به‌صرفه بودن به معنای فداکردن کیفیت نیست. محصولات اسکروفست برای ماندگاری ساخته شده‌اند و عملکرد قابل اعتماد و دوام را در زمانی که بیشتر به آن نیاز دارید فراهم می‌کنند. و با مستندات جامع و آموزش‌های ما، می‌توانید محصولات ما را به‌طور یکپارچه در گردش کار خود ادغام کنید و کارایی و بهره‌وری را حداکثر کنید.",
+        "چه شما یک علاقه‌مند DIY باشید یا یک پیمانکار باتجربه، اسکروفست راه‌حل‌هایی که برای موفقیت نیاز دارید را دارد. تفاوت را خودتان تجربه کنید و ببینید چرا اسکروفست انتخاب مورد اعتماد برای نیازهای سخت‌افزار و ساخت و ساز است."
 ]
 ---

@@ -51,6 +51,23 @@ const languages: { [key: string]: string } = {
   "zh-cn": "zh-cn",
 };
 
+// Map language codes to proper og:locale values
+const localeMap: { [key: string]: string } = {
+  en: "en_US",
+  fr: "fr_FR", 
+  de: "de_DE",
+  es: "es_ES",
+  fa: "fa_IR",
+  ja: "ja_JP",
+  "zh-cn": "zh_CN",
+};
+
+// Detect current language from URL path
+const currentPath = Astro.url.pathname;
+const pathSegments = currentPath.split('/').filter(Boolean);
+const currentLang = pathSegments.length > 0 && languages[pathSegments[0]] ? pathSegments[0] : 'en';
+const currentLocale = localeMap[currentLang] || "en_US";
+
 function createHref(_lang: string, prefix: string, path: string): string {
   // Remove any existing language prefix
   const cleanPath = path.replace(/^\/(en|fr|de|es|fa|ja|zh-cn)\//, "/");
@@ -109,7 +126,7 @@ const appleTouchIcon = await getImage({
 <Fragment set:html={alternateLanguageLinks} />
 
 {/* Facebook Meta Tags */}
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content={currentLocale} />
 <meta property="og:url" content={URL} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />
