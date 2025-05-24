@@ -29,11 +29,14 @@ const config = {
       >
         <div class="p-4 sm:p-7">
           <div class="text-center">
-            <h2
+            <div
               class="block text-2xl font-bold text-neutral-800 dark:text-neutral-200"
+              role="heading"
+              aria-level="1"
+              aria-label={config.title}
             >
               {config.title}
-            </h2>
+            </div>
             <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               {config.subTitle}
               <!-- Button that, when clicked, opens the login modal -->
