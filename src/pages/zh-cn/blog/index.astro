@@ -7,62 +7,60 @@ import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import blogData from "@data/zh-cn/blog.json";
 
-// Get all blogs post in English and sort them based on publish date
+// Get all blogs post in Chinese and sort them based on publish date
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
+const chineseBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("zh-cn/");
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
+const chineseInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("zh-cn/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
+const blogPosts: CollectionEntry<"blog">[] = chineseBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
+const insightPosts: CollectionEntry<"insights">[] = chineseInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
-const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
-const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+const title: string = blogData.title;
+const subTitle: string = blogData.subTitle;
+const secondTitle: string = blogData.secondTitle;
+const secondSubTitle: string = blogData.secondSubTitle;
 
-const pageTitle: string = `Blog | ${SITE.title}`;
-const metaDescription =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
-const ogTitle = "Construction Industry Blog | ScrewFast";
+const pageTitle: string = `${blogData.pageTitle} | ${SITE.title}`;
+const metaDescription = blogData.metaDescription;
+const ogTitle = blogData.ogTitle;
 ---
 
 <MainLayout
+  lang="zh-cn"
   title={pageTitle}
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
-    description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
+    "@id": "https://screwfast.uk/zh-cn/blog",
+    url: "https://screwfast.uk/zh-cn/blog",
+    name: `${blogData.pageTitle} | ScrewFast`,
+    description: blogData.metaDescription,
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
+      url: "https://screwfast.uk/zh-cn",
       name: "ScrewFast",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "ScrewFast提供顶级硬件工具和专业建筑服务，满足您所有项目需求。",
     },
-    inLanguage: "en-US",
+    inLanguage: "zh-cn",
   }}
 >
   <section
@@ -89,14 +87,14 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
   >
     {/* Blog posts grid */}
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="zh-cn" />)}
     </div>
   </section>
   {/* Most recent blog post */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <CardBlogRecent blogEntry={mostRecentPost} />
+    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="zh-cn" />
   </section>
   {/* Insights section */}
   <section
@@ -115,7 +113,7 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} />
+          <CardInsight insightEntry={insightEntry} insightLocale="zh-cn" />
         ))
       }
     </div>

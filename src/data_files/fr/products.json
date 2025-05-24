@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Produits",
+  "metaDescription": "Découvrez la durabilité et la précision dans chaque outil. ScrewFast offre des solutions matérielles de premier plan pour tous vos projets de construction.",
+  "ogTitle": "Outils de quincaillerie | ScrewFast",
+  "title": "Produits",
+  "subTitle": "Découvrez la durabilité et la précision dans chaque outil. ScrewFast offre des solutions matérielles de premier plan pour tous vos projets de construction.",
+  "customerStoriesBtn": "Témoignages clients",
+  "featuresStats": {
+    "title": "Pourquoi choisir ScrewFast ?",
+    "subTitle": "Transformez vos idées en résultats tangibles avec nos solutions matérielles de premier plan.",
+    "benefits": [
+      "Outils robustes et fiables conçus pour la durabilité et des performances constantes",
+      "Solutions innovantes qui suivent le rythme des dernières normes et technologies de l'industrie",
+      "Support client dédié à accompagner votre projet du concept à l'achèvement"
+    ]
+  },
+  "testimonials": {
+    "title": "Ce que disent nos clients"
+  }
+}

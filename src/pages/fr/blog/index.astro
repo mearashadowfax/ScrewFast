@@ -7,6 +7,7 @@ import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import blogData from "@data/fr/blog.json";
 
 // Get all blogs post in French and sort them based on publish date
 
@@ -30,17 +31,14 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Votre Passerelle vers l'Excellence en Construction";
-const subTitle: string =
-  "Explorez les dernières actualités, astuces et analyses de ScrewFast pour améliorer vos projets de construction. Des mises en avant de produits aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne les outils et la construction.";
-const secondTitle: string = "Perspectives";
-const secondSubTitle: string =
-  "Restez à jour avec les dernières tendances et évolutions de l'industrie de la construction grâce aux analyses de l'équipe d'experts de ScrewFast.";
+const title: string = blogData.title;
+const subTitle: string = blogData.subTitle;
+const secondTitle: string = blogData.secondTitle;
+const secondSubTitle: string = blogData.secondSubTitle;
 
-const pageTitle: string = `Blog | ${SITE.title}`;
-const metaDescription =
-  "Restez informé des dernières tendances et évolutions dans le secteur de la construction avec les analyses de l'équipe d'experts de ScrewFast.";
-const ogTitle = "Blog de l'Industrie de la Construction | ScrewFast";
+const pageTitle: string = `${blogData.pageTitle} | ${SITE.title}`;
+const metaDescription = blogData.metaDescription;
+const ogTitle = blogData.ogTitle;
 ---
 
 <MainLayout
@@ -53,9 +51,8 @@ const ogTitle = "Blog de l'Industrie de la Construction | ScrewFast";
     "@type": "WebPage",
     "@id": "https://screwfast.uk/fr/blog",
     url: "https://screwfast.uk/fr/blog",
-    name: "Blog | ScrewFast",
-    description:
-      "Restez informé des dernières tendances et évolutions dans le secteur de la construction avec les analyses de l'équipe d'experts de ScrewFast.",
+    name: `${blogData.pageTitle} | ScrewFast`,
+    description: blogData.metaDescription,
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk/fr",

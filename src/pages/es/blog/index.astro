@@ -7,54 +7,52 @@ import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import blogData from "@data/es/blog.json";
 
 // Get all blogs post in English and sort them based on publish date
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
+const spanishBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("es/");
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
+const spanishInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("es/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
+const blogPosts: CollectionEntry<"blog">[] = spanishBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
+const insightPosts: CollectionEntry<"insights">[] = spanishInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
-const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
-const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+const title: string = blogData.title;
+const subTitle: string = blogData.subTitle;
+const secondTitle: string = blogData.secondTitle;
+const secondSubTitle: string = blogData.secondSubTitle;
 
-const pageTitle: string = `Blog | ${SITE.title}`;
-const metaDescription =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
-const ogTitle = "Construction Industry Blog | ScrewFast";
+const pageTitle: string = `${blogData.pageTitle} | ${SITE.title}`;
+const metaDescription = blogData.metaDescription;
+const ogTitle = blogData.ogTitle;
 ---
 
 <MainLayout
   title={pageTitle}
+  lang="es"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
-    description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
+    "@id": "https://screwfast.uk/es/blog",
+    url: "https://screwfast.uk/es/blog",
+    name: blogData.ogTitle,
+    description: blogData.metaDescription,
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk",
@@ -62,7 +60,7 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
       description:
         "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    inLanguage: "en-US",
+    inLanguage: "es",
   }}
 >
   <section

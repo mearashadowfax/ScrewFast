@@ -10,6 +10,8 @@ import TestimonialsSectionAlt from "@components/sections/testimonials/Testimonia
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+import productsData from "@data/fr/products.json";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
@@ -22,9 +24,8 @@ const product: CollectionEntry<"products">[] = (
 );
 
 // Define variables for page content
-const title: string = "Produits";
-const subTitle: string =
-  "Explorez la durabilité et la précision des outils ScrewFast, conçus aussi bien pour les professionnels que pour les amateurs. Chacun de nos produits est fabriqué avec précision et conçu pour durer, garantissant que vous disposez du bon outil pour chaque tâche.";
+const title: string = productsData.title;
+const subTitle: string = productsData.subTitle;
 
 // Testimonial data that will be rendered in the component
 const testimonials = [
@@ -59,10 +60,9 @@ const testimonials = [
   },
 ];
 
-const pageTitle = "Produits | ScrewFast";
-const metaDescription =
-  "Explorez la durabilité et la précision des outils ScrewFast, conçus aussi bien pour les professionnels que pour les passionnés.";
-const ogTitle = "Outils Matériels | ScrewFast";
+const pageTitle = `${productsData.pageTitle} | ${SITE.title}`;
+const metaDescription = productsData.metaDescription;
+const ogTitle = productsData.ogTitle;
 ---
 
 <MainLayout
@@ -75,9 +75,8 @@ const ogTitle = "Outils Matériels | ScrewFast";
     "@type": "WebPage",
     "@id": "https://screwfast.uk/fr/products",
     url: "https://screwfast.uk/fr/products",
-    name: "Outils Matériels | ScrewFast",
-    description:
-      "Explorez la durabilité et la précision des outils ScrewFast, conçus aussi bien pour les professionnels que pour les passionnés.",
+    name: productsData.ogTitle,
+    description: productsData.metaDescription,
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk/fr",
@@ -107,7 +106,7 @@ const ogTitle = "Outils Matériels | ScrewFast";
         }
       </div>
       <PrimaryCTA
-        title="Histoires de clients"
+        title={productsData.customerStoriesBtn}
         url="#testimonials"
         noArrow={true}
       />
@@ -129,17 +128,13 @@ const ogTitle = "Outils Matériels | ScrewFast";
   </div>
   {/* Features statistics section */}
   <FeaturesStatsAlt
-    title="Pourquoi choisir ScrewFast ?"
-    subTitle="Transformez vos idées en résultats tangibles avec les outils ScrewFast. Que vous commenciez par un croquis sur un coin de table ou plongiez dans un projet de construction complet, nos outils sont conçus pour vous aider à construire en toute confiance."
-    benefits={[
-      "Outils robustes et fiables pour des performances durables.",
-      "Solutions innovantes adaptées aux besoins de construction modernes.",
-      "Support client dédié au succès de votre projet.",
-    ]}
+    title={productsData.featuresStats.title}
+    subTitle={productsData.featuresStats.subTitle}
+    benefits={productsData.featuresStats.benefits}
   />
   {/* Testimonials section */}
   <TestimonialsSectionAlt
-    title="Ce que disent nos clients"
+    title={productsData.testimonials.title}
     testimonials={testimonials}
   />
 </MainLayout>

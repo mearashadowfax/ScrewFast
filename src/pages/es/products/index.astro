@@ -11,11 +11,12 @@ import TestimonialsSectionAlt from "@components/sections/testimonials/Testimonia
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import productsData from "@data/es/products.json";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
   await getCollection("products", ({ id }) => {
-    return id.startsWith("fr/");
+    return id.startsWith("es/");
   })
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
@@ -23,9 +24,8 @@ const product: CollectionEntry<"products">[] = (
 );
 
 // Define variables for page content
-const title: string = "Products";
-const subTitle: string =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
+const title: string = productsData.title;
+const subTitle: string = productsData.subTitle;
 
 // Testimonial data that will be rendered in the component
 const testimonials = [
@@ -61,32 +61,31 @@ const testimonials = [
   },
 ];
 
-const pageTitle: string = `Products | ${SITE.title}`;
-const metaDescription =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.";
-const ogTitle = "Hardware Tools | ScrewFast";
+const pageTitle: string = `${productsData.pageTitle} | ${SITE.title}`;
+const metaDescription = productsData.metaDescription;
+const ogTitle = productsData.ogTitle;
 ---
 
 <MainLayout
   title={pageTitle}
   customDescription={metaDescription}
   customOgTitle={ogTitle}
+  lang="es"
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/products",
-    url: "https://screwfast.uk/products",
-    name: "Hardware Tools | ScrewFast",
-    description:
-      "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
+    "@id": "https://screwfast.uk/es/products",
+    url: "https://screwfast.uk/es/products",
+    name: productsData.ogTitle,
+    description: productsData.metaDescription,
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
+      url: "https://screwfast.uk/es",
       name: "ScrewFast",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "ScrewFast ofrece herramientas de hardware de primer nivel y servicios de construcción expertos para satisfacer todas sus necesidades de proyecto.",
     },
-    inLanguage: "en-US",
+    inLanguage: "es",
   }}
 >
   <div
@@ -107,7 +106,7 @@ const ogTitle = "Hardware Tools | ScrewFast";
           )
         }
       </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
+      <PrimaryCTA title={productsData.customerStoriesBtn} url="#testimonials" noArrow={true} />
     </div>
     {/* Displaying products in alternating styles. Alternative product gets different card styling.
     Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */}
@@ -126,17 +125,13 @@ const ogTitle = "Hardware Tools | ScrewFast";
   </div>
   {/* Features statistics section */}
   <FeaturesStatsAlt
-    title="Why Choose ScrewFast?"
-    subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
-    benefits={[
-      "Robust and reliable tools for long-lasting performance.",
-      "Innovative solutions tailored to modern construction needs.",
-      "Customer support dedicated to your project's success.",
-    ]}
+    title={productsData.featuresStats.title}
+    subTitle={productsData.featuresStats.subTitle}
+    benefits={productsData.featuresStats.benefits}
   />
   {/* Testimonials section */}
   <TestimonialsSectionAlt
-    title="What Our Customers Say"
+    title={productsData.testimonials.title}
     testimonials={testimonials}
   />
 </MainLayout>
