@@ -34,7 +34,6 @@ const ogDescription = customDescription || OG.description;
 const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
 const canonical = Astro.url.href;
-const basePath = Astro.url.pathname;
 const socialImageRes = await getImage({
   src: OG.image,
   width: 1200,
@@ -52,7 +51,7 @@ const languages: { [key: string]: string } = {
   "zh-cn": "zh-cn",
 };
 
-function createHref(lang: string, prefix: string, path: string): string {
+function createHref(_lang: string, prefix: string, path: string): string {
   // Remove any existing language prefix
   const cleanPath = path.replace(/^\/(en|fr|de|es|fa|ja|zh-cn)\//, "/");
 
@@ -92,6 +91,7 @@ const appleTouchIcon = await getImage({
   structuredData && (
     <script
       type="application/ld+json"
+      is:inline
       set:html={JSON.stringify(structuredData)}
     />
   )
