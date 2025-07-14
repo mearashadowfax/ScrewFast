@@ -15,7 +15,6 @@ export default defineConfig({
     sitemap(),
     starlight({
       title: "ScrewFast Docs",
-      defaultLocale: "root",
       locales: {
         root: {
           label: "English",

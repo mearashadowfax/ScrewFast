@@ -1,20 +1,22 @@
 html.lenis,
 html.lenis body {
-    height: auto;
+  height: auto;
 }
 
-.lenis.lenis-smooth {
-    scroll-behavior: auto !important;
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
+  overscroll-behavior: contain;
 }
 
-.lenis.lenis-stopped {
-    overflow: hidden;
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
-.lenis.lenis-scrolling iframe {
-    pointer-events: none;
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
 }
