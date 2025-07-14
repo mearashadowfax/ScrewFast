@@ -57,9 +57,13 @@ export default defineConfig({
           autogenerate: { directory: "advanced" },
         },
       ],
-      social: {
-        github: "https://github.com/mearashadowfax/ScrewFast",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/mearashadowfax/ScrewFast",
+        },
+      ],
       disable404Route: true,
       customCss: ["./src/assets/styles/starlight.css"],
       favicon: "/favicon.ico",
