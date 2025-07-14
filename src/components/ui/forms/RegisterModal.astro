@@ -18,16 +18,17 @@ const config = {
 <!-- Root element of the registration modal with the id and styling -->
 <div
   id={config.id}
-  class="hs-overlay absolute start-0 top-0 z-50 hidden h-full w-full hs-overlay-backdrop-open:bg-neutral-900/90"
+  class="hs-overlay hs-overlay-backdrop-open:bg-neutral-900/90 absolute start-0 top-0 z-50 hidden h-full w-full"
+  data-lenis-prevent
 >
   <div
-    class="m-3 mt-0 opacity-0 transition-all ease-out hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 sm:mx-auto sm:w-full sm:max-w-lg"
+    class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 m-3 mt-0 opacity-0 transition-all ease-out sm:mx-auto sm:w-full sm:max-w-lg"
   >
     <div class="mx-auto w-full max-w-md p-6">
       <div
-        class="mt-7 max-h-full overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 shadow-xs dark:border-neutral-700 dark:bg-neutral-800"
+        class="mt-7 flex max-h-[calc(100vh-8rem)] flex-col rounded-xl border border-neutral-200 bg-neutral-100 shadow-xs dark:border-neutral-700 dark:bg-neutral-800"
       >
-        <div class="p-4 sm:p-7">
+        <div class="overflow-y-auto p-4 sm:p-7">
           <div class="text-center">
             <div
               class="block text-2xl font-bold text-neutral-800 dark:text-neutral-200"
@@ -36,12 +37,12 @@ const config = {
               aria-label={config.title}
             >
               {config.title}
-            </>
+            </div>
             <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               {config.subTitle}
               <!-- Button to toggle login modal -->
               <button
-                class="rounded-lg p-1 font-medium text-orange-400 decoration-2 outline-hidden ring-zinc-500 hover:underline focus-visible:ring-3 dark:text-orange-400 dark:ring-zinc-200 dark:focus:outline-hidden"
+                class="rounded-lg p-1 font-medium text-orange-400 decoration-2 ring-zinc-500 outline-hidden hover:underline focus-visible:ring-3 dark:text-orange-400 dark:ring-zinc-200 dark:focus:outline-hidden"
                 data-hs-overlay={config.loginBtnDataHS}
               >
                 {config.loginBtn}
@@ -54,7 +55,7 @@ const config = {
             <GoogleBtn title="Sign up with Google" />
             <!-- Dividing line with 'Or' text -->
             <div
-              class="flex items-center py-3 text-xs uppercase text-neutral-400 before:me-6 before:flex-[1_1_0%] before:border-t before:border-neutral-200 after:ms-6 after:flex-[1_1_0%] after:border-t after:border-neutral-200 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600"
+              class="flex items-center py-3 text-xs text-neutral-400 uppercase before:me-6 before:flex-[1_1_0%] before:border-t before:border-neutral-200 after:ms-6 after:flex-[1_1_0%] after:border-t after:border-neutral-200 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600"
             >
               Or
             </div>
@@ -62,7 +63,10 @@ const config = {
             <form>
               <div class="grid gap-y-4">
                 <!-- Email input field -->
-                <EmailInput id="register-email" errorId="register-email-error"/>
+                <EmailInput
+                  id="register-email"
+                  errorId="register-email-error"
+                />
                 <!-- Password input field -->
                 <PasswordInput
                   id="create-password"
