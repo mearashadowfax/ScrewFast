@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Produkte",
+  "metaDescription": "Entdecken Sie Haltbarkeit und Präzision in jedem Werkzeug. ScrewFast bietet erstklassige Hardware-Lösungen für alle Ihre Bauprojekte.",
+  "ogTitle": "Hardware-Werkzeuge | ScrewFast",
+  "title": "Produkte",
+  "subTitle": "Entdecken Sie Haltbarkeit und Präzision in jedem Werkzeug. ScrewFast bietet erstklassige Hardware-Lösungen für alle Ihre Bauprojekte.",
+  "customerStoriesBtn": "Kundengeschichten",
+  "featuresStats": {
+    "title": "Warum ScrewFast wählen?",
+    "subTitle": "Verwandeln Sie Ihre Ideen in greifbare Ergebnisse mit unseren erstklassigen Hardware-Lösungen.",
+    "benefits": [
+      "Robuste und zuverlässige Werkzeuge, die für Langlebigkeit und konsistente Leistung entwickelt wurden",
+      "Innovative Lösungen, die mit den neuesten Branchenstandards und -technologien Schritt halten",
+      "Kundensupport, der sich der Begleitung Ihres Projekts vom Konzept bis zur Fertigstellung widmet"
+    ]
+  },
+  "testimonials": {
+    "title": "Was unsere Kunden sagen"
+  }
+}
