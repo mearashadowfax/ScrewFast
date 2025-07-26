@@ -3,9 +3,15 @@ import mainLogo from "@images/starlight/screwfast_logo_dark.svg?raw";
 import docsLogo from "@images/starlight/docs_logo.svg?raw";
 
 
-const main = "/";
-const locale = Astro.props.locale ? Astro.props.locale + "/" : "";
-const docs = "/" + locale + "welcome-to-docs/";
+// Try multiple approaches to get current locale
+const locale = Astro.props.lang || Astro.locals.starlightRoute?.locale || Astro.currentLocale || (() => {
+  // Fallback: extract from URL
+  const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+  return pathSegments[0] || 'en';
+})();
+
+const main = "/" + locale + "/";
+const docs = "/" + locale + "/welcome-to-docs/";
 ---
 
 <span class="site-title flex">
