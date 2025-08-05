@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/sitemap": "^3.4.1",
-    "@astrojs/starlight": "^0.34.6",
+    "@astrojs/sitemap": "^3.4.2",
+    "@astrojs/starlight": "^0.35.2",
     "@tailwindcss/vite": "^4.0.9",
-    "astro": "^5.11.1",
+    "astro": "^5.12.8",
     "astro-compressor": "^0.4.1",
     "clipboard": "^2.0.11",
     "globby": "^14.0.1",
@@ -32,6 +32,6 @@
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript": "^5.4.3"
+    "typescript": "^5.9.2"
   }
 }
