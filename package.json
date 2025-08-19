@@ -26,7 +26,7 @@
     "rimraf": "^6.0.1",
     "sharp": "^0.34.3",
     "sharp-ico": "^0.1.5",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
