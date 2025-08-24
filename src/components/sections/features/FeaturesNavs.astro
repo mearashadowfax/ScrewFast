@@ -2,7 +2,7 @@
 // Import the necessary dependencies
 import TabNav from "@components/ui/blocks/TabNav.astro";
 import TabContent from "@components/ui/blocks/TabContent.astro";
-import Icon from "@components/ui/icons/Icon.astro";
+import {Icon} from 'astro-icon/components'
 
 // Define props from Astro
 const { title, tabs } = Astro.props;
@@ -52,7 +52,7 @@ interface Props {
                 content={tab.content}
                 first={tab.first}
               >
-                <Icon name={tab.svg} />
+                <Icon name={tab.svg} size="96px"/>
               </TabNav>
             ))
           }

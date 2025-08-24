@@ -1,0 +1,41 @@
+---
+// Import PrimaryCTA component
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+
+// Destructure the props passed to the Astro component
+const { title, subtitle } = Astro.props;
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  subtitle: string;
+}
+---
+
+<section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+<div class="max-w-(--breakpoint-md) mx-auto">
+    <div class="">
+
+        <h1
+          class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+        >
+          {title}
+        </h1>
+        <p class="mb-4 text-balance text-xl text-neutral-800 dark:text-neutral-200">
+            {subtitle}
+          </p>
+    </div>
+      <div id="hs-show-hide-collapse-heading" class="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-show-hide-collapse">
+        <div class="max-w-prose text-pretty text-lg font-normal text-neutral-600 dark:text-neutral-400">
+          <slot />
+        </div>
+      </div>
+      <p class="mt-2">
+        <button type="button" class="hs-collapse-toggle inline-flex items-center gap-x-1 text-md font-semibold px-4 rounded-lg border border-transparent text-blue-600 decoration-2 hover:text-blue-700 hover:underline focus:outline-hidden focus:underline focus:text-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-600 dark:focus:text-blue-600" id="hs-show-hide-collapse" aria-expanded="false" aria-controls="hs-show-hide-collapse-heading" data-hs-collapse="#hs-show-hide-collapse-heading">
+          <span class="hs-collapse-open:hidden">Read more</span>
+          <span class="hs-collapse-open:block hidden">Read less</span>
+        </button>
+      </p>
+</div>
+</section>

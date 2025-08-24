@@ -1,7 +1,7 @@
 // An array of links for navigation bar
 const navBarLinks = [
   { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
+  { name: "About", url: "/about" },
   { name: "Services", url: "/services" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
@@ -9,30 +9,28 @@ const navBarLinks = [
 // An array of links for footer
 const footerLinks = [
   {
-    section: "Ecosystem",
+    section: "Learning Hearts",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Mission", url: "/welcome-to-docs/" },
+      { name: "Team", url: "/products" },
+      { name: "Community", url: "/services" },
+      { name: "Mindfulness", url: "/services" },
     ],
   },
   {
-    section: "Company",
+    section: "More info",
     links: [
-      { name: "About us", url: "#" },
-      { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "Contact", url: "#" },
+      { name: "Pricing", url: "/blog" },
+      { name: "Blog", url: "#" },
+      { name: "Gallery", url: "#" },
     ],
   },
 ];
 // An object of links for social icons
 const socialLinks = {
   facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
-  github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  google: "https://www.google.com/"
 };
 
 export default {
