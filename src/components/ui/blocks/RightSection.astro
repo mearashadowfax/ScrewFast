@@ -52,7 +52,7 @@ interface Props {
   <!-- Conditionally render one or two images based on 'single' property -->
   {
     single ? (
-      <div class="mt-8">
+      <div class="mt-8 ">
         <!-- Single image -->
         <Image
           class="w-full rounded-lg"
@@ -62,7 +62,7 @@ interface Props {
         />
       </div>
     ) : (
-      <div class="mt-8 grid grid-cols-2 gap-4">
+      <div class="mt-8 grid grid-cols-2 gap-4 text-lht-old">
         <!-- First image in a two-image layout -->
         <Image
           class="w-full rounded-xl"

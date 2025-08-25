@@ -2,6 +2,7 @@
 const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "About", url: "/about" },
+  { name: "Testimonials", url: "/testimonials" },
   { name: "Services", url: "/services" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
@@ -11,9 +12,9 @@ const footerLinks = [
   {
     section: "Learning Hearts",
     links: [
-      { name: "Mission", url: "/welcome-to-docs/" },
-      { name: "Team", url: "/products" },
-      { name: "Community", url: "/services" },
+      { name: "Mission", url: "/about" },
+      { name: "Methodology", url: "/about#features" },
+      { name: "Testimonials", url: "/testimonials" },
       { name: "Mindfulness", url: "/services" },
     ],
   },

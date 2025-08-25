@@ -7,11 +7,10 @@ const { title, testimonials } = Astro.props;
 
 // Define TypeScript interface for Testimonial
 interface Testimonial {
+  name: string;
+  date: string;
+  svg: string;
   content: string;
-  author: string;
-  role: string;
-  avatarSrc: string;
-  avatarAlt: string;
 }
 
 // Define TypeScript interface for props
