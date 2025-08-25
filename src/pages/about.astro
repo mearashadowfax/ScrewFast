@@ -4,7 +4,10 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
-import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import features from "@data/features.json";
+import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
+
 import Collapse from "@components/sections/misc/Collapse.astro"
 // Import necessary images
 import blueprints from "@images/blueprints-image.avif";
@@ -16,6 +19,7 @@ import usingTools from "@images/using-tools.avif";
 import progressBuilding from "@images/progress-building.avif";
 import underConstruction from "@images/under-construction.avif";
 import { SITE } from "@data/constants";
+import { Icon } from 'astro-icon/components'
 
 interface Article {
   isRightSection: boolean;
@@ -54,7 +58,7 @@ const articles: Article[] = [
     imgAlt: "In progress building structure",
     btnExists: true,
     btnTitle: "Read more",
-    btnURL: "#",
+    btnURL: "#features",
   },
   {
     isRightSection: true,
@@ -71,15 +75,12 @@ const articles: Article[] = [
     btnURL: "#",
   },
   {
-    isRightSection: true,
+    isRightSection: false,
     title: "Our promise",
     subTitle:
       "Julene believes firmly in the transfer of knowledge to all people who work with and nurture children, hence the many workshops she has conducted for both parents and teachers, to empower them to help children acquire critical reading and numeracy strategies.",
-    single: false,
-    imgOne: constructionWorkers,
-    imgOneAlt: "Construction workers orchestrating a project",
-    imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
+    img: constructionWorkers,
+    imgAlt: "Construction workers orchestrating a project",
   },
 
 ];
@@ -156,25 +157,19 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
       );
     })
   }
-
-<Collapse 
-  title="Teaching Methodology"
-  subtitle="Our approach to education utilising our custom curriculum."
+<FeaturesGeneral
+title="Teaching Methodology"
+subTitle="Our approach to education utilising our custom curriculum"
+features={features}
+id="features"
 >
-<p>
-  The Programme features and is aligned with what internationally recognised institutions and organisations (National Reading Panel, US; Department for Education, UK; National Council for Teachers of Mathematics) deem to be the 'best practices' in the teaching of foundational reading and numeracy skills for children.
-</p>
-<p>
-  This includes the use of explicit, systematic, cumulative curricula and a multi-sensory approach, in addition to the integration of all sub-areas of learning (eg. reading, writing, spelling; mathematics in real life situations). Apart from these, the programme boasts of some special features:
-</p>
-<ul class="marker:text-cyan-300 mt-4 list-disc ps-5 space-y-2 text-gray-600 dark:text-neutral-400">
-  <li>Personalised teaching, in a one-to-one ratio, to each child's individual challenges and needs, and takes into consideration the whole child</li>
-  <li>Integrates several subject areas (eg. English and Literature/Geography) and bridges to standardised exams (PSLE, 'N/O' levels, iGCSEs</li>
-  <li>Developed by an educational therapist trained in the field of Specific Learning Difficulties, with extensive experience in the field, both as teacher and teacher trainer</li>
-  <li>Takes into account the unique challenges posed by Singaporean culture, language development and school curriculum</li>
-  <li>Focuses on building strategies and fundamental concepts, for children from N2 to Sec 4, particularly those with mild to moderate learning difficulties</li>
-  <li>Extends to secondary levels for Math, Science, English, Literature, and Geography, supported by our small but dedicated, hand-picked team</li>
-</ul>
-</Collapse>
-
+<Fragment slot="desc">
+  <p>
+    The Programme features and is aligned with what internationally recognised institutions and organisations (National Reading Panel, US; Department for Education, UK; National Council for Teachers of Mathematics) deem to be the 'best practices' in the teaching of foundational reading and numeracy skills for children.
+  </p>
+  <p class="mt-4">
+    This includes the use of explicit, systematic, cumulative curricula and a multi-sensory approach, in addition to the integration of all sub-areas of learning (eg. reading, writing, spelling; mathematics in real life situations). Apart from these, the programme boasts of some special features:
+  </p>
+</Fragment>
+</FeaturesGeneral>
 </MainLayout>

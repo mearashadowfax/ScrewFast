@@ -2,7 +2,7 @@
 // Import the necessary dependencies
 import { Image } from "astro:assets";
 import IconBlock from "@components/ui/blocks/IconBlock.astro";
-import Icon from "@components/ui/icons/Icon.astro";
+import { Icon } from 'astro-icon/components'
 
 interface Feature {
   heading: string;
@@ -16,13 +16,14 @@ interface Props {
   features?: Feature[];
   src?: any;
   alt?: string;
+  id?: string;
 }
 // Define props from Astro
-const { title, subTitle, src, alt, features } = Astro.props;
+const { title, subTitle, src, alt, features, id } = Astro.props;
 ---
 
 <section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full" id={id}
 >
   <!-- Block to display the feature image -->
   <div class="relative mb-6 overflow-hidden md:mb-8">
@@ -43,23 +44,28 @@ const { title, subTitle, src, alt, features } = Astro.props;
   <!-- Displaying the main content consisting of title, subtitle, and several `IconBlock` components -->
   <div class="mt-5 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-12">
     <!-- Block for title and subtitle -->
-    <div class="lg:col-span-1">
+    <div class="lg:col-span-1 mb-4 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400">
       <!-- Rendering title -->
       <h2
-        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
+        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-5xl"
       >
         {title}
       </h2>
       <!-- Rendering subtitle -->
       {
         subTitle && (
-          <p class="mt-2 text-pretty text-neutral-600 dark:text-neutral-400 md:mt-4">
+          <p class="text-pretty text-teal-800 lg:text-2xl dark:text-neutral-400 md:mt-2">
             {subTitle}
           </p>
         )
       }
+      <div class="mt-6 text-pretty lg:text-[16px]">
+
+        <slot name="desc"/>
+      </div>
     </div>
 
+    
     <!-- Block to display the IconBlock components -->
     <div class="lg:col-span-2">
       <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
@@ -67,7 +73,8 @@ const { title, subTitle, src, alt, features } = Astro.props;
         { features &&
           features.map((feature) => (
             <IconBlock heading={feature.heading} content={feature.content}>
-              <Icon name={feature.svg} />
+
+              <Icon name={feature.svg} class="text-lht" height="46" width="120"/>
             </IconBlock>
           ))
         }
