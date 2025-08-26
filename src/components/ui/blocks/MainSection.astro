@@ -3,7 +3,7 @@
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
 // Destructure the props passed to the Astro component
-const { title, subTitle, btnExists, btnTitle, btnURL } = Astro.props;
+const { title, subTitle, btnExists, btnTitle, btnURL, center, padding} = Astro.props;
 // Define TypeScript interface for props
 interface Props {
   title: string;
@@ -11,14 +11,31 @@ interface Props {
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
+  center?: boolean;
+  padding?: boolean;
+}
+
+let sectionClassList = "mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 2xl:max-w-full"
+let titleClassList = "max-w-(--breakpoint-md)"
+
+if (center) {
+  sectionClassList += ' text-center'
+  titleClassList += " mx-auto"
+  console.log(sectionClassList)
+} 
+
+if (padding) {
+  sectionClassList += " py-10 sm:py-16 lg:py-14"
+} else {
+  sectionClassList += " pt-10 sm:pt-16 lg:pt-14"
 }
 ---
 
 <!-- Root section of the component -->
 <section
-  class="mx-auto mt-10 max-w-[85rem] px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-14 2xl:max-w-full"
+  class={sectionClassList}
 >
-  <div class="max-w-(--breakpoint-md)">
+  <div class={titleClassList}>
     <!-- Section title -->
     <h1
       class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
@@ -29,7 +46,7 @@ interface Props {
     <p
       class="mb-8 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400 sm:text-xl"
     >
-      {subTitle}
+      <Fragment set:html={subTitle} />
     </p>
     <!-- Conditional rendering of PrimaryCTA component if 'btnExists' property is truthy -->
     {
@@ -40,4 +57,5 @@ interface Props {
       ) : null
     }
   </div>
+  <slot />
 </section>

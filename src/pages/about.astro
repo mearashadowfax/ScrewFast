@@ -5,12 +5,15 @@ import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import User from "@components/sections/features/UserProfile.astro";
 import features from "@data/features.json";
 import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
-
 import Collapse from "@components/sections/misc/Collapse.astro"
 // Import necessary images
 import blueprints from "@images/blueprints-image.avif";
+import julene from "@images/mum.jpg";
+import ellen from "@images/about1.jpg";
+
 import personWorking from "@images/person-working.avif";
 import beforeAfter from "@images/before-after.avif";
 import constructionWorkers from "@images/construction-workers.avif";
@@ -48,6 +51,9 @@ const articles: Article[] = [
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
     imgTwo: personWorking,
     imgTwoAlt: "Person working in the office",
+    btnExists: true,
+    btnTitle: "Team",
+    btnURL: "#team",
   },
   {
     isRightSection: false,
@@ -117,7 +123,7 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
   <MainSection
     title="Education Tailored To Your Child."
     subTitle="The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development."
-    btnExists={true}
+    btnExists={false}
     btnTitle="Schedule a Consultation"
     btnURL="#"
   />
@@ -172,5 +178,63 @@ id="features"
   </p>
 </Fragment>
 </FeaturesGeneral>
+
+
+<TwoColumn
+title="The team."
+subTitle="Our team has dedicated many years in the pursuit of great education. They weren't however picked just for their qualifications, but more importantly for their innate ability to inspire, and passion for imparting a love for learning in their students, versus simply scoring in exams."
+id="team"
+>
+<Fragment slot="colLeft">
+  <User
+  title="Julene Tan"
+  subTitle="Principal therapist"
+  src={julene}
+  alt="Julene"
+>
+<p>
+  For over 10 years, Julene was the in-house reading specialist consultant at CHIJ Kellock where she taught P1 and P2 students and trained the teachers. Prior to these engagements, Julene was a part-time reading therapist with an established dyslexia remediation centre in Camden Medical Centre.
+</p>
+<p class="mt-4">
+  Certifications:
+</p>
+<ul class="my-4 px-4 pl-8 leading-7">
+  <li class="border-b-1 border-b-gray-200 py-4">Bachelor's degree from the National University of Singapore (Majoring in Linguistics/Geography)</li> 
+  <li class="border-b-1 border-b-gray-200 py-4">Masters in Counselling from Monash University</li>
+  <li class="border-b-1 border-b-gray-200 py-4">Masters in Education (Special Education) from Flinders University, Adelaide</li>
+  <li class="border-b-1 border-b-gray-200 py-4">Diploma(distinction) in Early Childhood Education from the Montessori Centre International London</li>
+  <li class="border-b-1 border-b-gray-200 py-4">Post-graduate specialist diploma in Specific Learning Difficulties (Dyslexia) from the renowned Hornsby International Dyslexia Centre in London</li> 
+  <li class="border-b-1 border-b-gray-200 py-4">British Psychological Society, Certified Test User</li> 
+  <li class="border-b-1 border-b-gray-200 py-4">Certified teacher for the Mymind programme, trained at Centrum Voor Mindfuless, Amsterdam</li>
+  <li class="border-b-1 border-b-gray-200 py-4">Oxford Mindfulness Centre Mindfulness-based cognitive Therapy teacher trained</li>
+</ul>
+</User>
+
+</Fragment>
+<Fragment slot="colRight">
+  <User
+  title="Ellen Ong"
+  subTitle="Therapist"
+  src={ellen}
+  alt="ellen"
+>
+<p>
+  Ellen started as an in-house legal counsel in Jakarta, Indonesia before moving to Singapore where she practised mainly as a compliance officer in various banks, stock broking firms and fund management companies.     
+</p>
+<p class="mb-4">
+  Ellen met Julene at a workshop empowering parents to teach children reading and wanted to learn more about teaching her own child. Julene invited Ellen to observe her teaching at CHIJ Kellock and shortly after that, Ellen decided to give up her career and enter education.
+</p>
+<p class="mb-4">
+  Ellen spent the first year observing Julene, shadowing her teaching. In 2010 when the reading hearts programme was taken up by Shu Qun primary for all P1 and P2 pupils, Ellen joined the team to deliver it. Following that, Ellen took a sabbatical to have and take care of her second child and rejoined Julene in 2014 just before they started teaching the programme at Queenstown primary school. In 2015, they both decided to concentrate their energies on the children struggling with reading disabilities, stopping the school-based programme to focus entirely on educational therapy work. Ellen has been teaching with Julene ever since.
+</p>
+<p class="my-12 mt-10 text-gray-600 d-block mx-auto w-11/12 blockquote">
+  "There is so much fulfillment in helping children with learning difficulties read fluently and spell accurately. It is a satisfying accomplishment when a child overcomes his or her learning difficulty and is more confident in reading and spelling and especially in themselves."
+</p>
+<p class="mb-4">
+  Ellen has found deep purpose in contributing to the well being of the children she teaches, and continues to invest in professional training and development to better help and support them.
+</p>
+</User>
+</Fragment>
+</TwoColumn>
 
 </MainLayout>

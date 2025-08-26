@@ -1,0 +1,48 @@
+---
+// Import the necessary dependencies
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components'
+
+
+interface Props {
+  title?: string;
+  subTitle?: string;
+  src?: any;
+  alt?: string;
+}
+// Define props from Astro
+const { title, subTitle, src, alt } = Astro.props;
+---
+
+<section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+
+  <div class="flex items-center gap-x-3">
+    <div class="shrink-0">
+      <Image
+          class="h-16 w-16 rounded-full"
+          src={src}
+          alt={alt}
+          loading={"eager"}
+          inferSize
+        />  
+    </div>
+  
+    <div class="grow max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400">
+      <h1 class="text-balance text-lg font-medium text-neutral-800 dark:text-neutral-200">
+        {title}
+      </h1>
+      <p class="text-sm text-gray-600 dark:text-neutral-400">
+        {subTitle}
+      </p>
+    </div>
+  </div>
+  <!-- End Profile -->
+  
+  <!-- About -->
+  <div class="mt-8 text-md text-pretty text-gray-800 dark:text-neutral-400">
+    <slot />
+  </div>
+  <!-- End About -->
+</section>
