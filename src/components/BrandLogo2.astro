@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../images/logo_new.png';
+import logo2 from '../images/logo_text.png';
+
+const { class: className, size, type } = Astro.props;
+---
+
+<Image 
+  src={type == 'text'? logo2:logo} 
+  alt="Brand logo." 
+  height="200"
+  width="1000"
+  class={className}
+/>

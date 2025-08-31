@@ -21,7 +21,6 @@ type Testimonial = {
   content: string;
   author: string;
   role: string;
-  avatarSrc: string;
 };
 
 // TypeScript type for stats.
@@ -56,7 +55,7 @@ type StatProps = {
       <!-- Generate a blockquote for each testimonial in the testimonials array by mapping over the array. -->
       { testimonials &&
         testimonials.map((testimonial) => (
-        <TestimonialItem content={testimonial.content} author={testimonial.author} role={testimonial.role} avatarSrc={testimonial.avatarSrc} />
+        <TestimonialItem content={testimonial.content} author={testimonial.author} role={testimonial.role}/>
         ))
       }
     </div>

@@ -1,0 +1,189 @@
+---
+// Import necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
+import Details from "@/components/sections/features/Details.astro";
+import User from "@components/sections/features/UserProfile.astro";
+import features from "@data/features.json";
+import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
+import Collapse from "@components/sections/misc/Collapse.astro"
+import pricing from "@data/pricing.json";
+import { capitalize, formatDate } from "@utils/utils";
+// Import necessary images
+import blueprints from "@images/blueprints-image.avif";
+import julene from "@images/mum.jpg";
+import ellen from "@images/about1.jpg";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import community from "@images/community-2.jpg";
+import community2 from "@images/community-1.jpg";
+import community3 from "@images/community-4.jpeg";
+import community4 from "@images/community-3.jpeg";
+import community5 from "@images/community-4.png";
+import beforeAfter from "@images/before-after.avif";
+import constructionWorkers from "@images/construction-workers.avif";
+import aerialView from "@images/aerial-view.avif";
+import usingTools from "@images/using-tools.avif";
+import progressBuilding from "@images/progress-building.avif";
+import underConstruction from "@images/under-construction.avif";
+import { SITE } from "@data/constants";
+import { Icon } from 'astro-icon/components'
+
+interface Article {
+  isRightSection: boolean;
+  title: string;
+  subTitle: string;
+  btnExists?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  single?: boolean;
+  img?: any;
+  imgAlt?: string;
+  imgOne?: any;
+  imgOneAlt?: string;
+  imgTwo?: any;
+  imgTwoAlt?: string;
+}
+
+const testimonials = await getCollection('testimonials', ({data}) => {
+  return data.type === "mindfulness"
+});
+const middle = Math.floor(testimonials.length/2)
+const testimonials1 = testimonials.slice(0, middle)
+const testimonials2 = testimonials.slice(middle, testimonials.length)
+
+const pageTitle: string = `Mindfulness | ${SITE.title}`;
+const metaDescription =
+  "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.";
+const ogTitle = "Expert Consultation Services | ScrewFast";
+
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/services",
+    url: "https://screwfast.uk/services",
+    name: "Expert Consultation Services | ScrewFast",
+    description:
+      "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://screwfast.uk",
+      name: "ScrewFast",
+      description:
+        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+    },
+    inLanguage: "en-US",
+  }}
+>
+  <MainSection
+    title="Mindfulness at Learning Hearts"
+    subTitle="Stress is an inescapable part of modern-day life. We all spend a good proportion of our time (often sub-consciously) caught in the past or worrying about the future. These habits of mind can overwhelm, rob us of restful sleep, keep us on edge and cause us to make rash decisions – fueling further stress."
+    btnExists={false}
+    btnTitle="Schedule a Consultation"
+    btnURL="#"
+  />
+
+  <FeaturesStatsAlt
+  title="About Mindfulness"
+  subTitle="Robust research has shown MBCT (Oxford Mindfulness Center) to be an effective, drug-free programme (combining Mindfulness with Cognitive-based Therapy) that is intended to address much of the above. MBCT is an in-depth course that helps participants cultivate new skills and learn strategies and techniques for relating to stressors, engendering lasting and sustainable change and benefits such as:"
+  benefits={[
+    "Decreased impulsivity and reactivity",
+    "Greater clarity of mind and insight",
+    "Wiser response and decision making",
+    "Increased sense of calm and well-being",
+    "Improved relationship with self and others",
+  ]}
+/>
+
+<MainSection
+title="Testimonials"
+subTitle="Hear from some of our course attendees"
+btnExists={false}
+center={true}
+btnTitle="Schedule a Consultation"
+btnURL="#"
+padding={false}
+/>
+<section
+class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
+>
+<div class="grid grid-cols-2 gap-12">
+<div class="col-span-1">
+  {
+    testimonials1.map(async t => {
+     const { Content } = await render(t)
+     return (
+     <TestimonialGeneral
+      name={t.data.name}
+      date={formatDate(t.data.date)}
+      svg={t.data.svg}
+     >
+        <Content />
+     </TestimonialGeneral>
+      
+     )
+    }
+   )}
+</div>
+<div class="col-span-1">
+  {
+    testimonials2.map(async t => {
+     const { Content } = await render(t)
+     return (
+     <TestimonialGeneral
+      name={t.data.name}
+      date={formatDate(t.data.date)}
+      svg={t.data.svg}
+     >
+        <Content />
+     </TestimonialGeneral>
+      
+     )
+    }
+   )}
+</div>
+</div>
+</section>
+
+<Details
+title="By the Numbers"
+subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+mainStatTitle="96%"
+mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+stats={[
+  {
+    stat: "Who:",
+    description: `
+    Adults and Youth (18 years and above), (N.B. pre-course interview and registration process will be undertaken to better understand your needs and to determine if this course will be beneficial for you)
+    `,
+  },
+  {
+    stat: "Duration:",
+    description: "8 sessions (2 hrs 15 min each) and 1 half-day retreat (10am – 4pm)",
+  },
+  {
+    stat: "Timing:",
+    description: "Please e-mail us to find out when the next course begins",
+  },
+  {
+    stat: "Venue:",
+    description: "One-North Residences, TBC",
+  },
+  {
+    stat: "Fees:",
+    description: "Registration: $50 | Course: $600 (payable in full only upon enrollment)",
+  },
+]}
+/>
+</MainLayout>

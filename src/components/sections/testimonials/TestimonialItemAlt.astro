@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import {Icon} from 'astro-icon/components'
+const { name, date, svg } = Astro.props;
+
+interface Props {
+  name: string;
+  date: string;
+  svg: string;
+}
+---
+
+
+<div class="flex h-auto">
+  <div class="flex pt-8 flex-col border-1 border-cyan-700/30 text-pretty relative bg-white rounded-lg mt-12 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200">
+    
+
+    <div class="p-4 bg-gray-100 shadow-sm shadow-lht-old rounded-full w-fit absolute -top-8 m-auto left-0 right-0 mx-auto md:px-7 dark:bg-neutral-800">
+      <div class="flex items-center gap-x-3">
+        <div class="shrink-0">
+          <Icon name={svg} width="30" height="40" class="text-cyan-600"/>
+        </div>
+
+        <div class="grow">
+          <p class="text-sm sm:text-base font-semibold text-gray-800 dark:text-neutral-200">
+            {name}
+          </p>
+          <p class="text-xs text-gray-500 dark:text-neutral-400">
+            {date}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-auto md:p-6 space-y-4">
+      <slot />
+    </div>
+  </div>
+</div>

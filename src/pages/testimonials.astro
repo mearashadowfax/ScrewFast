@@ -1,0 +1,119 @@
+---
+// Import necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro"; 
+import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
+import features from "@data/features.json";
+import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
+import Collapse from "@components/sections/misc/Collapse.astro"
+import { capitalize, formatDate } from "@utils/utils";
+// Import necessary images
+import blueprints from "@images/blueprints-image.avif";
+import personWorking from "@images/person-working.avif";
+import beforeAfter from "@images/before-after.avif";
+import quotes from "@images/quotes.svg";
+import quotes_rev from "@images/quotes-rev.svg";
+import constructionWorkers from "@images/construction-workers.avif";
+import aerialView from "@images/aerial-view.avif";
+import usingTools from "@images/using-tools.avif";
+import progressBuilding from "@images/progress-building.avif";
+import underConstruction from "@images/under-construction.avif";
+import { SITE } from "@data/constants";
+import { Icon } from 'astro-icon/components'
+
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const testimonials = await getCollection('testimonials', ({data}) => {
+  return data.type !== "mindfulness"
+});
+const middle = Math.floor(testimonials.length/2)
+const testimonials1 = testimonials.slice(0, middle)
+const testimonials2 = testimonials.slice(middle, testimonials.length)
+
+const pageTitle: string = `About Us | ${SITE.title}`;
+const metaDescription =
+  "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.";
+const ogTitle = "Expert Consultation Services | ScrewFast";
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/services",
+    url: "https://screwfast.uk/services",
+    name: "Expert Consultation Services | ScrewFast",
+    description:
+      "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://screwfast.uk",
+      name: "ScrewFast",
+      description:
+        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+    },
+    inLanguage: "en-US",
+  }}
+>
+  {/* MainSection is the introductory section of the page, it also contains a CTA button */}
+
+<RightSection
+  title="Testimonials and words of approbation"
+  subTitle="The programme at Learning Hearts Therapy has been running for many years. Hear from some of our students and their parents on their experiences."
+  imgOne={quotes}
+  imgTwo={quotes_rev}
+  single={false}
+  imgOneAlt="srtrast"
+  imgTwoAlt="srtrast"
+  />
+
+  <section
+  class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
+>
+<div class="grid grid-cols-2 gap-12">
+  <div class="col-span-1">
+    {
+      testimonials1.map(async t => {
+       const { Content } = await render(t)
+       return (
+       <TestimonialGeneral
+        name={t.data.name}
+        date={formatDate(t.data.date)}
+        svg={t.data.svg}
+       >
+          <Content />
+       </TestimonialGeneral>
+        
+       )
+      }
+     )}
+  </div>
+  <div class="col-span-1">
+    {
+      testimonials2.map(async t => {
+       const { Content } = await render(t)
+       return (
+       <TestimonialGeneral
+        name={t.data.name}
+        date={formatDate(t.data.date)}
+        svg={t.data.svg}
+       >
+          <Content />
+       </TestimonialGeneral>
+        
+       )
+      }
+     )}
+  </div>
+</div>
+</section>
+
+
+</MainLayout>
