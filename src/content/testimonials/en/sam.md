@@ -2,6 +2,7 @@
 name: "Samantha Koh"
 date: 2023-07-01
 svg: "mingcute:mortarboard-line"
+type: "therapy"
 ---
 
 I am grateful to auntie Julene who had journeyed with me since 4 years ago when I started my secondary education after i had been diagnosed with dyslexia. 

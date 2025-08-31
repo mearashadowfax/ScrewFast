@@ -2,6 +2,7 @@
 name: "Gabe Lim"
 date: 2023-12-01
 svg: "mingcute:mortarboard-line"
+type: "therapy"
 ---
 I agreed to go for the introductory sessions on English Literature and I learned so much, thanks to Aunty Julene. I also made a few new friends.
 

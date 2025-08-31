@@ -2,6 +2,7 @@
 name: "Aized"
 date: 2023-05-01
 svg: "mingcute:seal-line"
+type: "therapy"
 ---
 The name Learning Hearts is apt as the people who make this learning centre happen, operate from their hearts. I first met Julene, who my son affectionately calls Aunty Ju, in early 2018. She was recommended by my son's educational psychologist. I am grateful that she put me in contact with Julene. From the first phone call, I knew that she had my child's interest at heart...  
 

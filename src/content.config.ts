@@ -85,6 +85,7 @@ const testimonialsCollection = defineCollection({
   date: z.date(),
   // contents: z.array(z.string()),
   svg: z.string(),
+  type: z.string().optional(),
   }),
 });
 

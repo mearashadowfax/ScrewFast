@@ -2,6 +2,7 @@
 name: "Angelina"
 date: 2023-05-01
 svg: "mingcute:seal-line"
+type: "therapy"
 ---
 I met Julene the month before my oldest daughter started mainstream primary school. My daughter was one of those singled out to attend English reading lessons prior to the start of school. She wasn't able to read fluently then and I knew this would be an issue. 
 

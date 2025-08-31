@@ -1,5 +1,5 @@
 ---
-import Icon from "@components/ui/icons/Icon.astro";
+import { Icon } from 'astro-icon/components'
 // Destructure the properties from Astro.props
 const { title, url, noArrow } = Astro.props;
 // Define TypeScript interface for the properties
@@ -27,5 +27,5 @@ const ringClasses = "dark:ring-zinc-200";
   {title}
   <!-- Display the arrow based on the 'noArrow' property -->
 
-  {noArrow ? null : <Icon name="arrowRight" />}
+  {noArrow ? null : <Icon name="mingcute:right-fill" />}
 </a>

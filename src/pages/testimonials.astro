@@ -27,7 +27,9 @@ import { Icon } from 'astro-icon/components'
 import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
-const testimonials = await getCollection('testimonials');
+const testimonials = await getCollection('testimonials', ({data}) => {
+  return data.type !== "mindfulness"
+});
 const middle = Math.floor(testimonials.length/2)
 const testimonials1 = testimonials.slice(0, middle)
 const testimonials2 = testimonials.slice(middle, testimonials.length)

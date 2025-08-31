@@ -2,6 +2,7 @@
 name: "C. Lim"
 date: 2024-07-25
 svg: "mingcute:seal-line"
+type: "therapy"
 ---
 
 Julene and Learning Hearts have been able to coax from my daughter mathematical skills she never knew she possessed. As a Math graduate myself, I was enthralled when I found that my daughter now has confidence in her mental arithmetic and isn't cowed by difficult word problems.  

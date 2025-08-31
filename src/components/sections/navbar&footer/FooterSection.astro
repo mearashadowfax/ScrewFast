@@ -4,9 +4,10 @@ import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
 import enStrings from "@utils/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
-import Icon from "@components/ui/icons/Icon.astro";
+
 import BrandLogo2 from "@components/BrandLogo2.astro";
 import { SITE } from "@data/constants";
+import { Icon } from 'astro-icon/components'
 
 // Select the correct translation based on the page's lang prop:
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
@@ -74,11 +75,11 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Websit
       <!-- Social Brands -->
       <div>
         <FooterSocialLink url={strings.socialLinks.facebook}
-          ><Icon name="facebookFooter" />
+          ><Icon name="mingcute:airplane-fill" />
         </FooterSocialLink>
 
         <FooterSocialLink url={strings.socialLinks.google}
-          ><Icon name="googleFooter" />
+          ><Icon name="mingcute:airplane-fill" />
         </FooterSocialLink>
       </div>
     </div>

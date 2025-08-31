@@ -2,6 +2,7 @@
 name: "Diana Ho"
 date: 2023-01-01
 svg: "mingcute:seal-line"
+type: "therapy"
 ---
 True to their belief, Julene and her team of therapists had supported Sam's growth both academically and emotionally. Sam grew to be a confident student, mindfully aware of her learning needs and became a motivated learner. 
 
