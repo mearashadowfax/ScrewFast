@@ -1,7 +1,7 @@
 ---
 // Import SecondaryCTA component for use in this module
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
-
+import { Icon } from "astro-icon/components";
 
 // Define props from Astro
 const { pricing } = Astro.props;
@@ -168,7 +168,7 @@ interface PricingSectionProps {
         {
           pricing.professionalToolbox.features.map((feature: string) => (
             <li class="flex items-center gap-1.5">
-              <Icon name="checkCircle" />
+              <Icon name="mingcute:right-fill" />
 
               <span>{feature}</span>
             </li>

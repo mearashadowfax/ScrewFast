@@ -11,7 +11,7 @@ interface Props {
   alt?: string;
 }
 // Define props from Astro
-const { title, subTitle, src, alt } = Astro.props;
+const { title, subTitle, src, alt = 'image' } = Astro.props;
 ---
 
 <section
