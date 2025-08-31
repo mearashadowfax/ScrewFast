@@ -2,8 +2,9 @@
 // Import the necessary modules
 import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import mainpicture from "@images/about1.jpg"
 // Destructure the props passed to the Astro component
-const { title, subTitle, btnExists, btnTitle, btnURL, img, imgAlt } =
+const { title, subTitle, btnExists, btnTitle, btnURL, img = mainpicture, imgAlt = 'image alt' } =
   Astro.props;
 // Define TypeScript interface for props
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
-  img?: string;
+  img?: any;
   imgAlt?: string;
 }
 ---
