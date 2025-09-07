@@ -62,10 +62,10 @@ interface Props {
         />
       </div>
     ) : (
-      <div class="mt-8 grid grid-cols-2 gap-4 text-lht-old">
+      <div class="mt-8 grid grid-cols-2 gap-0 lg:gap-6 justify-items-center fill-current">
         <!-- First image in a two-image layout -->
         <Image
-          class="w-full rounded-xl"
+          class="w-30 lg:w-full rounded-xl "
           src={imgOne}
           alt={imgOneAlt}
           draggable={"false"}
@@ -73,7 +73,7 @@ interface Props {
         />
         <!-- Second image in a two-image layout -->
         <Image
-          class="mt-4 w-full rounded-xl lg:mt-10"
+          class="mt-8 w-30 lg:w-full rounded-xl lg:mt-10 "
           src={imgTwo}
           alt={imgTwoAlt}
           draggable={"false"}

@@ -1,12 +1,9 @@
 ---
-name: "Angelina"
+name: "Aized"
 date: 2023-05-01
 svg: "mingcute:seal-line"
 type: "therapy"
 ---
-I met Julene the month before my oldest daughter started mainstream primary school. My daughter was one of those singled out to attend English reading lessons prior to the start of school. She wasn't able to read fluently then and I knew this would be an issue. 
+The name Learning Hearts is apt as the people who make this learning centre happen, operate from their hearts. I first met Julene, who my son affectionately calls Aunty Ju, in early 2018. She was recommended by my son's educational psychologist. I am grateful that she put me in contact with Julene. From the first phone call, I knew that she had my child's interest at heart...  
 
-I then engaged Julene to teach both my oldest and younger daughters on a private basis. Ju had a knack of knowing what the girls needed. When it was time to call in the educational psychologist despite extensive therapy, she helped facilitate the process. She was with us during the most difficult times, through the diagnostic process, even in assuring me that all will be well even with both girls being diagnosed with learning disabilities. Whenever each of them needed extra help or attention, Ju would not hesitate to highlight this to me and would give them the extra help they needed. Especially in their final years leading up to their national exams, the girls would both fight to get a slot with Ju. Who does that? But it's kudos to the love and acceptance that Ju has instilled in the girls. They have such confidence in themselves that no one would know that they have any learning disability.  
-
-I'm just grateful to God for putting Ju in our path. She's not just their therapist, she's become their friend and confidante. Truly hard to find a gem like her, and though not the ultimate goal, both girls did extremely well in their Ns and O's - A1 for English and Lit (almost unheard of for a dyslexic child!), single-digit aggregate as well as direct Poly admission.
-
+We started with Julene for learning therapy at first. My son was identified with profound dyslexia and he has a lot of anxiety, especially separation anxiety. My son then moved on to be guided by Ellen, and together they put my son at ease. So much so that he looks forward to learning therapy weekly! Fast forward, and my son has improved by leaps and bounds. We will always be in touch with Julene and Ellen, even after Dean graduates from Learning Hearts, as Julene and Ellen are now our confidants. Thank you! Love Aized & Dean   
