@@ -110,7 +110,7 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
 title="Testimonials"
 subTitle="Hear from some of our course attendees"
 btnExists={false}
-center={true}
+center={false}
 btnTitle="Schedule a Consultation"
 btnURL="#"
 padding={false}
@@ -118,16 +118,17 @@ padding={false}
 <section
 class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
 >
-<div class="grid grid-cols-2 gap-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12">
 <div class="col-span-1">
   {
-    testimonials1.map(async t => {
+    testimonials1.map(async (t, i) => {
      const { Content } = await render(t)
      return (
      <TestimonialGeneral
       name={t.data.name}
       date={formatDate(t.data.date)}
       svg={t.data.svg}
+      index={i + 1}
      >
         <Content />
      </TestimonialGeneral>
@@ -138,13 +139,14 @@ class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2x
 </div>
 <div class="col-span-1">
   {
-    testimonials2.map(async t => {
+    testimonials2.map(async (t,i) => {
      const { Content } = await render(t)
      return (
      <TestimonialGeneral
       name={t.data.name}
       date={formatDate(t.data.date)}
       svg={t.data.svg}
+      index={i + middle + 1}
      >
         <Content />
      </TestimonialGeneral>
@@ -157,8 +159,8 @@ class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2x
 </section>
 
 <Details
-title="By the Numbers"
-subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+title="Details"
+subTitle="About our mindfulness course"
 mainStatTitle="96%"
 mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
 stats={[

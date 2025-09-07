@@ -80,13 +80,14 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12">
   <div class="col-span-1">
     {
-      testimonials1.map(async t => {
+      testimonials1.map(async (t, i) => {
        const { Content } = await render(t)
        return (
        <TestimonialGeneral
         name={t.data.name}
         date={formatDate(t.data.date)}
         svg={t.data.svg}
+        index={i + 1}
        >
           <Content />
        </TestimonialGeneral>
@@ -97,13 +98,14 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
   </div>
   <div class="col-span-1">
     {
-      testimonials2.map(async t => {
+      testimonials2.map(async (t, i) => {
        const { Content } = await render(t)
        return (
        <TestimonialGeneral
         name={t.data.name}
         date={formatDate(t.data.date)}
         svg={t.data.svg}
+        index={i + middle + 1}
        >
           <Content />
        </TestimonialGeneral>

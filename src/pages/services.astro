@@ -6,6 +6,7 @@ import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import Details from "@/components/sections/features/Details.astro";
 import User from "@components/sections/features/UserProfile.astro";
 import features from "@data/features.json";
 import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
@@ -70,9 +71,9 @@ const articles: Article[] = [
   },
   {
     isRightSection: true,
-    title: "Pre-Secondary Literature Introductary programme",
+    title: "Pre-Secondary programme",
     subTitle:
-      "International best practice approach, with explicit phonological training and a structured, cumulative, and multi sensory experience.",
+      "Our Pre-secondary Literature Introductary Programme adopts the international best practice approach, with explicit phonological training and a structured, cumulative, and multi sensory experience.",
     single: false,
     imgOne: community2,
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
@@ -115,7 +116,7 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
     subTitle="Our usual procedure is for the parent to first book a consultation with our principal therapist. Following that, if we determine we can be of help, a thorough assessment is conducted to help us develop a learning profile and therapy plan, customised to your child."
     btnExists={true}
     btnTitle="Schedule a Consultation"
-    btnURL="#"
+    btnURL="/contact"
   />
 
 <PricingSection 
@@ -123,9 +124,9 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
 />
 <MainSection
 title="Outreach Programme"
-subTitle="The community outreach programme run, free-of-charge, <br> at the Church of St Mary's of the Angels (SMOTA)"
+subTitle=`The community outreach programme run, free-of-charge, <br class="hidden lg:block"> at the Church of St Mary's of the Angels (SMOTA)`
 btnExists={false}
-center={true}
+center={false}
 btnTitle="Schedule a Consultation"
 btnURL="#"
 padding={false}
@@ -159,66 +160,28 @@ padding={false}
   })
 }
 
-<div class="pl-32">
+<Details
+title="Details"
+subTitle="If you’re interested to volunteer with Reading Angels, or know any family or child who may benefit from this programme, kindly contact us."
+mainStatTitle="96%"
+mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+stats={[
+  
+  {
+    stat: "Timing:",
+    description: " 1.5hr per session, block of 10 sessions",
+  },
+  {
+    stat: "Venue:",
+    description: "Smota class room/Home-based",
+  },
+  {
+    stat: "Fees:",
+    description: "Materials provided & One time registration fee $50",
+  },
+]}
+/>
 
-  <MainSection
-  title="Details"
-  subTitle="If you’re interested to volunteer with Reading Angels, or know any family or child who may benefit from this programme, kindly contact us."
-  btnExists={false}
-  center={false}
-  btnTitle="Schedule a Consultation"
-  btnURL="#"
-  padding={true}
-  >
-  <!-- List -->
-  <div class="space-y-3 max-w-(--breakpoint-md)">
-  
-    <dl class="flex flex-col sm:flex-row gap-1">
-      <dt class="min-w-40">
-        <span class="block text-sm text-gray-500 dark:text-neutral-500">Venue:</span>
-      </dt>
-      <dd>
-        <ul>
-          <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 dark:text-neutral-200">
-            Smota class room
-          </li>
-          <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 dark:text-neutral-200">
-            Home-based
-          </li>
-        </ul>
-      </dd>
-    </dl>
-  
-  
-    <dl class="flex flex-col sm:flex-row gap-1">
-      <dt class="min-w-40">
-        <span class="block text-sm text-gray-500 dark:text-neutral-500">Cost:</span>
-      </dt>
-      <dd>
-        <ul>
-          <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 dark:text-neutral-200">
-            Materials provided & One time registration fee $50
-          </li>
-          
-        </ul>
-      </dd>
-    </dl>
-    <dl class="flex flex-col sm:flex-row gap-1">
-      <dt class="min-w-40">
-        <span class="block text-sm text-gray-500 dark:text-neutral-500">Timing:</span>
-      </dt>
-      <dd>
-        <ul>
-          <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 dark:text-neutral-200">
-            1.5hr per session, block of 10 sessions
-          </li>
-          
-        </ul>
-      </dd>
-    </dl>
-  </div>
-  </MainSection>
-</div>
 <!-- End List -->
 
 </MainLayout>

@@ -4,6 +4,7 @@ const navBarLinks = [
   { name: "About", url: "/about" },
   { name: "Testimonials", url: "/testimonials" },
   { name: "Services", url: "/services" },
+  { name: "Mindfulness", url: "/mindfulness" },
   // { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
