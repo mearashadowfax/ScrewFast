@@ -15,14 +15,14 @@
     "svg": "mingcute:document-2-fill"
   },
   {
-    "heading": "Singapore Specific",
-    "content": "Takes into account the unique challenges posed by Singaporean culture, language development and school curriculum.",
-    "svg": "mingcute:earth-2-fill"
-  },
-  {
     "heading": "Targeted help",
     "content": "Focuses on building strategies and fundamental concepts, for children from N2 to Sec 4, particularly those with mild to moderate learning difficulties.",
     "svg": "mingcute:emoji-fill"
+  },
+  {
+    "heading": "Singapore Specific",
+    "content": "Takes into account the unique challenges posed by Singaporean culture, language development and school curriculum.",
+    "svg": "mingcute:map-pin-fill"
   },
   {
     "heading": "Proprietary solutions",

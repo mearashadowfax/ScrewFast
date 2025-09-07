@@ -10,12 +10,12 @@ const navBarLinks = [
 // An array of links for footer
 const footerLinks = [
   {
-    section: "Learning Hearts",
+    section: "Company",
     links: [
       { name: "Mission", url: "/about" },
       { name: "Methodology", url: "/about#features" },
       { name: "Testimonials", url: "/testimonials" },
-      { name: "Mindfulness", url: "/services" },
+      { name: "Mindfulness", url: "/mindfulness" },
     ],
   },
   {

@@ -47,14 +47,14 @@ const { title, subTitle, src, alt, features, id } = Astro.props;
     <div class="lg:col-span-1 mb-4 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400">
       <!-- Rendering title -->
       <h2
-        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-5xl"
+        class="text-balance text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-5xl"
       >
         {title}
       </h2>
       <!-- Rendering subtitle -->
       {
         subTitle && (
-          <p class="text-pretty text-cyan-800 lg:text-2xl dark:text-neutral-400 md:mt-2">
+          <p class="text-pretty text-neutral-500 lg:text-2xl dark:text-neutral-400 md:mt-2">
             {subTitle}
           </p>
         )
@@ -74,7 +74,7 @@ const { title, subTitle, src, alt, features, id } = Astro.props;
           features.map((feature) => (
             <IconBlock heading={feature.heading} content={feature.content}>
 
-              <Icon name={feature.svg} class="text-lht" height="46" width="120"/>
+              <Icon name={feature.svg} class="text-lht mt-1 size-8 shrink-0"/>
             </IconBlock>
           ))
         }
