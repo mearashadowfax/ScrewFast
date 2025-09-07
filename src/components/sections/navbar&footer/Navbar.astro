@@ -5,8 +5,7 @@ import NavLink from "@components/ui/links/NavLink.astro";
 import Authentication from "../misc/Authentication.astro";
 import enStrings from "@utils/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
-import BrandLogo from "@components/BrandLogo.astro";
-import BrandLogo2 from "@components/BrandLogo2.astro";
+import BrandLogo from "@components/BrandLogo2.astro";
 import LanguagePicker from "@components/ui/LanguagePicker.astro";
 
 // Select the correct translation based on the page's lang prop:
@@ -20,7 +19,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
 >
   <!-- Navigation container -->
   <nav
-    class="relative mx-2 h-[60px] lg:max-w-7xl w-full rounded-[36px] border border-teal-150/40 bg-teal-50/60 px-4 py-3 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-22 xl:mx-auto"
+    class="relative mx-2 w-full rounded-[36px] border border-teal-200/40 bg-cyan-50/70 px-4 py-3 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
     aria-label="Global"
   >
     <div class="flex items-center justify-between">
@@ -30,7 +29,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
         href={homeUrl}
         aria-label="Brand"
       >
-        <BrandLogo2 class="h-[40px] w-auto" type="text"/>
+        <BrandLogo class="h-auto w-20" />
       </a>
       <!-- Collapse toggle for smaller screens -->
       <div class="ml-auto mr-5 md:hidden">
@@ -91,6 +90,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
           <NavLink url={link.url} name={link.name} />
         ))}
 
+        
         <LanguagePicker />
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">
