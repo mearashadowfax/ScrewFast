@@ -20,10 +20,17 @@ const footerLinks = [
     ],
   },
   {
+    section: "Services",
+    links: [
+      { name: "Mindfulness", url: "#" },
+      { name: "Lit/Geog workshop", url: "/blog" },
+    ],
+  },
+  {
     section: "More info",
     links: [
-      { name: "Contact", url: "#" },
-      { name: "Pricing", url: "/blog" },
+      { name: "Contact", url: "/contact" },
+      { name: "Pricing", url: "/services" },
       // { name: "Blog", url: "#" },
       { name: "Gallery", url: "#" },
     ],
