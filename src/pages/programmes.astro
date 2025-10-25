@@ -4,35 +4,19 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
-import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
 import Details from "@/components/sections/features/Details.astro";
-import User from "@components/sections/features/UserProfile.astro";
-import features from "@data/features.json";
-import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
-import Collapse from "@components/sections/misc/Collapse.astro"
-import pricing from "@data/pricing.json";
 import { capitalize, formatDate } from "@utils/utils";
+
 // Import necessary images
-import blueprints from "@images/blueprints-image.avif";
-import julene from "@images/mum.jpg";
-import ellen from "@images/about1.jpg";
 import { getCollection, render } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import community from "@images/community-2.jpg";
 import community2 from "@images/community-1.jpg";
 import community3 from "@images/community-4.jpeg";
 import community4 from "@images/community-3.jpeg";
 import community5 from "@images/community-4.png";
-import beforeAfter from "@images/before-after.avif";
-import constructionWorkers from "@images/construction-workers.avif";
-import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/using-tools.avif";
-import progressBuilding from "@images/progress-building.avif";
-import underConstruction from "@images/under-construction.avif";
 import { SITE } from "@data/constants";
-import { Icon } from 'astro-icon/components'
 
 interface Article {
   isRightSection: boolean;
@@ -57,7 +41,43 @@ const middle = Math.floor(testimonials.length/2)
 const testimonials1 = testimonials.slice(0, middle)
 const testimonials2 = testimonials.slice(middle, testimonials.length)
 
-const pageTitle: string = `Mindfulness | ${SITE.title}`;
+const articles: Article[] = [
+  {
+    isRightSection: true,
+    title: "Research-backed",
+    subTitle:
+      "International best practice approach, with explicit phonological training and a structured, cumulative, and multi sensory experience.",
+    single: false,
+    imgOne: community4,
+    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgTwo: community5,
+    imgTwoAlt: "Person working in the office",
+    btnExists: false,
+  },
+  {
+    isRightSection: false,
+    title: "Arts & Crafts",
+    subTitle:
+      "Pedogogically sound art and craft projects.",
+    img: community,
+    imgAlt: "In progress building structure",
+    btnExists: false,
+  },
+  {
+    isRightSection: true,
+    title: "Pre-Secondary programme",
+    subTitle:
+      "Our Pre-secondary Literature Introductary Programme adopts the international best practice approach, with explicit phonological training and a structured, cumulative, and multi sensory experience.",
+    single: false,
+    imgOne: community2,
+    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgTwo: community3,
+    imgTwoAlt: "Person working in the office",
+    btnExists: false,
+  },
+];
+
+const pageTitle: string = `Programmes | ${SITE.title}`;
 const metaDescription =
   "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.";
 const ogTitle = "Expert Consultation Services | ScrewFast";
@@ -73,7 +93,7 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
     "@type": "WebPage",
     "@id": "https://screwfast.uk/services",
     url: "https://screwfast.uk/services",
-    name: "Expert Consultation Services | ScrewFast",
+    name: "Programmes | Learning Hearts",
     description:
       "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.",
     isPartOf: {
@@ -86,24 +106,25 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
     inLanguage: "en-US",
   }}
 >
-  <MainSection
-    title="Mindfulness at Learning Hearts"
-    subTitle="Stress is an inescapable part of modern-day life. We all spend a good proportion of our time (often sub-consciously) caught in the past or worrying about the future. These habits of mind can overwhelm, rob us of restful sleep, keep us on edge and cause us to make rash decisions – fueling further stress."
-    btnExists={false}
-    btnTitle="Schedule a Consultation"
-    btnURL="#"
-  />
+<MainSection
+  title="Mindfulness at Learning Hearts"
+  subTitle="Stress is an inescapable part of modern-day life. We all spend a good proportion of our time (often sub-consciously) caught in the past or worrying about the future. These habits of mind can overwhelm, rob us of restful sleep, keep us on edge and cause us to make rash decisions – fueling further stress."
+  btnExists={false}
+  btnTitle="Schedule a Consultation"
+  btnURL="#"
+  id="mindfulness"
+/>
 
-  <FeaturesStatsAlt
-  title="About Mindfulness"
-  subTitle="Robust research has shown MBCT (Oxford Mindfulness Center) to be an effective, drug-free programme (combining Mindfulness with Cognitive-based Therapy) that is intended to address much of the above. MBCT is an in-depth course that helps participants cultivate new skills and learn strategies and techniques for relating to stressors, engendering lasting and sustainable change and benefits such as:"
-  benefits={[
-    "Decreased impulsivity and reactivity",
-    "Greater clarity of mind and insight",
-    "Wiser response and decision making",
-    "Increased sense of calm and well-being",
-    "Improved relationship with self and others",
-  ]}
+<FeaturesStatsAlt
+title="About Mindfulness"
+subTitle="Robust research has shown MBCT (Oxford Mindfulness Center) to be an effective, drug-free programme (combining Mindfulness with Cognitive-based Therapy) that is intended to address much of the above. MBCT is an in-depth course that helps participants cultivate new skills and learn strategies and techniques for relating to stressors, engendering lasting and sustainable change and benefits such as:"
+benefits={[
+  "Decreased impulsivity and reactivity",
+  "Greater clarity of mind and insight",
+  "Wiser response and decision making",
+  "Increased sense of calm and well-being",
+  "Improved relationship with self and others",
+]}
 />
 
 <MainSection
@@ -160,6 +181,7 @@ class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2x
 
 <Details
 title="Details"
+enable={false}
 subTitle="About our mindfulness course"
 mainStatTitle="96%"
 mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
@@ -187,5 +209,77 @@ stats={[
     description: "Registration: $50 | Course: $600 (payable in full only upon enrollment)",
   },
 ]}
+/>
+
+<MainSection
+title="Outreach Programme"
+subTitle=`The community outreach programme run, free-of-charge, <br class="hidden lg:block"> at the Church of St Mary's of the Angels (SMOTA)`
+btnExists={false}
+center={false}
+btnTitle="Schedule a Consultation"
+btnURL="#"
+padding={false}
+id="outreach"
+/>
+{
+  articles.map((article) => {
+    return article.isRightSection ? (
+      <RightSection
+        title={article.title}
+        subTitle={article.subTitle}
+        single={article.single}
+        imgOne={article.imgOne}
+        imgOneAlt={article.imgOneAlt}
+        imgTwo={article.imgTwo}
+        imgTwoAlt={article.imgTwoAlt}
+        btnExists={article.btnExists}
+        btnTitle={article.btnTitle}
+        btnURL={article.btnURL}
+      />
+    ) : (
+      <LeftSection
+        title={article.title}
+        subTitle={article.subTitle}
+        img={article.img}
+        imgAlt={article.imgAlt}
+        btnExists={article.btnExists}
+        btnTitle={article.btnTitle}
+        btnURL={article.btnURL}
+      />
+    );
+  })
+}
+
+<Details
+title="Details"
+enable={false}
+subTitle="If you’re interested to volunteer with Reading Angels, or know any family or child who may benefit from this programme, kindly contact us."
+mainStatTitle="96%"
+mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+stats={[
+    
+  {
+    stat: "Timing:",
+    description: " 1.5hr per session, block of 10 sessions",
+  },
+  {
+    stat: "Venue:",
+    description: "Smota class room/Home-based",
+  },
+  {
+    stat: "Fees:",
+    description: "Materials provided & One time registration fee $50",
+  },
+]}
+/>
+
+
+<MainSection
+title="Lit/Geog workshop"
+subTitle="Placeholder"
+btnExists={false}
+btnTitle="Schedule a Consultation"
+btnURL="#"
+id="workshop"
 />
 </MainLayout>
