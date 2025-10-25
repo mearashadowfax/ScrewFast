@@ -1,8 +1,12 @@
 ---
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
+import { Image } from "astro:assets";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
 import { SITE } from "@data/constants";
+import contact1 from "@images/lht11.jpg";
+import contact2 from "@images/lht12.jpg";
+import contact3 from "@images/lht9.jpg";
 
 const pageTitle: string = `Contact | ${SITE.title}`;
 const metaDescription =
@@ -32,5 +36,29 @@ const ogTitle = "Contact Us | ScrewFast";
     inLanguage: "en-US",
   }}
 >
+
   <ContactSection />
+  <section class="pb-12">
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <div>
+        
+      </div>
+      <Image
+      src={contact1}
+      alt="alt 1"
+      class="rounded-xl"
+  />
+      <Image
+      src={contact2}
+      alt="alt 1"
+      class="rounded-xl"
+  />
+      <Image
+      src={contact3}
+      alt="alt 1"
+      class="rounded-xl"
+  />
+    </div>
+  </section>
 </MainLayout>

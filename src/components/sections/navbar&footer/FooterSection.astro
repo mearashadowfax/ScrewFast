@@ -23,8 +23,8 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Websit
   <div
     class="mx-auto w-full max-w-[65rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
   >
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 justify-items-start">
-      <div class="col-span-full lg:col-span-1 justify-self-start lg:justify-self-center">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 justify-items-start">
+      <div class="col-span-full lg:col-span-1 lg:mx-6 justify-self-start lg:justify-self-center">
         <!-- Brand Logo -->
         <BrandLogo2 class="h-auto w-32 lg:w-40" size="200px" />
       </div>
@@ -72,7 +72,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Websit
         </p>
       </div>
 
-      <!-- Social Brands -->
+      <!-- Social Brands 
       <div>
         <FooterSocialLink url={strings.socialLinks.facebook}
           ><Icon name="mingcute:airplane-fill" />
@@ -82,6 +82,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Websit
           ><Icon name="mingcute:airplane-fill" />
         </FooterSocialLink>
       </div>
+      -->
     </div>
 
     <script>

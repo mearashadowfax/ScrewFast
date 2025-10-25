@@ -10,16 +10,18 @@ import features from "@data/features.json";
 import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
 import Collapse from "@components/sections/misc/Collapse.astro"
 // Import necessary images
-import blueprints from "@images/blueprints-image.avif";
+import blueprints from "@images/about2.jpg";
 import julene from "@images/mum.jpg";
 import ellen from "@images/about1.jpg";
+import about3_1 from "@images/lht6.jpg";
+import about3_2 from "@images/lht8.jpg";
 
-import personWorking from "@images/person-working.avif";
+import personWorking from "@images/community-4.png";
 import beforeAfter from "@images/before-after.avif";
-import constructionWorkers from "@images/construction-workers.avif";
+import constructionWorkers from "@images/lht7.png";
 import aerialView from "@images/aerial-view.avif";
 import usingTools from "@images/using-tools.avif";
-import progressBuilding from "@images/progress-building.avif";
+import progressBuilding from "@images/lht5.jpg";
 import underConstruction from "@images/under-construction.avif";
 import { SITE } from "@data/constants";
 import { Icon } from 'astro-icon/components'
@@ -43,7 +45,7 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Our founding story",
+    title: "Our Founding Story",
     subTitle:
       "Julene founded Learning Hearts Therapy almost 20 years ago out of her home 'Montessori'. Then, an endearing little boy with ASD came to her for help, igniting a special calling in teaching - and the rest is history.",
     single: false,
@@ -72,9 +74,9 @@ const articles: Article[] = [
     subTitle:
       "Julene finds the greatest challenge and satisfaction in helping children with learning difficulties. She has worked with children diagnosed with mild ASD, ADHD, Dyslexia, Dyspraxia, and SLI, as well as those from broken, troubled and disadvantaged backgrounds.",
     single: false,
-    imgOne: blueprints,
+    imgOne: about3_1,
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
-    imgTwo: personWorking,
+    imgTwo: about3_2,
     imgTwoAlt: "Person working in the office",
     btnExists: false,
     btnTitle: "Learn More",
@@ -93,7 +95,7 @@ const articles: Article[] = [
 
 const pageTitle: string = `About Us | ${SITE.title}`;
 const metaDescription =
-  "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.";
+  "All our Therapists have corporate experience, allowing them to better bridge academic learning to real-world applications.";
 const ogTitle = "About | Learninghearts";
 ---
 
@@ -108,7 +110,7 @@ const ogTitle = "About | Learninghearts";
     url: "https://screwfast.uk/services",
     name: "Expert Consultation Services | ScrewFast",
     description:
-      "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.",
+      "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development. All our Therapists have corporate experience, allowing them to better bridge academic learning to real-world applications.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk",
@@ -122,7 +124,7 @@ const ogTitle = "About | Learninghearts";
   {/* MainSection is the introductory section of the page, it also contains a CTA button */}
   <MainSection
     title="Education Tailored To Your Child."
-    subTitle="The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development."
+    subTitle="The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development. All our Therapists have corporate experience, allowing them to better bridge academic learning to real-world applications."
     btnExists={false}
     btnTitle="Schedule a Consultation"
     btnURL="#"
@@ -225,7 +227,7 @@ id="team"
   Ellen met Julene at a workshop empowering parents to teach children reading and wanted to learn more about teaching her own child. Julene invited Ellen to observe her teaching at CHIJ Kellock and shortly after that, Ellen decided to give up her career and enter education.
 </p>
 <p class="mb-4">
-  Ellen spent the first year observing Julene, shadowing her teaching. In 2010 when the reading hearts programme was taken up by Shu Qun primary for all P1 and P2 pupils, Ellen joined the team to deliver it. Following that, Ellen took a sabbatical to have and take care of her second child and rejoined Julene in 2014 just before they started teaching the programme at Queenstown primary school. In 2015, they both decided to concentrate their energies on the children struggling with reading disabilities, stopping the school-based programme to focus entirely on educational therapy work. Ellen has been teaching with Julene ever since.
+  Ellen spent the first year observing Julene, shadowing her teaching. In 2010 when the reading hearts programme was taken up by Shu Qun primary for all P1 and P2 pupils, Ellen joined the team to deliver it. Following that, Ellen took a sabbatical to have and take care of her second child and rejoined Julene in 2014 just before they started teaching the programme at Queenstown primary school. In 2015, they both decided to concentrate their energies on the children struggling with reading disabilities, stopping the school-based programme to focus entirely on educational therapy work. Ellen has been teaching with Julene ever since, now with a post-graduate certiificate in supporting children with specific learning difficulties, Dyslexia Action, UK.
 </p>
 <p class="my-12 mt-10 text-gray-600 d-block mx-auto w-11/12 blockquote">
   "There is so much fulfillment in helping children with learning difficulties read fluently and spell accurately. It is a satisfying accomplishment when a child overcomes his or her learning difficulty and is more confident in reading and spelling and especially in themselves."
