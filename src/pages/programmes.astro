@@ -4,35 +4,19 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
-import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
 import Details from "@/components/sections/features/Details.astro";
-import User from "@components/sections/features/UserProfile.astro";
-import features from "@data/features.json";
-import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
-import Collapse from "@components/sections/misc/Collapse.astro"
-import pricing from "@data/pricing.json";
 import { capitalize, formatDate } from "@utils/utils";
+
 // Import necessary images
-import blueprints from "@images/blueprints-image.avif";
-import julene from "@images/mum.jpg";
-import ellen from "@images/about1.jpg";
 import { getCollection, render } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import community from "@images/community-2.jpg";
 import community2 from "@images/community-1.jpg";
 import community3 from "@images/community-4.jpeg";
 import community4 from "@images/community-3.jpeg";
 import community5 from "@images/community-4.png";
-import beforeAfter from "@images/before-after.avif";
-import constructionWorkers from "@images/construction-workers.avif";
-import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/using-tools.avif";
-import progressBuilding from "@images/progress-building.avif";
-import underConstruction from "@images/under-construction.avif";
 import { SITE } from "@data/constants";
-import { Icon } from 'astro-icon/components'
 
 interface Article {
   isRightSection: boolean;
@@ -197,7 +181,7 @@ class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2x
 
 <Details
 title="Details"
-ena
+enable={false}
 subTitle="About our mindfulness course"
 mainStatTitle="96%"
 mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
