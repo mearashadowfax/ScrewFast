@@ -4,7 +4,7 @@ const navBarLinks = [
   { name: "About", url: "/about" },
   { name: "Testimonials", url: "/testimonials" },
   { name: "Services", url: "/services" },
-  { name: "Mindfulness", url: "/mindfulness" },
+  { name: "Programmes", url: "/programmes" },
   // { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
@@ -16,7 +16,7 @@ const footerLinks = [
       { name: "Mission", url: "/about" },
       { name: "Methodology", url: "/about#features" },
       { name: "Testimonials", url: "/testimonials" },
-      { name: "Mindfulness", url: "/mindfulness" },
+      { name: "Programmes", url: "/programmes" },
     ],
   },
   {

@@ -2,7 +2,7 @@
 import DetailItem from '@/components/ui/blocks/DetailItem.astro';
 // Import the necessary components
 
-const { title, subTitle, stats, mainStatTitle, mainStatSubTitle } = Astro.props;
+const { title, subTitle, stats, mainStatTitle, mainStatSubTitle, enable } = Astro.props;
 
 interface Props {
   title: string;
@@ -10,6 +10,7 @@ interface Props {
   mainStatTitle: string;
   mainStatSubTitle: string;
   stats?: Stat[];
+  enable: boolean
 }
 
 // TypeScript type for the statistics
@@ -18,7 +19,7 @@ type Stat = {
   description: string;
 };
 ---
-
+{enable &&
 <section
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
@@ -56,3 +57,5 @@ type Stat = {
     </div>
   </div>
 </section>
+}
+
