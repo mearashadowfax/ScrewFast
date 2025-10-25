@@ -1,5 +1,5 @@
 ---
-import Icon from "@components/ui/icons/Icon.astro";
+import { Icon } from 'astro-icon/components';
 // Destructure the properties from Astro.props
 const {
   pageTitle,
@@ -47,7 +47,7 @@ const socialPlatforms: SocialPlatform[] = [
     type="button"
     class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-100 hover:text-neutral-700 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:outline-hidden"
   >
-    <Icon name="share" />
+    <Icon name="mingcute:right-fill" />
 
     {title}
   </button>
@@ -66,7 +66,7 @@ const socialPlatforms: SocialPlatform[] = [
             rel="noopener noreferrer"
             aria-label={`Share on ${platform.name}`}
           >
-            <Icon name={platform.svg} />
+            <Icon name='mingcute:right-fill' />
             Share on {platform.name}
           </a>
         ))

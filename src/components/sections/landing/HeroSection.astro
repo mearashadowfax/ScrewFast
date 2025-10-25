@@ -19,7 +19,9 @@ const {
   rating,
   reviews,
   src,
-  alt
+  src2,
+  alt,
+  alt2
 } = Astro.props;
 
 // Define TypeScript interface for props
@@ -37,6 +39,8 @@ interface Props {
   reviews?: string;
   src?: any;
   alt?: string;
+  src2?: any;
+  alt2?: string;
 }
 ---
 
@@ -77,18 +81,26 @@ interface Props {
 
   </div>
   <!-- Hero Image Section -->
-  <div class="flex w-full">
-      <div class="top-12 overflow-hidden">
+  <div class="mt-8 grid grid-cols-2 gap-4 ">
 	{src && alt &&
 	<Image
         src={src}
         alt={alt}
-        class="h-full w-full scale-110 object-cover object-center"
+        class="w-full rounded-xl order-2 mt-40"
         draggable={"false"}
         loading={"eager"}
         format={"avif"}
 	 />
 	}
-    </div>
+	{src2 && alt2 &&
+	<Image
+        src={src2}
+        alt={alt2}
+        class="w-full rounded-xl"
+        draggable={"false"}
+        loading={"eager"}
+        format={"avif"}
+	 />
+	}
   </div>
 </section>

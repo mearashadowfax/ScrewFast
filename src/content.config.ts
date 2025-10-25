@@ -78,14 +78,14 @@ const blogCollection = defineCollection({
   }),
 });
 
-const insightsCollection = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/insights" }),
+const testimonialsCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/testimonials" }),
   schema: ({ image }) => z.object ({
-  title: z.string(),
-  description: z.string(),
+  name: z.string(),
+  date: z.date(),
   // contents: z.array(z.string()),
-  cardImage: image(),
-  cardImageAlt: z.string(),
+  svg: z.string(),
+  type: z.string().optional(),
   }),
 });
 
@@ -93,5 +93,5 @@ export const collections = {
   docs: defineCollection({ schema: docsSchema() }),
   'products': productsCollection,
   'blog': blogCollection,
-  'insights': insightsCollection,
+  'testimonials': testimonialsCollection,
 };

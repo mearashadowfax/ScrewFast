@@ -121,7 +121,7 @@ interface Props {
     <h2
       class="block text-balance text-4xl font-bold leading-tight tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
     >
-      {title}
+    <Fragment set:html={title} />
     </h2>
   </div>
   <!-- Hero Section Sub-heading -->

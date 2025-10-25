@@ -10,15 +10,17 @@ import TestimonialsSection from "@components/sections/testimonials/TestimonialsS
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "@images/hero-image.avif";
+import heroImage from "@images/lht2.jpg";
+import heroImage2 from "@images/lht9.jpg";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
-import featureImage from "@images/features-image.avif";
+import featureImage from "@images/drawing_t.png";
 import construction from "@images/construction-image.avif";
-import tools from "@images/automated-tools.avif";
-import dashboard from "@images/dashboard-image.avif";
+import tools from "@images/lht3.jpg";
+import dashboard from "@images/lht1.jpg";
 import { partnersData } from "@/data_files/constants";
+import { Icon } from 'astro-icon/components'
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -31,117 +33,106 @@ const avatarSrcs: Array<string> = [
 <MainLayout>
   <AnnouncementBanner
     btnId="dismiss-button"
-    btnTitle="Explore ScrewFast on GitHub"
-    url="https://github.com/mearashadowfax/ScrewFast"
+    btnTitle="Sign up for our upcoming course!"
+    url="#"
+    enable={false}
   />
 
   <HeroSection
-    title=`Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
-    primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="/contact"
-    withReview={true}
+    title=`With more than <br> <span
+        class="text-lht dark:text-neutrral-400">20 Years</span> of experience`
+    subTitle="The learning hearts team has the expertise to teach the way your child learns, not forcing them to learn the way we teach."
+    primaryBtn="Start Your Learning Journey"
+    primaryBtnURL="/services"
+    secondaryBtn="Mindfulnesss"
+    secondaryBtnURL="/mindfulness"
+    withReview={false}
     avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
     reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
     src={heroImage}
     alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+    src2={heroImage2}
+    alt2="Stack of ScrewFast product boxes containing assorted hardware tools"
   />
 
-  <ClientsSection
-    title="Trusted by Industry Leaders"
-    subTitle="Experience the reliability chosen by industry giants."
+
+<!--   <ClientsSection
+    title="Trusted by many"
+    subTitle="With partnerships across multiple sectors."
     partners={partnersData}
-  />
+  /> -->
 
-  <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+<!--   <FeaturesGeneral
+    title="Closing the gap in education"
+    subTitle=""
     src={featureImage}
     alt="ScrewFast products in floating boxes"
     features={features}
-  />
+  /> -->
 
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
+    title=`
+    Help us at <span class="text-lht dark:text-yellow-400">Learning Hearts</span> to help you with the difficulties you are facing.`
     tabs={[
       {
-        heading: "Cutting-Edge Tools",
+        heading: "Our Mission",
         content:
-          "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
-        svg: "tools",
+          "is to get to know each child as an individual and provide for his/her total development accademically, socially, and emotionally.",
+        svg: "mingcute:aiming-2-fill",
         src: tools,
         alt: "Yellow and black heavy equipment on brown grass field",
         first: true,
       },
       {
-        heading: "Intuitive Dashboards",
+        heading: "Our Aim",
         content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
-        svg: "dashboard",
+          "is to ensure that every child in need of help can get the help they deserve, and find the confidence to tackle learning head on.",
+        svg: "mingcute:aiming-2-fill",
         src: dashboard,
         alt: "A screenshot or graphic representation of the intuitive dashboard",
         second: true,
-      },
-      {
-        heading: "Robust Features",
-        content:
-          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
-        svg: "house",
-        src: construction,
-        alt: "Gray metal building frame near tower crane during daytime",
       },
     ]}
   />
 
   <TestimonialsSection
-    title="Fast-Track Your Projects"
-    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
+    title="Take control of your child's future today"
+    subTitle="At Learning Hearts, we believe that intervention in your child's education at the earlist stage possible is crucial to his/her future development."
     ;
     testimonials={[
       {
         content:
-          "ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
-        avatarSrc:
-          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      },
+          "Julene and Learning Hearts have been able to coax from my daughter mathematical skills she never knew she possessed. As a Math graduate myself, I was enthralled when I found that my daughter now has confidence in her mental arithmetic and isn't cowed by difficult word problems.",
+        author: "C. Lim",
+        role: "Parent | 7-Year Old child",
+        },
     ]}
     statistics={[
       {
-        count: "70k+",
+        count: "20+",
         description:
-          "customers equipped — from DIY to major construction firms",
+          "Years of offering professional help to clients",
       },
       {
-        count: "35%",
+        count: "100%",
         description:
-          "uptick in project efficiency with ScrewFast tools and services",
+          "Satisfaction rate among clients who have journeyed with us",
       },
       {
-        count: "15.3%",
+        count: "8",
         description:
-          "reduction in maintenance costs reported by long-term clients",
+          "masters degrees across Psychology, Educational Therapy, and behavioural studies",
       },
       {
-        count: "2x",
-        description: "quicker assembly using innovative fastening solutions",
+        count: ">100",
+        description: "Students who have journeyed with us and found confidence in themselves",
       },
     ]}
   />
 
-  <PricingSection pricing={pricing} />
+<!--   <PricingSection pricing={pricing} /> -->
 
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
-  <HeroSectionAlt
-    title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/mearashadowfax/ScrewFast"
-  />
+
 </MainLayout>

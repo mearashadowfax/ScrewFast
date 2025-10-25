@@ -1,5 +1,5 @@
 ---
-import Icon from "@components/ui/icons/Icon.astro";
+import { Icon } from 'astro-icon/components';
 // Define props from Astro
 const { id, collapseId, question, answer, first } = Astro.props;
 // Define TypeScript interface for props
@@ -30,10 +30,10 @@ function getAccordionClass(first: boolean = false) {
   >
     {question}
     <!-- SVG Icon that is shown when the accordion is NOT active -->
-    <Icon name="accordionNotActive" />
+    <Icon name="mingcute:down-line" class="block h-5 w-5 shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:hidden dark:text-neutral-400"/>
 
     <!-- SVG Icon that is shown when the accordion is active -->
-    <Icon name="accordionActive" />
+    <Icon name="mingcute:up-line" class="hidden h-5 w-5 shrink-0 text-neutral-600 group-hover:text-neutral-500 hs-accordion-active:block dark:text-neutral-400"/>
   </button>
   <!-- The collapsible content of the accordion -->
   <div

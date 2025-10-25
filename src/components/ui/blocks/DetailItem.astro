@@ -1,0 +1,23 @@
+---
+// Extract the properties from Astro.props
+const { title, subTitle } = Astro.props;
+// Define TypeScript interface for the properties
+interface Props {
+  title: string;
+  subTitle: string;
+}
+---
+
+<!-- Container for title and subtitle -->
+<dl class="flex flex-col lg:flex-row gap-1 pb-2 lg:pb-4">
+  <dt class="min-w-40">
+    <span class="block text-md font-bold text-gray-700 dark:text-neutral-500">{title}</span>
+  </dt>
+  <dd>
+<ul>
+
+  <li class="me-1 inline-flex items-center text-md text-gray-800 dark:text-neutral-200">{subTitle}</li>
+</ul>
+
+</dd>
+</dl>

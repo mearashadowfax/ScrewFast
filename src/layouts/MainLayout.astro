@@ -27,7 +27,7 @@ interface Props {
 }
 ---
 
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html lang={lang} class="lenis lenis-smooth scroll-pt-16">
   <head>
     {/* Adding metadata to the HTML document */}
     <Meta
@@ -55,7 +55,7 @@ interface Props {
     </script>
   </head>
   <body
-    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 flex flex-col min-h-screen"
+    class="bg-gray-50 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 flex flex-col min-h-screen"
   >
     {/*
     Setting up the main structure of the page.
@@ -63,7 +63,7 @@ interface Props {
     */}
     <div class="w-full mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8 flex-grow">
       <Navbar />
-      <main>
+      <main class="max-w-6xl mx-auto">
         <slot />
       </main>
     </div>
@@ -74,14 +74,15 @@ interface Props {
     </script>
     <style>
       /* CSS rules for the page scrollbar */
+      /*
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }
 
-      .scrollbar-hide {
+       .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
-      }
+      } */
     </style>
   </body>
 </html>

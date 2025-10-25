@@ -1,22 +1,32 @@
 [
   {
     "heading": "Dedicated Teams",
-    "content": "Benefit from our committed teams who ensure your success is personal. Count on expert guidance and exceptional results throughout your project journey.",
-    "svg": "groups"
+    "content": "Personalised teaching, in a one-to-one ratio, to each child's individual challenges and needs, and takes into consideration the whole child.",
+    "svg": "mingcute:group-3-fill"
   },
   {
-    "heading": "Simplicity and Affordability",
-    "content": "Find easy-to-use, affordable solutions with ScrewFast's line of tools and equipment. Our products make procurement simple and keep projects within budget.",
-    "svg": "verified"
+    "heading": "Tailored to students",
+    "content": "Integrates several subject areas (eg. English and Literature/Geography) and bridges to standardised exams (PSLE, 'N/O' levels, iGCSEs).",
+    "svg": "mingcute:cube-3d-fill"
   },
   {
-    "heading": "Comprehensive Documentation",
-    "content": "Integrate with ease using ScrewFast's exhaustive guides and libraries. Achieve seamless product adoption with our full suite of documentation designed for your success.",
-    "svg": "books"
+    "heading": "Highly Professional",
+    "content": "Developed by an educational therapist trained in the field of Specific Learning Difficulties, with extensive experience in the field, both as teacher and teacher trainer.",
+    "svg": "mingcute:document-2-fill"
   },
   {
-    "heading": "User-Centric Design",
-    "content": "Experience the difference with ScrewFast's user-focused design — where functionality meets practicality for an enhanced work experience.",
-    "svg": "frame"
+    "heading": "Targeted help",
+    "content": "Focuses on building strategies and fundamental concepts, for children from N2 to Sec 4, particularly those with mild to moderate learning difficulties.",
+    "svg": "mingcute:emoji-fill"
+  },
+  {
+    "heading": "Singapore Specific",
+    "content": "Takes into account the unique challenges posed by Singaporean culture, language development and school curriculum.",
+    "svg": "mingcute:map-pin-fill"
+  },
+  {
+    "heading": "Proprietary solutions",
+    "content": "Extends to secondary levels for Math, Science, English, Literature, and Geography, supported by our small but dedicated, hand-picked team.",
+    "svg": "mingcute:book-4-fill"
   }
 ]

@@ -1,0 +1,61 @@
+---
+import DetailItem from '@/components/ui/blocks/DetailItem.astro';
+// Import the necessary components
+
+const { title, subTitle, stats, mainStatTitle, mainStatSubTitle, enable } = Astro.props;
+
+interface Props {
+  title: string;
+  subTitle?: string;
+  mainStatTitle: string;
+  mainStatSubTitle: string;
+  stats?: Stat[];
+  enable: boolean
+}
+
+// TypeScript type for the statistics
+type Stat = {
+  stat: string;
+  description: string;
+};
+---
+{enable &&
+<section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <div class="flex flex-col md:w-2/3 mx-auto">
+
+    <div class="max-w-(--breakpoint-md)">
+      <!-- Main title -->
+      <h2
+        class="mb-4 text-balance text-3xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+      >
+        {title}
+      </h2>
+      <!-- Subtitle -->
+      {subTitle &&
+      <p
+        class="mb-8 md:mb-16 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400 sm:text-xl"
+      >
+        {subTitle}
+      </p>
+      }
+    </div>
+    <!-- Grid container for statistics -->
+    <div class="flex flex-col gap-1 max-w-prose">
+      <!-- First grid item, showing a big statistics -->
+      <!-- Second grid item, showing multiple small statistics -->
+      {stats &&
+          <!-- Iterate over the 'stats' array and create a 'StatsSmall' component for each object in the array -->
+          {
+            stats.map((stat) => (
+              <DetailItem title={stat.stat} subTitle={stat.description} />
+            ))
+          }
+      </div>
+      }
+    </div>
+  </div>
+</section>
+}
+

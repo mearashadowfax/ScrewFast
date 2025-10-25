@@ -4,9 +4,10 @@ import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
 import enStrings from "@utils/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
-import Icon from "@components/ui/icons/Icon.astro";
-import BrandLogo from "@components/BrandLogo.astro";
+
+import BrandLogo2 from "@components/BrandLogo2.astro";
 import { SITE } from "@data/constants";
+import { Icon } from 'astro-icon/components'
 
 // Select the correct translation based on the page's lang prop:
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
@@ -15,23 +16,23 @@ const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
 const sectionThreeTitle: string = Astro.currentLocale === "fr" ? "Rester à jour" : "Stay up to date";
 const sectionThreeContent: string = Astro.currentLocale === "fr" ? "Restez informé des derniers outils et des offres exclusives." :
   "Stay updated with the latest tools and exclusive deals.";
-const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafted by";
+const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Website template written by";
 ---
 
-<footer class="w-full bg-neutral-300 dark:bg-neutral-900">
+<footer class="w-full bg-gray-200 dark:bg-neutral-900">
   <div
-    class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
+    class="mx-auto w-full max-w-[65rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
   >
-    <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
-      <div class="col-span-full lg:col-span-1">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 justify-items-start">
+      <div class="col-span-full lg:col-span-1 lg:mx-6 justify-self-start lg:justify-self-center">
         <!-- Brand Logo -->
-        <BrandLogo class="h-auto w-32" />
+        <BrandLogo2 class="h-auto w-32 lg:w-40" size="200px" />
       </div>
       <!-- An array of links for Product and Company sections -->
       {
         strings.footerLinks.map((section) => (
           <div class="col-span-1">
-            <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
+            <h3 class="font-bold text-lht dark:text-neutral-200">
               {section.section}
             </h3>
             <ul class="mt-3 grid space-y-3">
@@ -43,9 +44,9 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
                   >
                     {link.name}
                   </a>
-                  {section.section === "Company" && index === 2 ? (
-                    <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
-                      We're hiring!
+                  {section.section === "Learning Hearts" && index === 3 ? (
+                    <span class="ms-1 inline rounded-lg bg-cyan-500 px-2 py-1 text-xs font-bold text-neutral-50">
+                      Starting soon!
                     </span>
                   ) : null}
                 </li>
@@ -54,23 +55,10 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
           </div>
         ))
       }
-
-      <div class="col-span-2">
-        <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
-          {sectionThreeTitle}
-        </h3>
-
-        <form>
-          <EmailFooterInput />
-          <p class="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
-            {sectionThreeContent}
-          </p>
-        </form>
-      </div>
     </div>
 
     <div
-      class="mt-9 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
+      class="mt-12 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
@@ -84,28 +72,17 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
         </p>
       </div>
 
-      <!-- Social Brands -->
+      <!-- Social Brands 
       <div>
         <FooterSocialLink url={strings.socialLinks.facebook}
-          ><Icon name="facebookFooter" />
-        </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.x}
-          ><Icon name="xFooter" /></FooterSocialLink
-        >
-
-        <FooterSocialLink url={strings.socialLinks.github}
-          ><Icon name="githubFooter" />
+          ><Icon name="mingcute:airplane-fill" />
         </FooterSocialLink>
 
         <FooterSocialLink url={strings.socialLinks.google}
-          ><Icon name="googleFooter" />
-        </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.slack}
-          ><Icon name="slackFooter" />
+          ><Icon name="mingcute:airplane-fill" />
         </FooterSocialLink>
       </div>
+      -->
     </div>
 
     <script>
