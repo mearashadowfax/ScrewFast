@@ -21,7 +21,7 @@
     "globby": "^15.0.0",
     "gsap": "^3.12.7",
     "html-minifier-terser": "^7.2.0",
-    "lenis": "^1.3.11",
+    "lenis": "^1.3.13",
     "preline": "^3.2.3",
     "rimraf": "^6.0.1",
     "sharp": "^0.34.4",
