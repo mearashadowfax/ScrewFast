@@ -80,6 +80,7 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
     {
       testimonials1.map(async (t, i) => {
        const { Content } = await render(t)
+       console.log(t.body.split("\r\n"))
        const rawContent = (t.body?.split("\r\n"))
        const firstHalf = rawContent?.slice(0, 1).join("\r\n")
        const secondHalf = rawContent?.slice(1)
