@@ -27,9 +27,7 @@ import { Icon } from 'astro-icon/components'
 import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
-const testimonials = await getCollection('testimonials', ({data}) => {
-  return data.type !== "mindfulness"
-});
+const testimonials = await getCollection('testimonials');
 const middle = Math.floor(testimonials.length/2)
 const testimonials1 = testimonials.slice(0, middle)
 const testimonials2 = testimonials.slice(middle, testimonials.length)
@@ -87,6 +85,7 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
         name={t.data.name}
         date={formatDate(t.data.date)}
         svg={t.data.svg}
+        typeOf={t.data.type}
         index={i + 1}
        >
           <Content />
