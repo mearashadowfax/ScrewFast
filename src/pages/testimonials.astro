@@ -76,7 +76,7 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
   class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
 >
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12">
-  <div class="col-span-1">
+  <div class="col-span-1 space-y-6 lg:space-y-12">
     {
       testimonials1.map(async (t, i) => {
        const { Content } = await render(t)
@@ -95,7 +95,7 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
       }
      )}
   </div>
-  <div class="col-span-1">
+  <div class="col-span-1  space-y-6 lg:space-y-12">
     {
       testimonials2.map(async (t, i) => {
        const { Content } = await render(t)
