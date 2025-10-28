@@ -5,6 +5,7 @@ import MainSection from "@components/ui/blocks/MainSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import pricing from "@data/pricing.json";
 // Import necessary images
+
 import { SITE } from "@data/constants";
 import { Icon } from 'astro-icon/components'
 
@@ -29,7 +30,7 @@ interface Article {
 const pageTitle: string = `Services | ${SITE.title}`;
 const metaDescription =
   "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.";
-const ogTitle = "Expert Consultation Services | ScrewFast";
+const ogTitle = "Expert Therapy Services | Learning Hearts";
 ---
 
 <MainLayout
@@ -39,17 +40,17 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/services",
-    url: "https://screwfast.uk/services",
-    name: "Expert Consultation Services | ScrewFast",
+    "@id": "https://learning-hearts.com/services",
+    url: "https://learning-hearts.com/services",
+    name: "Expert Therapy Services | Learning Hearts",
     description:
       "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
+      url: "https://learning-hearts.com",
+      name: "Learning Hearts",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "Learning Hearts offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
     inLanguage: "en-US",
   }}
