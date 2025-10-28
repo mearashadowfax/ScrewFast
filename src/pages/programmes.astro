@@ -6,6 +6,7 @@ import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
+import Collapse from "@/components/sections/misc/Collapse.astro";
 import Details from "@/components/sections/features/Details.astro";
 import Link from "@/components/ui/links/Link.astro";
 import { capitalize, formatDate } from "@utils/utils";
@@ -18,7 +19,7 @@ import community3 from "@images/community-4.jpeg";
 import community4 from "@images/community-3.jpeg";
 import community5 from "@images/community-4.png";
 import workshop1 from "@images/workshop1.jpg";
-import workshop2 from "@images/lht3.jpg";
+import workshop2 from "@images/lht14.jpg";
 import workshop3 from "@images/lht5.jpg";
 import workshop4 from "@images/lht4.jpg";
 import { SITE } from "@data/constants";
@@ -149,11 +150,14 @@ padding={false}
 <section
 class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
 >
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
 <div class="col-span-1">
   {
     testimonials1.map(async (t, i) => {
-     const { Content } = await render(t)
+      const { Content } = await render(t)
+      const rawContent = (t.body?.split("\r\n\r\n"))
+      const firstHalf = rawContent?.slice(0, 1).join("\r\n")
+      const secondHalf = rawContent?.slice(1)
      return (
      <TestimonialGeneral
       name={t.data.name}
@@ -161,7 +165,27 @@ class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2x
       svg={t.data.svg}
       index={i + 1}
      >
-        <Content />
+        <Collapse
+        id=`collapse_${i}`
+        >
+        <Fragment slot="default">
+          <p class="mb-4">
+          {firstHalf}
+
+          </p>
+        </Fragment>
+        <Fragment slot="collapse">
+          { secondHalf && 
+            secondHalf.map(i => {
+              return(
+                <p>
+                  {i}
+                </p>
+              )
+            })
+          }
+        </Fragment>
+        </Collapse>
      </TestimonialGeneral>
       
      )
@@ -172,6 +196,10 @@ class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2x
   {
     testimonials2.map(async (t,i) => {
      const { Content } = await render(t)
+     
+     const rawContent = (t.body?.split("\r\n\r\n"))
+      const firstHalf = rawContent?.slice(0, 1).join("\r\n")
+      const secondHalf = rawContent?.slice(1)
      return (
      <TestimonialGeneral
       name={t.data.name}
@@ -179,7 +207,27 @@ class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2x
       svg={t.data.svg}
       index={i + middle + 1}
      >
-        <Content />
+         <Collapse
+        id=`collapse_${i+middle}`
+        >
+        <Fragment slot="default">
+          <p class="mb-4">
+          {firstHalf}
+
+          </p>
+        </Fragment>
+        <Fragment slot="collapse">
+          {secondHalf &&
+            secondHalf.map(i => {
+              return(
+                <p>
+                  {i}
+                </p>
+              )
+            })
+          }
+        </Fragment>
+        </Collapse>
      </TestimonialGeneral>
       
      )

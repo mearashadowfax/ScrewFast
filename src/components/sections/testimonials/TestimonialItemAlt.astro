@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import {Icon} from 'astro-icon/components'
 import { capitalize } from "@/utils/utils";
+import Collapse from "../misc/Collapse.astro";
 const { name, date, svg, index, typeOf="Therapy" } = Astro.props;
 
 interface Props {
@@ -44,3 +45,4 @@ interface Props {
     
   </div>
 </div>
+

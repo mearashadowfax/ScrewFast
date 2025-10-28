@@ -80,6 +80,9 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
     {
       testimonials1.map(async (t, i) => {
        const { Content } = await render(t)
+       const rawContent = (t.body?.split("\r\n\r\n"))
+       const firstHalf = rawContent.slice(0, 1).join("\r\n")
+       const secondHalf = rawContent.slice(1)
        return (
        <TestimonialGeneral
         name={t.data.name}
@@ -88,7 +91,26 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
         typeOf={t.data.type}
         index={i + 1}
        >
-          <Content />
+        <Collapse
+        id=`collapse_${i}`>
+        <Fragment slot="default">
+          <p class="mb-4">
+          {firstHalf}
+
+          </p>
+        </Fragment>
+        <Fragment slot="collapse">
+          {
+            secondHalf.map(i => {
+              return(
+                <p>
+                  {i}
+                </p>
+              )
+            })
+          }
+        </Fragment>
+        </Collapse>
        </TestimonialGeneral>
         
        )
@@ -99,6 +121,9 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
     {
       testimonials2.map(async (t, i) => {
        const { Content } = await render(t)
+       const rawContent = (t.body?.split("\r\n\r\n"))
+       const firstHalf = rawContent?.slice(0, 1).join("\r\n")
+       const secondHalf = rawContent?.slice(1)
        return (
        <TestimonialGeneral
         name={t.data.name}
@@ -106,7 +131,27 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
         svg={t.data.svg}
         index={i + middle + 1}
        >
-          <Content />
+         <Collapse
+        id=`collapse_${i+middle}`
+        >
+        <Fragment slot="default">
+          <p class="mb-4">
+          {firstHalf}
+
+          </p>
+        </Fragment>
+        <Fragment slot="collapse">
+          {
+            secondHalf.map(i => {
+              return(
+                <p>
+                  {i}
+                </p>
+              )
+            })
+          }
+        </Fragment>
+        </Collapse>
        </TestimonialGeneral>
         
        )

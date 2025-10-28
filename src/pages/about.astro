@@ -8,6 +8,7 @@ import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro
 import User from "@components/sections/features/UserProfile.astro";
 import features from "@data/features.json";
 import TwoColumn from "@components/sections/misc/TwoColumnSection.astro";
+import Collapse from "@components/sections/misc/Collapse.astro";
 // Import necessary images
 import blueprints from "@images/about2.jpg";
 import julene from "@images/mum.jpg";
@@ -42,7 +43,7 @@ const articles: Article[] = [
     isRightSection: true,
     title: "Our Founding Story",
     subTitle:
-      "Julene founded Learning Hearts Therapy almost 20 years ago out of her home 'Montessori'. Then, an endearing little boy with ASD came to her for help, igniting a special calling in teaching - and the rest is history.",
+      "Julene founded Learning Hearts Therapy over 20 years ago out of her home 'Montessori'. Then, an endearing little boy with ASD came to her for help, igniting a special calling in teaching - and the rest is history.",
     single: false,
     imgOne: blueprints,
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
@@ -105,7 +106,7 @@ const ogTitle = "About | Learninghearts";
     url: "https://learning-hearts.com/services",
     name: "Expert Therapy Services | Learning Hearts",
     description:
-      "The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development. All our Therapists have corporate experience, allowing them to better bridge academic learning to real-world applications.",
+      "The programme at Learning Hearts Therapy is the by-product of our founder's genuine passion and in-depth experience in the areas of foundational reading and numeracy development. All our Therapists have corporate experience, allowing them to better bridge academic learning to real-world applications.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://learning-hearts.com",
@@ -119,7 +120,7 @@ const ogTitle = "About | Learninghearts";
   {/* MainSection is the introductory section of the page, it also contains a CTA button */}
   <MainSection
     title="Education Tailored To Your Child."
-    subTitle="The programme at Learning Hearts Therapy is the by-product of her genuine passion and in-depth experience in the areas of foundational reading and numeracy development. All our Therapists have corporate experience, allowing them to better bridge academic learning to real-world applications."
+    subTitle="The programme at Learning Hearts Therapy is the by-product of our founder's <strong>genuine passion</strong> and <strong>in-depth experience</strong> in the areas of foundational reading and numeracy development. All our therapists have <strong>extensive corporate experience</strong>, allowing them to better bridge academic learning to <em>real-world applications</em>."
     btnExists={false}
     btnTitle="Schedule a Consultation"
     btnURL="#"
@@ -189,22 +190,29 @@ id="team"
   src={julene}
   alt="Julene"
 >
-<p>
-  For over 10 years, Julene was the in-house reading specialist consultant at CHIJ Kellock where she taught P1 and P2 students and trained the teachers. Prior to these engagements, Julene was a part-time reading therapist with an established dyslexia remediation centre in Camden Medical Centre.
-</p>
-<p class="mt-4">
-  Certifications:
-</p>
-<ul class="my-4 leading-7">
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">Bachelor's degree from the National University of Singapore (Majoring in Linguistics/Geography)</li> 
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">Masters in Counselling from Monash University</li>
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">Masters in Education (Special Education) from Flinders University, Adelaide</li>
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">Diploma(distinction) in Early Childhood Education from the Montessori Centre International London</li>
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">Post-graduate specialist diploma in Specific Learning Difficulties (Dyslexia) from the renowned Hornsby International Dyslexia Centre in London</li> 
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">British Psychological Society, Certified Test User</li> 
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">Certified teacher for the Mymind programme, trained at Centrum Voor Mindfuless, Amsterdam</li>
-  <li class="border-b-1 pl-4 border-b-gray-200 py-4">Oxford Mindfulness Centre Mindfulness-based cognitive Therapy teacher trained</li>
-</ul>
+<Collapse
+  open="View certifications"
+  close="Close"  
+  id="julene"
+>
+  <Fragment slot="default">
+    <p>
+      For over 10 years, Julene was the in-house reading specialist consultant at CHIJ Kellock where she taught P1 and P2 students and trained the teachers. Prior to these engagements, Julene was a part-time reading therapist with an established dyslexia remediation centre in Camden Medical Centre.
+    </p>
+  </Fragment>
+  <Fragment slot="collapse">
+    <ul class="leading-7">
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">Bachelor's degree from the National University of Singapore (Majoring in Linguistics/Geography)</li> 
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">Masters in Counselling from Monash University</li>
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">Masters in Education (Special Education) from Flinders University, Adelaide</li>
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">Diploma(distinction) in Early Childhood Education from the Montessori Centre International London</li>
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">Post-graduate specialist diploma in Specific Learning Difficulties (Dyslexia) from the renowned Hornsby International Dyslexia Centre in London</li> 
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">British Psychological Society, Certified Test User</li> 
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">Certified teacher for the Mymind programme, trained at Centrum Voor Mindfuless, Amsterdam</li>
+      <li class="border-b-1 pl-4 border-b-gray-200 py-4">Oxford Mindfulness Centre Mindfulness-based cognitive Therapy teacher trained</li>
+    </ul>
+  </Fragment>
+</Collapse>
 </User>
 
 </Fragment>
@@ -215,21 +223,34 @@ id="team"
   src={ellen}
   alt="ellen"
 >
-<p>
-  Ellen started as an in-house legal counsel in Jakarta, Indonesia before moving to Singapore where she practised mainly as a compliance officer in various banks, stock broking firms and fund management companies.     
-</p>
-<p class="mb-4">
-  Ellen met Julene at a workshop empowering parents to teach children reading and wanted to learn more about teaching her own child. Julene invited Ellen to observe her teaching at CHIJ Kellock and shortly after that, Ellen decided to give up her career and enter education.
-</p>
-<p class="mb-4">
-  Ellen spent the first year observing Julene, shadowing her teaching. In 2010 when the reading hearts programme was taken up by Shu Qun primary for all P1 and P2 pupils, Ellen joined the team to deliver it. Following that, Ellen took a sabbatical to have and take care of her second child and rejoined Julene in 2014 just before they started teaching the programme at Queenstown primary school. In 2015, they both decided to concentrate their energies on the children struggling with reading disabilities, stopping the school-based programme to focus entirely on educational therapy work. Ellen has been teaching with Julene ever since, now with a post-graduate certiificate in supporting children with specific learning difficulties, Dyslexia Action, UK.
-</p>
-<p class="my-12 mt-10 text-gray-600 d-block mx-auto w-11/12 blockquote">
-  "There is so much fulfillment in helping children with learning difficulties read fluently and spell accurately. It is a satisfying accomplishment when a child overcomes his or her learning difficulty and is more confident in reading and spelling and especially in themselves."
-</p>
-<p class="mb-4">
-  Ellen has found deep purpose in contributing to the well being of the children she teaches, and continues to invest in professional training and development to better help and support them.
-</p>
+<Collapse
+  open="Read more"
+  close="Read less"  
+  id="ellen"
+>
+<Fragment slot="default">
+  <p>
+    Ellen started as an in-house legal counsel in Jakarta, Indonesia before moving to Singapore where she practised mainly as a compliance officer in various banks, stock broking firms and fund management companies.     
+  </p>
+  <p class="mb-4">
+    Ellen met Julene at a workshop empowering parents to teach children reading and wanted to learn more about teaching her own child. Julene invited Ellen to observe her teaching at CHIJ Kellock and shortly after that, Ellen decided to give up her career and enter education.
+  </p>
+</Fragment>
+<Fragment slot="collapse">
+  <p class="mb-4">
+    Ellen spent the first year observing Julene, shadowing her teaching. In 2010 when the reading hearts programme was taken up by Shu Qun primary for all P1 and P2 pupils, Ellen joined the team to deliver it. Following that, Ellen took a sabbatical to have and take care of her second child and rejoined Julene in 2014 just before they started teaching the programme at Queenstown primary school. In 2015, they both decided to concentrate their energies on the children struggling with reading disabilities, stopping the school-based programme to focus entirely on educational therapy work. Ellen has been teaching with Julene ever since, now with a post-graduate certiificate in supporting children with specific learning difficulties, Dyslexia Action, UK.
+  </p>
+  <p class="my-12 mt-10 text-gray-600 d-block mx-auto w-11/12 blockquote">
+    "There is so much fulfillment in helping children with learning difficulties read fluently and spell accurately. It is a satisfying accomplishment when a child overcomes his or her learning difficulty and is more confident in reading and spelling and especially in themselves."
+  </p>
+  <p class="mb-4">
+    Ellen has found deep purpose in contributing to the well being of the children she teaches, and continues to invest in professional training and development to better help and support them.
+  </p>
+</Fragment>
+
+</Collapse>
+
+
 </User>
 </Fragment>
 </TwoColumn>
