@@ -34,16 +34,20 @@ interface Props {
   <div class="mt-4 md:mt-0">
     <!-- The title of the section -->
     <h2
-      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+      class="text-balance text-3xl font-bold text-neutral-800 dark:text-neutral-200 lg:text-4xl mb-4"
     >
       {title}
     </h2>
     <!-- The subtitle of the section -->
-    <p
-      class="mb-4 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400 sm:text-lg"
-    >
-      {subTitle}
-    </p>
+    <div class="text-pretty text-neutral-600 dark:text-neutral-400 [&>p]:mb-2">
+
+      <slot name="body">
+  
+      </slot>
+      <p>
+        {subTitle}
+      </p>
+    </div>
     <!-- Conditionally render the Primary CTA button if btnExists is true -->
     {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
   </div>

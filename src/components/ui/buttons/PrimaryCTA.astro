@@ -1,22 +1,24 @@
 ---
 import { Icon } from 'astro-icon/components'
 // Destructure the properties from Astro.props
-const { title, url, noArrow } = Astro.props;
+const { title, url, noArrow, icon } = Astro.props;
 // Define TypeScript interface for the properties
 interface Props {
   title?: string;
   url?: string;
   noArrow?: boolean;
+  icon?: string;
 }
 // Define CSS classes for styling the button
 const baseClasses =
   "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring-3 outline-hidden";
 const borderClasses = "border border-transparent";
 const bgColorClasses =
-  "bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-500 dark:focus:outline-hidden";
+  "bg-cyan-500 hover:bg-cyan-500 active:bg-cyan-500 dark:focus:outline-hidden";
 const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
 const fontSizeClasses = "2xl:text-base";
 const ringClasses = "dark:ring-zinc-200";
+let iconName = "mingcute:" + (icon? icon : 'right-fill')
 ---
 
 <!-- Link styled as a button, with dynamic title, URL, and optional arrow -->
@@ -27,5 +29,5 @@ const ringClasses = "dark:ring-zinc-200";
   {title}
   <!-- Display the arrow based on the 'noArrow' property -->
 
-  {noArrow ? null : <Icon name="mingcute:right-fill" />}
+  {noArrow ? null : <Icon name={iconName} />}
 </a>

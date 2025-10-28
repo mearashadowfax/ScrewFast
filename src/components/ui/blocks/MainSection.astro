@@ -3,7 +3,7 @@
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
 // Destructure the props passed to the Astro component
-const { title, subTitle, btnExists, btnTitle, btnURL, center, padding, id} = Astro.props;
+const { title, subTitle, btnExists, btnTitle, btnURL, center, padding, id, accent} = Astro.props;
 // Define TypeScript interface for props
 interface Props {
   title: string;
@@ -14,15 +14,17 @@ interface Props {
   center?: boolean;
   padding?: boolean;
   id?: string;
+  accent?: string;
 }
 
 let sectionClassList = "mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 2xl:max-w-full"
-let titleClassList = "max-w-(--breakpoint-md)"
+let titleClassList = "max-w-(--breakpoint-md) relative"
+let subTitleClassList = "mb-8 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400 sm:text-xl"
 
 if (center) {
   sectionClassList += ' text-center'
   titleClassList += " mx-auto"
-  console.log(sectionClassList)
+  subTitleClassList += ' mx-auto'
 } 
 
 if (padding) {
@@ -38,15 +40,19 @@ if (padding) {
   id={id}
 >
   <div class={titleClassList}>
+    <div class:list={accent} class="w-25 h-25 absolute -top-8 -left-6 -z-1 block rounded-full">
+
+    </div>
     <!-- Section title -->
     <h1
-      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+      class:list={[{'text-4xl font-bold': center, 'text-5xl font-extrabold tracking-tight': !center}]}
+      class="mb-4 text-balance text-neutral-800 dark:text-neutral-200"
     >
       {title}
     </h1>
     <!-- Section subtitle -->
     <p
-      class="mb-8 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400 sm:text-xl"
+      class={subTitleClassList}
     >
       <Fragment set:html={subTitle} />
     </p>
@@ -54,7 +60,7 @@ if (padding) {
     {
       btnExists ? (
         <div class="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-          <PrimaryCTA title={btnTitle} url={btnURL} />
+          <PrimaryCTA title={btnTitle} url={btnURL} icon="whatsapp-line"/>
         </div>
       ) : null
     }

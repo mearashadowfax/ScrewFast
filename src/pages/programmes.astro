@@ -7,6 +7,7 @@ import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
 import Details from "@/components/sections/features/Details.astro";
+import Link from "@/components/ui/links/Link.astro";
 import { capitalize, formatDate } from "@utils/utils";
 
 // Import necessary images
@@ -16,6 +17,10 @@ import community2 from "@images/community-1.jpg";
 import community3 from "@images/community-4.jpeg";
 import community4 from "@images/community-3.jpeg";
 import community5 from "@images/community-4.png";
+import workshop1 from "@images/workshop1.jpg";
+import workshop2 from "@images/lht3.jpg";
+import workshop3 from "@images/lht5.jpg";
+import workshop4 from "@images/lht4.jpg";
 import { SITE } from "@data/constants";
 
 interface Article {
@@ -36,6 +41,10 @@ interface Article {
 
 const testimonials = await getCollection('testimonials', ({data}) => {
   return data.type === "mindfulness"
+});
+
+const testimonialsLit = await getCollection('testimonials', ({data}) => {
+  return data.type === "workshop"
 });
 const middle = Math.floor(testimonials.length/2)
 const testimonials1 = testimonials.slice(0, middle)
@@ -113,6 +122,7 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
   btnTitle="Schedule a Consultation"
   btnURL="#"
   id="mindfulness"
+  accent="bg-orange-400/50"
 />
 
 <FeaturesStatsAlt
@@ -131,7 +141,7 @@ benefits={[
 title="Testimonials"
 subTitle="Hear from some of our course attendees"
 btnExists={false}
-center={false}
+center={true}
 btnTitle="Schedule a Consultation"
 btnURL="#"
 padding={false}
@@ -190,7 +200,7 @@ stats={[
     stat: "Who:",
     description: `
     Adults and Youth (18 years and above), (N.B. pre-course interview and registration process will be undertaken to better understand your needs and to determine if this course will be beneficial for you)
-    `,
+`,
   },
   {
     stat: "Duration:",
@@ -211,75 +221,192 @@ stats={[
 ]}
 />
 
+<!-- <section>
+
+  <MainSection
+  title="Outreach Programme"
+  subTitle=`The community outreach programme run, free-of-charge, <br class="hidden lg:block"> at the Church of St Mary's of the Angels (SMOTA)`
+  btnExists={false}
+  center={false}
+  btnTitle="Schedule a Consultation"
+  btnURL="#"
+  padding={false}
+  id="outreach"
+  />
+  {
+    articles.map((article) => {
+      return article.isRightSection ? (
+        <RightSection
+          title={article.title}
+          subTitle={article.subTitle}
+          single={article.single}
+          imgOne={article.imgOne}
+          imgOneAlt={article.imgOneAlt}
+          imgTwo={article.imgTwo}
+          imgTwoAlt={article.imgTwoAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      ) : (
+        <LeftSection
+          title={article.title}
+          subTitle={article.subTitle}
+          img={article.img}
+          imgAlt={article.imgAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      );
+    })
+  }
+  
+  <Details
+  title="Details"
+  enable={false}
+  subTitle="If you’re interested to volunteer with Reading Angels, or know any family or child who may benefit from this programme, kindly contact us."
+  mainStatTitle="96%"
+  mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+  stats={[
+      
+    {
+      stat: "Timing:",
+      description: " 1.5hr per session, block of 10 sessions",
+    },
+    {
+      stat: "Venue:",
+      description: "Smota class room/Home-based",
+    },
+    {
+      stat: "Fees:",
+      description: "Materials provided & One time registration fee $50",
+    },
+  ]}
+  />
+</section>
+ -->
+
 <MainSection
-title="Outreach Programme"
-subTitle=`The community outreach programme run, free-of-charge, <br class="hidden lg:block"> at the Church of St Mary's of the Angels (SMOTA)`
+title="Lit Alive! - High School Readiness Workshop"
+subTitle="Come join our Literature and Geography Readiness Workshops - each an engaging, small-group course that helps students embark confidently on their Secondary education adventure."
+btnExists={true}
+btnTitle="Register Now"
+btnURL="https://wa.me/+6590585574?text=Name%3A%0AD.O.B%3A%0ASchool%2C%20level%3A%0AParent%27s%20name%20and%20contact%20number%3A%0AHome%20address%3A"
+id="workshop"
+accent="bg-cyan-400/50"
+/>
+<RightSection
+title="The Challenge"
+subTitle="",
+single={false}
+imgOne={workshop1}
+imgOneAlt="Test alt"
+imgTwo={workshop2}
+imgTwoAlt="Test alt"
 btnExists={false}
-center={false}
+>
+<Fragment slot="body">
+  <p>For many students starting Secondary education, Literature and Geography are entirely new subjects, and often misunderstood. In today’s world of instant information, teachers face the daunting task of motivating students who are easily content-jaded, and see learning as simply exam preperation.</p> 
+  <p>
+  It is no surprise that one of the most common reactions we hear is: </p>
+  <blockquote class="relative ml-4 mt-4">
+    <svg class="absolute -top-6 -start-8 size-16 text-gray-100 dark:text-neutral-700" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M7.39762 10.3C7.39762 11.0733 7.14888 11.7 6.6514 12.18C6.15392 12.6333 5.52552 12.86 4.76621 12.86C3.84979 12.86 3.09047 12.5533 2.48825 11.94C1.91222 11.3266 1.62421 10.4467 1.62421 9.29999C1.62421 8.07332 1.96459 6.87332 2.64535 5.69999C3.35231 4.49999 4.33418 3.55332 5.59098 2.85999L6.4943 4.25999C5.81354 4.73999 5.26369 5.27332 4.84476 5.85999C4.45201 6.44666 4.19017 7.12666 4.05926 7.89999C4.29491 7.79332 4.56983 7.73999 4.88403 7.73999C5.61716 7.73999 6.21938 7.97999 6.69067 8.45999C7.16197 8.93999 7.39762 9.55333 7.39762 10.3ZM14.6242 10.3C14.6242 11.0733 14.3755 11.7 13.878 12.18C13.3805 12.6333 12.7521 12.86 11.9928 12.86C11.0764 12.86 10.3171 12.5533 9.71484 11.94C9.13881 11.3266 8.85079 10.4467 8.85079 9.29999C8.85079 8.07332 9.19117 6.87332 9.87194 5.69999C10.5789 4.49999 11.5608 3.55332 12.8176 2.85999L13.7209 4.25999C13.0401 4.73999 12.4903 5.27332 12.0713 5.85999C11.6786 6.44666 11.4168 7.12666 11.2858 7.89999C11.5215 7.79332 11.7964 7.73999 12.1106 7.73999C12.8437 7.73999 13.446 7.97999 13.9173 8.45999C14.3886 8.93999 14.6242 9.55333 14.6242 10.3Z" fill="currentColor"></path>
+    </svg>
+  
+    <div class="relative z-10">
+      <p class="text-gray-800 sm:text-xl font-bold dark:text-white"><em>
+        It's so useless and boring - Why should I learn this?     
+      </em></p>
+    </div>
+  </blockquote>
+</Fragment>
+</RightSection>
+
+<FeaturesStatsAlt
+title="The Solution"
+subTitle="At Learning Hearts, our unique readiness programmes are designed in direct response to real student feedback. Our facilitator draws on years of teaching and corporate experience to bring lessons to life through:"
+benefits={[
+  "Adolescent-specific techniques",
+  "Real-life anecdotes and lively discussions",
+  "Practical connections between classroom learning and real-world demands and problems",
+  "Building critical language and thinking skills - not just for tests, but <strong> for life! </strong>",
+]}
+img={workshop3}
+/>
+<MainSection
+title="Testimonials"
+subTitle="Hear from some of our Lit course attendees"
+btnExists={false}
+center={true}
 btnTitle="Schedule a Consultation"
 btnURL="#"
 padding={false}
-id="outreach"
 />
-{
-  articles.map((article) => {
-    return article.isRightSection ? (
-      <RightSection
-        title={article.title}
-        subTitle={article.subTitle}
-        single={article.single}
-        imgOne={article.imgOne}
-        imgOneAlt={article.imgOneAlt}
-        imgTwo={article.imgTwo}
-        imgTwoAlt={article.imgTwoAlt}
-        btnExists={article.btnExists}
-        btnTitle={article.btnTitle}
-        btnURL={article.btnURL}
-      />
-    ) : (
-      <LeftSection
-        title={article.title}
-        subTitle={article.subTitle}
-        img={article.img}
-        imgAlt={article.imgAlt}
-        btnExists={article.btnExists}
-        btnTitle={article.btnTitle}
-        btnURL={article.btnURL}
-      />
-    );
-  })
-}
+<section
+class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
+>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12 place-items-center">
+<div class="col-span-2 max-w-prose">
+  {
+    testimonialsLit.map(async (t, i) => {
+     const { Content } = await render(t)
+     return (
+     <TestimonialGeneral
+      name={t.data.name}
+      date={formatDate(t.data.date)}
+      svg={t.data.svg}
+      index={i + 1}
+     >
+        <Content />
+     </TestimonialGeneral>
+      
+     )
+    }
+   )}
+</div>
+<div class="col-span-1">
 
+</div>
+</div>
+</section>
 <Details
-title="Details"
-enable={false}
-subTitle="If you’re interested to volunteer with Reading Angels, or know any family or child who may benefit from this programme, kindly contact us."
+title="Course Details"
+enable={true}
+subTitle=""
 mainStatTitle="96%"
-mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+mainStatSubTitle="Learning Hearts Therapy reserves the right to cancel the course for extenuating reasons (eg, participant cancellation). Should this occur, a full refund of all fees paid, will be made. An alternative schedule can also be arranged as replacement."
 stats={[
     
   {
-    stat: "Timing:",
-    description: " 1.5hr per session, block of 10 sessions",
+    stat: "Duration",
+    description: " 1h 15 mins per session, block of 5 sessions",
   },
   {
-    stat: "Venue:",
-    description: "Smota class room/Home-based",
+    stat: "Dates/Timing",
+    description: "TBC",
   },
   {
-    stat: "Fees:",
-    description: "Materials provided & One time registration fee $50",
+    stat: "Class Size",
+    description: "Max 4 students for personalized attention",
+  },
+  {
+    stat: "Fees",
+    description: "$600 per student (+$50 non-refundable registration fee)",
+  },
+  {
+    stat: "Make-up Policy",
+    description: "Catch-up sessions will be arranged for illness-related absences",
+  },
+  {
+    stat: "Venue",
+    description: "Learning Hearts Therapy LLP, 9 One-North Gateway #01-37",
+  },
+  {
+    stat: "Contact",
+    description: "9058 5574",
   },
 ]}
-/>
-
-
-<MainSection
-title="Lit/Geog workshop"
-subTitle="Placeholder"
-btnExists={false}
-btnTitle="Schedule a Consultation"
-btnURL="#"
-id="workshop"
-/>
+>
 </MainLayout>
