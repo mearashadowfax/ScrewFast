@@ -71,10 +71,11 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
           </svg>
         </button>
       </div>
-      <!-- ThemeIcon component specifically for smaller screens -->
+      <!-- ThemeIcon component specifically for smaller screens 
       <span class="inline-block md:hidden">
         <ThemeIcon />
       </span>
+      -->
     </div>
     <!-- Contains navigation links -->
     <div
@@ -92,22 +93,24 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
 
         
         <!-- <LanguagePicker /> -->
-        <!-- ThemeIcon component specifically for larger screens -->
+        <!-- ThemeIcon component specifically for larger screens 
         <span class="hidden md:inline-block">
           <ThemeIcon />
         </span>
+        -->
       </div>
     </div>
   </nav>
 </header>
 <!-- Theme Appearance script to manage light/dark modes -->
 <script is:inline>
+  document.querySelector('html').classList.remove('dark');
   const HSThemeAppearance = {
     init() {
       const defaultTheme = "default";
       let theme = localStorage.getItem("hs_theme") || defaultTheme;
 
-      if (document.querySelector("html").classList.contains("dark")) return;
+      if (document.querySelector("html").classList.contains("dark")) {return};
       this.setAppearance(theme);
     },
     _resetStylesOnLoad() {
