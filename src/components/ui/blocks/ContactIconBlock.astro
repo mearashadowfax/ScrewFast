@@ -33,7 +33,10 @@ fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
 <!-- Root container, which arranges the heading and content -->
 <div class="flex gap-x-7 py-6">
   <!-- Slot to allow for extensibility of the component -->
-  <slot />
+   <div class="basis-[45px]">
+
+     <slot />
+   </div>
   <div class="grow">
     <!-- Heading of the section -->
     <h3 class="font-bold text-neutral-700 dark:text-neutral-300">
@@ -54,6 +57,7 @@ fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
         <a
           class="group mt-2 inline-flex items-center gap-x-2 rounded-lg text-sm font-medium text-zinc-600 outline-hidden ring-zinc-500 transition duration-300 hover:text-zinc-800 focus-visible:ring-3 dark:text-zinc-400 dark:ring-zinc-200 dark:hover:text-zinc-200 dark:focus:outline-hidden dark:focus:ring-1 "
           href={linkURL}
+          target="_blank" 
         >
           {linkTitle}
           {isArrowVisible ? <Fragment set:html={arrowSVG} /> : null}

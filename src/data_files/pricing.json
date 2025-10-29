@@ -2,8 +2,9 @@
   "title": "Simple, Transparent Pricing",
   "subTitle": "Choose the type of therapy you require",
   "badge": "Start Here",
-  "thirdOption": "Looking for Mindfulness?",
-  "btnText": "Head to our courses!",
+  "thirdOption": "Looking for other Courses?",
+  "btnText": "View all courses",
+  "btnUrl": "/programmes",
   "registration": {
     "name": "Registration",
     "description": "For all services",

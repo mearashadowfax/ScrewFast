@@ -16,14 +16,14 @@ const footerLinks = [
       { name: "Mission", url: "/about" },
       { name: "Methodology", url: "/about#features" },
       { name: "Testimonials", url: "/testimonials" },
-      { name: "Programmes", url: "/programmes" },
+      { name: "Team", url: "/about#team" },
     ],
   },
   {
     section: "Services",
     links: [
-      { name: "Mindfulness", url: "#" },
-      { name: "Lit/Geog workshop", url: "/blog" },
+      { name: "Mindfulness", url: "/programmes#mindfulness" },
+      { name: "Lit/Geog workshop", url: "/programmes#workshop" },
     ],
   },
   {
@@ -32,7 +32,7 @@ const footerLinks = [
       { name: "Contact", url: "/contact" },
       { name: "Pricing", url: "/services" },
       // { name: "Blog", url: "#" },
-      { name: "Gallery", url: "#" },
+      { name: "Gallery", url: "/contact#gallery" },
     ],
   },
 ];
