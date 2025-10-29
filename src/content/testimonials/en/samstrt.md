@@ -2,9 +2,9 @@
 name: "Samantha Koh"
 date: 2023-07-01
 svg: "mingcute:mortarboard-line"
-type: "therapy"
+type: "draft"
 ---
-I am grateful to auntie Julene who had journeyed with me since 4 years ago when I started my secondary education after i had been diagnosed with dyslexia.
+I am grateful to auntie Julene who had journeyed with me since 4 years ago when I started my secondary education after i had been diagnosed with dyslexia. 
 
 I started to learn from basics in reading and processing words. This had slowly helped me to overcome my challenge of reading comprehension and eventually scored an A for literature at my IGCSE. I also had poor understanding of concepts in Maths and Brendon would creatively guide me to see the patterns through numerous Maths practices. Lastly uncle Daniel would patiently help me to break down difficult concepts in chemistry and biology; I went on to score A* in three of these subjects.
 

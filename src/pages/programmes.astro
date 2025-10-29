@@ -8,6 +8,7 @@ import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.ast
 import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
 import Collapse from "@/components/sections/misc/Collapse.astro";
 import Details from "@/components/sections/features/Details.astro";
+import TestimonialsSectionAlt from "@/components/sections/testimonials/TestimonialsSectionAlt.astro";
 import Link from "@/components/ui/links/Link.astro";
 import { capitalize, formatDate } from "@utils/utils";
 
@@ -40,16 +41,13 @@ interface Article {
   imgTwoAlt?: string;
 }
 
-const testimonials = await getCollection('testimonials', ({data}) => {
+const testimonialsMindfulness = await getCollection('testimonials', ({data}) => {
   return data.type === "mindfulness"
 });
 
 const testimonialsLit = await getCollection('testimonials', ({data}) => {
   return data.type === "workshop"
 });
-const middle = Math.floor(testimonials.length/2)
-const testimonials1 = testimonials.slice(0, middle)
-const testimonials2 = testimonials.slice(middle, testimonials.length)
 
 const articles: Article[] = [
   {
@@ -147,95 +145,7 @@ btnTitle="Schedule a Consultation"
 btnURL="#"
 padding={false}
 />
-<section
-class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
-<div class="col-span-1">
-  {
-    testimonials1.map(async (t, i) => {
-      const { Content } = await render(t)
-      const rawContent = (t.body?.split("\r\n\r\n"))
-      const firstHalf = rawContent?.slice(0, 1).join("\r\n")
-      const secondHalf = rawContent?.slice(1)
-     return (
-     <TestimonialGeneral
-      name={t.data.name}
-      date={formatDate(t.data.date)}
-      svg={t.data.svg}
-      index={i + 1}
-     >
-        <Collapse
-        id=`collapse_${i}`
-        >
-        <Fragment slot="default">
-          <p class="mb-4">
-          {firstHalf}
-
-          </p>
-        </Fragment>
-        <Fragment slot="collapse">
-          { secondHalf && 
-            secondHalf.map(i => {
-              return(
-                <p>
-                  {i}
-                </p>
-              )
-            })
-          }
-        </Fragment>
-        </Collapse>
-     </TestimonialGeneral>
-      
-     )
-    }
-   )}
-</div>
-<div class="col-span-1">
-  {
-    testimonials2.map(async (t,i) => {
-     const { Content } = await render(t)
-     
-     const rawContent = (t.body?.split("\r\n\r\n"))
-      const firstHalf = rawContent?.slice(0, 1).join("\r\n")
-      const secondHalf = rawContent?.slice(1)
-     return (
-     <TestimonialGeneral
-      name={t.data.name}
-      date={formatDate(t.data.date)}
-      svg={t.data.svg}
-      index={i + middle + 1}
-     >
-         <Collapse
-        id=`collapse_${i+middle}`
-        >
-        <Fragment slot="default">
-          <p class="mb-4">
-          {firstHalf}
-
-          </p>
-        </Fragment>
-        <Fragment slot="collapse">
-          {secondHalf &&
-            secondHalf.map(i => {
-              return(
-                <p>
-                  {i}
-                </p>
-              )
-            })
-          }
-        </Fragment>
-        </Collapse>
-     </TestimonialGeneral>
-      
-     )
-    }
-   )}
-</div>
-</div>
-</section>
+<TestimonialsSectionAlt title="test" testimonials={testimonialsMindfulness} />
 
 <Details
 title="Details"
@@ -392,34 +302,9 @@ btnTitle="Schedule a Consultation"
 btnURL="#"
 padding={false}
 />
-<section
-class="mx-auto max-w-[85rem] px-4 pt-0 py-10 sm:px-6 lg:px-8 lg:py-14 lg:pt-0 2xl:max-w-full"
->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12 place-items-center">
-<div class="col-span-2 max-w-prose">
-  {
-    testimonialsLit.map(async (t, i) => {
-     const { Content } = await render(t)
-     return (
-     <TestimonialGeneral
-      name={t.data.name}
-      date={formatDate(t.data.date)}
-      svg={t.data.svg}
-      typeOf={t.data.type}
-      index={i + 1}
-     >
-        <Content />
-     </TestimonialGeneral>
-      
-     )
-    }
-   )}
-</div>
-<div class="col-span-1">
 
-</div>
-</div>
-</section>
+<TestimonialsSectionAlt title="test" testimonials={testimonialsLit} />
+
 <Details
 title="Course Details"
 enable={true}

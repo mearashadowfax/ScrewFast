@@ -1,22 +1,31 @@
 ---
-// Import AvatarTestimonialSection component for use in this module
-import AvatarTestimonialSection from "../../ui/avatars/AvatarTestimonialSection.astro";
+import TestimonialGeneral from './TestimonialItemAlt.astro';
+import Collapse from '../misc/Collapse.astro';
 
-// Define props from Astro
-const { title, testimonials } = Astro.props;
+import { getCollection, getEntries, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
-// Define TypeScript interface for Testimonial
-interface Testimonial {
-  name: string;
-  date: string;
-  svg: string;
-  content: string;
-}
+import { capitalize, formatDate } from "@utils/utils";
+
 
 // Define TypeScript interface for props
 interface Props {
   title: string;
-  testimonials: Testimonial[];
+  testimonials: CollectionEntry<'testimonials'>[];
+}
+// Define props from Astro
+const { title, testimonials } = Astro.props;
+
+// Define TypeScript interface for Testimonial
+let testimonials1;
+let testimonials2;
+const middle = Math.floor(testimonials.length/2)
+
+if (testimonials.length !== 1) {
+  testimonials1 = testimonials.slice(0, middle)
+  testimonials2 = testimonials.slice(middle, testimonials.length)
+} else {
+  testimonials1 = testimonials
 }
 ---
 <!-- Main div that wraps the testimonials section -->
@@ -24,45 +33,57 @@ interface Props {
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   id="testimonials"
 >
-  <!-- Title of the testimonials section -->
-  <div class="mb-6 w-3/4 max-w-2xl sm:mb-10 md:mb-16 lg:w-1/2">
-    <h2
-      class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-4xl"
-    >
-      {title}
-    </h2>
-  </div>
 
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <!-- Looping through each testimonial data and rendering it -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12">
+  <div class="col-span-1 space-y-6 lg:space-y-12">
     {
-      testimonials.map((testimonial) => (
-        <div class="flex h-auto">
-          <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
-            <div class="flex-auto p-4 md:p-6">
-              <!-- Testimonial content -->
-              <p class="text-pretty text-base italic text-neutral-600 dark:text-neutral-300 md:text-lg">
-                <Fragment set:html={testimonial.content}></Fragment>
-              </p>
-            </div>
-
-            <div class="rounded-b-xl bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7">
-              <div class="flex items-center">
-
-
-                <div class="ms-3 grow">
-                  <p class="text-sm font-bold text-neutral-800 dark:text-neutral-200 sm:text-base">
-                    
-                  </p>
-                  <p class="text-xs text-neutral-600 dark:text-neutral-400">
-                    {testimonial.date}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))
-    }
+      testimonials1.map(async (t, i) => {
+       const rawContent = t.rendered?.html.split("\n")
+       const firstHalf = rawContent?.slice(0, 1)[0]
+       const secondHalf = rawContent?.slice(1).join('\n')
+       return (
+       <TestimonialGeneral
+        name={t.data.name}
+        date={formatDate(t.data.date)}
+        svg={t.data.svg}
+        typeOf={t.data.type}
+        index={i + 1}
+       >
+        <Collapse
+        id={`collapse_${t.id.substring(3)}`}>
+        <Fragment set:html={firstHalf} slot="show"></Fragment>
+        <Fragment set:html={secondHalf}></Fragment>
+        </Collapse>
+       </TestimonialGeneral>
+        
+       )
+      }
+     )}
   </div>
+  <div class="col-span-1 space-y-6 lg:space-y-12">
+    { testimonials2 && 
+      testimonials2.map(async (t, i) => {
+       const rawContent = t.rendered?.html.split("\n")
+       const firstHalf = rawContent?.slice(0, 1)
+       const secondHalf = rawContent?.slice(1).join('\n')
+       return (
+       <TestimonialGeneral
+        name={t.data.name}
+        date={formatDate(t.data.date)}
+        svg={t.data.svg}
+        typeOf={t.data.type}
+        index={i + middle + 1}
+       >
+        <Collapse
+        id={`collapse_${t.id.substring(3)}`}>
+        <Fragment set:html={firstHalf} slot="show"></Fragment>
+        <Fragment set:html={secondHalf}></Fragment>
+        </Collapse>
+       </TestimonialGeneral>
+        
+       )
+      }
+     )}
+  </div>
+</div>
 </section>

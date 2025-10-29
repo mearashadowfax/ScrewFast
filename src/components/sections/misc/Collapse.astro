@@ -9,11 +9,11 @@ interface Props {
 ---
 
 <div>
-    <div class="space-y-4">
-        <slot name="default" />
+    <div class="mb-4">
+        <slot name="show" />
     </div>
-      <div id={id} class="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300 space-y-4" aria-labelledby=`collapse_${id}`>
-          <slot name="collapse"/>
+      <div id={id} class="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300 space-y-4" aria-labelledby=`${id}`>
+        <slot />
       </div>
       <p class="mt-2">
         <button type="button" class="hs-collapse-toggle text-neutral-500 text-md underline underline-offset-4 hover:text-neutral-800 focus:outline-hidden focus:underline focus:text-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-600 dark:focus:text-blue-600" id=`collapse_${id}` aria-expanded="false" aria-controls={id} data-hs-collapse=`#${id}`>
