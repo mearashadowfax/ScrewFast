@@ -3,6 +3,8 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import ProductTabBtn from "@/components/ui/buttons/ProductTabBtn.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 import TestimonialGeneral from "@components/sections/testimonials/TestimonialItemAlt.astro"; 
@@ -114,6 +116,15 @@ const ogTitle = "Expert Therapy Services | Learning Hearts";
     inLanguage: "en-US",
   }}
 >
+<section class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14 2xl:max-w-full">
+  <p class="text-orange-500 border-orange-50 hidden"></p>
+  <p class="text-cyan-500 border-cyan-500 hidden"></p>
+  <div class="flex gap-x-6 justify-center">
+    <ProductTabBtn title="Mindfulness" url="#mindfulness" icon="star-2-line" accent="orange"/>
+    <ProductTabBtn title="Lit Alive!" url="#workshop" icon="book-6-line" accent="cyan"/>
+  </div>
+</section>
+
 <MainSection
   title="Mindfulness at Learning Hearts"
   subTitle="Stress is an inescapable part of modern-day life. We all spend a good proportion of our time (often sub-consciously) caught in the past or worrying about the future. These habits of mind can overwhelm, rob us of restful sleep, keep us on edge and cause us to make rash decisions – fueling further stress."

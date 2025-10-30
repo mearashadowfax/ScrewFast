@@ -164,6 +164,16 @@
   --color-sky-800: oklch(0.443 0.11 240.79);
   --color-sky-900: oklch(0.391 0.09 240.876);
   --color-sky-950: oklch(0.293 0.066 243.157);
+
+  --animate-scroll: scroll 10s linear infinite;
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-100% - var(--spacing)*12));;
+  }
+}
 }
 
 /*

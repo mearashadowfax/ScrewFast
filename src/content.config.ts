@@ -89,6 +89,7 @@ const testimonialsCollection = defineCollection({
   }),
 });
 
+
 export const collections = {
   docs: defineCollection({ schema: docsSchema() }),
   'products': productsCollection,
