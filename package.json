@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.9.5",
     "@astrojs/mdx": "^4.3.8",
     "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/starlight": "^0.36.1",
+    "@astrojs/starlight": "^0.36.2",
     "@tailwindcss/vite": "^4.1.16",
     "astro": "^5.15.3",
     "astro-compressor": "^1.2.0",
