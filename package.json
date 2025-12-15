@@ -19,7 +19,7 @@
     "astro-compressor": "^1.2.0",
     "clipboard": "^2.0.11",
     "globby": "^16.0.0",
-    "gsap": "^3.14.0",
+    "gsap": "^3.14.2",
     "html-minifier-terser": "^7.2.0",
     "lenis": "^1.3.16",
     "preline": "^3.2.3",
