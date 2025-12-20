@@ -31,9 +31,12 @@ const ogTitle = customOgTitle || OG.title;
 const ogDescription = customDescription || OG.description;
 
 // Define the metadata for your website and individual pages
-const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
+const siteURL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
-const canonical = Astro.url.href;
+const canonical = new URL(
+  Astro.url.pathname,
+  Astro.site || Astro.url.origin
+).href;
 const basePath = Astro.url.pathname;
 const socialImageRes = await getImage({
   src: OG.image,
@@ -55,7 +58,7 @@ function createHref(lang: string, prefix: string, path: string): string {
   const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
   const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
 
-  return `${URL.slice(0, -1)}${normalizedBasePath}`;
+  return `${siteURL.slice(0, -1)}${normalizedBasePath}`;
 }
 
 const fullPath: string = Astro.url.pathname;
@@ -106,7 +109,7 @@ const appleTouchIcon = await getImage({
 
 {/* Facebook Meta Tags */}
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content={URL} />
+<meta property="og:url" content={siteURL} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />
 <meta property="og:site_name" content={SITE.title} />
@@ -118,8 +121,8 @@ const appleTouchIcon = await getImage({
 
 {/* Twitter Meta Tags */}
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:domain" content={URL} />
-<meta property="twitter:url" content={URL} />
+<meta property="twitter:domain" content={siteURL} />
+<meta property="twitter:url" content={siteURL} />
 <meta name="twitter:title" content={ogTitle} />
 <meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={socialImage} />
