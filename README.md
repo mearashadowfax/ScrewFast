@@ -131,18 +131,18 @@ cd [YOUR_REPO_NAME]
 Start by installing the project dependencies. Open your terminal, navigate to the project's root directory, and execute:
 
 ```bash
-npm install
+pnpm install
 ```
 
 This command will install all the necessary dependencies defined in the `package.json` file.
 
 ### Development Commands
 
-With dependencies installed, you can utilize the following npm scripts to manage your project's development lifecycle:
+With dependencies installed, you can utilize the following pnpm scripts to manage your project's development lifecycle:
 
-* `npm run dev`: Starts a local development server with hot reloading enabled.
-* `npm run preview`: Serves your build output locally for preview before deployment.
-* `npm run build`: Bundles your site into static files for production.
+* `pnpm dev`: Starts a local development server with hot reloading enabled.
+* `pnpm preview`: Serves your build output locally for preview before deployment.
+* `pnpm build`: Bundles your site into static files for production.
 
 For detailed help with Astro CLI commands, visit [Astro's documentation](https://docs.astro.build/en/reference/cli-reference/).
 
@@ -153,7 +153,7 @@ For detailed help with Astro CLI commands, visit [Astro's documentation](https:/
 Before deployment, you need to create a production build:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 This creates a `dist/` directory with your built site (configurable via [outDir in Astro](https://docs.astro.build/en/reference/configuration-reference/#outdir)).
