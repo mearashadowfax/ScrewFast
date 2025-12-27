@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "screwfast-monolingual",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -34,6 +34,7 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "^5.9.3"
   },
+  "packageManager": "pnpm@10.26.2",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
