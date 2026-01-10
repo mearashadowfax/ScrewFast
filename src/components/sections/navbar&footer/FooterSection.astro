@@ -25,7 +25,15 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
       <div class="col-span-full lg:col-span-1">
         <!-- Brand Logo -->
-        <BrandLogo class="h-auto w-32" />
+        <BrandLogo class="h-auto w-36" />
+        <div class="mt-5 space-y-3">
+          <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200">
+            Công ty CP sản xuất<br />và thương mại
+          </h3>
+          <p class="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+            Giải pháp sản xuất và thương mại chất lượng cao, đáng tin cậy cho mọi dự án.
+          </p>
+        </div>
       </div>
       <!-- An array of links for Product and Company sections -->
       {
@@ -73,15 +81,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
       class="mt-9 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
     >
       <div class="flex items-center justify-between">
-        <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © <span id="current-year"></span> {SITE.title}. {crafted}
-          <a
-            class="rounded-lg font-medium underline underline-offset-2 outline-hidden ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:hover:text-neutral-300"
-            href="https://www.gulamoff.dev/"
-            target="_blank"
-            rel="noopener noreferrer">gulamoff</a
-          >.
-        </p>
+
       </div>
 
       <!-- Social Brands -->

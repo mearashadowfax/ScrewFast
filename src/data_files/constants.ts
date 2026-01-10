@@ -3,12 +3,12 @@ import ogImageSrc from "@images/social.png";
 
 
 export const SITE = {
-  title: "ScrewFast",
-  tagline: "Top-quality Hardware Tools",
-  description: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  description_short: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
-  url: "https://screwfast.uk",
-  author: "Emil Gulamov",
+  title: "HAHUTECH - Bu lông, ốc vít & vật tư công nghiệp",
+  tagline: "Sản xuất và thương mại chất lượng cao",
+  description: "Công ty cổ phần sản xuất và thương mại HAHUTECH cung cấp các giải pháp sản xuất và dịch vụ thương mại chất lượng cao. Chúng tôi cam kết mang đến sự tin cậy, chất lượng vượt trội và dịch vụ chuyên nghiệp cho mọi dự án của bạn.",
+  description_short: "HAHUTECH cung cấp các giải pháp sản xuất và dịch vụ thương mại chất lượng cao cho mọi nhu cầu của bạn.",
+  url: "https://hahutech.com",
+  author: "HAHUTECH",
 };
 
 export const SEO = {
@@ -32,11 +32,11 @@ export const SEO = {
 };
 
 export const OG = {
-  locale: "en_US",
+  locale: "vi_VN",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description: "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  title: `${SITE.title}: Sản xuất & Thương mại chất lượng cao`,
+  description: "Công ty cổ phần sản xuất và thương mại HAHUTECH - Đối tác tin cậy với các giải pháp sản xuất và dịch vụ thương mại chuyên nghiệp. Cam kết chất lượng, độ tin cậy và sự hài lòng của khách hàng. Khám phá ngay!",
   image: ogImageSrc,
 };
 
