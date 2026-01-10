@@ -1,37 +1,37 @@
 ---
-title: "L'impact des pratiques durables"
-description: "Découvrez comment ScrewFast mène la charge en promouvant la durabilité dans l'industrie de la construction"
+title: "Tác động của các thực hành bền vững"
+description: "Khám phá cách ScrewFast đang dẫn đầu trong việc thúc đẩy tính bền vững trong ngành xây dựng"
 cardImage: "@/images/insights/insight-3.avif"
-cardImageAlt: "Vue de dessus de l'agencement des outils mécaniques"
+cardImageAlt: "Góc nhìn từ trên cao của sự sắp xếp các công cụ cơ khí"
 ---
 
-L'industrie de la construction projette une longue ombre. Bien qu'elle fournisse l'infrastructure essentielle à nos vies, son impact environnemental est indéniable. De l'épuisement des ressources et la pollution à la consommation d'énergie et à la génération de déchets, les pratiques de construction traditionnelles pèsent lourdement sur notre planète. Mais une révolution est en marche, et à l'avant-garde se trouve ScrewFast, une entreprise qui change la donne de manière démonstrative avec son engagement envers des pratiques durables.
+Ngành xây dựng tạo ra một cái bóng rất lớn. Mặc dù cung cấp cơ sở hạ tầng thiết yếu cho cuộc sống của chúng ta, nhưng tác động môi trường của nó là không thể phủ nhận. Từ sự cạn kiệt tài nguyên và ô nhiễm đến tiêu thụ năng lượng và phát sinh chất thải, các phương pháp xây dựng truyền thống đang gây áp lực nặng nề lên hành tinh của chúng ta. Tuy nhiên, một cuộc cách mạng đang diễn ra, và ở tuyến đầu chính là ScrewFast — một công ty đang tạo ra sự thay đổi rõ rệt bằng cam kết mạnh mẽ đối với các thực hành bền vững.
 
-## L'ampleur du défi
+## Quy mô của thách thức
 
-Imaginez ceci : l'industrie de la construction est responsable de 36 % de la consommation énergétique mondiale et de 40 % des émissions totales de CO2 [1]. Et ce n'est pas tout. Les bâtiments et la construction sont des contributeurs majeurs à la génération de déchets solides, représentant jusqu'à 40 %, et consomment 30 % des matières premières mondiales [1]. Ces statistiques dressent un tableau clair : continuer comme avant est tout simplement insoutenable.
+Hãy hình dung điều này: ngành xây dựng chịu trách nhiệm cho 36% mức tiêu thụ năng lượng toàn cầu và 40% tổng lượng phát thải CO₂ [1]. Và đó chưa phải là tất cả. Các tòa nhà và hoạt động xây dựng là những tác nhân chính tạo ra chất thải rắn, chiếm tới 40%, đồng thời tiêu thụ 30% nguyên liệu thô toàn cầu [1]. Những con số này vẽ nên một bức tranh rõ ràng: tiếp tục theo cách cũ đơn giản là không bền vững.
 
-## ScrewFast : construire avec responsabilité
+## ScrewFast: xây dựng với trách nhiệm
 
-ScrewFast est une entreprise fondée sur la responsabilité. Ils comprennent le coût environnemental de la construction et prennent des mesures décisives pour changer de cap. Leur engagement envers la durabilité imprègne tous les aspects de leurs opérations, des matériaux qu'ils utilisent aux processus de construction qu'ils mettent en œuvre.
+ScrewFast là một công ty được xây dựng trên nền tảng trách nhiệm. Họ hiểu rõ cái giá môi trường của xây dựng và đang thực hiện những bước đi quyết đoán để thay đổi hướng đi. Cam kết về tính bền vững thấm nhuần vào mọi khía cạnh trong hoạt động của họ, từ vật liệu sử dụng cho đến các quy trình xây dựng được áp dụng.
 
-* **Innovation matérielle :** ScrewFast privilégie l'utilisation de matériaux recyclés et recyclables. Cela réduit non seulement la dépendance aux ressources vierges, mais diminue également la charge environnementale associée à l'extraction des ressources.
-* **Efficacité énergétique :** ScrewFast défend les méthodes de construction écoénergétiques. Cela peut impliquer l'incorporation de matériaux d'isolation haute performance, l'optimisation de la conception des bâtiments pour la lumière naturelle et la ventilation, ou même l'intégration de sources d'énergie renouvelable comme les panneaux solaires. Le résultat ? Des bâtiments nécessitant moins d'énergie pour fonctionner, entraînant une réduction significative des émissions de gaz à effet de serre.
-* **Réduction des déchets :** ScrewFast planifie et exécute minutieusement des projets pour minimiser la génération de déchets. Cela peut impliquer l'utilisation de composants préfabriqués, l'emploi de techniques de construction modulaire et la mise en œuvre de programmes rigoureux de tri et de recyclage des déchets. En minimisant les déchets, ScrewFast conserve les ressources et réduit l'impact environnemental associé aux décharges.
-* **Approvisionnement durable :** ScrewFast adopte une approche responsable de l'approvisionnement en matériaux. Ils privilégient les fournisseurs qui partagent leur engagement envers la durabilité. Cela garantit que l'empreinte environnementale est prise en compte tout au long de la chaîne d'approvisionnement.
+* **Đổi mới vật liệu:** ScrewFast ưu tiên sử dụng các vật liệu tái chế và có thể tái chế. Điều này không chỉ làm giảm sự phụ thuộc vào tài nguyên nguyên sinh mà còn giảm thiểu gánh nặng môi trường liên quan đến việc khai thác tài nguyên.
+* **Hiệu quả năng lượng:** ScrewFast thúc đẩy các phương pháp xây dựng tiết kiệm năng lượng. Điều này có thể bao gồm việc sử dụng vật liệu cách nhiệt hiệu suất cao, tối ưu hóa thiết kế công trình để tận dụng ánh sáng tự nhiên và thông gió, hoặc thậm chí tích hợp các nguồn năng lượng tái tạo như pin mặt trời. Kết quả là các công trình tiêu thụ ít năng lượng hơn trong quá trình vận hành, từ đó giảm đáng kể lượng khí nhà kính phát thải.
+* **Giảm thiểu chất thải:** ScrewFast lên kế hoạch và triển khai dự án một cách tỉ mỉ nhằm giảm tối đa lượng chất thải phát sinh. Điều này có thể bao gồm việc sử dụng các bộ phận lắp ghép sẵn, áp dụng kỹ thuật xây dựng mô-đun và triển khai các chương trình phân loại và tái chế chất thải nghiêm ngặt. Bằng cách giảm thiểu chất thải, ScrewFast bảo tồn tài nguyên và giảm tác động môi trường từ các bãi chôn lấp.
+* **Nguồn cung bền vững:** ScrewFast áp dụng cách tiếp cận có trách nhiệm trong việc tìm nguồn cung vật liệu. Họ ưu tiên các nhà cung cấp có chung cam kết về tính bền vững, đảm bảo rằng dấu chân môi trường được xem xét xuyên suốt toàn bộ chuỗi cung ứng.
 
-## L'impact du changement
+## Tác động của sự thay đổi
 
-L'engagement de ScrewFast envers les pratiques durables s'étend bien au-delà des murs de leur entreprise. L'effet d'entraînement de leurs actions est substantiel :
+Cam kết của ScrewFast đối với các thực hành bền vững vượt xa phạm vi nội bộ công ty. Hiệu ứng lan tỏa từ những hành động của họ là rất đáng kể:
 
-* **Avantages environnementaux :** En promouvant la conservation des ressources, la réduction de la consommation d'énergie et la minimisation des déchets, ScrewFast contribue de manière significative à une planète plus saine. Cela se traduit par un air plus pur, un climat plus stable et la préservation des ressources naturelles pour les générations futures.
-* **Avantages économiques :** Les pratiques de construction durables conduisent souvent à des avantages économiques à long terme. Les bâtiments écoénergétiques ont des coûts opérationnels plus bas, et les matériaux durables peuvent parfois être étonnamment compétitifs en termes de coûts. ScrewFast démontre qu'être vert peut aussi être bon pour les résultats financiers.
-* **Responsabilité sociale :** ScrewFast reconnaît que la durabilité englobe plus que l'environnement. Ils s'engagent à créer des environnements de travail sûrs et sains pour leurs employés et à favoriser des relations positives avec les communautés dans lesquelles ils opèrent.
+* **Lợi ích môi trường:** Bằng cách thúc đẩy bảo tồn tài nguyên, giảm tiêu thụ năng lượng và hạn chế chất thải, ScrewFast đóng góp đáng kể vào một hành tinh khỏe mạnh hơn. Điều này mang lại không khí trong lành hơn, khí hậu ổn định hơn và bảo tồn tài nguyên thiên nhiên cho các thế hệ tương lai.
+* **Lợi ích kinh tế:** Các thực hành xây dựng bền vững thường mang lại lợi ích kinh tế lâu dài. Các tòa nhà tiết kiệm năng lượng có chi phí vận hành thấp hơn, và vật liệu bền vững đôi khi lại có tính cạnh tranh đáng ngạc nhiên về chi phí. ScrewFast chứng minh rằng “xanh” cũng có thể đồng nghĩa với hiệu quả tài chính.
+* **Trách nhiệm xã hội:** ScrewFast nhận thức rằng tính bền vững không chỉ dừng lại ở môi trường. Họ cam kết tạo ra môi trường làm việc an toàn, lành mạnh cho nhân viên và xây dựng mối quan hệ tích cực với các cộng đồng nơi họ hoạt động.
 
-## Donner l'exemple
+## Làm gương đi đầu
 
-ScrewFast ne se contente pas de parler, ils agissent. Leur engagement envers la durabilité est évident dans chaque projet qu'ils entreprennent. En montrant les avantages tangibles de la construction durable, ScrewFast inspire un changement de paradigme au sein de l'industrie. Ils ouvrent la voie à un avenir où les bâtiments sont non seulement fonctionnels, mais aussi respectueux de l'environnement.
+ScrewFast không chỉ nói suông, họ hành động. Cam kết về tính bền vững của họ thể hiện rõ trong từng dự án mà họ thực hiện. Bằng cách chứng minh những lợi ích hữu hình của xây dựng bền vững, ScrewFast đang truyền cảm hứng cho một sự thay đổi mang tính hệ thống trong toàn ngành. Họ mở ra con đường hướng tới một tương lai nơi các công trình không chỉ mang tính chức năng mà còn thân thiện với môi trường.
 
-## La route à suivre
+## Con đường phía trước
 
-L'industrie de la construction est à la croisée des chemins. ScrewFast se dresse comme un phare, éclairant la voie vers un avenir plus durable. En adoptant des pratiques innovantes et en donnant la priorité à la responsabilité environnementale, ScrewFast ne se contente pas de construire des structures ; ils construisent un avenir meilleur. À mesure que de plus en plus d'entreprises emboîtent le pas, l'impact sera profond. Une industrie de la construction plus verte signifie une planète plus saine pour tous.
+Ngành xây dựng đang đứng trước một ngã rẽ quan trọng. ScrewFast nổi lên như một ngọn hải đăng, soi sáng con đường hướng tới một tương lai bền vững hơn. Bằng việc áp dụng các thực hành đổi mới và đặt trách nhiệm môi trường lên hàng đầu, ScrewFast không chỉ xây dựng các công trình — họ đang xây dựng một tương lai tốt đẹp hơn. Khi ngày càng nhiều doanh nghiệp noi theo, tác động sẽ vô cùng sâu rộng. Một ngành xây dựng xanh hơn đồng nghĩa với một hành tinh khỏe mạnh hơn cho tất cả mọi người.

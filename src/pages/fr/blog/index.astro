@@ -30,17 +30,17 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Votre Passerelle vers l'Excellence en Construction";
+const title: string = "Cánh cổng dẫn tới sự xuất sắc trong xây dựng";
 const subTitle: string =
-  "Explorez les dernières actualités, astuces et analyses de ScrewFast pour améliorer vos projets de construction. Des mises en avant de produits aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne les outils et la construction.";
-const secondTitle: string = "Perspectives";
+  "Khám phá những tin tức mới nhất, mẹo hữu ích và phân tích chuyên sâu từ ScrewFast nhằm nâng cao hiệu quả cho các dự án xây dựng của bạn. Từ giới thiệu sản phẩm đến chiến lược quản lý dự án, blog của chúng tôi là nguồn tài nguyên không thể thiếu cho mọi vấn đề liên quan đến công cụ và xây dựng.";
+const secondTitle: string = "Góc nhìn chuyên sâu";
 const secondSubTitle: string =
-  "Restez à jour avec les dernières tendances et évolutions de l'industrie de la construction grâce aux analyses de l'équipe d'experts de ScrewFast.";
+  "Luôn cập nhật các xu hướng và thay đổi mới nhất trong ngành xây dựng thông qua những phân tích đến từ đội ngũ chuyên gia của ScrewFast.";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
-  "Restez informé des dernières tendances et évolutions dans le secteur de la construction avec les analyses de l'équipe d'experts de ScrewFast.";
-const ogTitle = "Blog de l'Industrie de la Construction | ScrewFast";
+  "Luôn cập nhật những xu hướng và biến chuyển mới nhất trong ngành xây dựng với các phân tích từ đội ngũ chuyên gia của ScrewFast.";
+const ogTitle = "Blog ngành xây dựng | ScrewFast";
 ---
 
 <MainLayout
@@ -55,13 +55,13 @@ const ogTitle = "Blog de l'Industrie de la Construction | ScrewFast";
     url: "https://screwfast.uk/fr/blog",
     name: "Blog | ScrewFast",
     description:
-      "Restez informé des dernières tendances et évolutions dans le secteur de la construction avec les analyses de l'équipe d'experts de ScrewFast.",
+      "Luôn cập nhật những xu hướng và biến chuyển mới nhất trong ngành xây dựng với các phân tích từ đội ngũ chuyên gia của ScrewFast.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk/fr",
       name: "ScrewFast",
       description:
-        "ScrewFast propose des outils matériels de premier ordre et des services de construction experts pour répondre à tous vos besoins de projet.",
+        "ScrewFast cung cấp các công cụ phần cứng hàng đầu cùng dịch vụ xây dựng chuyên nghiệp nhằm đáp ứng mọi nhu cầu dự án của bạn.",
     },
     inLanguage: "fr",
   }}

@@ -40,7 +40,7 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 // For the meta description, use the first paragraph of content if available
 const metaDescription =
-  post.data.contents[0] || `Lisez ${post.data.title} sur le blog de ScrewFast`;
+  post.data.contents[0] || `Đọc ${post.data.title} trên blog của ScrewFast`;
 const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
 ---
 
@@ -101,7 +101,7 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
                   <li
                     class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
                   >
-                    {post.data.readTime} min read
+                    {post.data.readTime} phút đọc
                   </li>
                 </ul>
               </div>
@@ -169,9 +169,9 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       </div>
     </div>
     <PostFeedback
-      title="Cet article était-il utile?"
-      firstChoice="Oui"
-      secondChoice="Non"
+      title="Bài viết này có hữu ích không?"
+      firstChoice="Có"
+      secondChoice="Không"
     />
   </section>
 
@@ -181,7 +181,7 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       <h2
         class="text-2xl font-bold text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
       >
-        Articles connexes
+        Bài viết liên quan
       </h2>
     </div>
 

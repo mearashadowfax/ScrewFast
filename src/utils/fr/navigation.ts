@@ -1,28 +1,27 @@
-
 const navBarLinks = [
-  { name: "Accueil", url: "/fr" },
-  { name: "Produits", url: "/fr/products" },
-  { name: "Services", url: "/fr/services" },
+  { name: "Trang chủ", url: "/fr" },
+  { name: "Sản phẩm", url: "/fr/products" },
+  { name: "Dịch vụ", url: "/fr/services" },
   { name: "Blog", url: "/fr/blog" },
-  { name: "Contact", url: "/fr/contact" },
+  { name: "Liên hệ", url: "/fr/contact" },
 ];
 
 const footerLinks = [
   {
-    section: "Écosystème",
+    section: "Hệ sinh thái",
     links: [
-      { name: "Documentation", url: "/fr/welcome-to-docs/" },
-      { name: "Outils et Équipements", url: "/fr/products" },
-      { name: "Services de Construction", url: "/fr/services" },
+      { name: "Tài liệu", url: "/fr/welcome-to-docs/" },
+      { name: "Công cụ & Thiết bị", url: "/fr/products" },
+      { name: "Dịch vụ xây dựng", url: "/fr/services" },
     ],
   },
   {
-    section: "Société",
+    section: "Công ty",
     links: [
-      { name: "À propos de nous", url: "#" },
+      { name: "Về chúng tôi", url: "#" },
       { name: "Blog", url: "/fr/blog" },
-      { name: "Carrières", url: "#" },
-      { name: "Clients", url: "#" },
+      { name: "Tuyển dụng", url: "#" },
+      { name: "Khách hàng", url: "#" },
     ],
   },
 ];

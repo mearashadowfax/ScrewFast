@@ -1,53 +1,53 @@
 ---
 title: "SF-AB A765"
-description: "Ensemble de Vis Assorties"
+description: "Bộ Vít Tổng Hợp"
 main:
   id: 2
   content: |
-    Découvrez l'ensemble de vis assorties SF-AB A765 – la solution ultime pour vos besoins de fixation. Ce set complet comprend une grande variété de vis soigneusement sélectionnées pour aborder divers projets avec facilité et précision.
+    Khám phá bộ vít tổng hợp SF-AB A765 – giải pháp tối ưu cho mọi nhu cầu cố định của bạn. Bộ sản phẩm đầy đủ này bao gồm nhiều loại vít đa dạng, được lựa chọn cẩn thận để giúp bạn thực hiện nhiều dự án khác nhau một cách dễ dàng và chính xác.
   imgCard: "@/images/product-image-2.avif"
   imgMain: "@/images/product-image-main-2.avif"
-  imgAlt: "Boîtes factices de l'ensemble de vis assorties"
+  imgAlt: "Hộp minh họa của bộ vít tổng hợp"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
-    title: "Description"
+    title: "Mô tả"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Spécifications"
+    title: "Thông số kỹ thuật"
   - id: "tabs-with-card-item-3"
     dataTab: "#tabs-with-card-3"
-    title: "Plans"
+    title: "Bản vẽ"
 longDescription:
-  title: "Solutions Polyvalentes de Fixation"
+  title: "Giải Pháp Cố Định Đa Năng"
   subTitle: |
-    L'ensemble de vis assorties SF-AB A765 offre une polyvalence et une commodité inégalées, ce qui en fait le choix idéal pour les amateurs de bricolage et les professionnels. Avec une sélection complète de vis, vous aurez toujours le bon élément de fixation pour chaque tâche.
-  btnTitle: "Contactez les ventes pour en savoir plus"
+    Bộ vít tổng hợp SF-AB A765 mang lại tính linh hoạt và sự tiện lợi vượt trội, trở thành lựa chọn lý tưởng cho cả người yêu thích DIY lẫn các chuyên gia. Với bộ sưu tập vít đầy đủ, bạn sẽ luôn có đúng loại vít phù hợp cho mọi công việc.
+  btnTitle: "Liên hệ bộ phận kinh doanh để biết thêm chi tiết"
   btnURL: "#"
 descriptionList:
-  - title: "Grande Variété"
-    subTitle: "Comprend une gamme diversifiée de types et de tailles de vis pour s'adapter à diverses applications et matériaux."
-  - title: "Facilité d'Utilisation"
-    subTitle: "Chaque vis est conçue pour une installation facile, garantissant une fixation sans tracas à chaque fois."
-  - title: "Commodité"
-    subTitle: "Élimine le besoin de multiples déplacements au magasin de bricolage, économisant temps et effort sur vos projets."
+  - title: "Đa Dạng Chủng Loại"
+    subTitle: "Bao gồm nhiều loại và kích thước vít khác nhau, phù hợp với nhiều ứng dụng và vật liệu."
+  - title: "Dễ Sử Dụng"
+    subTitle: "Mỗi vít được thiết kế để lắp đặt dễ dàng, đảm bảo quá trình cố định luôn nhanh chóng và thuận tiện."
+  - title: "Tiện Lợi"
+    subTitle: "Loại bỏ nhu cầu phải di chuyển nhiều lần đến cửa hàng vật liệu, giúp tiết kiệm thời gian và công sức cho các dự án của bạn."
 specificationsLeft:
-  - title: "Matériau"
-    subTitle: "Fabriqué à partir de matériaux de haute qualité tels que l'acier inoxydable, assurant durabilité et résistance à la corrosion."
-  - title: "Assortiment"
-    subTitle: "Contient un assortiment généreux de vis, incluant des vis à bois, des vis mécaniques, et des vis pour tôle."
-  - title: "Quantité"
-    subTitle: "Chaque set comprend une quantité suffisante de vis pour gérer une large gamme de projets et de tâches."
-  - title: "Tailles"
-    subTitle: "Disponible en différentes tailles pour s'adapter aux exigences de divers projets, assurant compatibilité et polyvalence."
+  - title: "Vật liệu"
+    subTitle: "Được chế tạo từ các vật liệu chất lượng cao như thép không gỉ, đảm bảo độ bền và khả năng chống ăn mòn."
+  - title: "Thành phần bộ"
+    subTitle: "Chứa một bộ vít phong phú, bao gồm vít gỗ, vít máy và vít dùng cho tấm kim loại."
+  - title: "Số lượng"
+    subTitle: "Mỗi bộ bao gồm số lượng vít đủ lớn để đáp ứng nhiều dự án và công việc khác nhau."
+  - title: "Kích thước"
+    subTitle: "Có sẵn nhiều kích thước khác nhau để phù hợp với yêu cầu của từng dự án, đảm bảo tính tương thích và linh hoạt."
 tableData:
-  - feature: ["Spécification", "Valeur"]
+  - feature: ["Thông số", "Giá trị"]
     description:
-      - ["Longueur (mm)", "Divers"]
-      - ["Poids (g)", "N/A"]
-      - ["Matériau", "Acier Inoxydable"]
-      - ["Finition", "Assortie"]
-      - ["Contenu du Pack", "Diverses vis dans un ensemble"]
+      - ["Chiều dài (mm)", "Đa dạng"]
+      - ["Trọng lượng (g)", "Không áp dụng"]
+      - ["Vật liệu", "Thép không gỉ"]
+      - ["Bề mặt hoàn thiện", "Tổng hợp"]
+      - ["Thành phần bộ", "Nhiều loại vít trong một bộ"]
 blueprints:
   first: "@/images/blueprint-1.avif"
   second: "@/images/blueprint-2.avif"

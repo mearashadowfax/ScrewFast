@@ -9,12 +9,12 @@ import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
 // Define the variables that will be used in this component
-const title: string = "Contactez-nous";
+const title: string = "Liên hệ với chúng tôi";
 const subTitle: string =
-  "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.";
-const formTitle: string = "Remplissez le formulaire ci-dessous";
+  "Bạn có câu hỏi hoặc muốn trao đổi về một dự án? Hãy liên hệ với chúng tôi để cùng xây dựng giải pháp hoàn hảo bằng các công cụ và dịch vụ của ScrewFast.";
+const formTitle: string = "Vui lòng điền vào biểu mẫu bên dưới";
 const formSubTitle: string =
-  "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
+  "Chúng tôi sẽ phản hồi bạn trong vòng 1–2 ngày làm việc.";
 ---
 
 <!-- Contact Us -->
@@ -38,19 +38,19 @@ const formSubTitle: string =
         >
           {formTitle}
         </h2>
-        <!-- Form for user input with various input fields.-->
-        <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
+
+        <!-- Form for user input with various input fields. -->
         <form>
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
-                label="Prénom"
+                label="Tên"
                 name="hs-firstname-contacts"
               />
               <TextInput
                 id="hs-lastname-contacts"
-                label="Nom"
+                label="Họ"
                 name="hs-firstname-contacts"
               />
             </div>
@@ -58,13 +58,13 @@ const formSubTitle: string =
             <PhoneInput id="hs-phone-number" />
             <TextAreaInput
               id="hs-about-contacts"
-              label="Détails"
+              label="Nội dung chi tiết"
               name="hs-about-contacts"
             />
           </div>
 
           <div class="mt-4 grid">
-            <AuthBtn title="Envoyer un message" />
+            <AuthBtn title="Gửi tin nhắn" />
           </div>
 
           <div class="mt-3 text-center">
@@ -75,30 +75,30 @@ const formSubTitle: string =
         </form>
       </div>
 
-      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
+      <!-- Contact information blocks -->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
-          heading="Base de connaissances"
-          content="Parcourez tous nos articles de base de connaissances."
+          heading="Cơ sở tri thức"
+          content="Khám phá toàn bộ các bài viết trong kho kiến thức của chúng tôi."
           isLinkVisible={true}
-          linkTitle="Visiter les guides et tutoriels"
+          linkTitle="Xem hướng dẫn và tài liệu"
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="question" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="FAQ"
-          content="Explorez notre FAQ pour des réponses rapides et claires aux questions courantes."
+          heading="Câu hỏi thường gặp"
+          content="Xem mục FAQ để nhận câu trả lời nhanh chóng và rõ ràng cho các thắc mắc phổ biến."
           isLinkVisible={true}
-          linkTitle="Visiter la FAQ"
+          linkTitle="Truy cập FAQ"
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visitez notre bureau"
+          heading="Ghé thăm văn phòng của chúng tôi"
           content="ScrewFast UK"
           isAddressVisible={true}
           addressContent="72 Union Terrace, E10 4PE London"
@@ -106,8 +106,8 @@ const formSubTitle: string =
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Contactez-nous par e-mail"
-          content="Préférez-vous le texte écrit ? Envoyez-nous un e-mail à"
+          heading="Liên hệ qua email"
+          content="Bạn thích trao đổi bằng văn bản? Hãy gửi email cho chúng tôi tại"
           isLinkVisible={true}
           linkTitle="support@screwfast.uk"
           linkURL="#"
