@@ -84,12 +84,12 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
       <div
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 lg:gap-x-7 md:gap-y-0 md:ps-7"
       >
-        <!-- Navigation links and Authentication component -->
+        <!-- Navigation links -->
         {strings.navBarLinks.map(link => (
           <NavLink url={link.url} name={link.name} />
         ))}
 
-        
+
         <LanguagePicker />
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">

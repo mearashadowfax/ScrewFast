@@ -1,6 +1,5 @@
 ---
 // Import the necessary dependencies.
-import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import TextInput from "@components/ui/forms/input/TextInput.astro";
 import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astro";
@@ -63,7 +62,12 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
           </div>
 
           <div class="mt-4 grid">
-            <AuthBtn title="Send Message" />
+            <button
+              type="submit"
+              class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-transparent bg-yellow-400 px-4 py-3 text-sm font-bold text-neutral-700 focus-visible:ring-3 outline-hidden transition duration-300 hover:bg-yellow-500 dark:focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 ring-zinc-500 dark:ring-zinc-200 2xl:text-base"
+            >
+              Send Message
+            </button>
           </div>
 
           <div class="mt-3 text-center">
