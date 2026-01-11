@@ -18,48 +18,41 @@ jobs:
     env:
       CI: true
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (LTS) and enable pnpm cache
+      # 1. Cài đặt pnpm trước để các bước sau có thể sử dụng
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9 # Bạn có thể đổi thành version cụ thể bạn đang dùng
+
+      # 2. Setup Node.js và tự động bật cache cho pnpm
+      - name: Setup Node.js (LTS)
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
           cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
+          # Chỉ dùng dòng dưới nếu file lock KHÔNG nằm ở thư mục gốc
+          # cache-dependency-path: pnpm-lock.yaml 
 
-      - name: Enable Corepack & activate pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-
+      # 3. Cài đặt dependencies (nhanh hơn nhờ cache và --frozen-lockfile)
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run ESLint (if configured)
-        run: |
-          if pnpm -v >/dev/null 2>&1; then
-            pnpm run lint --if-present || npx eslint . --ext .js,.ts,.jsx,.tsx,.astro
-          else
-            npx eslint . --ext .js,.ts,.jsx,.tsx,.astro
-          fi
+      # 4. Kiểm tra lỗi Code (ESLint)
+      - name: Run ESLint
+        run: pnpm run lint --if-present
 
-      - name: Type check (astro check)
-        run: |
-          if pnpm -v >/dev/null 2>&1; then
-            pnpm run check --if-present || npx astro check
-          else
-            npx astro check
-          fi
+      # 5. Kiểm tra kiểu dữ liệu (Astro check)
+      - name: Type check
+        run: pnpm run check --if-present
 
-      - name: Build (astro build)
-        run: |
-          if pnpm -v >/dev/null 2>&1; then
-            pnpm run build
-          else
-            npx astro build
-          fi
+      # 6. Build dự án
+      - name: Build project
+        run: pnpm run build
 
+      # 7. Lưu bản Build để sử dụng sau này (nếu cần)
       - name: Upload build artifact
         if: success()
         uses: actions/upload-artifact@v4
