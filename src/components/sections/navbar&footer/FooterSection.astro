@@ -2,8 +2,8 @@
 // Import the necessary dependencies
 import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
-import vnStrings from "@utils/navigation.ts";
-import enStrings from "@utils/en/navigation.ts";
+import vnStrings from "@utils/navigation";
+import enStrings from "@utils/en/navigation";
 import Icon from "@components/ui/icons/Icon.astro";
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@data/constants";
@@ -50,13 +50,13 @@ const crafted: string =
 
       <!-- Footer link sections -->
       {
-        strings.footerLinks.map((section) => (
+        strings.footerLinks.map((section: { section: string; links: { name: string; url: string }[] }) => (
           <div class="col-span-1">
             <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
               {section.section}
             </h3>
             <ul class="mt-3 grid space-y-3">
-              {section.links.map((link, index) => (
+              {section.links.map((link: { name: string; url: string }, index: number) => (
                 <li>
                   <a
                     href={link.url}

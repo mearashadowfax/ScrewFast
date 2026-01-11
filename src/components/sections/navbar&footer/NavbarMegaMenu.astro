@@ -3,8 +3,8 @@
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
 import MegaMenuLink from "@components/ui/links/MegaMenuLink.astro";
-import vnStrings from "@utils/navigation.ts";
-import enStrings from "@utils/en/navigation.ts";
+import vnStrings from "@utils/navigation";
+import enStrings from "@utils/en/navigation";
 import BrandLogo from "@components/BrandLogo.astro";
 import LanguagePicker from "@components/ui/LanguagePicker.astro";
 
@@ -87,7 +87,7 @@ const homeUrl = Astro.currentLocale === "en" ? "/en" : "/";
       >
         <!-- Navigation links -->
         {
-          strings.navBarLinks.map((link) => {
+          strings.navBarLinks.map((link: { url: string; name: string }) => {
             if (link.name === "Services") {
               return <MegaMenuLink />;
             } else {

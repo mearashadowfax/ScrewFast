@@ -2,8 +2,8 @@
 //Import relevant dependencies
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
-import vnStrings from "@utils/navigation.ts";
-import enStrings from "@utils/en/navigation.ts";
+import vnStrings from "@utils/navigation";
+import enStrings from "@utils/en/navigation";
 import BrandLogo from "@components/BrandLogo.astro";
 import LanguagePicker from "@components/ui/LanguagePicker.astro";
 
@@ -85,7 +85,7 @@ const homeUrl = Astro.currentLocale === "en" ? "/en" : "/";
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 lg:gap-x-7 md:gap-y-0 md:ps-7"
       >
         <!-- Navigation links -->
-        {strings.navBarLinks.map(link => (
+        {strings.navBarLinks.map((link: { url: string; name: string }) => (
           <NavLink url={link.url} name={link.name} />
         ))}
 
