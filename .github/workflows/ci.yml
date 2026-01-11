@@ -2,6 +2,8 @@ name: CI
 
 on:
   push:
+    branches:
+      - '**' 
   pull_request:
 
 concurrency:
@@ -21,38 +23,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 1. Cài đặt pnpm trước để các bước sau có thể sử dụng
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9 # Bạn có thể đổi thành version cụ thể bạn đang dùng
+          version: 9
 
-      # 2. Setup Node.js và tự động bật cache cho pnpm
       - name: Setup Node.js (LTS)
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
           cache: 'pnpm'
-          # Chỉ dùng dòng dưới nếu file lock KHÔNG nằm ở thư mục gốc
-          # cache-dependency-path: pnpm-lock.yaml 
 
-      # 3. Cài đặt dependencies (nhanh hơn nhờ cache và --frozen-lockfile)
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 4. Kiểm tra lỗi Code (ESLint)
       - name: Run ESLint
-        run: pnpm run lint --if-present
+        run: pnpm run lint --if-present || npx eslint . --ext .js,.ts,.jsx,.tsx,.astro
 
-      # 5. Kiểm tra kiểu dữ liệu (Astro check)
       - name: Type check
-        run: pnpm run check --if-present
+        run: pnpm run check --if-present || npx astro check
 
-      # 6. Build dự án
       - name: Build project
         run: pnpm run build
 
-      # 7. Lưu bản Build để sử dụng sau này (nếu cần)
       - name: Upload build artifact
         if: success()
         uses: actions/upload-artifact@v4
