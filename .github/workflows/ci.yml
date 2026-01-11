@@ -2,23 +2,17 @@ name: CI
 
 on:
   push:
-    branches:
-      - '**' 
+    branches: ["**"] 
   pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
-
 jobs:
-  build:
-    name: Lint · Typecheck · Build
+  lint-test-build:
+    name: Build & Verify
     runs-on: ubuntu-latest
-    env:
-      CI: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,7 +22,7 @@ jobs:
         with:
           version: 9
 
-      - name: Setup Node.js (LTS)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
@@ -38,12 +32,12 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run ESLint
-        run: pnpm run lint --if-present || npx eslint . --ext .js,.ts,.jsx,.tsx,.astro
+        run: pnpm run lint
 
-      - name: Type check
-        run: pnpm run check --if-present || npx astro check
+      - name: Type check (astro check)
+        run: pnpm run check
 
-      - name: Build project
+      - name: Build
         run: pnpm run build
 
       - name: Upload build artifact
