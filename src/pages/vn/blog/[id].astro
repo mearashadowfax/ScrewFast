@@ -12,7 +12,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Update getStaticPaths for French posts
+// Update getStaticPaths for Vietnamese posts
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ id }) =>
     id.startsWith("vn/")
