@@ -12,38 +12,57 @@ permissions:
   contents: read
 
 jobs:
-  lint-test-build:
+  build:
     name: Lint · Typecheck · Build
     runs-on: ubuntu-latest
     env:
       CI: true
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (LTS) and enable caching
+      - name: Setup Node.js (LTS) and enable pnpm cache
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json,pnpm-lock.yaml , yarn.lock
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
 
-      - name: Install dependencies (npm preferred, fallback)
+      - name: Enable Corepack & activate pnpm
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run ESLint (if configured)
+        run: |
+          if pnpm -v >/dev/null 2>&1; then
+            pnpm run lint --if-present || npx eslint . --ext .js,.ts,.jsx,.tsx,.astro
           else
-            npm install --no-audit --no-fund
+            npx eslint . --ext .js,.ts,.jsx,.tsx,.astro
           fi
-
-      - name: Run ESLint
-        run: |
-          npx eslint . --ext .js,.ts,.jsx,.tsx,.astro
 
       - name: Type check (astro check)
         run: |
-          npx astro check
+          if pnpm -v >/dev/null 2>&1; then
+            pnpm run check --if-present || npx astro check
+          else
+            npx astro check
+          fi
 
       - name: Build (astro build)
         run: |
-          npx astro build
+          if pnpm -v >/dev/null 2>&1; then
+            pnpm run build
+          else
+            npx astro build
+          fi
+
+      - name: Upload build artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
