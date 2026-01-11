@@ -14,7 +14,7 @@ import type { CollectionEntry } from "astro:content";
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
   await getCollection("products", ({ id }) => {
-    return id.startsWith("fr/");
+    return id.startsWith("vn/");
   })
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
@@ -67,25 +67,25 @@ const ogTitle = "Dụng cụ phần cứng | ScrewFast";
 
 <MainLayout
   title={pageTitle}
-  lang="fr"
+  lang="vn"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/fr/products",
-    url: "https://screwfast.uk/fr/products",
+    "@id": "https://screwfast.uk/vn/products",
+    url: "https://screwfast.uk/vn/products",
     name: "Dụng cụ phần cứng | ScrewFast",
     description:
       "Khám phá độ bền và độ chính xác của các công cụ ScrewFast, được thiết kế dành cho cả chuyên gia lẫn người đam mê.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk/fr",
+      url: "https://screwfast.uk/vn",
       name: "ScrewFast",
       description:
         "ScrewFast cung cấp các công cụ phần cứng cao cấp và dịch vụ xây dựng chuyên nghiệp để đáp ứng mọi nhu cầu dự án của bạn.",
     },
-    inLanguage: "fr",
+    inLanguage: "vn",
   }}
 >
   <div
@@ -118,9 +118,9 @@ const ogTitle = "Dụng cụ phần cứng | ScrewFast";
         product.map((product, index) => {
           const position = index % 4;
           if (position === 0 || position === 3) {
-            return <CardSmall product={product} productLocale="fr" />;
+            return <CardSmall product={product} productLocale="vn" />;
           } else {
-            return <CardWide product={product} productLocale="fr" />;
+            return <CardWide product={product} productLocale="vn" />;
           }
         })
       }

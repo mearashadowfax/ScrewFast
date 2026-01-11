@@ -11,9 +11,9 @@ import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "@images/hero-image.avif";
-import faqs from "@data/fr/faqs.json";
-import features from "@data/fr/features.json";
-import pricing from "@data/fr/pricing.json";
+import faqs from "@data/vn/faqs.json";
+import features from "@data/vn/features.json";
+import pricing from "@data/vn/pricing.json";
 import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
@@ -29,7 +29,7 @@ const avatarSrcs: Array<string> = [
 ];
 ---
 
-<MainLayout lang="fr">
+<MainLayout lang="vn">
   <AnnouncementBanner
     btnId="dismiss-button"
     btnTitle="Khám phá ScrewFast trên GitHub"
@@ -40,9 +40,9 @@ const avatarSrcs: Array<string> = [
     title=`Trang bị cho dự án của bạn với <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
     subTitle="Công cụ phần cứng chất lượng cao và dịch vụ xây dựng chuyên nghiệp cho mọi nhu cầu dự án."
     primaryBtn="Bắt đầu khám phá"
-    primaryBtnURL={getRelativeLocaleUrl("fr", "products")}
+    primaryBtnURL={getRelativeLocaleUrl("vn", "products")}
     secondaryBtn="Liên hệ đội ngũ kinh doanh"
-    secondaryBtnURL={getRelativeLocaleUrl("fr", "contact")}
+    secondaryBtnURL={getRelativeLocaleUrl("vn", "contact")}
     withReview={true}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`

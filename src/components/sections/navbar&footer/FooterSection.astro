@@ -3,25 +3,25 @@
 import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
 import enStrings from "@utils/navigation.ts";
-import frStrings from "@utils/fr/navigation.ts";
+import vnStrings from "@utils/vn/navigation.ts";
 import Icon from "@components/ui/icons/Icon.astro";
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@data/constants";
 
 // Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
+const strings = Astro.currentLocale === "vn" ? vnStrings : enStrings;
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string =
-  Astro.currentLocale === "fr" ? "Luôn cập nhật" : "Luôn cập nhật";
+  Astro.currentLocale === "vn" ? "Luôn cập nhật" : "Luôn cập nhật";
 
 const sectionThreeContent: string =
-  Astro.currentLocale === "fr"
+  Astro.currentLocale === "vn"
     ? "Nhận thông tin mới nhất về các công cụ và ưu đãi độc quyền."
     : "Nhận thông tin mới nhất về các công cụ và ưu đãi độc quyền.";
 
 const crafted: string =
-  Astro.currentLocale === "fr" ? "Được xây dựng bởi" : "Được xây dựng bởi";
+  Astro.currentLocale === "vn" ? "Được xây dựng bởi" : "Được xây dựng bởi";
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">

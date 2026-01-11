@@ -30,7 +30,7 @@ export default defineConfig({
         defaultLocale: "en", // All urls that don't contain language prefix will be treated as default locale
         locales: {
           en: "en", // The `defaultLocale` value must present in `locales` keys
-          fr: "fr",
+          vn: "vn",
         },
       },
     }),
@@ -49,7 +49,7 @@ export default defineConfig({
         de: { label: "Deutsch", lang: "de" },
         es: { label: "Español", lang: "es" },
         fa: { label: "Persian", lang: "fa", dir: "rtl" },
-        fr: { label: "Français", lang: "fr" },
+        vn: { label: "Tiếng Việt", lang: "vn" },
         ja: { label: "日本語", lang: "ja" },
         "zh-cn": { label: "简体中文", lang: "zh-CN" },
       },
@@ -61,7 +61,7 @@ export default defineConfig({
             de: "Schnellstartanleitungen",
             es: "Guías de Inicio Rápido",
             fa: "راهنمای شروع سریع",
-            fr: "Guides de Démarrage Rapide",
+            vn: "Hướng dẫn Bắt đầu Nhanh",
             ja: "クイックスタートガイド",
             "zh-cn": "快速入门指南",
           },

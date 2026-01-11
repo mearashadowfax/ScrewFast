@@ -11,11 +11,11 @@ import { SITE } from "@data/constants";
 // Get all blogs post in French and sort them based on publish date
 
 const frenchBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("fr/");
+  return id.startsWith("vn/");
 });
 
 const frenchInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("fr/");
+  return id.startsWith("vn/");
 });
 
 const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
@@ -44,26 +44,26 @@ const ogTitle = "Blog ngành xây dựng | ScrewFast";
 ---
 
 <MainLayout
-  lang="fr"
+  lang="vn"
   title={pageTitle}
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/fr/blog",
-    url: "https://screwfast.uk/fr/blog",
+    "@id": "https://screwfast.uk/vn/blog",
+    url: "https://screwfast.uk/vn/blog",
     name: "Blog | ScrewFast",
     description:
       "Luôn cập nhật những xu hướng và biến chuyển mới nhất trong ngành xây dựng với các phân tích từ đội ngũ chuyên gia của ScrewFast.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk/fr",
+      url: "https://screwfast.uk/vn",
       name: "ScrewFast",
       description:
         "ScrewFast cung cấp các công cụ phần cứng hàng đầu cùng dịch vụ xây dựng chuyên nghiệp nhằm đáp ứng mọi nhu cầu dự án của bạn.",
     },
-    inLanguage: "fr",
+    inLanguage: "vn",
   }}
 >
   <section
@@ -92,17 +92,19 @@ const ogTitle = "Blog ngành xây dựng | ScrewFast";
     <div class="grid gap-6 lg:grid-cols-2">
       {
         otherPosts.map((blogEntry) => (
-          <CardBlog blogEntry={blogEntry} blogLocale="fr" />
+          <CardBlog blogEntry={blogEntry} blogLocale="vn" />
         ))
       }
     </div>
   </section>
   {/* Most recent blog post */}
+  {mostRecentPost && (
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" />
+    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="vn" />
   </section>
+  )}
   {/* Insights section */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
@@ -120,7 +122,7 @@ const ogTitle = "Blog ngành xây dựng | ScrewFast";
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} insightLocale="fr" />
+          <CardInsight insightEntry={insightEntry} insightLocale="vn" />
         ))
       }
     </div>

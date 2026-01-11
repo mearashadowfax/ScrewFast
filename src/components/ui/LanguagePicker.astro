@@ -45,14 +45,14 @@ import Icon from "./icons/Icon.astro";
 
 <script>
   // Type alias for supported languages
-  type TLanguage = "en" | "fr";
+  type TLanguage = "en" | "vn";
   // array of supported languages
-  const languages: TLanguage[] = ["en", "fr"];
+  const languages: TLanguage[] = ["en", "vn"];
 
   document.addEventListener("DOMContentLoaded", function () {
     // Only target language picker links
     const languageLinks = document.querySelectorAll(".hs-dropdown-menu[aria-labelledby='hs-dropdown-hover-event'] a");
-    
+
     languageLinks.forEach((element) => {
       const link = element as HTMLAnchorElement;
       const lang = link
@@ -64,7 +64,7 @@ import Icon from "./icons/Icon.astro";
         event.preventDefault();
 
         const url = new URL(window.location.href);
-        
+
         const currentPath = url.pathname
           .split("/")
           .filter((part) => part && !languages.includes(part as TLanguage))
@@ -79,7 +79,7 @@ import Icon from "./icons/Icon.astro";
 
         newPath = newPath.replace(/\/+/g, "/");
         if (newPath === "") newPath = "/";
-        
+
         window.location.href = `${url.origin}${newPath}${url.search}`;
       });
     });

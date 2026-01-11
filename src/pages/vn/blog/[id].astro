@@ -15,12 +15,12 @@ import { SITE } from "@data/constants";
 // Update getStaticPaths for French posts
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ id }) =>
-    id.startsWith("fr/")
+    id.startsWith("vn/")
   );
   return blogPosts.map((post) => {
-    const idWithoutLang = post.id.replace(/^fr\//, ""); // Remove the "fr/" prefix
+    const idWithoutLang = post.id.replace(/^vn\//, ""); // Remove the "vn/" prefix
     return {
-      params: { lang: "fr", id: idWithoutLang },
+      params: { lang: "vn", id: idWithoutLang },
       props: { post },
     };
   });
@@ -31,7 +31,7 @@ const { post } = Astro.props;
 // Fetch related posts
 const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   "blog",
-  ({ id }) => id.startsWith("fr/")
+  ({ id }) => id.startsWith("vn/")
 );
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   (blogEntry) => blogEntry.id !== post.id
@@ -46,7 +46,7 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
 
 <MainLayout
   title={pageTitle}
-  lang="fr"
+  lang="vn"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
@@ -69,9 +69,9 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://screwfast.uk/fr/blog/${post.id.replace(/^fr\//, "")}`,
+      "@id": `https://screwfast.uk/vn/blog/${post.id.replace(/^vn\//, "")}`,
     },
-    inLanguage: "fr",
+    inLanguage: "vn",
   }}
 >
   <section class="mx-auto max-w-3xl px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10">
@@ -188,7 +188,7 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
     <div class="grid grid-cols-2 gap-6">
       {
         relatedPosts.map((entry) => (
-          <CardRelated blogEntry={entry} recentBlogLocale="fr" />
+          <CardRelated blogEntry={entry} recentBlogLocale="vn" />
         ))
       }
     </div>

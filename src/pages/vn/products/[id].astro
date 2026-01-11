@@ -17,12 +17,12 @@ declare global {
 
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) =>
-    id.startsWith("fr/")
+    id.startsWith("vn/")
   );
   return productEntries.map((product) => {
-    const idWithoutLang = product.id.replace(/^fr\//, ""); // Remove the "fr/" prefix
+    const idWithoutLang = product.id.replace(/^vn\//, ""); // Remove the "vn/" prefix
     return {
-      params: { lang: "fr", id: idWithoutLang },
+      params: { lang: "vn", id: idWithoutLang },
       props: { product },
     };
   });
@@ -37,20 +37,20 @@ const ogTitle = `${product.data.title} | Dụng cụ phần cứng | ScrewFast`;
 
 <MainLayout
   title={pageTitle}
-  lang="fr"
+  lang="vn"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": `https://screwfast.uk/fr/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
+    "@id": `https://screwfast.uk/vn/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
     name: product.data.title,
     description: product.data.description,
     brand: {
       "@type": "Brand",
       name: "ScrewFast",
     },
-    inLanguage: "fr",
+    inLanguage: "vn",
   }}
 >
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
