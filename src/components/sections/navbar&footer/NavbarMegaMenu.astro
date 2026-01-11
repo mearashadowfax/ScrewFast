@@ -3,14 +3,14 @@
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
 import MegaMenuLink from "@components/ui/links/MegaMenuLink.astro";
-import enStrings from "@utils/navigation.ts";
-import vnStrings from "@utils/vn/navigation.ts";
+import vnStrings from "@utils/navigation.ts";
+import enStrings from "@utils/en/navigation.ts";
 import BrandLogo from "@components/BrandLogo.astro";
 import LanguagePicker from "@components/ui/LanguagePicker.astro";
 
 // Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === "vn" ? vnStrings : enStrings;
-const homeUrl = Astro.currentLocale === "vn" ? "/vn" : "/";
+const strings = Astro.currentLocale === "en" ? enStrings : vnStrings;
+const homeUrl = Astro.currentLocale === "en" ? "/en" : "/";
 ---
 
 <!-- Main header component -->

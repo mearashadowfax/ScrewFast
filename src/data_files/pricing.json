@@ -1,38 +1,38 @@
 {
-  "title": "Simple, Transparent Pricing",
-  "subTitle": "Boost efficiency with ScrewFast's clear, value-driven plans.",
-  "badge": "Best value",
-  "thirdOption": "Enterprise Solutions?",
-  "btnText": "Get a Custom Quote",
+  "title": "Bảng giá Đơn giản và Minh bạch",
+  "subTitle": "Nâng cao hiệu quả với các gói dịch vụ rõ ràng, tập trung vào giá trị của ScrewFast.",
+  "badge": "Giá trị tốt nhất",
+  "thirdOption": "Giải pháp Doanh nghiệp?",
+  "btnText": "Nhận Báo giá Cá nhân hóa",
 
   "starterKit": {
-    "name": "Starter Kit",
-    "description": "Best option for DIY projects",
-    "price": "49",
+    "name": "Bộ Khởi động",
+    "description": "Lựa chọn tốt nhất cho các dự án DIY",
+    "price": "$49",
     "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "billingFrequency": "USD / hàng tháng",
     "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
+      "Các công cụ phần cứng thiết yếu",
+      "Truy cập hướng dẫn và video hướng dẫn",
+      "Hỗ trợ tiêu chuẩn"
     ],
-    "purchaseBtnTitle": "Get the Starter Kit",
+    "purchaseBtnTitle": "Nhận Bộ Khởi động",
     "purchaseLink": "#"
   },
 
   "professionalToolbox": {
-    "name": "Professional Toolbox",
-    "description": "Best for large scale uses",
-    "price": "89",
+    "name": "Hộp Dụng cụ Chuyên nghiệp",
+    "description": "Lý tưởng cho nhu cầu sử dụng quy mô lớn",
+    "price": "$89",
     "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "billingFrequency": "USD / hàng tháng",
     "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
+      "Bộ công cụ cao cấp",
+      "Hỗ trợ ưu tiên",
+      "Nội dung và ưu đãi độc quyền",
+      "Giảm giá cho đơn hàng số lượng lớn"
     ],
-    "purchaseBtnTitle": "Get the Professional Toolbox",
+    "purchaseBtnTitle": "Nhận Hộp Dụng cụ Chuyên nghiệp",
     "purchaseLink": "#"
   }
 }

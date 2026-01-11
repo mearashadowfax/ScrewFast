@@ -34,7 +34,7 @@ import Icon from "./icons/Icon.astro";
       Object.entries(languages).map(([lang, label]) => (
         <a
           class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-800 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-hidden dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-          href={`/${lang === "en" ? "" : lang}`}
+          href={`/${lang === "vn" ? "" : lang}`}
         >
           {label}
         </a>
@@ -71,7 +71,7 @@ import Icon from "./icons/Icon.astro";
           .join("/");
 
         let newPath = "";
-        if (lang && lang !== "en") {
+        if (lang && lang !== "vn") {
           newPath = `/${lang}/${currentPath}`;
         } else {
           newPath = `/${currentPath}`;

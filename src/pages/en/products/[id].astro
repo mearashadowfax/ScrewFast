@@ -13,16 +13,17 @@ declare global {
     gsap: any;
   }
 }
+
 // This gets the static paths for all the unique products
 
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) =>
-    id.startsWith("vn/")
+    id.startsWith("en/")
   );
   return productEntries.map((product) => {
-    const idWithoutLang = product.id.replace(/^vn\//, ""); // Remove the "vn/" prefix
+    const idWithoutLang = product.id.replace(/^en\//, ""); // Remove the "en/" prefix
     return {
-      params: { lang: "vn", id: idWithoutLang },
+      params: { id: idWithoutLang },
       props: { product },
     };
   });
@@ -32,25 +33,24 @@ const { product } = Astro.props;
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 const metaDescription = product.data.description;
-const ogTitle = `${product.data.title} | Dụng cụ phần cứng | ScrewFast`;
+const ogTitle = `${product.data.title} | Hardware Tools | ScrewFast`;
 ---
 
 <MainLayout
   title={pageTitle}
-  lang="vn"
+  lang="en"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": `https://screwfast.uk/vn/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
+    "@id": `https://screwfast.uk/en/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
     name: product.data.title,
     description: product.data.description,
     brand: {
       "@type": "Brand",
       name: "ScrewFast",
     },
-    inLanguage: "vn",
   }}
 >
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">

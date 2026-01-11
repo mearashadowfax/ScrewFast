@@ -15,7 +15,6 @@ import aerialView from "@images/aerial-view.avif";
 import usingTools from "@images/using-tools.avif";
 import progressBuilding from "@images/progress-building.avif";
 import underConstruction from "@images/under-construction.avif";
-import { SITE } from "@data/constants";
 
 interface Article {
   isRightSection: boolean;
@@ -36,106 +35,92 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Delivering Expert Guidance",
+    title: "Cung cấp tư vấn chuyên gia",
     subTitle:
-      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+      "Bắt đầu một dự án xây dựng có thể khiến bạn choáng ngợp. Với dịch vụ tư vấn chuyên nghiệp của chúng tôi, chúng tôi đồng hành cùng bạn ở mọi giai đoạn, đảm bảo bạn đưa ra những quyết định đúng đắn. Dù bạn là người yêu thích tự làm (DIY) hay nhà thầu chuyên nghiệp, các chuyên gia của chúng tôi luôn sẵn sàng cung cấp tư vấn phù hợp về lựa chọn sản phẩm, quy mô dự án và tuân thủ các quy định địa phương.",
     single: false,
     imgOne: blueprints,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgOneAlt: "Bản vẽ xây dựng và máy tính bảng hiển thị kế hoạch thi công.",
     imgTwo: personWorking,
-    imgTwoAlt: "Person working in the office",
+    imgTwoAlt: "Người đang làm việc tại văn phòng",
   },
   {
     isRightSection: false,
-    title: "Transforming Designs into Reality",
+    title: "Biến ý tưởng thiết kế thành hiện thực",
     subTitle:
-      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
+      "Những người thợ lành nghề của chúng tôi mang đến độ chính xác và sự xuất sắc cho từng dự án xây dựng. Từ các hạng mục lắp đặt nhỏ đến các công trình kết cấu quy mô lớn, ScrewFast cung cấp dịch vụ xây dựng đáng tin cậy để hiện thực hóa kế hoạch của bạn. Chúng tôi đảm bảo các tiêu chuẩn cao nhất về an toàn và tay nghề, sử dụng công cụ và vật liệu chất lượng cao từ kho hàng phong phú của mình.",
     img: beforeAfter,
-    imgAlt: "Construction site before and after",
+    imgAlt: "Công trình xây dựng trước và sau khi hoàn thiện",
     btnExists: true,
-    btnTitle: "Learn More",
+    btnTitle: "Tìm hiểu thêm",
     btnURL: "#",
   },
   {
     isRightSection: true,
-    title: "Navigating Projects with Professional Oversight",
+    title: "Điều phối dự án với sự giám sát chuyên nghiệp",
     subTitle:
-      "Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
+      "Quản lý dự án hiệu quả là yếu tố cốt lõi của mọi công trình thành công. ScrewFast cung cấp dịch vụ lập kế hoạch chi tiết và quản lý vững chắc để giữ dự án đúng tiến độ và trong ngân sách. Hãy để chúng tôi xử lý sự phức tạp của việc điều phối quy trình, phân bổ nguồn lực và giao tiếp với các bên liên quan, trong khi bạn tập trung vào tầm nhìn của mình.",
     single: false,
     imgOne: constructionWorkers,
-    imgOneAlt: "Construction workers orchestrating a project",
+    imgOneAlt: "Công nhân xây dựng đang điều phối một dự án",
     imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
+    imgTwoAlt: "Góc nhìn từ trên cao của công trình đang được quản lý",
   },
   {
     isRightSection: false,
-    title: "Ensuring Long-lasting Performance",
+    title: "Đảm bảo hiệu suất bền vững lâu dài",
     subTitle:
-      "Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
+      "Cam kết của chúng tôi với dự án của bạn không kết thúc khi công trình hoàn thành. ScrewFast cung cấp dịch vụ bảo trì và hỗ trợ liên tục nhằm đảm bảo độ bền và hiệu suất lâu dài của công trình. Từ các đợt kiểm tra định kỳ đến hỗ trợ khẩn cấp, đội ngũ phản hồi nhanh của chúng tôi luôn sẵn sàng hỗ trợ bạn một cách liền mạch.",
     img: usingTools,
     imgAlt:
-      "Man in orange and black vest wearing white helmet holding yellow and black power tool",
+      "Người đàn ông mặc áo phản quang cam đen, đội mũ bảo hộ trắng và cầm công cụ điện màu vàng đen",
   },
   {
     isRightSection: true,
-    title: "Crafting Bespoke Strategies for Unique Challenges",
+    title: "Xây dựng chiến lược tùy chỉnh cho những thách thức riêng biệt",
     subTitle:
-      "For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward.",
+      "Đối với các khách hàng doanh nghiệp quy mô lớn, ScrewFast cung cấp các giải pháp được thiết kế riêng để giải quyết những thách thức đặc thù của ngành. Bằng cách thấu hiểu nhu cầu riêng của bạn, chúng tôi xây dựng các chiến lược tùy chỉnh nhằm tối ưu hóa vận hành, nâng cao hiệu quả và thúc đẩy doanh nghiệp của bạn phát triển.",
     single: false,
     imgOne: progressBuilding,
-    imgOneAlt: "In progress building structure",
+    imgOneAlt: "Kết cấu tòa nhà đang trong quá trình xây dựng",
     imgTwo: underConstruction,
-    imgTwoAlt: "Brown and gray building under construction",
+    imgTwoAlt: "Tòa nhà màu nâu và xám đang thi công",
     btnExists: true,
-    btnTitle: "Read more",
+    btnTitle: "Đọc thêm",
     btnURL: "#",
   },
 ];
-
-const pageTitle: string = `Services | ${SITE.title}`;
-const metaDescription =
-  "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.";
-const ogTitle = "Expert Consultation Services | ScrewFast";
 ---
 
 <MainLayout
-  title={pageTitle}
-  customDescription={metaDescription}
-  customOgTitle={ogTitle}
+  title="Dịch vụ | ScrewFast"
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://screwfast.uk/services",
     url: "https://screwfast.uk/services",
-    name: "Expert Consultation Services | ScrewFast",
+    name: "Dịch vụ Tư vấn Chuyên gia | ScrewFast",
     description:
-      "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+      "Kết hợp chuyên môn với tầm nhìn của bạn, ScrewFast cung cấp dịch vụ vượt trội và các giải pháp toàn diện trong lĩnh vực phần cứng và xây dựng, từ tư vấn đến hoàn thiện dự án.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk",
       name: "ScrewFast",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "ScrewFast cung cấp các công cụ phần cứng hàng đầu và dịch vụ xây dựng chuyên nghiệp để đáp ứng mọi nhu cầu dự án của bạn.",
     },
-    inLanguage: "en-US",
+    inLanguage: "vn",
   }}
 >
   {/* MainSection is the introductory section of the page, it also contains a CTA button */}
   <MainSection
-    title="Uniting Expertise with Your Vision"
-    subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
+    title="Kết hợp chuyên môn với tầm nhìn của bạn"
+    subTitle="Tại ScrewFast, chúng tôi tự hào cung cấp các giải pháp toàn diện và dịch vụ xuất sắc trong ngành phần cứng và xây dựng. Đội ngũ giàu kinh nghiệm của chúng tôi luôn đồng hành cùng dự án của bạn từ khâu ý tưởng đến khi hoàn thành thông qua nhiều dịch vụ chuyên biệt."
     btnExists={true}
-    btnTitle="Schedule a Consultation"
+    btnTitle="Đặt lịch tư vấn"
     btnURL="#"
   />
-  {/* RightSection and LeftSection contain details about various services along with pertinent imagery.
-  They alternate for variety in design.
-  The 'btnExists' property is used to toggle the display of a button in these sections.
-  When btnExists={true}, a button is displayed.
-  This can be used to link to more detailed information or related resources.
-  RightSection can also conditionally render one or two images based on the 'single' property.
-  If 'single' is true, it displays one image, otherwise it displays two.
-  */}
+
   {
     articles.map((article) => {
       return article.isRightSection ? (
@@ -164,24 +149,24 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
       );
     })
   }
-  {/* FeaturesStats section showcases essential stats valuable to users */}
+
   <FeaturesStats
-    title="By the Numbers"
-    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+    title="Qua các con số"
+    subTitle="Cam kết của chúng tôi về chất lượng và độ tin cậy được thể hiện rõ trong mọi dự án mà chúng tôi thực hiện. Tại ScrewFast, chúng tôi nỗ lực cung cấp các dịch vụ hàng đầu trong ngành, đảm bảo các công trình của bạn được xây dựng để bền vững theo thời gian."
     mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+    mainStatSubTitle="khách hàng đánh giá trải nghiệm với ScrewFast là xuất sắc"
     stats={[
       {
-        stat: "99.8%",
-        description: "project completion rate",
+        stat: "99,8%",
+        description: "tỷ lệ hoàn thành dự án",
       },
       {
-        stat: "5,000+",
-        description: "successful installations",
+        stat: "5.000+",
+        description: "lắp đặt thành công",
       },
       {
         stat: "85%",
-        description: "client growth year-over-year",
+        description: "tăng trưởng khách hàng theo năm",
       },
     ]}
   />

@@ -2,26 +2,26 @@
 // Import the necessary dependencies
 import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
-import enStrings from "@utils/navigation.ts";
-import vnStrings from "@utils/vn/navigation.ts";
+import vnStrings from "@utils/navigation.ts";
+import enStrings from "@utils/en/navigation.ts";
 import Icon from "@components/ui/icons/Icon.astro";
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@data/constants";
 
 // Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === "vn" ? vnStrings : enStrings;
+const strings = Astro.currentLocale === "en" ? enStrings : vnStrings;
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string =
-  Astro.currentLocale === "vn" ? "Luôn cập nhật" : "Luôn cập nhật";
+  Astro.currentLocale === "en" ? "Stay up to date" : "Luôn cập nhật";
 
 const sectionThreeContent: string =
-  Astro.currentLocale === "vn"
-    ? "Nhận thông tin mới nhất về các công cụ và ưu đãi độc quyền."
+  Astro.currentLocale === "en"
+    ? "Get the latest news on new tools and exclusive promotions."
     : "Nhận thông tin mới nhất về các công cụ và ưu đãi độc quyền.";
 
 const crafted: string =
-  Astro.currentLocale === "vn" ? "Được xây dựng bởi" : "Được xây dựng bởi";
+  Astro.currentLocale === "en" ? "Crafted by" : "Được xây dựng bởi";
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
@@ -34,10 +34,16 @@ const crafted: string =
         <BrandLogo class="h-auto w-36" />
         <div class="mt-5 space-y-3">
           <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200">
-            Công ty Cổ phần Sản xuất<br />và Thương mại
+            {Astro.currentLocale === "en"
+              ? <>Manufacturing and<br />Trading Corporation</>
+              : <>Công ty Cổ phần Sản xuất<br />và Thương mại</>
+            }
           </h3>
           <p class="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-            Giải pháp sản xuất và thương mại chất lượng cao, đáng tin cậy cho mọi dự án.
+            {Astro.currentLocale === "en"
+              ? "High-quality, reliable manufacturing and trading solutions for every project."
+              : "Giải pháp sản xuất và thương mại chất lượng cao, đáng tin cậy cho mọi dự án."
+            }
           </p>
         </div>
       </div>
@@ -58,11 +64,7 @@ const crafted: string =
                   >
                     {link.name}
                   </a>
-                  {section.section === "Company" && index === 2 ? (
-                    <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
-                      Chúng tôi đang tuyển dụng!
-                    </span>
-                  ) : null}
+
                 </li>
               ))}
             </ul>

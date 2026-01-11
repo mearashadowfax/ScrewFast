@@ -1,38 +1,37 @@
-// An array of links for navigation bar
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
+  { name: "Trang chủ", url: "/" },
+  { name: "Sản phẩm", url: "/products" },
+  { name: "Dịch vụ", url: "/services" },
   { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Liên hệ", url: "/contact" },
 ];
-// An array of links for footer
+
 const footerLinks = [
   {
-    section: "Ecosystem",
+    section: "Hệ sinh thái",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Tài liệu", url: "/welcome-to-docs/" },
+      { name: "Công cụ & Thiết bị", url: "/products" },
+      { name: "Dịch vụ xây dựng", url: "/services" },
     ],
   },
   {
-    section: "Company",
+    section: "Công ty",
     links: [
-      { name: "About us", url: "#" },
+      { name: "Về chúng tôi", url: "#" },
       { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "Tuyển dụng", url: "#" },
+      { name: "Khách hàng", url: "#" },
     ],
   },
 ];
-// An object of links for social icons
+
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
+  facebook: "#",
+  x: "#",
   github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  google: "#",
+  slack: "#",
 };
 
 export default {

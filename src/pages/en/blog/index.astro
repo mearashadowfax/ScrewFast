@@ -8,68 +8,68 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Get all blogs post in Vietnamese and sort them based on publish date
+// Get all blogs post in English and sort them based on publish date
 
-const vietnameseBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("vn/");
+const englishBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("en/");
 });
 
-const vietnameseInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("vn/");
+const englishInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("en/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = vietnameseBlogEntries.sort(
+const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = vietnameseInsightsEntries;
+const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Cánh cổng dẫn tới sự xuất sắc trong xây dựng";
+const title: string = "Your Gateway to Construction Excellence";
 const subTitle: string =
-  "Khám phá những tin tức mới nhất, mẹo hữu ích và phân tích chuyên sâu từ ScrewFast nhằm nâng cao hiệu quả cho các dự án xây dựng của bạn. Từ giới thiệu sản phẩm đến chiến lược quản lý dự án, blog của chúng tôi là nguồn tài nguyên không thể thiếu cho mọi vấn đề liên quan đến công cụ và xây dựng.";
-const secondTitle: string = "Góc nhìn chuyên sâu";
+  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
+const secondTitle: string = "Insights";
 const secondSubTitle: string =
-  "Luôn cập nhật các xu hướng và thay đổi mới nhất trong ngành xây dựng thông qua những phân tích đến từ đội ngũ chuyên gia của ScrewFast.";
+  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
-  "Luôn cập nhật những xu hướng và biến chuyển mới nhất trong ngành xây dựng với các phân tích từ đội ngũ chuyên gia của ScrewFast.";
-const ogTitle = "Blog ngành xây dựng | ScrewFast";
+  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
+const ogTitle = "Construction Industry Blog | ScrewFast";
 ---
 
 <MainLayout
-  lang="vn"
   title={pageTitle}
+  lang="en"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/vn/blog",
-    url: "https://screwfast.uk/vn/blog",
+    "@id": "https://screwfast.uk/en/blog",
+    url: "https://screwfast.uk/en/blog",
     name: "Blog | ScrewFast",
     description:
-      "Luôn cập nhật những xu hướng và biến chuyển mới nhất trong ngành xây dựng với các phân tích từ đội ngũ chuyên gia của ScrewFast.",
+      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk/vn",
+      url: "https://screwfast.uk/en",
       name: "ScrewFast",
       description:
-        "ScrewFast cung cấp các công cụ phần cứng hàng đầu cùng dịch vụ xây dựng chuyên nghiệp nhằm đáp ứng mọi nhu cầu dự án của bạn.",
+        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
     },
-    inLanguage: "vn",
+    inLanguage: "en-US",
   }}
 >
   <section
     class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
   >
-    <!--Page header-->
+    {/* Page header */}
     <div class="mx-auto max-w-3xl text-left sm:text-center">
       <h1
         class="block text-4xl font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
@@ -90,11 +90,7 @@ const ogTitle = "Blog ngành xây dựng | ScrewFast";
   >
     {/* Blog posts grid */}
     <div class="grid gap-6 lg:grid-cols-2">
-      {
-        otherPosts.map((blogEntry) => (
-          <CardBlog blogEntry={blogEntry} blogLocale="vn" />
-        ))
-      }
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="en" />)}
     </div>
   </section>
   {/* Most recent blog post */}
@@ -102,10 +98,10 @@ const ogTitle = "Blog ngành xây dựng | ScrewFast";
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="vn" />
+    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="en" />
   </section>
   )}
-  {/* Insights section */}
+  {/* Insights section */}}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
@@ -122,7 +118,7 @@ const ogTitle = "Blog ngành xây dựng | ScrewFast";
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} insightLocale="vn" />
+          <CardInsight insightEntry={insightEntry} insightLocale="en" />
         ))
       }
     </div>

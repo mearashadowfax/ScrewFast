@@ -8,12 +8,12 @@ import { getCollection, render } from "astro:content";
 // Use `getStaticPaths` to generate static routes for generated pages on build
 export async function getStaticPaths() {
   const insightPosts = await getCollection("insights", ({ id }) =>
-    id.startsWith("vn/")
+    id.startsWith("en/")
   );
   return insightPosts.map((post) => {
-    const idWithoutLang = post.id.replace(/^vn\//, ""); // Remove the "vn/" prefix
+    const idWithoutLang = post.id.replace(/^en\//, ""); // Remove the "en/" prefix
     return {
-      params: { lang: "vn", id: idWithoutLang },
+      params: { id: idWithoutLang },
       props: { post },
     };
   });
@@ -31,7 +31,7 @@ const ogTitle = `${post.data.title} | Insights | ${SITE.title}`;
 
 <MainLayout
   title={pageTitle}
-  lang="vn"
+  lang="en"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
@@ -54,9 +54,8 @@ const ogTitle = `${post.data.title} | Insights | ${SITE.title}`;
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://screwfast.uk/vn/insights/${post.id.replace(/^vn\//, "")}`,
+      "@id": `https://screwfast.uk/en/insights/${post.id.replace(/^en\//, "")}`,
     },
-    inLanguage: "vn",
   }}
 >
   <section class="py-6 sm:py-8 lg:py-12">
@@ -88,7 +87,7 @@ const ogTitle = `${post.data.title} | Insights | ${SITE.title}`;
               </div>
             </div>
             <p class="text-sm text-pretty text-neutral-500">
-              Mục lục nội dung:
+              Table of Contents:
             </p>
             <div id="toc" class="">
               <ul

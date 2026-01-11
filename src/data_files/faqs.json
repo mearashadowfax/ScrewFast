@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Hãy đặt cho chúng tôi mọi câu hỏi về thương hiệu và sản phẩm của chúng tôi, và nhận được những câu trả lời chính xác.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "Bộ Khởi Động bao gồm những loại công cụ nào?",
+      "answer": "Bộ Khởi Động bao gồm các công cụ cầm tay và công cụ điện thiết yếu cho nhiều dự án tự làm (DIY), chẳng hạn như búa, máy khoan, tua vít và nhiều loại phụ kiện cố định. Đây là một bộ lựa chọn được xây dựng cẩn thận nhằm hỗ trợ cả người mới bắt đầu lẫn những người đã có kinh nghiệm xử lý hầu hết các công việc cải tạo nhà cửa."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "Tôi có thể nâng cấp từ Bộ Khởi Động lên Hộp Dụng Cụ Chuyên Nghiệp không?",
+      "answer": "Hoàn toàn có thể! Bạn có thể nâng cấp lên Hộp Dụng Cụ Chuyên Nghiệp bất cứ lúc nào để tiếp cận danh mục công cụ chất lượng cao phong phú hơn, nhận hỗ trợ khách hàng ưu tiên và nội dung độc quyền. Hãy liên hệ đội ngũ hỗ trợ của chúng tôi để quá trình chuyển đổi diễn ra suôn sẻ."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "Có những ưu đãi giảm giá nào cho đơn hàng số lượng lớn theo gói Hộp Dụng Cụ Chuyên Nghiệp?",
+      "answer": "Thành viên của Hộp Dụng Cụ Chuyên Nghiệp được hưởng các ưu đãi giảm giá độc quyền cho các đơn hàng số lượng lớn, với mức phần trăm thay đổi tùy theo khối lượng đơn hàng. Hãy liên hệ với chúng tôi để trao đổi về nhu cầu của bạn, chúng tôi sẽ cung cấp cấu trúc chiết khấu được thiết kế riêng."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "Tôi có thể mong đợi điều gì về hỗ trợ khách hàng?",
+      "answer": "Tất cả khách hàng đều được hưởng hỗ trợ qua email chuyên dụng. Với Bộ Khởi Động, bạn sẽ nhận hỗ trợ tiêu chuẩn; trong khi gói Hộp Dụng Cụ Chuyên Nghiệp sẽ nâng cấp lên hỗ trợ ưu tiên, đồng nghĩa với thời gian phản hồi nhanh hơn và sự trợ giúp chuyên sâu hơn."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "Các tài nguyên trực tuyến và hướng dẫn được cập nhật với tần suất như thế nào?",
+      "answer": "Chúng tôi thường xuyên cập nhật các tài nguyên trực tuyến và hướng dẫn để phản ánh những xu hướng mới nhất trong lĩnh vực DIY và xây dựng, cũng như việc giới thiệu các công cụ và kỹ thuật mới. Tài liệu của chúng tôi hướng tới sự đầy đủ và dễ sử dụng cho mọi cấp độ kỹ năng."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "ScrewFast có cung cấp dịch vụ cho các dự án xây dựng quy mô lớn không?",
+      "answer": "Có. Các Giải Pháp Doanh Nghiệp của chúng tôi được thiết kế dành cho các tổ chức lớn cần dịch vụ toàn diện. Chúng tôi cung cấp tư vấn, lập kế hoạch, cung ứng công cụ và vật liệu chất lượng cao, cùng với các giải pháp nhân sự cho những nhu cầu xây dựng quy mô lớn. Hãy liên hệ với chúng tôi để nhận báo giá được cá nhân hóa."
     }
   ]
 }

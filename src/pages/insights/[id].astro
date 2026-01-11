@@ -8,12 +8,12 @@ import { getCollection, render } from "astro:content";
 // Use `getStaticPaths` to generate static routes for generated pages on build
 export async function getStaticPaths() {
   const insightPosts = await getCollection("insights", ({ id }) =>
-    id.startsWith("en/")
+    id.startsWith("vn/")
   );
   return insightPosts.map((post) => {
-    const idWithoutLang = post.id.replace(/^en\//, ""); // Remove the "en/" prefix
+    const idWithoutLang = post.id.replace(/^vn\//, ""); // Remove the "vn/" prefix
     return {
-      params: { id: idWithoutLang },
+      params: { lang: "vn", id: idWithoutLang },
       props: { post },
     };
   });
@@ -53,8 +53,9 @@ const ogTitle = `${post.data.title} | Insights | ${SITE.title}`;
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://screwfast.uk/insights/${post.id.replace(/^en\//, "")}`,
+      "@id": `https://screwfast.uk/insights/${post.id.replace(/^vn\//, "")}`,
     },
+    inLanguage: "vn",
   }}
 >
   <section class="py-6 sm:py-8 lg:py-12">
@@ -86,7 +87,7 @@ const ogTitle = `${post.data.title} | Insights | ${SITE.title}`;
               </div>
             </div>
             <p class="text-sm text-pretty text-neutral-500">
-              Table of Contents:
+              Mục lục nội dung:
             </p>
             <div id="toc" class="">
               <ul

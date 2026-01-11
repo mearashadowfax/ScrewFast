@@ -27,10 +27,10 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: {
-        defaultLocale: "en", // All urls that don't contain language prefix will be treated as default locale
+        defaultLocale: "vn", // All urls that don't contain language prefix will be treated as default locale
         locales: {
-          en: "en", // The `defaultLocale` value must present in `locales` keys
-          vn: "vn",
+          vn: "vn", // The `defaultLocale` value must present in `locales` keys
+          en: "en",
         },
       },
     }),
@@ -43,13 +43,13 @@ export default defineConfig({
       // If both an Astro and Starlight i18n configurations are provided, an error is thrown.
       locales: {
         root: {
-          label: "English",
-          lang: "en",
+          label: "Tiếng Việt",
+          lang: "vn",
         },
+        en: { label: "English", lang: "en" },
         de: { label: "Deutsch", lang: "de" },
         es: { label: "Español", lang: "es" },
         fa: { label: "Persian", lang: "fa", dir: "rtl" },
-        vn: { label: "Tiếng Việt", lang: "vn" },
         ja: { label: "日本語", lang: "ja" },
         "zh-cn": { label: "简体中文", lang: "zh-CN" },
       },

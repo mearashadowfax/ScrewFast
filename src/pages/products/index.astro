@@ -10,12 +10,11 @@ import TestimonialsSectionAlt from "@components/sections/testimonials/Testimonia
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
   await getCollection("products", ({ id }) => {
-    return id.startsWith("en/");
+    return id.startsWith("vn/");
   })
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
@@ -23,48 +22,47 @@ const product: CollectionEntry<"products">[] = (
 );
 
 // Define variables for page content
-const title: string = "Products";
+const title: string = "Sản phẩm";
 const subTitle: string =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
+  "Khám phá độ bền và độ chính xác của các công cụ ScrewFast, được thiết kế dành cho cả chuyên gia lẫn người đam mê. Mỗi sản phẩm của chúng tôi đều được chế tạo tỉ mỉ và hướng tới độ bền lâu dài, đảm bảo bạn luôn có đúng công cụ cho mọi công việc.";
 
 // Testimonial data that will be rendered in the component
 const testimonials = [
-  // First testimonial data
   {
     content:
-      " \"Since switching to ScrewFast's hardware tools, the efficiency on our construction sites has skyrocketed. The durability of the hex bolts and precision of the machine screws are simply unmatched. It's refreshing to work with a company that truly understands the daily demands of the industry.\" ",
+      "Kể từ khi chúng tôi sử dụng các công cụ phần cứng của ScrewFast, hiệu suất làm việc tại các công trường đã tăng vọt. Độ bền của bu lông lục giác và độ chính xác của vít máy thực sự không có đối thủ. Thật tuyệt khi làm việc với một công ty thực sự hiểu rõ những yêu cầu khắt khe hằng ngày của ngành xây dựng.",
     author: "Jason Clark",
-    role: "Site Foreman | TopBuild",
+    role: "Giám sát công trường | TopBuild",
     avatarSrc:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
+    avatarAlt: "Mô tả hình ảnh",
   },
-  // Second testimonial data
+
   {
     content:
-      " \"As an interior designer, I'm always looking for high-quality materials and tools that help bring my visions to life. ScrewFast's mixed screws assortment has been a game-changer for my projects, providing the perfect blend of quality and variety. The outstanding customer support was just the cherry on top!\" ",
+      "Là một nhà thiết kế nội thất, tôi luôn tìm kiếm các vật liệu và công cụ chất lượng cao để hiện thực hóa ý tưởng của mình. Bộ vít tổng hợp của ScrewFast đã thay đổi hoàn toàn các dự án của tôi, mang lại sự kết hợp hoàn hảo giữa chất lượng và sự đa dạng. Dịch vụ hỗ trợ khách hàng tuyệt vời chính là điểm cộng lớn nhất!",
     author: "Maria Gonzalez",
-    role: "Interior Designer | Creative Spaces",
+    role: "Nhà thiết kế nội thất | Creative Spaces",
     avatarSrc:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
+    avatarAlt: "Mô tả hình ảnh",
   },
-  // Third testimonial data
+
   {
     content:
-      " \"I've been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast's tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
+      "Tôi là thợ mộc chuyên nghiệp với hơn 15 năm kinh nghiệm, và có thể khẳng định rằng bu lông và đai ốc taro của ScrewFast thuộc hàng tốt nhất tôi từng sử dụng. Chúng bám chắc vượt trội, mang lại cho tôi sự tin tưởng tuyệt đối trong từng mối ghép. Hơn nữa, dịch vụ của họ thật sự xuất sắc – họ thực sự quan tâm đến thành công của dự án của tôi.",
     author: "Richard Kim",
-    role: "Master Carpenter | WoodWright",
+    role: "Thợ mộc bậc thầy | WoodWright",
     avatarSrc:
       "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
+    avatarAlt: "Mô tả hình ảnh",
   },
 ];
 
-const pageTitle: string = `Products | ${SITE.title}`;
+const pageTitle = "Sản phẩm | ScrewFast";
 const metaDescription =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.";
-const ogTitle = "Hardware Tools | ScrewFast";
+  "Khám phá độ bền và độ chính xác của các công cụ ScrewFast, được thiết kế dành cho cả chuyên gia lẫn người đam mê.";
+const ogTitle = "Dụng cụ phần cứng | ScrewFast";
 ---
 
 <MainLayout
@@ -76,17 +74,17 @@ const ogTitle = "Hardware Tools | ScrewFast";
     "@type": "WebPage",
     "@id": "https://screwfast.uk/products",
     url: "https://screwfast.uk/products",
-    name: "Hardware Tools | ScrewFast",
+    name: "Dụng cụ phần cứng | ScrewFast",
     description:
-      "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
+      "Khám phá độ bền và độ chính xác của các công cụ ScrewFast, được thiết kế dành cho cả chuyên gia lẫn người đam mê.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://screwfast.uk",
       name: "ScrewFast",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "ScrewFast cung cấp các công cụ phần cứng cao cấp và dịch vụ xây dựng chuyên nghiệp để đáp ứng mọi nhu cầu dự án của bạn.",
     },
-    inLanguage: "en-US",
+    inLanguage: "vn",
   }}
 >
   <div
@@ -107,36 +105,39 @@ const ogTitle = "Hardware Tools | ScrewFast";
           )
         }
       </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
+      <PrimaryCTA
+        title="Câu chuyện khách hàng"
+        url="#testimonials"
+        noArrow={true}
+      />
     </div>
-    {/* Displaying products in alternating styles. Alternative product gets different card styling.
-    Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */}
+
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
           const position = index % 4;
           if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
+            return <CardSmall product={product} productLocale="vn" />;
           } else {
-            return <CardWide product={product} />;
+            return <CardWide product={product} productLocale="vn" />;
           }
         })
       }
     </section>
   </div>
-  {/* Features statistics section */}
+
   <FeaturesStatsAlt
-    title="Why Choose ScrewFast?"
-    subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
+    title="Vì sao nên chọn ScrewFast?"
+    subTitle="Biến ý tưởng của bạn thành kết quả thực tế với các công cụ ScrewFast. Dù bạn bắt đầu từ một bản phác thảo đơn giản hay triển khai một dự án xây dựng hoàn chỉnh, công cụ của chúng tôi luôn đồng hành để bạn xây dựng với sự tự tin."
     benefits={[
-      "Robust and reliable tools for long-lasting performance.",
-      "Innovative solutions tailored to modern construction needs.",
-      "Customer support dedicated to your project's success.",
+      "Công cụ bền bỉ và đáng tin cậy cho hiệu suất lâu dài.",
+      "Giải pháp sáng tạo phù hợp với nhu cầu xây dựng hiện đại.",
+      "Hỗ trợ khách hàng tận tâm cho sự thành công của dự án.",
     ]}
   />
-  {/* Testimonials section */}
+
   <TestimonialsSectionAlt
-    title="What Our Customers Say"
+    title="Khách hàng nói gì về chúng tôi"
     testimonials={testimonials}
   />
 </MainLayout>

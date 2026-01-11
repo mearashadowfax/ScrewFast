@@ -13,17 +13,16 @@ declare global {
     gsap: any;
   }
 }
-
 // This gets the static paths for all the unique products
 
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) =>
-    id.startsWith("en/")
+    id.startsWith("vn/")
   );
   return productEntries.map((product) => {
-    const idWithoutLang = product.id.replace(/^en\//, ""); // Remove the "en/" prefix
+    const idWithoutLang = product.id.replace(/^vn\//, ""); // Remove the "vn/" prefix
     return {
-      params: { id: idWithoutLang },
+      params: { lang: "vn", id: idWithoutLang },
       props: { product },
     };
   });
@@ -33,7 +32,7 @@ const { product } = Astro.props;
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 const metaDescription = product.data.description;
-const ogTitle = `${product.data.title} | Hardware Tools | ScrewFast`;
+const ogTitle = `${product.data.title} | Dụng cụ phần cứng | ScrewFast`;
 ---
 
 <MainLayout
@@ -50,6 +49,7 @@ const ogTitle = `${product.data.title} | Hardware Tools | ScrewFast`;
       "@type": "Brand",
       name: "ScrewFast",
     },
+    inLanguage: "vn",
   }}
 >
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
