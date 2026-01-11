@@ -42,14 +42,14 @@ import Icon from "@components/ui/icons/Icon.astro";
     markAsStored(): void {
       if (this.bookmarkButton) {
         this.bookmarkButton.classList.add("bookmarked");
-        let svgElement = this.bookmarkButton.querySelector("svg");
+        const svgElement = this.bookmarkButton.querySelector("svg");
         if (svgElement) {
           svgElement.setAttribute(
             "class",
             "h-6 w-6 fill-red-500 dark:fill-red-500"
           );
         }
-        let pathElement = svgElement?.querySelector("path");
+        const pathElement = svgElement?.querySelector("path");
         if (pathElement) {
           pathElement.setAttribute(
             "class",
@@ -61,11 +61,11 @@ import Icon from "@components/ui/icons/Icon.astro";
     unmarkAsStored(): void {
       if (this.bookmarkButton) {
         this.bookmarkButton.classList.remove("bookmarked");
-        let svgElement = this.bookmarkButton.querySelector("svg");
+        const svgElement = this.bookmarkButton.querySelector("svg");
         if (svgElement) {
           svgElement.setAttribute("class", "h-6 w-6 fill-none");
         }
-        let pathElement = svgElement?.querySelector("path");
+        const pathElement = svgElement?.querySelector("path");
         if (pathElement) {
           pathElement.setAttribute(
             "class",
@@ -75,7 +75,7 @@ import Icon from "@components/ui/icons/Icon.astro";
       }
     }
     toggleBookmark(): void {
-      let storedBookmarks = this.getStoredBookmarks();
+      const storedBookmarks = this.getStoredBookmarks();
       const index = storedBookmarks.indexOf(window.location.pathname);
       if (index !== -1) {
         storedBookmarks.splice(index, 1);

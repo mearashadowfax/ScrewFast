@@ -111,7 +111,7 @@ const homeUrl = Astro.currentLocale === "vn" ? "/vn" : "/";
   const HSThemeAppearance = {
     init() {
       const defaultTheme = "default";
-      let theme = localStorage.getItem("hs_theme") || defaultTheme;
+      const theme = localStorage.getItem("hs_theme") || defaultTheme;
 
       if (document.querySelector("html").classList.contains("dark")) return;
       this.setAppearance(theme);
