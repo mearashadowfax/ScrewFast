@@ -303,7 +303,7 @@ const ogTitle = `${product.data.title} | Dụng cụ phần cứng | ScrewFast`;
     willChange: "transform, opacity",
   });
 
-  let timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
+  const timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
 
   timeline.to("#fadeText", {
     duration: 1.5,
@@ -382,7 +382,7 @@ const ogTitle = `${product.data.title} | Dụng cụ phần cứng | ScrewFast`;
       addClasses: any,
       removeClasses: any
     ) {
-      let heading = button.querySelector("span");
+      const heading = button.querySelector("span");
       if (heading) {
         heading.classList.remove(...removeClasses);
         heading.classList.add(...addClasses);
