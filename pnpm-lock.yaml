@@ -64,8 +64,8 @@ importers:
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@4.1.18)
       astro-vtbot:
-        specifier: ^2.1.10
-        version: 2.1.10(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)
+        specifier: ^2.1.11
+        version: 2.1.11
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -943,14 +943,14 @@ packages:
   '@vtbag/element-crossing@1.1.0':
     resolution: {integrity: sha512-1YL609KPwhHUKRrVNfoogQCVJPfFrE5DubOLcCJZLHVCjWZ2ZAPcaq1wR2OP6nXD0Ok9JLX41YsEtYBYzw6CxQ==}
 
-  '@vtbag/inspection-chamber@1.0.23':
-    resolution: {integrity: sha512-v+z6lnCrUKJwNzTQREo8dEBuE30NJ/2/JLUGLadEueaoFWqo08yA/sQEOxnHJUnD0dL5o8AoVX9qhb6SzFY+xg==}
+  '@vtbag/inspection-chamber@1.0.24':
+    resolution: {integrity: sha512-L6CrMbzJ0gdG/P5WnGyVgRxHVeLhlQgXh3mp+OI4JdJjFiwIhh9+sG/FXM2DneBs5HQvaWUq4qf6NiSlgVbyvQ==}
 
   '@vtbag/turn-signal@1.3.1':
     resolution: {integrity: sha512-6rWkG+ik3U+KQGI94yNOrOh5QedB9zmP/8H51X5WQwrJz8m2MAU5YwGRRcweO/dJ6wW/Bn7OsgC1vRURnwrvCg==}
 
-  '@vtbag/utensil-drawer@1.2.14':
-    resolution: {integrity: sha512-M/mABCYeWi2768jEmCEtfBGTWFG0Dczaf8XTA91WUJTML8AzJc3/s6A2xlDM9xi+ZrYgxeaOLfJVGikA6u7GuA==}
+  '@vtbag/utensil-drawer@1.2.16':
+    resolution: {integrity: sha512-RSahZXk4NAFTF3zDYQH1x4qv8gFLcWus7qD//D0b58zoZIeqa2uKePLMy4lSHagYdkwBlKXKlfcDSrqUvWmxnw==}
 
   '@yr/monotone-cubic-spline@1.0.3':
     resolution: {integrity: sha512-FQXkOta0XBSUPHndIKON2Y9JeQz5ZeMqLYZVVK93FliNBFm7LNMIZmY6FrMEB9XPcDbE2bekMbZD6kzDkxwYjA==}
@@ -1028,8 +1028,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0 || ^6.0.0-beta
 
-  astro-vtbot@2.1.10:
-    resolution: {integrity: sha512-iwDy+eXoqZ5JdHa09xi65kEfwzPJEA7YMVLabh0jrcvu7fAD152Y3j9hQrfW25Efy4z0CPEAzt73JhPfSr9YAg==}
+  astro-vtbot@2.1.11:
+    resolution: {integrity: sha512-M0b2y2Kh4BcHryfY2dP+xrZOH2zYHEYM+x+1NFvCoK+g8iGRE/va6DxPN/zJ07IwWYjGl9PizLA0ZLJJl0a2sg==}
 
   astro@5.17.1:
     resolution: {integrity: sha512-oD3tlxTaVWGq/Wfbqk6gxzVRz98xa/rYlpe+gU2jXJMSD01k6sEDL01ZlT8mVSYB/rMgnvIOfiQQ3BbLdN237A==}
@@ -3570,17 +3570,11 @@ snapshots:
 
   '@vtbag/element-crossing@1.1.0': {}
 
-  '@vtbag/inspection-chamber@1.0.23(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)':
-    dependencies:
-      '@astrojs/check': 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)
-    transitivePeerDependencies:
-      - prettier
-      - prettier-plugin-astro
-      - typescript
+  '@vtbag/inspection-chamber@1.0.24': {}
 
   '@vtbag/turn-signal@1.3.1': {}
 
-  '@vtbag/utensil-drawer@1.2.14': {}
+  '@vtbag/utensil-drawer@1.2.16': {}
 
   '@yr/monotone-cubic-spline@1.0.3': {}
 
@@ -3646,17 +3640,13 @@ snapshots:
       astro: 5.17.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2)
       rehype-expressive-code: 0.41.6
 
-  astro-vtbot@2.1.10(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3):
+  astro-vtbot@2.1.11:
     dependencies:
       '@vtbag/cam-shaft': 1.0.6
       '@vtbag/element-crossing': 1.1.0
-      '@vtbag/inspection-chamber': 1.0.23(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)
+      '@vtbag/inspection-chamber': 1.0.24
       '@vtbag/turn-signal': 1.3.1
-      '@vtbag/utensil-drawer': 1.2.14
-    transitivePeerDependencies:
-      - prettier
-      - prettier-plugin-astro
-      - typescript
+      '@vtbag/utensil-drawer': 1.2.16
 
   astro@5.17.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.1)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
