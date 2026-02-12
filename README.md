@@ -6,10 +6,7 @@ ScrewFast is an **open-source template** designed for quick and efficient web pr
 
 <p align="left">
     <a href="https://screwfast.uk" target="_blank">
-      <img src="https://vyclk3sx0z.ufs.sh/f/hv6ttNERWpXu6c2AP0GCBnYt4h3FbsMuKyP5RxQ21HvzIae0" alt="ScrewFast Demo" width="180"/></a>
-  &nbsp;&nbsp;&nbsp;
-    <a href="https://atemplate.com/item/screwfast" target="_blank">
-      <img src="https://atemplate.com/badages-awards.svg" alt="ScrewFast | A template" width="180"/></a>
+      <img src="https://vyclk3sx0z.ufs.sh/f/hv6ttNERWpXuEoXgHPqIX9Ah5WFP01dfQ83jHCsek7VpiTDB" alt="ScrewFast Site"/></a>
 </p>
 
 ## Table of Contents
