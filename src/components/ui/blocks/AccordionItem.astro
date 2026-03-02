@@ -26,6 +26,7 @@ function getAccordionClass(first: boolean = false) {
   {/* The accordion button, which toggles the expanded/collapsed state */}
   <button
     class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-bold text-balance text-neutral-800 ring-zinc-500 outline-hidden transition hover:text-neutral-500 focus-visible:ring-3 md:text-lg dark:text-neutral-200 dark:ring-zinc-200 dark:hover:text-neutral-400 dark:focus:outline-hidden"
+    aria-expanded={first}
     aria-controls={collapseId}
   >
     {question}
@@ -37,9 +38,10 @@ function getAccordionClass(first: boolean = false) {
   </button>
   {/* The collapsible content of the accordion */}
   <div
+    id={collapseId}
+    role="region"
     aria-labelledby={id}
     class={`${first ? ACCORDION_CONTENT_CLASS : 'hidden ' + ACCORDION_CONTENT_CLASS}`}
-    id={collapseId}
   >
     {/* The content paragraph */}
     <p class="text-pretty text-neutral-600 dark:text-neutral-400">
