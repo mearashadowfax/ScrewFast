@@ -64,15 +64,15 @@ interface Props {
     */
     }
     <div
-      class="mx-auto w-full max-w-(--breakpoint-2xl) flex-grow px-4 sm:px-6 lg:px-8"
+      class="mx-auto w-full max-w-(--breakpoint-2xl) grow px-4 sm:px-6 lg:px-8"
     >
       <Navbar />
       <main>
         <slot />
       </main>
-    </div>
+    </div>  
     <FooterSection />
-    <script>
+    <script is:inline>
       // https://preline.co
       import '../../node_modules/preline/dist/preline.js';
     </script>
