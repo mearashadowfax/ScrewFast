@@ -1,8 +1,8 @@
 ---
-import { getImage } from "astro:assets";
-import { OG, SEO, SITE } from "@data/constants";
-import faviconSvgSrc from "@images/icon.svg";
-import faviconSrc from "@images/icon.png";
+import { getImage } from 'astro:assets';
+import { OG, SEO, SITE } from '@data/constants';
+import faviconSvgSrc from '@images/icon.svg';
+import faviconSrc from '@images/icon.png';
 
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -33,10 +33,8 @@ const ogDescription = customDescription || OG.description;
 // Define the metadata for your website and individual pages
 const siteURL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
-const canonical = new URL(
-  Astro.url.pathname,
-  Astro.site || Astro.url.origin
-).href;
+const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
+  .href;
 const basePath = Astro.url.pathname;
 const socialImageRes = await getImage({
   src: OG.image,
@@ -46,17 +44,17 @@ const socialImageRes = await getImage({
 const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
 
 const languages: { [key: string]: string } = {
-  en: "",
-  fr: "fr",
+  en: '',
+  fr: 'fr',
 };
 
 function createHref(lang: string, prefix: string, path: string): string {
   // Remove any existing language prefix
-  const cleanPath = path.replace(/^\/(fr|en)\//, "/");
+  const cleanPath = path.replace(/^\/(fr|en)\//, '/');
 
   // Add the correct language prefix if needed
   const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
-  const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
+  const normalizedBasePath = basePath.replace(/\/\/+/g, '/');
 
   return `${siteURL.slice(0, -1)}${normalizedBasePath}`;
 }
@@ -65,29 +63,31 @@ const fullPath: string = Astro.url.pathname;
 
 const alternateLanguageLinks: string = Object.entries(languages)
   .map(([lang, prefix]: [string, string]) => {
-    const cleanPath = fullPath.replace(/^\/(fr|en)\//, "/");
+    const cleanPath = fullPath.replace(/^\/(fr|en)\//, '/');
     const href: string = createHref(lang, prefix, cleanPath);
 
     return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;
   })
-  .join("\n");
+  .join('\n');
 
 // Generate and optimize the favicon images
 const faviconSvg = await getImage({
   src: faviconSvgSrc,
-  format: "svg",
+  format: 'svg',
 });
 
 const appleTouchIcon = await getImage({
   src: faviconSrc,
   width: 180,
   height: 180,
-  format: "png",
+  format: 'png',
 });
 ---
 
-{/*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
-     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */}{
+{
+  /*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */
+}{
   structuredData && (
     <script
       type="application/ld+json"

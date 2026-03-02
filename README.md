@@ -509,7 +509,7 @@ import { SITE } from "@/data_files/constants";
     // Other structured data properties...
   }}
 >
-  <!-- Page content -->
+  {/* Page content */}
 </MainLayout>
 
 ```

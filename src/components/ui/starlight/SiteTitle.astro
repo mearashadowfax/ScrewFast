@@ -1,17 +1,21 @@
 ---
-import mainLogo from "@images/starlight/screwfast_logo_dark.svg?raw";
-import docsLogo from "@images/starlight/docs_logo.svg?raw";
-import type { Props } from "@astrojs/starlight/props";
+import mainLogo from '@images/starlight/screwfast_logo_dark.svg?raw';
+import docsLogo from '@images/starlight/docs_logo.svg?raw';
+import type { Props } from '@astrojs/starlight/props';
 
-
-const main = "/";
-const locale = Astro.props.locale ? Astro.props.locale + "/" : "";
-const docs = "/" + locale + "welcome-to-docs/";
+const main = '/';
+const locale = Astro.props.locale ? Astro.props.locale + '/' : '';
+const docs = '/' + locale + 'welcome-to-docs/';
 ---
 
 <span class="site-title flex">
   <a class="main-logo" href={main} set:html={mainLogo} aria-label="ScrewFast" />
-  <a class="docs-logo" href={docs} set:html={docsLogo} aria-label="ScrewFast Docs" />
+  <a
+    class="docs-logo"
+    href={docs}
+    set:html={docsLogo}
+    aria-label="ScrewFast Docs"
+  />
 </span>
 
 <style>
@@ -22,7 +26,7 @@ const docs = "/" + locale + "welcome-to-docs/";
   .site-title a {
     display: flex;
   }
-  
+
   .flex {
     display: flex;
     align-items: center;
@@ -31,7 +35,7 @@ const docs = "/" + locale + "welcome-to-docs/";
     outline: 0;
   }
   .site-title a:focus-visible > :global(*) {
-    transform: translateY(calc(.1rem * -1));
+    transform: translateY(calc(0.1rem * -1));
     transition: transform 250ms cubic-bezier(0.33, 1, 0.68, 1);
   }
 
@@ -40,7 +44,7 @@ const docs = "/" + locale + "welcome-to-docs/";
     height: auto;
   }
   .site-title a:hover :global(svg) {
-    transform: translateY(calc(.1rem * -1));
+    transform: translateY(calc(0.1rem * -1));
     transition: transform 250ms cubic-bezier(0.33, 1, 0.68, 1);
   }
 </style>

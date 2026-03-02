@@ -1,43 +1,45 @@
 ---
 // Import necessary modules and utilities
-import { Image } from "astro:assets";
-import Icon from "@components/ui/icons/Icon.astro";
-import type { CollectionEntry } from "astro:content";
+import { Image } from 'astro:assets';
+import Icon from '@components/ui/icons/Icon.astro';
+import type { CollectionEntry } from 'astro:content';
 
-const { product, productLocale = "" } = Astro.props;
+const { product, productLocale = '' } = Astro.props;
 
 interface Props {
-  product: CollectionEntry<"products">;
+  product: CollectionEntry<'products'>;
   productLocale?: string;
 }
 
 // Define classes to be used with the Image component
 const imageClass =
-  "absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
+  'absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110';
 ---
 
-<!-- The anchor tag is the main container for the product card. When clicked, this leads to the details of the product. -->
+{
+  /* The anchor tag is the main container for the product card. When clicked, this leads to the details of the product. */
+}
 <a
-  href={productLocale && productLocale !== "en"
-    ? `/${productLocale}/products/${product.id.replace(/^fr\//, "")}/`
-    : `/products/${product.id.replace(/^en\//, "")}/`}
+  href={productLocale && productLocale !== 'en'
+    ? `/${productLocale}/products/${product.id.replace(/^fr\//, '')}/`
+    : `/products/${product.id.replace(/^en\//, '')}/`}
   data-astro-prefetch
-  class="group relative flex h-48 items-end overflow-hidden rounded-lg shadow-xl outline-hidden ring-zinc-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden md:col-span-2 md:h-80"
+  class="group relative flex h-48 items-end overflow-hidden rounded-lg shadow-xl ring-zinc-500 outline-hidden focus-visible:ring-3 md:col-span-2 md:h-80 dark:ring-zinc-200 dark:focus:outline-hidden"
 >
-  <!-- The product's main image -->
+  {/* The product's main image */}
   <Image
     src={product.data.main.imgCard}
     alt={product.data.main.imgAlt}
-    draggable={"false"}
+    draggable={'false'}
     class={imageClass}
-    format={"avif"}
+    format={'avif'}
   />
-  <!-- This container includes a gradient overlay over the product's image -->
+  {/* This container includes a gradient overlay over the product's image */}
   <div
     class="pointer-events-none absolute inset-0 bg-linear-to-t from-neutral-800 via-transparent to-transparent opacity-50"
   >
   </div>
-  <!-- This container includes product's subtitle and an SVG icon-->
+  {/* This container includes product's subtitle and an SVG icon*/}
   <span
     class="relative mb-3 ml-4 inline-block text-sm font-bold text-neutral-50 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-5 md:text-lg"
     >{product.data.description} <Icon name="openInNew" /></span

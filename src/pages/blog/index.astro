@@ -1,46 +1,46 @@
 ---
 // Import necessary components, modules and types
-import MainLayout from "@/layouts/MainLayout.astro";
-import CardBlog from "@components/ui/cards/CardBlog.astro";
-import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
-import CardInsight from "@components/ui/cards/CardInsight.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import MainLayout from '@/layouts/MainLayout.astro';
+import CardBlog from '@components/ui/cards/CardBlog.astro';
+import CardBlogRecent from '@components/ui/cards/CardBlogRecent.astro';
+import CardInsight from '@components/ui/cards/CardInsight.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { SITE } from '@data/constants';
 
 // Get all blogs post in English and sort them based on publish date
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
+const englishBlogEntries = await getCollection('blog', ({ id }) => {
+  return id.startsWith('en/');
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
+const englishInsightsEntries = await getCollection('insights', ({ id }) => {
+  return id.startsWith('en/');
 });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+const blogPosts: CollectionEntry<'blog'>[] = englishBlogEntries.sort(
+  (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
+const insightPosts: CollectionEntry<'insights'>[] = englishInsightsEntries;
 
 // Separate the most recent post from others
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const mostRecentPost: CollectionEntry<'blog'> = blogPosts[0];
+const otherPosts: CollectionEntry<'blog'>[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+const title: string = 'Your Gateway to Construction Excellence';
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
+  'Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.';
+const secondTitle: string = 'Insights';
 const secondSubTitle: string =
   "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
   "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
-const ogTitle = "Construction Industry Blog | ScrewFast";
+const ogTitle = 'Construction Industry Blog | ScrewFast';
 ---
 
 <MainLayout
@@ -48,21 +48,21 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://screwfast.uk/blog',
+    url: 'https://screwfast.uk/blog',
+    name: 'Blog | ScrewFast',
     description:
       "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
     isPartOf: {
-      "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
+      '@type': 'WebSite',
+      url: 'https://screwfast.uk',
+      name: 'ScrewFast',
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
     },
-    inLanguage: "en-US",
+    inLanguage: 'en-US',
   }}
 >
   <section
@@ -89,7 +89,7 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
   >
     {/* Blog posts grid */}
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+      {otherPosts.map(blogEntry => <CardBlog blogEntry={blogEntry} />)}
     </div>
   </section>
   {/* Most recent blog post */}
@@ -114,7 +114,7 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
     </div>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
-        insightPosts.map((insightEntry) => (
+        insightPosts.map(insightEntry => (
           <CardInsight insightEntry={insightEntry} />
         ))
       }

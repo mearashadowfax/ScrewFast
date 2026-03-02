@@ -1,8 +1,8 @@
 ---
-title: "The Importance of Collaboration"
+title: 'The Importance of Collaboration'
 description: "Explore how collaboration is central to ScrewFast's construction approach, driving effective communication and teamwork to achieve outstanding outcomes."
-cardImage: "@/images/insights/insight-2.avif"
-cardImageAlt: "Top view mechanical tools arrangement"
+cardImage: '@/images/insights/insight-2.avif'
+cardImageAlt: 'Top view mechanical tools arrangement'
 ---
 
 In the realm of construction, where projects often involve intricate designs, tight deadlines, and complex logistical challenges, the importance of collaboration cannot be overstated. Effective collaboration is not just a desirable aspect of project management; it is the cornerstone upon which successful construction endeavors are built. In this long read, we delve into how collaboration serves as the driving force behind ScrewFast's construction approach, facilitating effective communication and teamwork to achieve outstanding outcomes.

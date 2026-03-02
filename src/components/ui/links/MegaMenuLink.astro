@@ -1,7 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import Icon from "../icons/Icon.astro";
-import { servicesData, successStoriesData } from "@data/mega_link";
+import { Image } from 'astro:assets';
+import Icon from '../icons/Icon.astro';
+import { servicesData, successStoriesData } from '@data/mega_link';
 ---
 
 <div
@@ -9,19 +9,19 @@ import { servicesData, successStoriesData } from "@data/mega_link";
 >
   <button
     type="button"
-    class="flex w-full text-base items-center font-medium text-neutral-600 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-500"
+    class="flex w-full items-center text-base font-medium text-neutral-600 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-500"
   >
     Services <Icon name="chevronDown" />
   </button>
 
   <div
-    class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-[0.1ms] before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:p-4 md:shadow-2xl md:duration-[150ms]"
+    class="hs-dropdown-menu hs-dropdown-open:opacity-100 start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-[0.1ms] before:absolute before:start-0 before:-top-5 before:h-5 before:w-full md:p-4 md:shadow-2xl md:duration-[150ms] dark:divide-neutral-700 dark:bg-neutral-800"
   >
     <div class="gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
       <div class="mx-1 flex flex-col md:mx-0">
         {
           servicesData &&
-            servicesData.slice(0, 3).map((data) => (
+            servicesData.slice(0, 3).map(data => (
               <a
                 class="group flex gap-x-5 rounded-lg p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
                 href={data.url}
@@ -43,7 +43,7 @@ import { servicesData, successStoriesData } from "@data/mega_link";
       <div class="mx-1 flex flex-col md:mx-0">
         {
           servicesData &&
-            servicesData.slice(3, 6).map((data) => (
+            servicesData.slice(3, 6).map(data => (
               <a
                 class="group flex gap-x-5 rounded-lg p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
                 href={data.url}
@@ -64,7 +64,7 @@ import { servicesData, successStoriesData } from "@data/mega_link";
 
       <div class="mx-1 flex flex-col pt-4 md:mx-0 md:pt-0">
         <span
-          class="text-sm font-semibold uppercase text-neutral-800 dark:text-neutral-200"
+          class="text-sm font-semibold text-neutral-800 uppercase dark:text-neutral-200"
           >Success Stories</span
         >
         <a

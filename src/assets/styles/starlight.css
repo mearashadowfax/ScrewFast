@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 @layer base {
-    button:not(:disabled),
-  [role="button"]:not(:disabled) {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
     cursor: pointer;
   }
 }
@@ -27,7 +27,7 @@
 }
 
 /* Light mode colors. */
-:root[data-theme="light"] {
+:root[data-theme='light'] {
   --border: hsla(var(--border-yellow), 0.4);
   --backdrop-color: #f6f6f699;
   --sl-color-accent: #b73d00;
@@ -160,7 +160,7 @@ article.card {
 .sl-markdown-content ul:not(:where(.not-content *)) > li:before {
   background: var(--list-marker-color);
   border-radius: 1px;
-  content: "";
+  content: '';
   height: 2px;
   left: 2px;
   position: absolute;

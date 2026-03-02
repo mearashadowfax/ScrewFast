@@ -1,13 +1,13 @@
 ---
-import type { Props } from "@astrojs/starlight/props";
-import StarlightHead from "@astrojs/starlight/components/Head.astro";
-import VtbotStarlight from "astro-vtbot/components/starlight/Base.astro";
+import type { Props } from '@astrojs/starlight/props';
+import StarlightHead from '@astrojs/starlight/components/Head.astro';
+import VtbotStarlight from 'astro-vtbot/components/starlight/Base.astro';
 ---
 
 <VtbotStarlight {...Astro.props} viewTransitionsFallback="animate">
   <StarlightHead {...Astro.props}><slot /></StarlightHead>
   <script>
-    import "@scripts/lenisSmoothScroll.js";
+    import '@scripts/lenisSmoothScroll.js';
   </script>
 </VtbotStarlight>
 
@@ -24,12 +24,12 @@ import VtbotStarlight from "astro-vtbot/components/starlight/Base.astro";
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const siteSearch = document.querySelector(
-      "site-search"
+      'site-search'
     ) as HTMLElement | null;
     if (siteSearch) {
-      siteSearch.setAttribute("data-lenis-prevent", "");
+      siteSearch.setAttribute('data-lenis-prevent', '');
     }
   });
 </script>

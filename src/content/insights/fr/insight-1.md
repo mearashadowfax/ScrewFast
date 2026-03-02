@@ -1,7 +1,7 @@
 ---
 title: "L'avenir de la technologie de la construction"
-description: "Explorez le rôle pionnier de ScrewFast dans la révolution de la construction grâce à des technologies avancées et des solutions innovantes."
-cardImage: "@/images/insights/insight-1.avif"
+description: 'Explorez le rôle pionnier de ScrewFast dans la révolution de la construction grâce à des technologies avancées et des solutions innovantes.'
+cardImage: '@/images/insights/insight-1.avif'
 cardImageAlt: "Vue de dessus de l'agencement des outils mécaniques"
 ---
 

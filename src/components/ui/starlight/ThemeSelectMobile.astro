@@ -1,9 +1,9 @@
-<!-- Dark Theme Toggle Button -->
+{/* Dark Theme Toggle Button */}
 <button
   type="button"
   aria-label="Dark Theme Toggle"
   id="dark-theme-toggle-mobile"
-  class="group flex h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400"
+  class="group flex h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-600 ring-zinc-500 outline-hidden transition duration-300 hover:bg-neutral-200 hover:text-orange-400"
   data-hs-theme-click-value="dark"
 >
   <svg
@@ -21,12 +21,12 @@
   </svg>
 </button>
 
-<!-- Light Theme Toggle Button -->
+{/* Light Theme Toggle Button */}
 <button
   type="button"
   aria-label="Light Theme Toggle"
   id="light-theme-toggle-mobile"
-  class="group flex hidden h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-400 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-700 hover:text-orange-400"
+  class="group flex hidden h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-400 ring-zinc-500 outline-hidden transition duration-300 hover:bg-neutral-700 hover:text-orange-400"
   data-hs-theme-click-value="light"
 >
   <svg
@@ -55,50 +55,50 @@
 
 <script>
   // Define the Theme type
-  type Theme = "light" | "dark";
+  type Theme = 'light' | 'dark';
 
   // Function to set the theme
   function setTheme(theme: Theme): void {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("starlight-theme", theme);
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('starlight-theme', theme);
     updateButtons(theme);
   }
 
   // Function to update the button visibility
   function updateButtons(theme: Theme): void {
-    const darkButton = document.getElementById("dark-theme-toggle-mobile");
-    const lightButton = document.getElementById("light-theme-toggle-mobile");
+    const darkButton = document.getElementById('dark-theme-toggle-mobile');
+    const lightButton = document.getElementById('light-theme-toggle-mobile');
 
-    if (theme === "dark") {
-      darkButton?.classList.add("hidden");
-      lightButton?.classList.remove("hidden");
+    if (theme === 'dark') {
+      darkButton?.classList.add('hidden');
+      lightButton?.classList.remove('hidden');
     } else {
-      darkButton?.classList.remove("hidden");
-      lightButton?.classList.add("hidden");
+      darkButton?.classList.remove('hidden');
+      lightButton?.classList.add('hidden');
     }
   }
 
   // Event listeners for theme toggle buttons
   document
-    .getElementById("dark-theme-toggle-mobile")
-    ?.addEventListener("click", () => {
-      setTheme("dark");
+    .getElementById('dark-theme-toggle-mobile')
+    ?.addEventListener('click', () => {
+      setTheme('dark');
     });
 
   document
-    .getElementById("light-theme-toggle-mobile")
-    ?.addEventListener("click", () => {
-      setTheme("light");
+    .getElementById('light-theme-toggle-mobile')
+    ?.addEventListener('click', () => {
+      setTheme('light');
     });
 
   // Initial theme setup
-  document.addEventListener("DOMContentLoaded", () => {
-    const storedTheme = localStorage.getItem("starlight-theme") as Theme | null;
+  document.addEventListener('DOMContentLoaded', () => {
+    const storedTheme = localStorage.getItem('starlight-theme') as Theme | null;
     const theme: Theme =
       storedTheme ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light");
+      (window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light');
     setTheme(theme);
   });
 </script>

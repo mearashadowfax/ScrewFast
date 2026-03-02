@@ -1,6 +1,6 @@
 ---
-import { languages } from "@utils//ui";
-import Icon from "./icons/Icon.astro";
+import { languages } from '@utils//ui';
+import Icon from './icons/Icon.astro';
 ---
 
 <div class="hs-dropdown relative inline-flex">
@@ -9,11 +9,11 @@ import Icon from "./icons/Icon.astro";
     type="button"
     aria-label="Change language"
     title="Change language"
-    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-1.5 py-1.5 text-sm font-medium text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400 dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-orange-300 dark:focus:outline-hidden"
+    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-1.5 py-1.5 text-sm font-medium text-neutral-600 ring-zinc-500 outline-hidden transition duration-300 hover:bg-neutral-200 hover:text-orange-400 dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-orange-300 dark:focus:outline-hidden"
   >
     <Icon name="earth" />
     <svg
-      class="size-4 hs-dropdown-open:rotate-180"
+      class="hs-dropdown-open:rotate-180 size-4"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -26,7 +26,7 @@ import Icon from "./icons/Icon.astro";
   </button>
 
   <div
-    class="hs-dropdown-menu duration left-[20%]! top-[98%]! mt-2 hidden transform-none! rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:-top-4 before:start-0 before:h-4 before:w-full after:absolute after:-bottom-4 after:start-0 after:h-4 after:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800 md:left-[90%]! md:top-[80%]!"
+    class="hs-dropdown-menu duration hs-dropdown-open:opacity-100 top-[98%]! left-[20%]! mt-2 hidden transform-none! rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:start-0 before:-top-4 before:h-4 before:w-full after:absolute after:start-0 after:-bottom-4 after:h-4 after:w-full md:top-[80%]! md:left-[90%]! dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800"
     aria-labelledby="hs-dropdown-hover-event"
   >
     {
@@ -34,7 +34,7 @@ import Icon from "./icons/Icon.astro";
       Object.entries(languages).map(([lang, label]) => (
         <a
           class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-800 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-hidden dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-          href={`/${lang === "en" ? "" : lang}`}
+          href={`/${lang === 'en' ? '' : lang}`}
         >
           {label}
         </a>
@@ -45,41 +45,43 @@ import Icon from "./icons/Icon.astro";
 
 <script>
   // Type alias for supported languages
-  type TLanguage = "en" | "fr";
+  type TLanguage = 'en' | 'fr';
   // array of supported languages
-  const languages: TLanguage[] = ["en", "fr"];
+  const languages: TLanguage[] = ['en', 'fr'];
 
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
     // Only target language picker links
-    const languageLinks = document.querySelectorAll(".hs-dropdown-menu[aria-labelledby='hs-dropdown-hover-event'] a");
-    
-    languageLinks.forEach((element) => {
+    const languageLinks = document.querySelectorAll(
+      ".hs-dropdown-menu[aria-labelledby='hs-dropdown-hover-event'] a"
+    );
+
+    languageLinks.forEach(element => {
       const link = element as HTMLAnchorElement;
       const lang = link
-        .getAttribute("href")
-        ?.replace("/", "")
-        .replace("/", "") as TLanguage;
+        .getAttribute('href')
+        ?.replace('/', '')
+        .replace('/', '') as TLanguage;
 
-      link.addEventListener("click", function (event) {
+      link.addEventListener('click', function (event) {
         event.preventDefault();
 
         const url = new URL(window.location.href);
-        
-        const currentPath = url.pathname
-          .split("/")
-          .filter((part) => part && !languages.includes(part as TLanguage))
-          .join("/");
 
-        let newPath = "";
-        if (lang && lang !== "en") {
+        const currentPath = url.pathname
+          .split('/')
+          .filter(part => part && !languages.includes(part as TLanguage))
+          .join('/');
+
+        let newPath = '';
+        if (lang && lang !== 'en') {
           newPath = `/${lang}/${currentPath}`;
         } else {
           newPath = `/${currentPath}`;
         }
 
-        newPath = newPath.replace(/\/+/g, "/");
-        if (newPath === "") newPath = "/";
-        
+        newPath = newPath.replace(/\/+/g, '/');
+        if (newPath === '') newPath = '/';
+
         window.location.href = `${url.origin}${newPath}${url.search}`;
       });
     });

@@ -1,29 +1,29 @@
-import ogImageSrc from "@images/social.png";
-
-
+import ogImageSrc from '@images/social.png';
 
 export const SITE = {
-  title: "ScrewFast",
-  tagline: "Top-quality Hardware Tools",
-  description: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  description_short: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
-  url: "https://screwfast.uk",
-  author: "Emil Gulamov",
+  title: 'ScrewFast',
+  tagline: 'Top-quality Hardware Tools',
+  description:
+    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.',
+  description_short:
+    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
+  url: 'https://screwfast.uk',
+  author: 'Emil Gulamov',
 };
 
 export const SEO = {
   title: SITE.title,
   description: SITE.description,
   structuredData: {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    inLanguage: "en-US",
-    "@id": SITE.url,
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    inLanguage: 'en-US',
+    '@id': SITE.url,
     url: SITE.url,
     name: SITE.title,
     description: SITE.description,
     isPartOf: {
-      "@type": "WebSite",
+      '@type': 'WebSite',
       url: SITE.url,
       name: SITE.title,
       description: SITE.description,
@@ -32,17 +32,18 @@ export const SEO = {
 };
 
 export const OG = {
-  locale: "en_US",
-  type: "website",
+  locale: 'en_US',
+  type: 'website',
   url: SITE.url,
   title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description: "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  description:
+    "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
   image: ogImageSrc,
 };
 
 export const partnersData = [
-    {
-        icon: `<svg
+  {
+    icon: `<svg
       class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5"
       viewBox="0 0 1033.583 318.543"
       ><title>
@@ -61,11 +62,11 @@ export const partnersData = [
         style="fill:#6B7280;fill-opacity:1;fill-rule:nonzero;stroke:none"
         transform="translate(98.847 -259.733)"></path>
     </svg>`,
-        name: "first",
-        href: "#",
-    },
-    {
-        icon: `<svg
+    name: 'first',
+    href: '#',
+  },
+  {
+    icon: `<svg
       class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5"
       viewBox="0 0 150 40"
       fill="none"
@@ -92,11 +93,11 @@ export const partnersData = [
         d="M137.873 33.477h3.611V26.69h6.878v-2.807h-6.878V20.09h7.937V17.05h-11.548v16.426ZM37.73 33.49h3.608v-7.085h6.648v7.086h3.612V17.065h-3.612v6.303h-6.648v-6.303h-3.607v16.426Z"
       ></path>
     </svg>`,
-        name: "Second",
-        href: "#",
-    },
-    {
-        icon: ` <svg
+    name: 'Second',
+    href: '#',
+  },
+  {
+    icon: ` <svg
       class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5"
       viewBox="0 0 150 39"
       fill="none"
@@ -133,12 +134,12 @@ export const partnersData = [
         </clipPath>
       </defs>
     </svg>`,
-        name: "Third",
-        href: "#",
-    },
+    name: 'Third',
+    href: '#',
+  },
 
-    {
-        icon: `<svg
+  {
+    icon: `<svg
       class="mx-auto h-auto w-24 py-3 sm:mx-0 md:w-32 lg:w-40 lg:py-5"
       viewBox="0 0 100 42"
       fill="none"
@@ -158,7 +159,7 @@ export const partnersData = [
         d="M25.089 13.432s-9.684-.608-17.64 7.277C-.504 28.581.008 38.35.008 38.35h1.508s-.498-9.145 7.014-16.657c7.526-7.526 16.518-6.89 16.518-6.89l.042-1.37ZM18.088 38.473l-1.065.07c-.014-.61-.249-.914-.72-.914-.525 0-.802.47-.802 1.411 0 .54.07.913.222 1.107.138.194.346.29.608.29.416 0 .678-.276.775-.816l.982.056c-.069.525-.262.913-.58 1.19-.319.262-.72.4-1.19.4-.581 0-1.038-.193-1.398-.594-.36-.401-.54-.941-.54-1.647 0-.65.18-1.19.527-1.604.345-.415.816-.623 1.424-.623 1.038 0 1.62.553 1.758 1.674ZM22.46 41.267c-.58 0-1.038-.22-1.356-.664-.318-.442-.484-.968-.484-1.59 0-.637.166-1.163.484-1.591.319-.43.789-.637 1.384-.637.608 0 1.065.222 1.37.678.304.457.456.968.456 1.55 0 .636-.152 1.162-.47 1.59-.319.443-.775.664-1.384.664Zm.028-3.638c-.54 0-.803.47-.803 1.411 0 .94.263 1.411.803 1.411.512 0 .774-.47.774-1.41 0-.942-.262-1.412-.774-1.412ZM30.484 36.855v4.344h-.872l-1.701-2.933v.152c.014.069.014.138.014.194v2.6h-.789v-4.344h1.093l1.48 2.56c-.014-.125-.014-.222-.014-.29v-2.27h.789v-.014ZM36.516 37.809l-.871.29c-.111-.345-.36-.511-.734-.511-.4 0-.608.124-.608.387 0 .11.041.194.11.263.083.069.25.138.512.194.443.083.761.18.969.262.207.097.373.236.525.443.139.208.208.429.208.678 0 .387-.152.733-.457 1.024-.304.29-.747.429-1.342.429-.442 0-.83-.097-1.134-.305a1.419 1.419 0 0 1-.623-.899l.941-.208c.11.402.401.61.885.61.236 0 .402-.042.526-.14.11-.096.166-.193.166-.317a.343.343 0 0 0-.152-.29c-.11-.07-.304-.14-.595-.194-.553-.111-.94-.277-1.176-.47-.235-.195-.346-.485-.346-.873 0-.387.139-.705.415-.982.277-.263.664-.4 1.149-.4.83 0 1.383.331 1.632 1.009ZM42.23 36.855v.857h-1.08v3.486h-1.023v-3.486h-1.08v-.858h3.183ZM45.84 39.483V41.2h-1.023v-4.344h1.909c.346 0 .636.041.844.124.207.083.387.235.525.456.139.222.208.457.208.734 0 .526-.25.899-.747 1.12l.802 1.923h-1.12l-.664-1.715h-.734v-.014Zm0-1.854v1.107h.623c.207 0 .346-.014.443-.041a.476.476 0 0 0 .249-.194.563.563 0 0 0 .11-.332.563.563 0 0 0-.11-.332.47.47 0 0 0-.236-.18c-.082-.028-.248-.028-.47-.028h-.609ZM54.611 36.855v2.697c0 .443-.055.761-.152.983-.097.207-.29.387-.553.525-.263.139-.609.208-1.024.208-.415 0-.747-.056-.996-.18a1.201 1.201 0 0 1-.553-.526c-.125-.221-.18-.553-.18-.996v-2.698h1.107v2.698c0 .235.013.401.055.512.041.11.11.194.235.263a.82.82 0 0 0 .429.097c.194 0 .346-.028.47-.097a.505.505 0 0 0 .236-.25c.041-.11.055-.276.055-.525v-2.698h.871v-.014ZM61.086 38.473l-1.065.07c-.014-.61-.25-.914-.72-.914-.525 0-.802.47-.802 1.411 0 .54.07.913.221 1.107.139.194.346.29.61.29.414 0 .677-.276.774-.816l.982.056c-.07.525-.263.913-.581 1.19-.318.262-.72.4-1.19.4-.58 0-1.037-.193-1.397-.594-.36-.401-.54-.941-.54-1.647 0-.65.18-1.19.526-1.604.346-.415.816-.623 1.425-.623 1.038 0 1.619.553 1.757 1.674ZM66.578 36.855v.857H65.5v3.486h-1.037v-3.486h-1.08v-.858h3.196ZM70.175 36.855h-1.01v4.344h1.01v-4.344ZM74.838 41.267c-.581 0-1.038-.22-1.356-.664-.318-.442-.484-.968-.484-1.59 0-.637.166-1.163.484-1.591.318-.43.788-.637 1.383-.637.609 0 1.066.222 1.37.678.304.457.456.968.456 1.55 0 .636-.152 1.162-.47 1.59-.304.443-.775.664-1.383.664Zm.027-3.638c-.54 0-.802.47-.802 1.411 0 .94.263 1.411.802 1.411.512 0 .775-.47.775-1.41 0-.942-.263-1.412-.775-1.412ZM82.862 36.855v4.344h-.872l-1.702-2.933v.152c.014.069.014.138.014.194v2.6h-.788v-4.344h1.093l1.48 2.56c-.014-.125-.014-.222-.014-.29v-2.27h.789v-.014Z"
       ></path>
     </svg>`,
-        name: "Fourth",
-        href: "#",
-    },
-]
+    name: 'Fourth',
+    href: '#',
+  },
+];

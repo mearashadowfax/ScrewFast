@@ -1,21 +1,25 @@
 ---
 // Import the necessary dependencies
-import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
-import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
-import enStrings from "@utils/navigation.ts";
-import frStrings from "@utils/fr/navigation.ts";
-import Icon from "@components/ui/icons/Icon.astro";
-import BrandLogo from "@components/BrandLogo.astro";
-import { SITE } from "@data/constants";
+import FooterSocialLink from '@components/ui/links/FooterSocialLink.astro';
+import EmailFooterInput from '@components/ui/forms/input/EmailFooterInput.astro';
+import enStrings from '@utils/navigation.ts';
+import frStrings from '@utils/fr/navigation.ts';
+import Icon from '@components/ui/icons/Icon.astro';
+import BrandLogo from '@components/BrandLogo.astro';
+import { SITE } from '@data/constants';
 
 // Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
+const strings = Astro.currentLocale === 'fr' ? frStrings : enStrings;
 
 // Define the variables that will be used in this component
-const sectionThreeTitle: string = Astro.currentLocale === "fr" ? "Rester à jour" : "Stay up to date";
-const sectionThreeContent: string = Astro.currentLocale === "fr" ? "Restez informé des derniers outils et des offres exclusives." :
-  "Stay updated with the latest tools and exclusive deals.";
-const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafted by";
+const sectionThreeTitle: string =
+  Astro.currentLocale === 'fr' ? 'Rester à jour' : 'Stay up to date';
+const sectionThreeContent: string =
+  Astro.currentLocale === 'fr'
+    ? 'Restez informé des derniers outils et des offres exclusives.'
+    : 'Stay updated with the latest tools and exclusive deals.';
+const crafted: string =
+  Astro.currentLocale === 'fr' ? 'Fabriqué par' : 'Crafted by';
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
@@ -24,12 +28,12 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
   >
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
       <div class="col-span-full lg:col-span-1">
-        <!-- Brand Logo -->
+        {/* Brand Logo */}
         <BrandLogo class="h-auto w-32" />
       </div>
-      <!-- An array of links for Product and Company sections -->
+      {/* An array of links for Product and Company sections */}
       {
-        strings.footerLinks.map((section) => (
+        strings.footerLinks.map(section => (
           <div class="col-span-1">
             <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
               {section.section}
@@ -39,11 +43,11 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
                 <li>
                   <a
                     href={link.url}
-                    class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-hidden"
+                    class="inline-flex gap-x-2 rounded-lg text-neutral-600 ring-zinc-500 outline-hidden transition duration-300 hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-hidden"
                   >
                     {link.name}
                   </a>
-                  {section.section === "Company" && index === 2 ? (
+                  {section.section === 'Company' && index === 2 ? (
                     <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
                       We're hiring!
                     </span>
@@ -74,9 +78,10 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © <span id="current-year"></span> {SITE.title}. {crafted}
+          © <span id="current-year"></span>
+          {SITE.title}. {crafted}
           <a
-            class="rounded-lg font-medium underline underline-offset-2 outline-hidden ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:hover:text-neutral-300"
+            class="rounded-lg font-medium underline underline-offset-2 ring-zinc-500 outline-hidden transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:hover:text-neutral-300"
             href="https://www.gulamoff.dev/"
             target="_blank"
             rel="noopener noreferrer">gulamoff</a
@@ -84,7 +89,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
         </p>
       </div>
 
-      <!-- Social Brands -->
+      {/* Social Brands */}
       <div>
         <FooterSocialLink url={strings.socialLinks.facebook}
           ><Icon name="facebookFooter" />
@@ -110,7 +115,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
 
     <script>
       const year = new Date().getFullYear();
-      const element = document.getElementById("current-year");
+      const element = document.getElementById('current-year');
       element!.innerText = year.toString();
     </script>
   </div>

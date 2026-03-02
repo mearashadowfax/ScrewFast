@@ -1,26 +1,26 @@
 ---
 // Import necessary components and utilities
-import MainLayout from "@/layouts/MainLayout.astro";
-import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
-import CardRelated from "@components/ui/cards/CardRelated.astro";
-import Bookmark from "@components/ui/buttons/Bookmark.astro";
-import SocialShare from "@components/ui/buttons/SocialShare.astro";
-import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
-import { Image } from "astro:assets";
-import { capitalize, formatDate } from "@utils/utils";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import MainLayout from '@/layouts/MainLayout.astro';
+import AvatarBlogLarge from '@components/ui/avatars/AvatarBlogLarge.astro';
+import CardRelated from '@components/ui/cards/CardRelated.astro';
+import Bookmark from '@components/ui/buttons/Bookmark.astro';
+import SocialShare from '@components/ui/buttons/SocialShare.astro';
+import PostFeedback from '@components/ui/feedback/PostFeedback.astro';
+import { Image } from 'astro:assets';
+import { capitalize, formatDate } from '@utils/utils';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { SITE } from '@data/constants';
 
 // Update getStaticPaths for French posts
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog", ({ id }) =>
-    id.startsWith("fr/")
+  const blogPosts = await getCollection('blog', ({ id }) =>
+    id.startsWith('fr/')
   );
-  return blogPosts.map((post) => {
-    const idWithoutLang = post.id.replace(/^fr\//, ""); // Remove the "fr/" prefix
+  return blogPosts.map(post => {
+    const idWithoutLang = post.id.replace(/^fr\//, ''); // Remove the "fr/" prefix
     return {
-      params: { lang: "fr", id: idWithoutLang },
+      params: { lang: 'fr', id: idWithoutLang },
       props: { post },
     };
   });
@@ -29,12 +29,12 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 
 // Fetch related posts
-const blogPosts: CollectionEntry<"blog">[] = await getCollection(
-  "blog",
-  ({ id }) => id.startsWith("fr/")
+const blogPosts: CollectionEntry<'blog'>[] = await getCollection(
+  'blog',
+  ({ id }) => id.startsWith('fr/')
 );
-const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
-  (blogEntry) => blogEntry.id !== post.id
+const relatedPosts: CollectionEntry<'blog'>[] = blogPosts.filter(
+  blogEntry => blogEntry.id !== post.id
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
@@ -50,28 +50,28 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
     headline: post.data.title,
     image: post.data.cardImage.src,
     datePublished: post.data.pubDate.toISOString(),
     author: {
-      "@type": "Person",
+      '@type': 'Person',
       name: post.data.author,
     },
     publisher: {
-      "@type": "Organization",
+      '@type': 'Organization',
       name: SITE.title,
       logo: {
-        "@type": "ImageObject",
-        url: "https://screwfast.uk/favicon.ico",
+        '@type': 'ImageObject',
+        url: 'https://screwfast.uk/favicon.ico',
       },
     },
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://screwfast.uk/fr/blog/${post.id.replace(/^fr\//, "")}`,
+      '@type': 'WebPage',
+      '@id': `https://screwfast.uk/fr/blog/${post.id.replace(/^fr\//, '')}`,
     },
-    inLanguage: "fr",
+    inLanguage: 'fr',
   }}
 >
   <section class="mx-auto max-w-3xl px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10">
@@ -128,8 +128,8 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
                   class="w-full rounded-xl object-cover"
                   src={post.data.cardImage}
                   alt={post.data.cardImageAlt}
-                  draggable={"false"}
-                  format={"avif"}
+                  draggable={'false'}
+                  format={'avif'}
                 />
               </>
             ) : (
@@ -187,7 +187,7 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
 
     <div class="grid grid-cols-2 gap-6">
       {
-        relatedPosts.map((entry) => (
+        relatedPosts.map(entry => (
           <CardRelated blogEntry={entry} recentBlogLocale="fr" />
         ))
       }

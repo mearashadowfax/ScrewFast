@@ -14,5 +14,5 @@
   // Define the destination folder for copied files.
   "markdown.copyFiles.destination": {
     "/src/content/**/*": "/src/images/content/${documentBaseName}/"
-  },
+  }
 }

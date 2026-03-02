@@ -1,7 +1,7 @@
 ---
 // Import the required modules
-import { Image } from "astro:assets";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import { Image } from 'astro:assets';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
 // Extract properties from Astro.props
 const {
   title,
@@ -29,55 +29,58 @@ interface Props {
   imgTwoAlt?: any;
 }
 ---
-<!-- Root section of the component -->
+
+{/* Root section of the component */}
 <section
   class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <div>
-    <!-- Title of the section -->
+    {/* Title of the section */}
     <h2
-      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+      class="mb-4 text-4xl font-extrabold tracking-tight text-balance text-neutral-800 dark:text-neutral-200"
     >
       {title}
     </h2>
-    <!-- Subtitle of the section -->
+    {/* Subtitle of the section */}
     <p
-      class="mb-4 max-w-prose text-pretty font-normal text-neutral-600 dark:text-neutral-400 sm:text-lg"
+      class="mb-4 max-w-prose font-normal text-pretty text-neutral-600 sm:text-lg dark:text-neutral-400"
     >
       {subTitle}
     </p>
-    <!-- Conditional rendering of the Primary Call-To-Action button if 'btnExists' is true -->
+    {
+      /* Conditional rendering of the Primary Call-To-Action button if 'btnExists' is true */
+    }
     {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
   </div>
-  <!-- Conditionally render one or two images based on 'single' property -->
+  {/* Conditionally render one or two images based on 'single' property */}
   {
     single ? (
       <div class="mt-8">
-        <!-- Single image -->
+        {/* Single image */}
         <Image
           class="w-full rounded-lg"
           src={imgOne}
           alt={imgOneAlt}
-          format={"avif"}
+          format={'avif'}
         />
       </div>
     ) : (
       <div class="mt-8 grid grid-cols-2 gap-4">
-        <!-- First image in a two-image layout -->
+        {/* First image in a two-image layout */}
         <Image
           class="w-full rounded-xl"
           src={imgOne}
           alt={imgOneAlt}
-          draggable={"false"}
-          format={"avif"}
+          draggable={'false'}
+          format={'avif'}
         />
-        <!-- Second image in a two-image layout -->
+        {/* Second image in a two-image layout */}
         <Image
           class="mt-4 w-full rounded-xl lg:mt-10"
           src={imgTwo}
           alt={imgTwoAlt}
-          draggable={"false"}
-          format={"avif"}
+          draggable={'false'}
+          format={'avif'}
         />
       </div>
     )

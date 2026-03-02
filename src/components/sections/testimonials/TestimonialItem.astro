@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import Icon from "../../ui/icons/Icon.astro";
+import { Image } from 'astro:assets';
+import Icon from '../../ui/icons/Icon.astro';
 
 const { content, author, role, avatarSrc } = Astro.props;
 
@@ -16,7 +16,7 @@ interface Props {
   <Icon name="quotation" />
 
   <div class="relative z-10">
-    <p class="text-xl italic text-neutral-800 dark:text-neutral-200">
+    <p class="text-xl text-neutral-800 italic dark:text-neutral-200">
       {content}
     </p>
   </div>
@@ -28,7 +28,7 @@ interface Props {
           class="h-8 w-8 rounded-full"
           src={avatarSrc}
           alt="Avatar Description"
-          loading={"eager"}
+          loading={'eager'}
           inferSize
         />
       </div>

@@ -8,21 +8,21 @@ interface Props {
 }
 // Define classes for heading and content
 const headingClasses =
-  "text-balance text-lg font-bold text-neutral-800 dark:text-neutral-200";
+  'text-balance text-lg font-bold text-neutral-800 dark:text-neutral-200';
 const contentClasses =
-  "mt-1 text-pretty text-neutral-700 dark:text-neutral-300";
+  'mt-1 text-pretty text-neutral-700 dark:text-neutral-300';
 ---
 
-<!-- The root container that arranges your slot and the heading/content -->
+{/* The root container that arranges your slot and the heading/content */}
 <div class="flex gap-x-5">
-  <!-- Slot to allow for extensibility of the component -->
+  {/* Slot to allow for extensibility of the component */}
   <slot />
   <div class="grow">
-    <!-- Heading of the section -->
+    {/* Heading of the section */}
     <h3 class={headingClasses}>
       {heading}
     </h3>
-    <!-- Content text of the section -->
+    {/* Content text of the section */}
     <p class={contentClasses}>{content}</p>
   </div>
 </div>

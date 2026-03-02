@@ -1,5 +1,5 @@
 ---
-import Icon from "@components/ui/icons/Icon.astro";
+import Icon from '@components/ui/icons/Icon.astro';
 // Define props from Astro
 const { id, collapseId, question, answer, first } = Astro.props;
 // Define TypeScript interface for props
@@ -11,37 +11,37 @@ interface Props {
   first?: boolean;
 }
 // Define class names for the accordion and its content
-const ACCORDION_CLASS_DEFAULT = "hs-accordion pb-3 active";
-const ACCORDION_CLASS_COLLAPSED = "hs-accordion pt-6 pb-3";
+const ACCORDION_CLASS_DEFAULT = 'hs-accordion pb-3 active';
+const ACCORDION_CLASS_COLLAPSED = 'hs-accordion pt-6 pb-3';
 const ACCORDION_CONTENT_CLASS =
-  "hs-accordion-content w-full overflow-hidden transition-[height] duration-300";
+  'hs-accordion-content w-full overflow-hidden transition-[height] duration-300';
 // Helper function to return the correct class for the accordion
 function getAccordionClass(first: boolean = false) {
   return first ? ACCORDION_CLASS_DEFAULT : ACCORDION_CLASS_COLLAPSED;
 }
 ---
 
-<!-- The main container for the accordion item -->
+{/* The main container for the accordion item */}
 <div class={getAccordionClass(first)} id={id}>
-  <!-- The accordion button, which toggles the expanded/collapsed state -->
+  {/* The accordion button, which toggles the expanded/collapsed state */}
   <button
-    class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-balance rounded-lg pb-3 text-start font-bold text-neutral-800 outline-hidden ring-zinc-500 transition hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-200 dark:ring-zinc-200 dark:hover:text-neutral-400 dark:focus:outline-hidden md:text-lg"
+    class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-bold text-balance text-neutral-800 ring-zinc-500 outline-hidden transition hover:text-neutral-500 focus-visible:ring-3 md:text-lg dark:text-neutral-200 dark:ring-zinc-200 dark:hover:text-neutral-400 dark:focus:outline-hidden"
     aria-controls={collapseId}
   >
     {question}
-    <!-- SVG Icon that is shown when the accordion is NOT active -->
+    {/* SVG Icon that is shown when the accordion is NOT active */}
     <Icon name="accordionNotActive" />
 
-    <!-- SVG Icon that is shown when the accordion is active -->
+    {/* SVG Icon that is shown when the accordion is active */}
     <Icon name="accordionActive" />
   </button>
-  <!-- The collapsible content of the accordion -->
+  {/* The collapsible content of the accordion */}
   <div
     aria-labelledby={id}
-    class={`${first ? ACCORDION_CONTENT_CLASS : "hidden " + ACCORDION_CONTENT_CLASS}`}
+    class={`${first ? ACCORDION_CONTENT_CLASS : 'hidden ' + ACCORDION_CONTENT_CLASS}`}
     id={collapseId}
   >
-    <!-- The content paragraph -->
+    {/* The content paragraph */}
     <p class="text-pretty text-neutral-600 dark:text-neutral-400">
       {answer}
     </p>

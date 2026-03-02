@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import product5 from "@images/features-image.avif";
+import { Image } from 'astro:assets';
+import product5 from '@images/features-image.avif';
 
 // Define props from Astro
 const { title, subTitle, benefits } = Astro.props;
@@ -19,7 +19,7 @@ const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-widt
 <section
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
-  <!-- Grid -->
+  {/* Grid */}
   <div class="lg:grid lg:grid-cols-12 lg:items-center lg:gap-16">
     <div class="lg:col-span-7">
       <Image class="rounded-xl" src={product5} alt="Mockup of floating boxes" />
@@ -28,7 +28,7 @@ const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-widt
       <div class="space-y-6 sm:space-y-8">
         <div class="space-y-2 md:space-y-4">
           <h2
-            class="text-balance text-3xl font-bold text-neutral-800 dark:text-neutral-200 lg:text-4xl"
+            class="text-3xl font-bold text-balance text-neutral-800 lg:text-4xl dark:text-neutral-200"
           >
             {title}
           </h2>
@@ -43,10 +43,10 @@ const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-widt
         {
           benefits && (
             <ul class="space-y-2 sm:space-y-4">
-              {benefits.map((item) => (
+              {benefits.map(item => (
                 <li class="flex space-x-3">
                   <Fragment set:html={ListItemMarker} />
-                  <span class="text-pretty text-base font-medium text-neutral-600 dark:text-neutral-400">
+                  <span class="text-base font-medium text-pretty text-neutral-600 dark:text-neutral-400">
                     {item}
                   </span>
                 </li>

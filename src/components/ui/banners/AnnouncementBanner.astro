@@ -11,7 +11,7 @@ interface Props {
 
 <astro-banner btnId={btnId}>
   <div
-    class="fixed bottom-0 start-1/2 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
+    class="fixed start-1/2 bottom-0 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
     role="region"
     aria-label="Informational Banner"
   >
@@ -20,15 +20,15 @@ interface Props {
     >
       <div class="flex items-center justify-center">
         <div class="ml-auto">
-          {title &&
-          <p
-            class="me-2 inline-block font-medium text-neutral-50 dark:text-neutral-700"
-          >
-            {title}
-          </p>
+          {
+            title && (
+              <p class="me-2 inline-block font-medium text-neutral-50 dark:text-neutral-700">
+                {title}
+              </p>
+            )
           }
           <a
-            class="group inline-flex items-center gap-x-2 rounded-full border-2 border-neutral-50 backdrop-brightness-75 sm:backdrop-brightness-100 px-3 py-2 text-sm font-semibold text-neutral-50 transition duration-300 hover:border-neutral-100/70 hover:text-neutral-50/70 disabled:pointer-events-none disabled:opacity-50 dark:backdrop-brightness-100 dark:border-neutral-700 dark:text-neutral-700 dark:hover:border-neutral-700/70 dark:hover:text-neutral-800/70 dark:focus:outline-hidden"
+            class="group inline-flex items-center gap-x-2 rounded-full border-2 border-neutral-50 px-3 py-2 text-sm font-semibold text-neutral-50 backdrop-brightness-75 transition duration-300 hover:border-neutral-100/70 hover:text-neutral-50/70 disabled:pointer-events-none disabled:opacity-50 sm:backdrop-brightness-100 dark:border-neutral-700 dark:text-neutral-700 dark:backdrop-brightness-100 dark:hover:border-neutral-700/70 dark:hover:text-neutral-800/70 dark:focus:outline-hidden"
             href={url}
             target="_blank"
           >
@@ -72,13 +72,13 @@ interface Props {
 <script>
   class AstroBanner extends HTMLElement {
     connectedCallback() {
-      const btnId = this.getAttribute("btnId");
+      const btnId = this.getAttribute('btnId');
       const button = this.querySelector(`#${btnId}`);
       if (button != null) {
-        button.addEventListener("click", () => this.remove());
+        button.addEventListener('click', () => this.remove());
       }
     }
   }
 
-  customElements.define("astro-banner", AstroBanner);
+  customElements.define('astro-banner', AstroBanner);
 </script>

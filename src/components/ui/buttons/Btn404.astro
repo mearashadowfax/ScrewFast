@@ -1,5 +1,5 @@
 ---
-import Icon from "@components/ui/icons/Icon.astro";
+import Icon from '@components/ui/icons/Icon.astro';
 // Destructure the properties from Astro.props
 const { title, id, noArrow } = Astro.props;
 // Define TypeScript interface for the properties
@@ -10,21 +10,21 @@ interface Props {
 }
 // Define CSS classes for styling the button
 const baseClasses =
-  "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring-3 outline-hidden";
-const borderClasses = "border border-transparent";
+  'group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring-3 outline-hidden';
+const borderClasses = 'border border-transparent';
 const bgColorClasses =
-  "bg-orange-400 hover:bg-orange-500 active:bg-orange-500 dark:focus:outline-hidden";
-const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
-const fontSizeClasses = "2xl:text-base";
-const ringClasses = "dark:ring-zinc-200";
+  'bg-orange-400 hover:bg-orange-500 active:bg-orange-500 dark:focus:outline-hidden';
+const disableClasses = 'disabled:pointer-events-none disabled:opacity-50';
+const fontSizeClasses = '2xl:text-base';
+const ringClasses = 'dark:ring-zinc-200';
 ---
 
-<!-- Button with dynamic title, id, and optional arrow -->
+{/* Button with dynamic title, id, and optional arrow */}
 <button
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
   id={id}
 >
   {title}
-  <!-- Display the arrow based on the 'noArrow' property -->
+  {/* Display the arrow based on the 'noArrow' property */}
   {noArrow ? null : <Icon name="arrowRight" />}
 </button>

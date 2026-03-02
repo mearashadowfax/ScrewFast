@@ -1,9 +1,9 @@
 ---
 // Import the necessary dependencies
-import { Image } from "astro:assets";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
-import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
+import { Image } from 'astro:assets';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import SecondaryCTA from '@components/ui/buttons/SecondaryCTA.astro';
+import ReviewComponent from '@components/ui/blocks/ReviewComponent.astro';
 
 // Define props from Astro
 const {
@@ -19,7 +19,7 @@ const {
   rating,
   reviews,
   src,
-  alt
+  alt,
 } = Astro.props;
 
 // Define TypeScript interface for props
@@ -40,55 +40,73 @@ interface Props {
 }
 ---
 
-<!-- Defining a grid container that holds all the content -->
+{/* Defining a grid container that holds all the content */}
 <section
   class="mx-auto grid max-w-[85rem] gap-4 px-4 py-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8 2xl:max-w-full"
 >
-  <!-- Title and description -->
+  {/* Title and description */}
   <div>
-    <!-- Each h1 and p tag renders a portion of the title and subTitle defined above -->
+    {
+      /* Each h1 and p tag renders a portion of the title and subTitle defined above */
+    }
     <h1
-      class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
+      class="block text-3xl font-bold tracking-tight text-balance text-neutral-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-neutral-200"
     >
-      <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
+      {
+        /* About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments */
+      }
       <Fragment set:html={title} />
     </h1>
-    {subTitle &&
-    <p
-      class="mt-3 text-pretty text-lg leading-relaxed text-neutral-700 dark:text-neutral-400 lg:w-4/5"
-    >
-      {subTitle}
-    </p>
-  }
-    <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
+    {
+      subTitle && (
+        <p class="mt-3 text-lg leading-relaxed text-pretty text-neutral-700 lg:w-4/5 dark:text-neutral-400">
+          {subTitle}
+        </p>
+      )
+    }
+    {
+      /* Action Button Section: This section includes two CTAs with their own styles and URL */
+    }
     <div class="mt-7 grid w-full gap-3 sm:inline-flex">
-      {primaryBtn && 
-      <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
-      }
-      {secondaryBtn && 
-      <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+      {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
+      {
+        secondaryBtn && (
+          <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+        )
       }
     </div>
 
-    <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
-    { withReview ? (
-    <ReviewComponent avatars={avatars} starCount={starCount} rating={rating} reviews={reviews} />
-    ) : "" }
-
+    {
+      /* Review Section: This section presents avatars, review ratings and the number of reviews */
+    }
+    {
+      withReview ? (
+        <ReviewComponent
+          avatars={avatars}
+          starCount={starCount}
+          rating={rating}
+          reviews={reviews}
+        />
+      ) : (
+        ''
+      )
+    }
   </div>
-  <!-- Hero Image Section -->
+  {/* Hero Image Section */}
   <div class="flex w-full">
-      <div class="top-12 overflow-hidden">
-	{src && alt &&
-	<Image
-        src={src}
-        alt={alt}
-        class="h-full w-full scale-110 object-cover object-center"
-        draggable={"false"}
-        loading={"eager"}
-        format={"avif"}
-	 />
-	}
+    <div class="top-12 overflow-hidden">
+      {
+        src && alt && (
+          <Image
+            src={src}
+            alt={alt}
+            class="h-full w-full scale-110 object-cover object-center"
+            draggable={'false'}
+            loading={'eager'}
+            format={'avif'}
+          />
+        )
+      }
     </div>
   </div>
 </section>

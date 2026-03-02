@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build && node process-html.mjs",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
     "preview": "astro preview",
     "astro": "astro"
   },

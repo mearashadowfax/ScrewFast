@@ -1,9 +1,9 @@
 ---
-import Icon from "@components/ui/icons/Icon.astro";
+import Icon from '@components/ui/icons/Icon.astro';
 // Destructure the properties from Astro.props
 const {
   pageTitle,
-  title = Astro.currentLocale === "fr" ? "Partager" : "Share",
+  title = Astro.currentLocale === 'fr' ? 'Partager' : 'Share',
 } = Astro.props;
 
 // Define TypeScript interface for the properties
@@ -22,19 +22,19 @@ const encoded_url = encodeURIComponent(Astro.url.href);
 
 const socialPlatforms: SocialPlatform[] = [
   {
-    name: "Facebook",
+    name: 'Facebook',
     url: `https://www.facebook.com/sharer/sharer.php?u=${encoded_url}`,
-    svg: "facebook",
+    svg: 'facebook',
   },
   {
-    name: "X",
+    name: 'X',
     url: `https://twitter.com/intent/tweet?url=${encoded_url}&text=${pageTitle}`,
-    svg: "x",
+    svg: 'x',
   },
   {
-    name: "LinkedIn",
+    name: 'LinkedIn',
     url: `https://www.linkedin.com/sharing/share-offsite/?url=${encoded_url}&title=${pageTitle}`,
-    svg: "linkedIn",
+    svg: 'linkedIn',
   },
 ];
 ---
@@ -45,7 +45,7 @@ const socialPlatforms: SocialPlatform[] = [
   <button
     id="hs-dropup"
     type="button"
-    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-100 hover:text-neutral-700 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:outline-hidden"
+    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-neutral-600 ring-zinc-500 outline-hidden transition duration-300 hover:bg-neutral-100 hover:text-neutral-700 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:outline-hidden"
   >
     <Icon name="share" />
 
@@ -53,14 +53,14 @@ const socialPlatforms: SocialPlatform[] = [
   </button>
 
   <div
-    class="hs-dropdown-menu duration z-10 hidden w-72 divide-y divide-neutral-200 rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800"
+    class="hs-dropdown-menu duration hs-dropdown-open:opacity-100 z-10 hidden w-72 divide-y divide-neutral-200 rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800"
     aria-labelledby="hs-dropup"
   >
     <div class="py-2 first:pt-0 last:pb-0">
       {
-        socialPlatforms.map((platform) => (
+        socialPlatforms.map(platform => (
           <a
-            class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100  focus:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 "
+            class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
             href={platform.url}
             target="_blank"
             rel="noopener noreferrer"
@@ -75,7 +75,7 @@ const socialPlatforms: SocialPlatform[] = [
     <div class="py-2 first:pt-0 last:pb-0">
       <button
         type="button"
-        class="js-clipboard hover:text-dark focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden focus-visible:outline-hidden focus-visible:ring-1 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+        class="js-clipboard hover:text-dark focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden focus-visible:ring-1 focus-visible:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
         data-clipboard-success-text="Copied"
       >
         <svg
@@ -114,46 +114,46 @@ const socialPlatforms: SocialPlatform[] = [
   </div>
 </div>
 
-<!--Import the necessary Clipboard plugin-->
-<!-- https://clipboardjs.com/ -->
+{/* Import the necessary Clipboard plugin */}
+{/* https://clipboardjs.com/ */}
 
 <script>
-  import ClipboardJS from "clipboard";
+  import ClipboardJS from 'clipboard';
 
   // Initialization of Clipboard
   (function () {
-    window.addEventListener("load", () => {
+    window.addEventListener('load', () => {
       const clipboards =
-        document.querySelectorAll<HTMLElement>(".js-clipboard");
+        document.querySelectorAll<HTMLElement>('.js-clipboard');
 
-      clipboards.forEach((el) => {
+      clipboards.forEach(el => {
         const clipboard = new ClipboardJS(el, {
           text: () => {
             return window.location.href;
           },
         });
 
-        clipboard.on("success", () => {
+        clipboard.on('success', () => {
           const defaultElement = el.querySelector<HTMLElement>(
-            ".js-clipboard-default"
+            '.js-clipboard-default'
           );
           const successElement = el.querySelector<HTMLElement>(
-            ".js-clipboard-success"
+            '.js-clipboard-success'
           );
           const successTextElement = el.querySelector<HTMLElement>(
-            ".js-clipboard-success-text"
+            '.js-clipboard-success-text'
           );
-          const successText = el.dataset.clipboardSuccessText || "";
+          const successText = el.dataset.clipboardSuccessText || '';
           let oldSuccessText: string | undefined;
 
           if (successTextElement) {
-            oldSuccessText = successTextElement.textContent || "";
+            oldSuccessText = successTextElement.textContent || '';
             successTextElement.textContent = successText;
           }
 
           if (defaultElement && successElement) {
-            defaultElement.style.display = "none";
-            successElement.style.display = "block";
+            defaultElement.style.display = 'none';
+            successElement.style.display = 'block';
           }
 
           setTimeout(() => {
@@ -162,8 +162,8 @@ const socialPlatforms: SocialPlatform[] = [
             }
 
             if (defaultElement && successElement) {
-              successElement.style.display = "";
-              defaultElement.style.display = "";
+              successElement.style.display = '';
+              defaultElement.style.display = '';
             }
           }, 800);
         });
