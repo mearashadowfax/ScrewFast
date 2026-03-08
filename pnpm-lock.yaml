@@ -27,8 +27,8 @@ importers:
         specifier: ^5.18.0
         version: 5.18.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2)
       astro-compressor:
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       clipboard:
         specifier: ^2.0.11
         version: 2.0.11
@@ -1175,8 +1175,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro-compressor@1.2.0:
-    resolution: {integrity: sha512-Y0UWW/AjyLcHlRhCK9yUqy0kg4qZHd54kDIMY4C/1huS6pSVZNsMY7a3Jk7o5RjytIkVaLDDkcUzR8SgipBH8g==}
+  astro-compressor@1.3.0:
+    resolution: {integrity: sha512-SrTcio7wSyaraYoeH7M1oRtfiqZKdpT73EfMUlA6tGoYV42oNyQw13nzumvZkXlgeCXTMXDho0AebfcNwaadoQ==}
     engines: {node: '>=22'}
 
   astro-expressive-code@0.41.7:
@@ -3881,7 +3881,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-compressor@1.2.0: {}
+  astro-compressor@1.3.0: {}
 
   astro-expressive-code@0.41.7(astro@5.18.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2)):
     dependencies:
