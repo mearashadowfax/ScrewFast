@@ -160,6 +160,7 @@ This creates a `dist/` directory with your built site (configurable via [outDir 
 Click the button below to start deploying your project on Vercel:  
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast)
+[![Deploy to PandaStack](https://dashboard.pandastack.io/deploy-button.svg)](https://dashboard.pandastack.io/deploy?repo=mearashadowfax/ScrewFast&type=static&buildCmd=npm+run+build&outputDir=dist)
 
 ### Deploying to Netlify
 
