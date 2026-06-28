@@ -64,8 +64,8 @@ importers:
         specifier: ^0.5.20
         version: 0.5.20(tailwindcss@4.3.1)
       astro-vtbot:
-        specifier: ^2.1.12
-        version: 2.1.12
+        specifier: ^3.0.0
+        version: 3.0.0
       prettier:
         specifier: ^3.9.1
         version: 3.9.1
@@ -1185,8 +1185,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0 || ^6.0.0-beta
 
-  astro-vtbot@2.1.12:
-    resolution: {integrity: sha512-6RlA0rdVPLT24FAyxsHAI71quTrLWuMXOADhcx8uEMTfuIVRhg4GajzmZmOiX6/nHA9p1gaIBuaTF3jVE1XWSA==}
+  astro-vtbot@3.0.0:
+    resolution: {integrity: sha512-jVpYqaPi9Nz5UP9KgDFatSzXIe6n0w2YJjjzdsxNicd2ETQlfOkzbP8Qu7W6HC0DCE4dNTWLs8o7QRiFDqJkfw==}
 
   astro@6.4.8:
     resolution: {integrity: sha512-KK5lX90uU9EeVaTjINyj3sy9/NFXVa59aowaqbWBDDKLXZh4rr7GwIaCFYVetE22MJtsCNFerQXn0vlCLmpP/Q==}
@@ -3890,7 +3890,7 @@ snapshots:
       astro: 6.4.8(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.2)(terser@5.48.0)(yaml@2.9.0)
       rehype-expressive-code: 0.43.1
 
-  astro-vtbot@2.1.12:
+  astro-vtbot@3.0.0:
     dependencies:
       '@vtbag/cam-shaft': 1.0.6
       '@vtbag/element-crossing': 1.1.0
