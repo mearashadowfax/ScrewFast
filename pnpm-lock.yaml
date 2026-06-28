@@ -39,8 +39,8 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0
       lenis:
-        specifier: ^1.3.23
-        version: 1.3.23
+        specifier: ^1.3.25
+        version: 1.3.25
       preline:
         specifier: ^4.2.0
         version: 4.2.0
@@ -1761,8 +1761,8 @@ packages:
     resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
     engines: {node: '>= 8'}
 
-  lenis@1.3.23:
-    resolution: {integrity: sha512-YxYq3TJqj9sJNv0V9SkyQHejt14xwyIwgDaaMK89Uf9SxQfIszu+gTQSSphh6BWlLTNVKvvXAGkg+Zf+oFIevg==}
+  lenis@1.3.25:
+    resolution: {integrity: sha512-mOKxayErlaONK8fm4LN3XNd99Qu4plTpn9h9qf8wxzjGrJDzuD84FYzZ81HCd6ZsWp++VWVwOzL286Pf2s2u4A==}
     peerDependencies:
       '@nuxt/kit': '>=3.0.0'
       react: '>=17.0.0'
@@ -4675,7 +4675,7 @@ snapshots:
 
   klona@2.0.6: {}
 
-  lenis@1.3.23: {}
+  lenis@1.3.25: {}
 
   lightningcss-android-arm64@1.32.0:
     optional: true
