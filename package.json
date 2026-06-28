@@ -32,7 +32,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/typography": "^0.5.20",
-    "astro-vtbot": "^2.1.12",
+    "astro-vtbot": "^3.0.0",
     "prettier": "^3.9.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
