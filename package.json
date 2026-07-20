@@ -16,7 +16,7 @@
     "@astrojs/mdx": "^7.0.3",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/starlight": "^0.41.3",
-    "@tailwindcss/vite": "^4.3.2",
+    "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.1",
     "clipboard": "^2.0.11",
     "globby": "^16.2.1",
