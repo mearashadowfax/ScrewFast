@@ -2,7 +2,7 @@
 
 ![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
 
-This branch delivers ScrewFast in a **single language** — straightforward and focused for one audience. You still get most of the features from [`main`](https://github.com/mearashadowfax/ScrewFast) (landing, blog, products, Starlight docs), except marketing-site internationalization (no `/fr` routes, language picker, or hreflang).
+This branch delivers ScrewFast in a **single language** – straightforward and focused for one audience. You still get most of the features from [`main`](https://github.com/mearashadowfax/ScrewFast) (landing, blog, products, Starlight docs), except marketing-site internationalization (no `/fr` routes, language picker, or hreflang).
 
 ## Deploying to Vercel
 
