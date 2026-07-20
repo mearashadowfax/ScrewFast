@@ -6,62 +6,30 @@ import EmailContactInput from '@components/ui/forms/input/EmailContactInput.astr
 import PhoneInput from '@components/ui/forms/input/PhoneInput.astro';
 import TextAreaInput from '@components/ui/forms/input/TextAreaInput.astro';
 import Icon from '@components/ui/icons/Icon.astro';
-import { getMarketingLocale } from '@utils/locale';
 
-const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
-
-const copy =
-  locale === 'fr'
-    ? {
-        title: 'Contactez-nous',
-        subTitle:
-          "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.",
-        formTitle: 'Remplissez le formulaire ci-dessous',
-        formSubTitle:
-          'Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.',
-        firstName: 'Prénom',
-        lastName: 'Nom',
-        details: 'Détails',
-        send: 'Envoyer un message',
-        demoMessage:
-          'Merci ! (Démo — branchez un endpoint pour recevoir de vrais messages.)',
-        knowledgeHeading: 'Base de connaissances',
-        knowledgeContent:
-          'Parcourez tous nos articles de base de connaissances.',
-        knowledgeLink: 'Visiter les guides et tutoriels',
-        faqHeading: 'FAQ',
-        faqContent:
-          'Explorez notre FAQ pour des réponses rapides et claires aux questions courantes.',
-        faqLink: 'Visiter la FAQ',
-        officeHeading: 'Visitez notre bureau',
-        officeContent: 'ScrewFast UK',
-        emailHeading: 'Contactez-nous par e-mail',
-        emailContent: 'Préférez-vous le texte écrit ? Envoyez-nous un e-mail à',
-      }
-    : {
-        title: 'Contact us',
-        subTitle:
-          "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
-        formTitle: 'Fill in the form below',
-        formSubTitle: "We'll get back to you in 1-2 business days.",
-        firstName: 'First Name',
-        lastName: 'Last Name',
-        details: 'Details',
-        send: 'Send Message',
-        demoMessage:
-          'Thanks! (Demo only — wire a form endpoint to receive real messages.)',
-        knowledgeHeading: 'Knowledgebase',
-        knowledgeContent: 'Browse through all of our knowledgebase articles.',
-        knowledgeLink: 'Visit guides & tutorials',
-        faqHeading: 'FAQ',
-        faqContent:
-          'Explore our FAQ for quick, clear answers to common queries.',
-        faqLink: 'Visit FAQ',
-        officeHeading: 'Visit our office',
-        officeContent: 'UK ScrewFast',
-        emailHeading: 'Contact us by email',
-        emailContent: 'Prefer the written word? Drop us an email at',
-      };
+const copy = {
+  title: 'Contact us',
+  subTitle:
+    "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+  formTitle: 'Fill in the form below',
+  formSubTitle: "We'll get back to you in 1-2 business days.",
+  firstName: 'First Name',
+  lastName: 'Last Name',
+  details: 'Details',
+  send: 'Send Message',
+  demoMessage:
+    'Thanks! (Demo only – wire a form endpoint to receive real messages.)',
+  knowledgeHeading: 'Knowledgebase',
+  knowledgeContent: 'Browse through all of our knowledgebase articles.',
+  knowledgeLink: 'Visit guides & tutorials',
+  faqHeading: 'FAQ',
+  faqContent: 'Explore our FAQ for quick, clear answers to common queries.',
+  faqLink: 'Visit FAQ',
+  officeHeading: 'Visit our office',
+  officeContent: 'UK ScrewFast',
+  emailHeading: 'Contact us by email',
+  emailContent: 'Prefer the written word? Drop us an email at',
+};
 ---
 
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">

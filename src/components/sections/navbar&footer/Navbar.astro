@@ -3,15 +3,10 @@
 import ThemeIcon from '@components/ThemeIcon.astro';
 import NavLink from '@components/ui/links/NavLink.astro';
 import Authentication from '../misc/Authentication.astro';
-import enStrings from '@utils/navigation.ts';
-import frStrings from '@utils/fr/navigation.ts';
+import strings from '@utils/navigation.ts';
 import BrandLogo from '@components/BrandLogo.astro';
-import LanguagePicker from '@components/ui/LanguagePicker.astro';
-import { getMarketingLocale } from '@utils/locale';
 
-const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
-const strings = locale === 'fr' ? frStrings : enStrings;
-const homeUrl = locale === 'fr' ? '/fr' : '/';
+const homeUrl = '/';
 ---
 
 {/* Main header component */}
@@ -94,7 +89,6 @@ const homeUrl = locale === 'fr' ? '/fr' : '/';
         }
 
         <Authentication />
-        <LanguagePicker />
         {/* ThemeIcon component specifically for larger screens */}
         <span class="hidden md:inline-block">
           <ThemeIcon />

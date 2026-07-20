@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { join, extname } from 'node:path';
 
 const DIST = new URL('../dist/', import.meta.url).pathname;
-const ROUTES = ['/', '/fr/', '/products/', '/blog/', '/contact/', '/404'];
+const ROUTES = ['/', '/products/', '/blog/', '/contact/', '/404'];
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',

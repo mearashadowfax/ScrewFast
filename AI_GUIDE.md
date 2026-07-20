@@ -6,7 +6,7 @@ For AI assistants (Cursor, Copilot, Claude, ChatGPT): this file describes projec
 
 ScrewFast is an Astro + Tailwind CSS + Preline UI template for landing pages, blogs, documentation, and product/content pages. Stack: Astro 7, Tailwind v4 (via `@tailwindcss/vite`), Preline (modals, accordions), Starlight (docs), Lenis (smooth scroll), GSAP (animations).
 
-Marketing site locales: **en** and **fr** (file-based routes under `src/pages/` and `src/pages/fr/`). Use `getMarketingLocale()` from [`src/utils/locale.ts`](src/utils/locale.ts) for nav/footer/forms — do not rely only on `Astro.currentLocale` for marketing pages.
+This is the **monolingual** branch: the marketing site is English-only (no `/fr` routes or `LanguagePicker`). Content collections use the `en/` prefix under `src/content/{blog,products,insights}/`.
 
 Docs (Starlight) locales: en, de, es, fa, fr, ja, zh-cn. Guides and welcome are translated; `construction/`, `tools/`, and `advanced/` fall back to English for non-root locales.
 

@@ -1,8 +1,5 @@
 ---
-import { getMarketingLocale } from '@utils/locale';
-
-const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
-const { label = locale === 'fr' ? 'E-mail' : 'Email', id } = Astro.props;
+const { label = 'Email', id } = Astro.props;
 
 interface Props {
   label?: string;

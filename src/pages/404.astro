@@ -4,49 +4,16 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import Btn404 from '@components/ui/buttons/Btn404.astro';
 import { SITE } from '@data/constants';
 
-// Define types for translations
-type TranslationKeys = 'en' | 'fr';
-type Translations = {
-  [key in TranslationKeys]: {
-    pageTitle: string;
-    subTitle: string;
-    content: string;
-    homeTitle: string;
-    backTitle: string;
-  };
-};
-
-// Define variables for page content
-const defaultLang: TranslationKeys = 'en';
-const translations: Translations = {
-  en: {
-    pageTitle: `Page Not Found | ${SITE.title}`,
-    subTitle: "Oops, this isn't the tool you were looking for!",
-    content:
-      "Don't let this hiccup slow you down. Let's get you back to building your masterpiece.",
-    homeTitle: 'Go Home',
-    backTitle: 'Go Back',
-  },
-  fr: {
-    pageTitle: `Page Non Trouvée | ${SITE.title}`,
-    subTitle: "Oops, ce n'est pas l'outil que vous recherchiez!",
-    content:
-      "Ne laissez pas ce contretemps vous ralentir. Revenons à la construction de votre chef-d'œuvre.",
-    homeTitle: "Page d'accueil",
-    backTitle: 'Retour',
-  },
-};
-
-// Determine language from the URL (/fr or /fr/...)
-const urlPath = Astro.url.pathname;
-const lang: TranslationKeys = /^\/fr(\/|$)/.test(urlPath) ? 'fr' : defaultLang;
-const homeHref = lang === 'fr' ? '/fr' : '/';
-
-const { pageTitle, subTitle, content, homeTitle, backTitle } =
-  translations[lang];
+const pageTitle = `Page Not Found | ${SITE.title}`;
+const subTitle = "Oops, this isn't the tool you were looking for!";
+const content =
+  "Don't let this hiccup slow you down. Let's get you back to building your masterpiece.";
+const homeTitle = 'Go Home';
+const backTitle = 'Go Back';
+const homeHref = '/';
 ---
 
-<MainLayout title={pageTitle} lang={lang} hideFooter>
+<MainLayout title={pageTitle} hideFooter>
   <section class="min-h-[calc(100svh-5.5rem)]" aria-labelledby="subtitle">
     <div
       class="pointer-events-none fixed inset-0 z-10 grid place-content-center px-4"

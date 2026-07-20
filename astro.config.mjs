@@ -12,27 +12,9 @@ export default defineConfig({
   image: {
     domains: ['images.unsplash.com'],
   },
-  // i18n: {
-  //   defaultLocale: "en",
-  //   locales: ["en", "fr"],
-  //   fallback: {
-  //     fr: "en",
-  //   },
-  //   routing: {
-  //     prefixDefaultLocale: false,
-  //   },
-  // },
   prefetch: true,
   integrations: [
-    sitemap({
-      i18n: {
-        defaultLocale: 'en', // All urls that don't contain language prefix will be treated as default locale
-        locales: {
-          en: 'en', // The `defaultLocale` value must present in `locales` keys
-          fr: 'fr',
-        },
-      },
-    }),
+    sitemap(),
     starlight({
       title: 'ScrewFast Docs',
       // https://github.com/withastro/starlight/blob/main/packages/starlight/CHANGELOG.md

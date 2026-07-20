@@ -19,12 +19,12 @@ function initDemoForms() {
         const status =
           form.querySelector < HTMLElement > '[data-demo-status]' ??
           form.parentElement?.querySelector <
-            HTMLElement >
-            '[data-demo-status]';
+          HTMLElement >
+          '[data-demo-status]';
         const message =
           form.dataset.demoMessage ||
           status?.dataset.successMessage ||
-          'Demo only — this form is not connected to a backend.';
+          'Demo only – this form is not connected to a backend.';
 
         if (status) {
           status.textContent = message;
