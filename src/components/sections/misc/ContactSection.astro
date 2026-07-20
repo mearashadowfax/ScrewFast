@@ -1,5 +1,4 @@
 ---
-// Import the necessary dependencies.
 import AuthBtn from '@components/ui/buttons/AuthBtn.astro';
 import ContactIconBlock from '@components/ui/blocks/ContactIconBlock.astro';
 import TextInput from '@components/ui/forms/input/TextInput.astro';
@@ -7,26 +6,74 @@ import EmailContactInput from '@components/ui/forms/input/EmailContactInput.astr
 import PhoneInput from '@components/ui/forms/input/PhoneInput.astro';
 import TextAreaInput from '@components/ui/forms/input/TextAreaInput.astro';
 import Icon from '@components/ui/icons/Icon.astro';
+import { getMarketingLocale } from '@utils/locale';
 
-// Define the variables that will be used in this component
-const title: string = 'Contact us';
-const subTitle: string =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const formTitle: string = 'Fill in the form below';
-const formSubTitle: string = "We'll get back to you in 1-2 business days.";
+const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
+
+const copy =
+  locale === 'fr'
+    ? {
+        title: 'Contactez-nous',
+        subTitle:
+          "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.",
+        formTitle: 'Remplissez le formulaire ci-dessous',
+        formSubTitle:
+          'Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.',
+        firstName: 'Prénom',
+        lastName: 'Nom',
+        details: 'Détails',
+        send: 'Envoyer un message',
+        demoMessage:
+          'Merci ! (Démo — branchez un endpoint pour recevoir de vrais messages.)',
+        knowledgeHeading: 'Base de connaissances',
+        knowledgeContent:
+          'Parcourez tous nos articles de base de connaissances.',
+        knowledgeLink: 'Visiter les guides et tutoriels',
+        faqHeading: 'FAQ',
+        faqContent:
+          'Explorez notre FAQ pour des réponses rapides et claires aux questions courantes.',
+        faqLink: 'Visiter la FAQ',
+        officeHeading: 'Visitez notre bureau',
+        officeContent: 'ScrewFast UK',
+        emailHeading: 'Contactez-nous par e-mail',
+        emailContent: 'Préférez-vous le texte écrit ? Envoyez-nous un e-mail à',
+      }
+    : {
+        title: 'Contact us',
+        subTitle:
+          "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+        formTitle: 'Fill in the form below',
+        formSubTitle: "We'll get back to you in 1-2 business days.",
+        firstName: 'First Name',
+        lastName: 'Last Name',
+        details: 'Details',
+        send: 'Send Message',
+        demoMessage:
+          'Thanks! (Demo only — wire a form endpoint to receive real messages.)',
+        knowledgeHeading: 'Knowledgebase',
+        knowledgeContent: 'Browse through all of our knowledgebase articles.',
+        knowledgeLink: 'Visit guides & tutorials',
+        faqHeading: 'FAQ',
+        faqContent:
+          'Explore our FAQ for quick, clear answers to common queries.',
+        faqLink: 'Visit FAQ',
+        officeHeading: 'Visit our office',
+        officeContent: 'UK ScrewFast',
+        emailHeading: 'Contact us by email',
+        emailContent: 'Prefer the written word? Drop us an email at',
+      };
 ---
 
-{/* Contact Us */}
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
       <h1
         class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
       >
-        {title}
+        {copy.title}
       </h1>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-        {subTitle}
+        {copy.subTitle}
       </p>
     </div>
 
@@ -35,23 +82,19 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
         <h2
           class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300"
         >
-          {formTitle}
+          {copy.formTitle}
         </h2>
-        {
-          /* Form for user input with various input fields.-->
-        {/* Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)*/
-        }
-        <form>
+        <form data-demo-form data-demo-message={copy.demoMessage}>
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
-                label="First Name"
+                label={copy.firstName}
                 name="hs-firstname-contacts"
               />
               <TextInput
                 id="hs-lastname-contacts"
-                label="Last Name"
+                label={copy.lastName}
                 name="hs-lastname-contacts"
               />
             </div>
@@ -59,61 +102,64 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
             <PhoneInput id="hs-phone-number" />
             <TextAreaInput
               id="hs-about-contacts"
-              label="Details"
+              label={copy.details}
               name="hs-about-contacts"
             />
           </div>
 
           <div class="mt-4 grid">
-            <AuthBtn title="Send Message" />
+            <AuthBtn title={copy.send} />
           </div>
 
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              {formSubTitle}
+              {copy.formSubTitle}
+            </p>
+            <p
+              class="mt-2 hidden text-sm text-orange-500 dark:text-orange-400"
+              data-demo-status
+              aria-live="polite"
+            >
             </p>
           </div>
         </form>
       </div>
 
-      {
-        /*ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.*/
-      }
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
-          heading="Knowledgebase"
-          content="Browse through all of our knowledgebase articles."
+          heading={copy.knowledgeHeading}
+          content={copy.knowledgeContent}
           isLinkVisible={true}
-          linkTitle="Visit guides & tutorials"
+          linkTitle={copy.knowledgeLink}
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="question" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="FAQ"
-          content="Explore our FAQ for quick, clear answers to common queries."
+          heading={copy.faqHeading}
+          content={copy.faqContent}
           isLinkVisible={true}
-          linkTitle="Visit FAQ"
+          linkTitle={copy.faqLink}
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visit our office"
-          content="UK ScrewFast"
+          heading={copy.officeHeading}
+          content={copy.officeContent}
           isAddressVisible={true}
           addressContent="72 Union Terrace, E10 4PE London"
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Contact us by email"
-          content="Prefer the written word? Drop us an email at"
+          heading={copy.emailHeading}
+          content={copy.emailContent}
           isLinkVisible={true}
           linkTitle="support@screwfast.uk"
-          linkURL="#"
+          linkURL="mailto:support@screwfast.uk"
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>

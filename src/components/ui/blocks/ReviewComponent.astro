@@ -13,15 +13,23 @@ interface Props {
 }
 ---
 
-<div class="mt-6 lg:mt-10">
+<div class="mt-6 min-h-[5.5rem] lg:mt-10">
   <div class="py-5">
-    <div class="text-center sm:flex sm:items-center sm:text-start">
+    <div class="text-center sm:flex sm:min-h-8 sm:items-center sm:text-start">
       <div class="shrink-0 pb-5 sm:flex sm:pe-5 sm:pb-0">
         {/* Avatar Group */}
-        <div class="flex justify-center -space-x-3">
-          {avatars?.map(src => <Avatar src={src} alt="Avatar Description" />)}
+        <div class="flex h-8 justify-center -space-x-3">
+          {
+            avatars?.map((src, index) => (
+              <Avatar
+                src={src}
+                alt={`Customer review avatar ${index + 1}`}
+                loading="eager"
+              />
+            ))
+          }
           <span
-            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800"
+            class="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800"
           >
             <span class="text-xs leading-none font-medium text-white uppercase"
               >7k+</span

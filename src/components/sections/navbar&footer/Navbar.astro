@@ -7,10 +7,11 @@ import enStrings from '@utils/navigation.ts';
 import frStrings from '@utils/fr/navigation.ts';
 import BrandLogo from '@components/BrandLogo.astro';
 import LanguagePicker from '@components/ui/LanguagePicker.astro';
+import { getMarketingLocale } from '@utils/locale';
 
-// Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === 'fr' ? frStrings : enStrings;
-const homeUrl = Astro.currentLocale === 'fr' ? '/fr' : '/';
+const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
+const strings = locale === 'fr' ? frStrings : enStrings;
+const homeUrl = locale === 'fr' ? '/fr' : '/';
 ---
 
 {/* Main header component */}
@@ -27,7 +28,7 @@ const homeUrl = Astro.currentLocale === 'fr' ? '/fr' : '/';
       <a
         class="flex-none rounded-lg text-xl font-bold ring-zinc-500 outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
         href={homeUrl}
-        aria-label="Brand"
+        aria-label="ScrewFast"
       >
         <BrandLogo class="h-auto w-24" />
       </a>

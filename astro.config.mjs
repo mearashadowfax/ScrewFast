@@ -68,6 +68,15 @@ export default defineConfig({
         },
         {
           label: 'Tools & Equipment',
+          // Translated guide intros exist per locale; these pages fall back to English.
+          translations: {
+            de: 'Werkzeuge & Ausrüstung',
+            es: 'Herramientas y Equipo',
+            fa: 'ابزار و تجهیزات',
+            fr: 'Outils et Équipement',
+            ja: 'ツールと機材',
+            'zh-cn': '工具与设备',
+          },
           items: [
             { label: 'Tool Guides', link: 'tools/tool-guides/' },
             { label: 'Equipment Care', link: 'tools/equipment-care/' },
@@ -75,6 +84,14 @@ export default defineConfig({
         },
         {
           label: 'Construction Services',
+          translations: {
+            de: 'Baudienstleistungen',
+            es: 'Servicios de Construcción',
+            fa: 'خدمات ساخت‌وساز',
+            fr: 'Services de Construction',
+            ja: '建設サービス',
+            'zh-cn': '施工服务',
+          },
           items: [{ autogenerate: { directory: 'construction' } }],
         },
         {

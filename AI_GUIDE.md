@@ -4,7 +4,11 @@ For AI assistants (Cursor, Copilot, Claude, ChatGPT): this file describes projec
 
 ## Project Overview
 
-ScrewFast is an Astro + Tailwind CSS + Preline UI template for landing pages, blogs, documentation, and product/content pages. Stack: Astro 5, Tailwind v4 (via `@tailwindcss/vite`), Preline (modals, accordions), Starlight (docs), Lenis (smooth scroll), GSAP (animations).
+ScrewFast is an Astro + Tailwind CSS + Preline UI template for landing pages, blogs, documentation, and product/content pages. Stack: Astro 7, Tailwind v4 (via `@tailwindcss/vite`), Preline (modals, accordions), Starlight (docs), Lenis (smooth scroll), GSAP (animations).
+
+Marketing site locales: **en** and **fr** (file-based routes under `src/pages/` and `src/pages/fr/`). Use `getMarketingLocale()` from [`src/utils/locale.ts`](src/utils/locale.ts) for nav/footer/forms — do not rely only on `Astro.currentLocale` for marketing pages.
+
+Docs (Starlight) locales: en, de, es, fa, fr, ja, zh-cn. Guides and welcome are translated; `construction/`, `tools/`, and `advanced/` fall back to English for non-root locales.
 
 ## Path Aliases
 
@@ -21,7 +25,7 @@ Use these imports so paths stay correct and consistent:
 | `@styles/*`     | `src/assets/styles/*`  |
 | `@utils/*`      | `src/utils/*`          |
 
-Example: `import { SITE } from "@data/constants";` — do not use `@/data_files/constants`.
+Example: `import { SITE } from "@data/constants";` – do not use `@/data_files/constants`.
 
 Defined in [tsconfig.json](tsconfig.json).
 
@@ -55,9 +59,9 @@ Defined in [tsconfig.json](tsconfig.json).
 
 ## Development Commands
 
-- `pnpm dev` — run dev server
-- `pnpm build` — typecheck (`astro check`), build, then HTML processing ([process-html.mjs](process-html.mjs))
-- `pnpm preview` — preview production build
+- `pnpm dev` – run dev server
+- `pnpm build` – typecheck (`astro check`), build, then HTML processing ([process-html.mjs](process-html.mjs))
+- `pnpm preview` – preview production build
 
 ## Recommendations for AI
 

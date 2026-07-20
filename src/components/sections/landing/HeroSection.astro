@@ -92,9 +92,9 @@ interface Props {
       )
     }
   </div>
-  {/* Hero Image Section */}
+  {/* Hero Image Section — aspect ratio reserves space before the AVIF loads */}
   <div class="flex w-full">
-    <div class="top-12 overflow-hidden">
+    <div class="aspect-[4067/2576] w-full overflow-hidden">
       {
         src && alt && (
           <Image
@@ -102,7 +102,10 @@ interface Props {
             alt={alt}
             class="h-full w-full scale-110 object-cover object-center"
             draggable={'false'}
-            loading={'eager'}
+            loading="eager"
+            fetchpriority="high"
+            width={812}
+            height={515}
             format={'avif'}
           />
         )

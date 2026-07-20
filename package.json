@@ -9,7 +9,8 @@
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
@@ -24,7 +25,6 @@
     "html-minifier-terser": "^7.2.0",
     "lenis": "^1.3.25",
     "preline": "^4.2.0",
-    "rimraf": "^6.1.3",
     "sharp": "^0.35.3",
     "sharp-ico": "^0.1.5",
     "tailwindcss": "^4.3.3"

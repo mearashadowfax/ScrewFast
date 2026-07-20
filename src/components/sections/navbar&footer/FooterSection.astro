@@ -7,19 +7,23 @@ import frStrings from '@utils/fr/navigation.ts';
 import Icon from '@components/ui/icons/Icon.astro';
 import BrandLogo from '@components/BrandLogo.astro';
 import { SITE } from '@data/constants';
+import { getMarketingLocale } from '@utils/locale';
 
-// Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === 'fr' ? frStrings : enStrings;
+const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
+const strings = locale === 'fr' ? frStrings : enStrings;
 
-// Define the variables that will be used in this component
 const sectionThreeTitle: string =
-  Astro.currentLocale === 'fr' ? 'Rester à jour' : 'Stay up to date';
+  locale === 'fr' ? 'Rester à jour' : 'Stay up to date';
 const sectionThreeContent: string =
-  Astro.currentLocale === 'fr'
+  locale === 'fr'
     ? 'Restez informé des derniers outils et des offres exclusives.'
     : 'Stay updated with the latest tools and exclusive deals.';
-const crafted: string =
-  Astro.currentLocale === 'fr' ? 'Fabriqué par' : 'Crafted by';
+const crafted: string = locale === 'fr' ? 'Fabriqué par' : 'Crafted by';
+const hiringBadge: string = locale === 'fr' ? 'On recrute !' : "We're hiring!";
+const newsletterDemoMessage =
+  locale === 'fr'
+    ? 'Merci ! (démo — branchez un service e-mail pour collecter de vrais abonnés.)'
+    : 'Thanks! (Demo only — wire an email service to collect real subscribers.)';
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
@@ -49,7 +53,7 @@ const crafted: string =
                   </a>
                   {section.section === 'Company' && index === 2 ? (
                     <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
-                      We're hiring!
+                      {hiringBadge}
                     </span>
                   ) : null}
                 </li>
@@ -64,7 +68,7 @@ const crafted: string =
           {sectionThreeTitle}
         </h3>
 
-        <form>
+        <form data-demo-form data-demo-message={newsletterDemoMessage}>
           <EmailFooterInput />
           <p class="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
             {sectionThreeContent}
@@ -78,8 +82,9 @@ const crafted: string =
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © <span id="current-year"></span>
+          © <span id="current-year"></span>{` `}
           {SITE.title}. {crafted}
+          {` `}
           <a
             class="rounded-lg font-medium underline underline-offset-2 ring-zinc-500 outline-hidden transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:hover:text-neutral-300"
             href="https://www.gulamoff.dev/"
@@ -91,23 +96,23 @@ const crafted: string =
 
       {/* Social Brands */}
       <div>
-        <FooterSocialLink url={strings.socialLinks.facebook}
+        <FooterSocialLink url={strings.socialLinks.facebook} label="Facebook"
           ><Icon name="facebookFooter" />
         </FooterSocialLink>
 
-        <FooterSocialLink url={strings.socialLinks.x}
+        <FooterSocialLink url={strings.socialLinks.x} label="X"
           ><Icon name="xFooter" /></FooterSocialLink
         >
 
-        <FooterSocialLink url={strings.socialLinks.github}
+        <FooterSocialLink url={strings.socialLinks.github} label="GitHub"
           ><Icon name="githubFooter" />
         </FooterSocialLink>
 
-        <FooterSocialLink url={strings.socialLinks.google}
+        <FooterSocialLink url={strings.socialLinks.google} label="Google"
           ><Icon name="googleFooter" />
         </FooterSocialLink>
 
-        <FooterSocialLink url={strings.socialLinks.slack}
+        <FooterSocialLink url={strings.socialLinks.slack} label="Slack"
           ><Icon name="slackFooter" />
         </FooterSocialLink>
       </div>

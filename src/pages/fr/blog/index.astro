@@ -26,7 +26,7 @@ const blogPosts: CollectionEntry<'blog'>[] = frenchBlogEntries.sort(
 const insightPosts: CollectionEntry<'insights'>[] = frenchInsightsEntries;
 
 // Separate the most recent post from others
-const mostRecentPost: CollectionEntry<'blog'> = blogPosts[0];
+const mostRecentPost: CollectionEntry<'blog'> | undefined = blogPosts[0];
 const otherPosts: CollectionEntry<'blog'>[] = blogPosts.slice(1);
 
 // Define variables for page content
@@ -88,21 +88,28 @@ const ogTitle = "Blog de l'Industrie de la Construction | ScrewFast";
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    {/* Blog posts grid */}
-    <div class="grid gap-6 lg:grid-cols-2">
-      {
-        otherPosts.map(blogEntry => (
-          <CardBlog blogEntry={blogEntry} blogLocale="fr" />
-        ))
-      }
-    </div>
+    {
+      blogPosts.length === 0 ? (
+        <p class="text-center text-neutral-600 dark:text-neutral-400">
+          Aucun article pour le moment. Revenez bientôt.
+        </p>
+      ) : (
+        <div class="grid gap-6 lg:grid-cols-2">
+          {otherPosts.map(blogEntry => (
+            <CardBlog blogEntry={blogEntry} blogLocale="fr" />
+          ))}
+        </div>
+      )
+    }
   </section>
   {/* Most recent blog post */}
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" />
-  </section>
+  {
+    mostRecentPost && (
+      <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+        <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" />
+      </section>
+    )
+  }
   {/* Insights section */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
@@ -117,12 +124,18 @@ const ogTitle = "Blog de l'Industrie de la Construction | ScrewFast";
         {secondSubTitle}
       </p>
     </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        insightPosts.map(insightEntry => (
-          <CardInsight insightEntry={insightEntry} insightLocale="fr" />
-        ))
-      }
-    </div>
+    {
+      insightPosts.length === 0 ? (
+        <p class="text-center text-neutral-600 dark:text-neutral-400">
+          Aucune perspective pour le moment. Revenez bientôt.
+        </p>
+      ) : (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {insightPosts.map(insightEntry => (
+            <CardInsight insightEntry={insightEntry} insightLocale="fr" />
+          ))}
+        </div>
+      )
+    }
   </section>
 </MainLayout>

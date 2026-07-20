@@ -10,6 +10,7 @@ const config = {
   subTitle: 'Remember your password?', // Sub-heading text
   loginBtn: 'Sign in here', // Text for login button
   loginBtnDataHS: '#hs-toggle-between-modals-login-modal', // Target link for login button
+  demoNotice: 'Demo only – password recovery is not connected to a backend.',
 };
 ---
 
@@ -17,6 +18,9 @@ const config = {
 <div
   id={config.id}
   class="hs-overlay hs-overlay-backdrop-open:bg-neutral-900/90 absolute start-0 top-0 z-50 hidden h-full w-full"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby={`${config.id}-title`}
 >
   {/* Modal content container */}
   <div
@@ -29,18 +33,23 @@ const config = {
       >
         <div class="p-4 sm:p-7">
           <div class="text-center">
-            <div
+            <h2
+              id={`${config.id}-title`}
               class="block text-2xl font-bold text-neutral-800 dark:text-neutral-200"
-              role="heading"
-              aria-level="1"
-              aria-label={config.title}
             >
               {config.title}
-            </div>
+            </h2>
+            <p
+              class="mt-2 rounded-lg bg-yellow-100 px-3 py-2 text-xs text-neutral-700 dark:bg-yellow-900/40 dark:text-neutral-200"
+              role="note"
+            >
+              {config.demoNotice}
+            </p>
             <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               {config.subTitle}
               {/* Button that, when clicked, opens the login modal */}
               <button
+                type="button"
                 class="rounded-lg p-1 font-medium text-orange-400 decoration-2 ring-zinc-500 outline-hidden hover:underline focus-visible:ring-3 dark:text-orange-400 dark:ring-zinc-200 dark:focus:outline-hidden"
                 data-hs-overlay={config.loginBtnDataHS}
               >
@@ -51,12 +60,21 @@ const config = {
 
           <div class="mt-5">
             {/* The form for password recovery */}
-            <form>
+            <form
+              data-demo-form
+              data-demo-message="Demo only – password recovery is not connected to a backend."
+            >
               <div class="grid gap-y-4">
                 {/* Email input field imported from EmailInput component */}
                 <EmailInput id="recover-email" errorId="recover-email-error" />
                 {/* Reset password button imported from AuthBtn component */}
                 <AuthBtn title="Reset password" />
+                <p
+                  class="hidden text-center text-sm text-neutral-600 dark:text-neutral-400"
+                  data-demo-status
+                  aria-live="polite"
+                >
+                </p>
               </div>
             </form>
           </div>

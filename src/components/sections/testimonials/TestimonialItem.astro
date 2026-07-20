@@ -27,8 +27,8 @@ interface Props {
         <Image
           class="h-8 w-8 rounded-full"
           src={avatarSrc}
-          alt="Avatar Description"
-          loading={'eager'}
+          alt={`${author} photo`}
+          loading="lazy"
           inferSize
         />
       </div>

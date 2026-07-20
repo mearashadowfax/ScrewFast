@@ -76,7 +76,6 @@ const blogCollection = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
-      contents: z.array(z.string()),
       author: z.string(),
       role: z.string().optional(),
       authorImage: image(),

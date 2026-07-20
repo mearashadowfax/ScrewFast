@@ -48,7 +48,7 @@ const languages: { [key: string]: string } = {
   fr: 'fr',
 };
 
-function createHref(lang: string, prefix: string, path: string): string {
+function createHref(_lang: string, prefix: string, path: string): string {
   // Remove any existing language prefix
   const cleanPath = path.replace(/^\/(fr|en)\//, '/');
 
@@ -106,7 +106,7 @@ const appleTouchIcon = await getImage({
   property="og:locale"
   content={basePath.startsWith('/fr') ? 'fr_FR' : 'en_US'}
 />
-<meta property="og:url" content={siteURL} />
+<meta property="og:url" content={canonical} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />
 <meta property="og:site_name" content={SITE.title} />
@@ -118,8 +118,11 @@ const appleTouchIcon = await getImage({
 
 {/* Twitter Meta Tags */}
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:domain" content={siteURL} />
-<meta property="twitter:url" content={siteURL} />
+<meta
+  property="twitter:domain"
+  content={Astro.site?.hostname ?? 'screwfast.uk'}
+/>
+<meta property="twitter:url" content={canonical} />
 <meta name="twitter:title" content={ogTitle} />
 <meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={socialImage} />

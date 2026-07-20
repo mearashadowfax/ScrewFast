@@ -27,7 +27,7 @@ From 3D modeling to Building Information Modeling (BIM), ScrewFast employs cutti
 
 In a world increasingly concerned with sustainability, ScrewFast has taken proactive steps to minimize its environmental footprint. By prioritizing eco-friendly materials and sustainable construction practices, the company is leading the charge towards a greener future.
 
-One notable example is ScrewFast's commitment to modular construction—a method that involves prefabricating building components off-site and assembling them on-site. This approach not only reduces construction waste but also minimizes disruption to local ecosystems, making it a win-win for both builders and the environment.
+One notable example is ScrewFast's commitment to modular construction–a method that involves prefabricating building components off-site and assembling them on-site. This approach not only reduces construction waste but also minimizes disruption to local ecosystems, making it a win-win for both builders and the environment.
 
 ## The Road Ahead: Challenges and Opportunities
 

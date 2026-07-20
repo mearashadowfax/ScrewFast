@@ -7,9 +7,11 @@ interface Props {
   btnTitle: string;
   url: string;
 }
+
+const storageKey = `banner-dismissed:${btnId}`;
 ---
 
-<astro-banner btnId={btnId}>
+<astro-banner btnId={btnId} storageKey={storageKey} class="hidden">
   <div
     class="fixed start-1/2 bottom-0 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
     role="region"
@@ -73,9 +75,18 @@ interface Props {
   class AstroBanner extends HTMLElement {
     connectedCallback() {
       const btnId = this.getAttribute('btnId');
-      const button = this.querySelector(`#${btnId}`);
+      const storageKey = this.getAttribute('storageKey');
+      if (storageKey && localStorage.getItem(storageKey) === '1') {
+        this.remove();
+        return;
+      }
+      this.classList.remove('hidden');
+      const button = btnId ? this.querySelector(`#${btnId}`) : null;
       if (button != null) {
-        button.addEventListener('click', () => this.remove());
+        button.addEventListener('click', () => {
+          if (storageKey) localStorage.setItem(storageKey, '1');
+          this.remove();
+        });
       }
     }
   }

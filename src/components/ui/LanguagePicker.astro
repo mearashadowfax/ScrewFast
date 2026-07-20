@@ -1,5 +1,5 @@
 ---
-import { languages } from '@utils//ui';
+import { languages } from '@utils/ui';
 import Icon from './icons/Icon.astro';
 ---
 
@@ -27,7 +27,7 @@ import Icon from './icons/Icon.astro';
 
   <div
     class="hs-dropdown-menu duration hs-dropdown-open:opacity-100 top-[98%]! left-[20%]! mt-2 hidden transform-none! rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] before:absolute before:start-0 before:-top-4 before:h-4 before:w-full after:absolute after:start-0 after:-bottom-4 after:h-4 after:w-full md:top-[80%]! md:left-[90%]! dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800"
-    aria-labelledby="hs-dropdown-hover-event"
+    aria-labelledby="hs-dropdown-default"
   >
     {
       // Map through the list of languages, creating a link for each language
@@ -52,7 +52,7 @@ import Icon from './icons/Icon.astro';
   document.addEventListener('DOMContentLoaded', function () {
     // Only target language picker links
     const languageLinks = document.querySelectorAll(
-      ".hs-dropdown-menu[aria-labelledby='hs-dropdown-hover-event'] a"
+      ".hs-dropdown-menu[aria-labelledby='hs-dropdown-default'] a"
     );
 
     languageLinks.forEach(element => {
