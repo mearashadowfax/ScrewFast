@@ -14,6 +14,7 @@ const {
   lang = 'en',
   customDescription = null,
   customOgTitle = null,
+  hideFooter = false,
 } = Astro.props;
 
 // Interface to type-check the properties
@@ -24,6 +25,7 @@ interface Props {
   lang?: string;
   customDescription?: string | null;
   customOgTitle?: string | null;
+  hideFooter?: boolean;
 }
 ---
 
@@ -78,7 +80,7 @@ interface Props {
         <slot />
       </main>
     </div>
-    <FooterSection />
+    {!hideFooter && <FooterSection />}
     <script>
       // https://preline.co
       import 'preline';

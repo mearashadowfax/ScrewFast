@@ -12,7 +12,10 @@ interface Props {
 const { product } = Astro.props;
 ---
 
-<div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
+<div
+  id="overlay"
+  class="pointer-events-none fixed inset-0 bg-neutral-200 dark:bg-neutral-800"
+>
 </div>
 
 <section
@@ -39,11 +42,11 @@ const { product } = Astro.props;
         {product.data.description}
       </p>
     </div>
-    <div>
+    <div class="overflow-hidden">
       <Image
         id="fadeInMoveRight"
         src={product.data.main.imgMain}
-        class="w-[600px]"
+        class="w-[600px] will-change-transform"
         alt={product.data.main.imgAlt}
         format={'avif'}
         loading={'eager'}
@@ -52,7 +55,10 @@ const { product } = Astro.props;
   </div>
 </section>
 
-<div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
+<div
+  id="product-detail-body"
+  class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14"
+>
   <nav
     class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
     aria-label="Tabs"
@@ -70,8 +76,8 @@ const { product } = Astro.props;
     }
   </nav>
 
-  <div class="mt-12 md:mt-16">
-    <div id="tabs-with-card-1" role="tabpanel">
+  <div class="relative mt-12 md:mt-16">
+    <div id="tabs-with-card-1" class="product-tab-panel" role="tabpanel">
       <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
         <div class="grid gap-12 md:grid-cols-2">
           <div class="lg:w-3/4">
@@ -111,7 +117,7 @@ const { product } = Astro.props;
       </div>
     </div>
 
-    <div id="tabs-with-card-2" class="hidden" role="tabpanel">
+    <div id="tabs-with-card-2" class="product-tab-panel hidden" role="tabpanel">
       <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
         <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
           <div class="max-w-md space-y-6">
@@ -190,37 +196,37 @@ const { product } = Astro.props;
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div id="tabs-with-card-3" class="hidden" role="tabpanel">
-  <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
-    <div
-      class="relative top-12 left-12 z-10 overflow-hidden rounded-xl shadow-lg md:top-16 md:left-12 md:-ml-12 lg:ml-0"
-    >
-      {
-        product.data.blueprints.first && (
-          <Image
-            src={product.data.blueprints.first}
-            class="h-full w-full object-cover object-center"
-            alt="Blueprint Illustration"
-            format={'avif'}
-          />
-        )
-      }
-    </div>
+    <div id="tabs-with-card-3" class="product-tab-panel hidden" role="tabpanel">
+      <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
+        <div
+          class="relative top-12 left-12 z-10 overflow-hidden rounded-xl shadow-lg md:top-16 md:left-12 md:-ml-12 lg:ml-0"
+        >
+          {
+            product.data.blueprints.first && (
+              <Image
+                src={product.data.blueprints.first}
+                class="h-full w-full object-cover object-center"
+                alt="Blueprint Illustration"
+                format={'avif'}
+              />
+            )
+          }
+        </div>
 
-    <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
-      {
-        product.data.blueprints.second && (
-          <Image
-            src={product.data.blueprints.second}
-            class="h-full w-full object-cover object-center"
-            alt="Blueprint Illustration"
-            format={'avif'}
-          />
-        )
-      }
+        <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
+          {
+            product.data.blueprints.second && (
+              <Image
+                src={product.data.blueprints.second}
+                class="h-full w-full object-cover object-center"
+                alt="Blueprint Illustration"
+                format={'avif'}
+              />
+            )
+          }
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -228,139 +234,205 @@ const { product } = Astro.props;
 <script>
   import { gsap } from 'gsap';
 
-  type AnimationSettings = {
-    autoAlpha?: number;
-    y?: number;
-    x?: number;
-    willChange?: string;
-  };
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
 
-  function setElementAnimationDefaults(
-    id: string,
-    settings: AnimationSettings
-  ) {
-    gsap.set(id, settings);
+  if (prefersReducedMotion) {
+    gsap.set(
+      ['#fadeText', '#fadeInUp', '#fadeInMoveRight', '#product-detail-body'],
+      { clearProps: 'all' }
+    );
+    gsap.set('#overlay', { autoAlpha: 0, display: 'none' });
+  } else {
+    gsap.set('#fadeText', { autoAlpha: 0, y: 20 });
+    gsap.set('#fadeInUp', { autoAlpha: 0, y: 28 });
+    gsap.set('#fadeInMoveRight', { autoAlpha: 0, x: 56, scale: 0.97 });
+    gsap.set('#product-detail-body', { autoAlpha: 0, y: 24 });
+
+    const revealContent = () => {
+      gsap.set(
+        ['#fadeText', '#fadeInUp', '#fadeInMoveRight', '#product-detail-body'],
+        { autoAlpha: 1, x: 0, y: 0, scale: 1 }
+      );
+      gsap.set('#overlay', { autoAlpha: 0, display: 'none' });
+    };
+
+    const safetyId = window.setTimeout(revealContent, 2200);
+
+    gsap
+      .timeline({
+        defaults: { ease: 'power3.out' },
+        onComplete: () => {
+          window.clearTimeout(safetyId);
+          gsap.set('#overlay', { display: 'none' });
+        },
+      })
+      .to(
+        '#overlay',
+        {
+          autoAlpha: 0,
+          duration: 0.65,
+          ease: 'power2.inOut',
+        },
+        0.08
+      )
+      .to(
+        '#fadeText',
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.85,
+        },
+        0.12
+      )
+      .to(
+        '#fadeInUp',
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.95,
+        },
+        0.22
+      )
+      .to(
+        '#fadeInMoveRight',
+        {
+          autoAlpha: 1,
+          x: 0,
+          scale: 1,
+          duration: 1.05,
+        },
+        0.18
+      )
+      .to(
+        '#product-detail-body',
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.8,
+        },
+        0.42
+      );
   }
 
-  setElementAnimationDefaults('#fadeText', {
-    autoAlpha: 0,
-    y: 50,
-    willChange: 'transform, opacity',
-  });
+  function changeHeadingStyle(
+    button: Element,
+    addClasses: string[],
+    removeClasses: string[]
+  ) {
+    const heading = button.querySelector('span');
+    if (heading) {
+      heading.classList.remove(...removeClasses);
+      heading.classList.add(...addClasses);
+    }
+  }
 
-  setElementAnimationDefaults('#fadeInUp', {
-    autoAlpha: 0,
-    y: 50,
-    willChange: 'transform, opacity',
-  });
+  function setButtonInactive(btn: Element, activeButton: Element) {
+    if (btn === activeButton) return;
 
-  setElementAnimationDefaults('#fadeInMoveRight', {
-    autoAlpha: 0,
-    x: 300,
-    willChange: 'transform, opacity',
-  });
+    btn.classList.remove(
+      'active',
+      'bg-neutral-100',
+      'hover:border-transparent',
+      'dark:bg-white/[.05]'
+    );
 
-  let timeline = gsap.timeline({ defaults: { overwrite: 'auto' } });
+    changeHeadingStyle(
+      btn,
+      ['text-neutral-800', 'dark:text-neutral-200'],
+      ['text-orange-400', 'dark:text-orange-300']
+    );
+  }
 
-  timeline.to('#fadeText', {
-    duration: 1.5,
-    autoAlpha: 1,
-    y: 0,
-    delay: 1,
-    ease: 'power2.out',
-  });
+  function setButtonActive(button: Element) {
+    button.classList.add(
+      'active',
+      'bg-neutral-100',
+      'hover:border-transparent',
+      'dark:bg-white/[.05]'
+    );
 
-  timeline.to(
-    '#fadeInUp',
-    { duration: 1.5, autoAlpha: 1, y: 0, ease: 'power2.out' },
-    '-=1.2'
-  );
+    changeHeadingStyle(
+      button,
+      ['text-orange-400', 'dark:text-orange-300'],
+      ['text-neutral-800', 'dark:text-neutral-200']
+    );
+  }
 
-  timeline.to(
-    '#fadeInMoveRight',
-    { duration: 1.5, autoAlpha: 1, x: 0, ease: 'power2.inOut' },
-    '-=1.4'
-  );
+  let activePanel = document.querySelector(
+    '.product-tab-panel:not(.hidden)'
+  ) as HTMLElement | null;
+  let isSwitching = false;
 
-  timeline.to('#overlay', { duration: 1, autoAlpha: 0, delay: 0.2 });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    function setButtonInactive(btn: any, activeButton: any) {
-      if (btn !== activeButton) {
-        btn.classList.remove(
-          'active',
-          'bg-neutral-100',
-          'hover:border-transparent',
-          'dark:bg-white/[.05]'
-        );
+  function clearPanelMotion(panel: HTMLElement) {
+    panel.style.transition = '';
+    panel.style.opacity = '';
+    panel.style.transform = '';
+  }
 
-        const tabId = btn.getAttribute('data-target');
-        if (tabId) {
-          const contentElement = document.querySelector(tabId);
-          if (contentElement) {
-            contentElement.classList.add('hidden');
-          }
-        }
+  function switchPanel(nextPanel: HTMLElement) {
+    if (!nextPanel || nextPanel === activePanel || isSwitching) return;
 
-        changeHeadingStyle(
-          btn,
-          ['text-neutral-800', 'dark:text-neutral-200'],
-          ['text-orange-400', 'dark:text-orange-300']
-        );
-      }
+    if (prefersReducedMotion || !activePanel) {
+      activePanel?.classList.add('hidden');
+      nextPanel.classList.remove('hidden');
+      clearPanelMotion(nextPanel);
+      activePanel = nextPanel;
+      return;
     }
 
-    function activateButton(button: any) {
-      button.classList.add(
-        'active',
-        'bg-neutral-100',
-        ',hover:border-transparent',
-        'dark:bg-white/[.05]'
-      );
+    isSwitching = true;
+    const previousPanel = activePanel;
 
+    previousPanel.style.transition =
+      'opacity 220ms cubic-bezier(0.4, 0, 1, 1), transform 220ms cubic-bezier(0.4, 0, 1, 1)';
+    previousPanel.style.opacity = '0';
+    previousPanel.style.transform = 'translateY(10px)';
+
+    window.setTimeout(() => {
+      previousPanel.classList.add('hidden');
+      clearPanelMotion(previousPanel);
+
+      nextPanel.classList.remove('hidden');
+      nextPanel.style.opacity = '0';
+      nextPanel.style.transform = 'translateY(16px)';
+      void nextPanel.offsetWidth;
+
+      nextPanel.style.transition =
+        'opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1)';
+      nextPanel.style.opacity = '1';
+      nextPanel.style.transform = 'translateY(0)';
+
+      window.setTimeout(() => {
+        clearPanelMotion(nextPanel);
+        activePanel = nextPanel;
+        isSwitching = false;
+      }, 420);
+    }, 230);
+  }
+
+  const tabButtons = document.querySelectorAll('[data-target]');
+
+  if (tabButtons.length > 0) {
+    changeHeadingStyle(
+      tabButtons[0],
+      ['text-orange-400', 'dark:text-orange-300'],
+      []
+    );
+  }
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
       const tabId = button.getAttribute('data-target');
-      if (tabId) {
-        const contentElementToShow = document.querySelector(tabId);
-        if (contentElementToShow) {
-          contentElementToShow.classList.remove('hidden');
-        }
-      }
+      if (!tabId) return;
 
-      changeHeadingStyle(
-        button,
-        ['text-orange-400', 'dark:text-orange-300'],
-        ['text-neutral-800', 'dark:text-neutral-200']
-      );
-    }
+      const nextPanel = document.querySelector(tabId) as HTMLElement | null;
+      if (!nextPanel || nextPanel === activePanel || isSwitching) return;
 
-    function changeHeadingStyle(
-      button: any,
-      addClasses: any,
-      removeClasses: any
-    ) {
-      let heading = button.querySelector('span');
-      if (heading) {
-        heading.classList.remove(...removeClasses);
-        heading.classList.add(...addClasses);
-      }
-    }
-
-    const tabButtons = document.querySelectorAll('[data-target]');
-
-    if (tabButtons.length > 0) {
-      changeHeadingStyle(
-        tabButtons[0],
-        ['text-orange-400', 'dark:text-orange-300'],
-        []
-      );
-    }
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        tabButtons.forEach(btn => setButtonInactive(btn, button));
-        activateButton(button);
-      });
+      tabButtons.forEach(btn => setButtonInactive(btn, button));
+      setButtonActive(button);
+      switchPanel(nextPanel);
     });
   });
 </script>
