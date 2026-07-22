@@ -1,8 +1,8 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
-import { join, extname } from 'node:path';
+import { extname, isAbsolute, relative, resolve } from 'node:path';
 
-const DIST = new URL('../dist/', import.meta.url).pathname;
+const DIST = resolve(new URL('../dist/', import.meta.url).pathname);
 const ROUTES = ['/', '/fr/', '/products/', '/blog/', '/contact/', '/404'];
 
 const MIME = {
@@ -20,11 +20,20 @@ const MIME = {
 };
 
 function resolvePath(urlPath) {
-  let path = decodeURIComponent(urlPath.split('?')[0]);
-  if (path.endsWith('/')) path += 'index.html';
-  else if (!extname(path)) path += '/index.html';
-  if (path === '/404/index.html') path = '/404.html';
-  return join(DIST, path.replace(/^\//, ''));
+  let pathname = decodeURIComponent(urlPath.split('?')[0]);
+  if (pathname.includes('\0') || /(?:^|[/\\])\.\.(?:[/\\]|$)/.test(pathname)) {
+    throw Object.assign(new Error('Invalid path'), { code: 'EINVAL' });
+  }
+  if (pathname.endsWith('/')) pathname += 'index.html';
+  else if (!extname(pathname)) pathname += '/index.html';
+  if (pathname === '/404/index.html') pathname = '/404.html';
+
+  const filePath = resolve(DIST, pathname.replace(/^[/\\]+/, ''));
+  const rel = relative(DIST, filePath);
+  if (rel.startsWith('..') || isAbsolute(rel)) {
+    throw Object.assign(new Error('Path escapes dist'), { code: 'EACCES' });
+  }
+  return filePath;
 }
 
 async function run() {
@@ -37,7 +46,7 @@ async function run() {
       res.end(data);
     } catch {
       try {
-        const data = await readFile(join(DIST, '404.html'));
+        const data = await readFile(resolve(DIST, '404.html'));
         res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(data);
       } catch {
