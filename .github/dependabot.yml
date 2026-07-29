@@ -5,7 +5,14 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/' # Location of package manifests
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
       interval: 'weekly'
+    groups:
+      # Prettier bumps often change formatting across the repo; keep them together
+      # so one format pass (via dependabot-format.yml) covers the whole change.
+      prettier:
+        patterns:
+          - 'prettier'
+          - 'prettier-*'
