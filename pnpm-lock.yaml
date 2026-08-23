@@ -30,8 +30,8 @@ importers:
         specifier: ^2.0.11
         version: 2.0.11
       globby:
-        specifier: ^16.2.3
-        version: 16.2.3
+        specifier: ^16.2.4
+        version: 16.2.4
       gsap:
         specifier: ^3.15.0
         version: 3.15.0
@@ -1636,8 +1636,8 @@ packages:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
 
-  globby@16.2.3:
-    resolution: {integrity: sha512-VZX7TV7jmd/pn71vdnLKtgwy1IWqc3KjI9x1/UtPkwoKk5fKrNLY30ltDe3cAM5xruIN7YuuaulFt133jRrKZg==}
+  globby@16.2.4:
+    resolution: {integrity: sha512-c8B/VNLmxRcmqqenRA9t+9IyOjf9+V6lTxPaUJLqOCONdQkWZ0ETYgX0qbtJqPsgCNusT9MZ5Jeidw8Eb9tn2g==}
     engines: {node: '>=20'}
 
   good-listener@1.2.2:
@@ -4600,12 +4600,13 @@ snapshots:
     dependencies:
       is-glob: 4.0.3
 
-  globby@16.2.3:
+  globby@16.2.4:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
       ignore: 7.0.6
       is-path-inside: 4.0.0
+      micromatch: 4.0.8
       slash: 5.1.0
       unicorn-magic: 0.4.0
 
