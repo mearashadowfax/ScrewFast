@@ -31,6 +31,7 @@ Fields marked ⚙ are **backend-owned**: clients may read, never write. Timestam
 | `checkins`, `planMemories` | plan member | — | — | feed |
 | `adminUsers/{uid}` | no | no | admin script | mirrors custom claim |
 | `mpesa_logs`, `processedEvents` | no | no | ⚙ | audit / idempotency |
+| `emails/{type}:{entityId}` | no | no | ⚙ | write-once send guard (KB 28) |
 | `ledgerEntries/{txId:n}` | **no** | **no** | ⚙ | money journal (D-025); read: admin, or plan members via `/v2/ledger/plans/:id` |
 
 Community collections (`communityGroups`, `communityGroupMembers`, `communityGoals`,

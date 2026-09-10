@@ -12,7 +12,7 @@ import { Avatar, EmptyState, Skeleton, StickyAction, Tag } from "@/components/ui
 import { Segmented } from "@/components/ui/Segmented";
 import { ShowMore } from "@/components/ui/ShowMore";
 import { Ring } from "@/components/home/Charts";
-import { Field, FieldGroup, FormError, OutlineButton, PrimaryButton, SuccessMark, TextAreaField } from "@/components/ui/Form";
+import { ButtonLink, Field, FieldGroup, FormError, OutlineButton, PrimaryButton, SuccessMark, TextAreaField } from "@/components/ui/Form";
 import { auditAPI, catalogueAPI, plansAPI, premiumAPI } from "@/lib/api";
 import { date, dateTime, fraction, money, plural, relative } from "@/lib/format";
 import { asList, isPooled, planTypeLabel, STATUS_TONE, unwrap } from "@/lib/data/shape";
@@ -327,6 +327,7 @@ function RemoveResource({ planId, resource, onDone }) {
 const PAYOUT_FEE_RATE = 0.02;
 
 function WithdrawSheet({ open, onClose, plan, available, members, onSettled }) {
+  const { user } = useAuth();
   const currency = plan.currency || "KES";
   const [amount, setAmount] = useState("");
   const [mode, setMode] = useState("member");
@@ -378,6 +379,17 @@ function WithdrawSheet({ open, onClose, plan, available, members, onSettled }) {
   };
 
   const recipientLabel = receipt?.recipientName || chosen?.displayName || name.trim() || (phone.trim() ? phone.trim() : "the recipient");
+
+  if (user && !user.emailVerified) {
+    return (
+      <Sheet open={open} onClose={onClose} title="Withdraw">
+        <div className="space-y-4">
+          <p className="text-[15px] leading-relaxed text-gray-600">Verify your email before withdrawing — it's how we make sure funds go where you meant.</p>
+          <ButtonLink href={`/verify-email?redirect=${encodeURIComponent(`/plans/${plan.id}`)}`}>Verify my email</ButtonLink>
+        </div>
+      </Sheet>
+    );
+  }
 
   return (
     <Sheet open={open} onClose={onClose} title={stage === "form" ? "Withdraw" : undefined}>

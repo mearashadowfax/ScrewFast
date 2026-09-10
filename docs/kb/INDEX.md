@@ -24,6 +24,7 @@ the detail lives in the linked file. Never paste document content here.
 | 25 | [25-spec-design-system.md](25-spec-design-system.md) | Apple-centric design rules: type, colour, geometry, motion, patterns | active |
 | 26 | [26-spec-invites.md](26-spec-invites.md) | Invite links incl. signed-out preview; accept/decline flow | active |
 | 27 | [27-spec-audit.md](27-spec-audit.md) | Audit events and the admin view | active |
+| 28 | [28-spec-email.md](28-spec-email.md) | Email verification + transactional notifications (MVP) | active |
 | 30 | [30-decisions.md](30-decisions.md) | Append-only decision log (ADR-lite) | active |
 | 40 | [40-runbooks.md](40-runbooks.md) | Local dev, emulators, deploying rules, rotating credentials, debugging payments | active |
 | 90 | [90-legacy-docs.md](90-legacy-docs.md) | Every pre-KB document in both repos and what supersedes it | active |

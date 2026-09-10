@@ -63,6 +63,9 @@ Failed, timed-out or rejected B2C transfers — and any still unconfirmed after 
 ## Recording a journey
 `scripts/record-journey.js` drives the dev server with Playwright against installed Chrome (`npm i -D playwright-core` once, not in package.json): fresh test account → sign-up → Home → create a self-managed plan → one checklist item, at phone (390×844) and desktop sizes. Output `.webm` → `ffmpeg … -c:v libx264` → `docs/media/journey-{mobile,desktop}.mp4`. Test accounts are `test.<label>.<ts>@example.com` / `DemoPass!2026` and are left in place (no hard deletes).
 
+## Email
+`cd gc-payments && npm run email:domain` — probes Resend by sending to its sink address (the key is send-only); exit 0 = domain verified. Run occasionally while DNS propagates. `npm run email:test you@example.com` — sends the shared layout to one address. Failed sends are in the audit trail as `email.failed` with the Resend reason. Verification mail itself comes from Firebase Auth (template in the Firebase console → Authentication → Templates).
+
 ## Grant admin
 Before pushing backend changes that touch routes: `npm run check:admin-guards` (alongside `check:no-hard-delete`).
 `cd gc-payments && npm run admin:grant -- you@example.com` (or a uid). Revoke with `npm run admin:revoke -- …`. The user must have signed in once (a `users/{uid}` doc must exist). Frontend reads the same `role` via `useAuth().isAdmin`.

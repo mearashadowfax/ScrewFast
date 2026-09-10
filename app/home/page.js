@@ -15,6 +15,7 @@ import { money, plural } from "@/lib/format";
 import { useAsync } from "@/lib/useAsync";
 import { getHomeSummary } from "@/lib/data/home";
 import { getAdminSummary } from "@/lib/data/admin";
+import { VerifyEmailBanner } from "@/components/account/VerifyEmailBanner";
 
 function greetingFor(date) {
   const hour = date.getHours();
@@ -186,6 +187,7 @@ export default function Home() {
       }
     >
       <PullToRefresh onRefresh={() => Promise.all([reload(), isAdmin ? reloadAdmin() : null])}>
+      <div className="px-6"><VerifyEmailBanner /></div>
       <motion.div className="mx-auto max-w-3xl px-6 pb-32 pt-12 sm:pb-24 sm:pt-24" variants={STAGGER} initial="hidden" animate="show">
         <motion.p variants={item} className="text-sm font-medium text-gray-500">
           Home

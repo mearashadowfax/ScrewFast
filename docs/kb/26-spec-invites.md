@@ -32,3 +32,6 @@ No ids, no money fields, no member identities, no inviter uid. Every preview is 
 ## Security notes
 - Codes are generated server-side; treat them as capability tokens. Preview exposes nothing that isn't on a party invitation.
 - Preview route has no auth by design; abuse surface = enumeration. Mitigation: global rate limit; audit log; codes are long and random. If enumeration is observed, add per-IP limiter on `/v2/invites`.
+
+## Username invitations (M2)
+Invite-by-username also stores an `inviteCode`; the invitee gets an email (KB 28) pointing at `/invite/{code}`. `acceptInvitation` still refuses anyone but `inviteeUserId`.

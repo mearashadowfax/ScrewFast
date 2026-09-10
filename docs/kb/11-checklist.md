@@ -79,6 +79,15 @@ them in commits and decisions. `[ ]` todo · `[~]` in progress · `[x]` done · 
 ## K · Checklists (D-024)
 - [x] K1 Backend: `scope` + `completions` on milestones; per-member toggle · [x] K2 Plan details: Checklist section (add sheet with Group/Everyone, tick, remove), coordinate-only hero ring shows checklist progress
 
+## M · Email (MVP) — approved 2026-09-10 (D-027)
+- [~] M0 Verify `grupchat.net` on Resend; sender `GrupChat <hello@grupchat.net>` *(DNS propagating — `npm run email:domain`)*
+- [x] M1 Email verification on sign-up: send on sign-up, `/verify-email` page with resend, Home banner while unverified, **withdrawals gated** on `email_verified` (server + sheet)
+- [x] M2 Invitation email on invite-by-username when the invitee's account is known → `/invite/{code}`; username invitations now carry an `inviteCode`
+- [x] M3 Payment receipt to payer **and owner** on `payment.settled`
+- [x] M4 Withdrawal confirmation to the owner on `payout.settled`
+- [x] M5 Payout-needs-review alert to admins (callbacks + reconciliation)
+- [x] M6 Shared minimal layout + `emails/{type}:{id}` idempotency + `email.sent/failed` audit (V1 templates retire with P5)
+
 ## W · Withdrawals (D-026)
 - [x] W1 Payout with hold (`heldBalance`), 2% fee, member/custom recipient, B2C V2 result/timeout + V1 bridges, review flag, admin resolve · [x] W2 Plan details: Withdraw sheet (fee preview, recipient picker, awaits confirmation), hold shown in hero · [x] W3 `/admin/payouts`: parked payouts with Refund-to-pool / Mark-as-sent · [x] W4 Failures park for review (no auto-release); no user-facing hold wording
 
@@ -97,6 +106,8 @@ them in commits and decisions. `[ ]` todo · `[~]` in progress · `[x]` done · 
 - [ ] Z1 All screens pass 25 §Accessibility · [ ] Z2 ≤375px and ≥1280px walkthrough · [ ] Z3 `MVP_USER_JOURNEYS.md` acceptance criteria ticked · [ ] Z4 KB rows `updated` within the release week
 
 ## Log (newest first)
+- 2026-09-10 · Email MVP approved and built (D-027): verification gate, receipts, payout + admin-alert emails, `email:domain` / `email:test`. M0 awaiting DNS (probe: not verified as of 17:10 UTC).
+- 2026-09-10 · Email MVP proposed (spec 28, section E) — awaiting approval; nothing built.
 - 2026-09-06 · Sign-up name race fixed both ways (explicit `updateMe` after session; `getMe` self-heals placeholders); recordings re-cut.
 - 2026-09-06 · Journey recordings (sign-up → self-managed plan) at phone and desktop sizes in `docs/media/`; found and fixed profile display-name creation (backend `getMe`), sign-up token refresh, dev badge hidden.
 - 2026-09-06 · Mobile navigation: sticky header and iOS-style bottom tab bar (A15).
