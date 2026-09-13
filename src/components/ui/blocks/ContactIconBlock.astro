@@ -36,31 +36,23 @@ fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
   <slot />
   <div class="grow">
     {/* Heading of the section */}
-    <h3 class="font-bold text-neutral-700 dark:text-neutral-300">
-      {heading}
-    </h3>
+    <h3 class="font-bold text-neutral-700 dark:text-neutral-300">{heading}</h3>
     {/* Content of the section */}
     <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{content}</p>
     {/* Conditional rendering of address content if isAddressVisible is true */}
-    {
-      isAddressVisible ? (
-        <p class="mt-1 text-sm text-neutral-500 italic">{addressContent}</p>
-      ) : null
-    }
-    {
-      /* Conditional rendering of a link if isLinkVisible is true.
-         The link also conditionally includes an arrow SVG if isArrowVisible is true */
-    }
-    {
-      isLinkVisible ? (
-        <a
-          class="group mt-2 inline-flex items-center gap-x-2 rounded-lg text-sm font-medium text-zinc-600 ring-zinc-500 outline-hidden transition duration-300 hover:text-zinc-800 focus-visible:ring-3 dark:text-zinc-400 dark:ring-zinc-200 dark:hover:text-zinc-200 dark:focus:ring-1 dark:focus:outline-hidden"
-          href={linkURL}
-        >
-          {linkTitle}
-          {isArrowVisible ? <Fragment set:html={arrowSVG} /> : null}
-        </a>
-      ) : null
-    }
+    {isAddressVisible ? (
+      <p class="mt-1 text-sm text-neutral-500 italic">{addressContent}</p>
+    ) : null}
+    {/* Conditional rendering of a link if isLinkVisible is true.
+         The link also conditionally includes an arrow SVG if isArrowVisible is true */}
+    {isLinkVisible ? (
+      <a
+        class="group mt-2 inline-flex items-center gap-x-2 rounded-lg text-sm font-medium text-zinc-600 ring-zinc-500 outline-hidden transition duration-300 hover:text-zinc-800 focus-visible:ring-3 dark:text-zinc-400 dark:ring-zinc-200 dark:hover:text-zinc-200 dark:focus:ring-1 dark:focus:outline-hidden"
+        href={linkURL}
+      >
+        {linkTitle}
+        {isArrowVisible ? <Fragment set:html={arrowSVG} /> : null}
+      </a>
+    ) : null}
   </div>
 </div>

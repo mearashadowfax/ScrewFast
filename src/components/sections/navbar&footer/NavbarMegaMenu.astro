@@ -15,9 +15,7 @@ const homeUrl = Astro.currentLocale === 'fr' ? '/fr' : '/';
 ---
 
 {/* Main header component */}
-<header
-  class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
->
+<header class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
   {/* Navigation container */}
   <nav
     class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-3 backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md"
@@ -83,19 +81,15 @@ const homeUrl = Astro.currentLocale === 'fr' ? '/fr' : '/';
       class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:block"
     >
       {/* Navigation links container */}
-      <div
-        class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
-      >
+      <div class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7">
         {/* Navigation links and Authentication component */}
-        {
-          strings.navBarLinks.map(link => {
-            if (link.name === 'Services') {
-              return <MegaMenuLink />;
-            } else {
-              return <NavLink url={link.url} name={link.name} />;
-            }
-          })
-        }
+        {strings.navBarLinks.map(link => {
+          if (link.name === 'Services') {
+            return <MegaMenuLink />;
+          } else {
+            return <NavLink url={link.url} name={link.name} />;
+          }
+        })}
 
         <Authentication />
         <LanguagePicker />

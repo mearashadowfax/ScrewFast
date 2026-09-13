@@ -27,38 +27,27 @@ const { Content } = await render(post);
         <div
           id="progress-mobile"
           class="fixed top-0 left-0 h-2 w-full bg-linear-to-r from-orange-400/30 to-orange-400 md:hidden"
-        >
-        </div>
+        ></div>
         <div id="pin" class="mt-10 hidden space-y-4 md:block">
-          <div
-            class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700"
-          >
+          <div class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700">
             <div
               id="progress"
               class="h-px w-full bg-linear-to-r from-orange-400/30 to-orange-400"
-            >
-            </div>
+            ></div>
           </div>
           <p class="text-sm text-pretty text-neutral-500">Table of Contents:</p>
           <div id="toc" class="">
-            <ul
-              class="space-y-2 text-base text-pretty text-neutral-700 transition duration-300 dark:text-neutral-400"
-            >
-            </ul>
+            <ul class="space-y-2 text-base text-pretty text-neutral-700 transition duration-300 dark:text-neutral-400"></ul>
           </div>
         </div>
       </div>
 
       <div class="md:pt-8">
-        <h1
-          class="mb-4 text-center text-2xl font-bold text-balance text-neutral-800 sm:text-3xl md:mb-6 md:text-left dark:text-neutral-200"
-        >
+        <h1 class="mb-4 text-center text-2xl font-bold text-balance text-neutral-800 sm:text-3xl md:mb-6 md:text-left dark:text-neutral-200">
           {post.data.title}
         </h1>
 
-        <article
-          class="text-lg text-pretty text-neutral-700 dark:text-neutral-300"
-        >
+        <article class="text-lg text-pretty text-neutral-700 dark:text-neutral-300">
           <Content />
         </article>
       </div>

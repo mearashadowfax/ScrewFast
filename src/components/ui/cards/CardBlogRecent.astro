@@ -13,9 +13,7 @@ interface Props {
 }
 ---
 
-{
-  /* Root container, which is divided into 2 grid column layout for larger screens */
-}
+{/* Root container, which is divided into 2 grid column layout for larger screens */}
 <div class="grid gap-8 sm:grid-cols-2 sm:items-center">
   {/* Container for the blog post's cover image */}
   <div class="sm:order-2">
@@ -30,19 +28,17 @@ interface Props {
       />
     </div>
   </div>
-  {
-    /* Container for the blog post's heading, author avatar, author's role, and read more button */
-  }
+  {/* Container for the blog post's heading, author avatar, author's role, and read more button */}
   <div class="sm:order-1">
     {/* Blog title which is also a hyperlink to the blog detail page  */}
-    <h2
-      class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight dark:text-neutral-200"
-    >
+    <h2 class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight dark:text-neutral-200">
       <a
         class="ring-zinc-500 outline-hidden transition duration-300 hover:text-orange-400 focus-visible:ring-3 dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-hidden"
-        href={recentBlogLocale && recentBlogLocale !== 'en'
-          ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
-          : `/blog/${blogEntry.id.replace(/^en\//, '')}/`}
+        href={
+          recentBlogLocale && recentBlogLocale !== 'en'
+            ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
+            : `/blog/${blogEntry.id.replace(/^en\//, '')}/`
+        }
       >
         {blogEntry.data.description}
       </a>
@@ -55,17 +51,17 @@ interface Props {
         <p class="font-bold text-neutral-800 sm:mb-1 dark:text-neutral-200">
           {blogEntry.data.author}
         </p>
-        <p class="text-xs text-neutral-500">
-          {blogEntry.data.role}
-        </p>
+        <p class="text-xs text-neutral-500">{blogEntry.data.role}</p>
       </div>
     </div>
     {/* Read More button which is a link to the blog post detailed page */}
     <div class="mt-5">
       <PrimaryCTA
-        url={recentBlogLocale && recentBlogLocale !== 'en'
-          ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
-          : `/blog/${blogEntry.id.replace(/^en\//, '')}/`}
+        url={
+          recentBlogLocale && recentBlogLocale !== 'en'
+            ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
+            : `/blog/${blogEntry.id.replace(/^en\//, '')}/`
+        }
         title="Read More"
         data-astro-prefetch
       />
