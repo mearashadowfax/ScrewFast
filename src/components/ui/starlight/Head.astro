@@ -5,7 +5,9 @@ import VtbotStarlight from 'astro-vtbot/components/starlight/Base.astro';
 ---
 
 <VtbotStarlight {...Astro.props} viewTransitionsFallback="animate">
-  <StarlightHead {...Astro.props}><slot /></StarlightHead>
+  <StarlightHead {...Astro.props}>
+    <slot />
+  </StarlightHead>
   <script>
     import '@scripts/lenisSmoothScroll.js';
   </script>

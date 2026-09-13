@@ -20,24 +20,18 @@ type Stat = {
 };
 ---
 
-<section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
->
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
   <div class="max-w-(--breakpoint-md)">
     {/* Main title */}
-    <h2
-      class="mb-4 text-3xl font-extrabold tracking-tight text-balance text-neutral-800 dark:text-neutral-200"
-    >
+    <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-balance text-neutral-800 dark:text-neutral-200">
       {title}
     </h2>
     {/* Subtitle */}
-    {
-      subTitle && (
-        <p class="mb-16 max-w-prose font-normal text-pretty text-neutral-600 sm:text-xl dark:text-neutral-400">
-          {subTitle}
-        </p>
-      )
-    }
+    {subTitle && (
+      <p class="mb-16 max-w-prose font-normal text-pretty text-neutral-600 sm:text-xl dark:text-neutral-400">
+        {subTitle}
+      </p>
+    )}
   </div>
   {/* Grid container for statistics */}
   <div class="grid items-center gap-6 lg:grid-cols-12 lg:gap-12">
@@ -46,17 +40,15 @@ type Stat = {
       <StatsBig title={mainStatTitle} subTitle={mainStatSubTitle} />
     </div>
     {/* Second grid item, showing multiple small statistics */}
-    {
-      stats && (
-        <div class="relative lg:col-span-8 lg:before:absolute lg:before:-start-12 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-neutral-300 lg:dark:before:bg-neutral-700">
-          <div class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:grid-cols-3">
-            {/* Iterate over the 'stats' array and create a 'StatsSmall' component for each object in the array */}
-            {stats.map(stat => (
-              <StatsSmall title={stat.stat} subTitle={stat.description} />
-            ))}
-          </div>
+    {stats && (
+      <div class="relative lg:col-span-8 lg:before:absolute lg:before:-start-12 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-neutral-300 lg:dark:before:bg-neutral-700">
+        <div class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:grid-cols-3">
+          {/* Iterate over the 'stats' array and create a 'StatsSmall' component for each object in the array */}
+          {stats.map(stat => (
+            <StatsSmall title={stat.stat} subTitle={stat.description} />
+          ))}
         </div>
-      )
-    }
+      </div>
+    )}
   </div>
 </section>

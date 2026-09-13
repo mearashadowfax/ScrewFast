@@ -7,10 +7,14 @@ import type { Props } from '@astrojs/starlight/props';
 
 <div class="mobile-preferences sl-flex">
   <div class="sl-flex social-icons">
-    <SocialIcons {...Astro.props}><slot /></SocialIcons>
+    <SocialIcons {...Astro.props}>
+      <slot />
+    </SocialIcons>
   </div>
   <ThemeSelect />
-  <LanguageSelect {...Astro.props}><slot /></LanguageSelect>
+  <LanguageSelect {...Astro.props}>
+    <slot />
+  </LanguageSelect>
 </div>
 
 <style>

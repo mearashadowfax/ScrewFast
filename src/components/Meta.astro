@@ -75,17 +75,14 @@ const appleTouchIcon = await getImage({
 });
 ---
 
-{
-  /*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
-     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */
-}{
-  structuredData && (
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
-    />
-  )
-}
+{/*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */}
+{structuredData && (
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  ></script>
+)}
 {/* Define the character set, description, author, and viewport settings */}
 <meta charset="utf-8" />
 <meta content={description} name="description" />
@@ -93,13 +90,11 @@ const appleTouchIcon = await getImage({
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link rel="canonical" href={canonical} />
-{
-  Object.entries(languages).map(([lang, prefix]) => {
-    const cleanPath = fullPath.replace(/^\/(fr|en)\//, '/');
-    const href = createHref(lang, prefix, cleanPath);
-    return <link rel="alternate" hreflang={lang} href={href} />;
-  })
-}
+{Object.entries(languages).map(([lang, prefix]) => {
+  const cleanPath = fullPath.replace(/^\/(fr|en)\//, '/');
+  const href = createHref(lang, prefix, cleanPath);
+  return <link rel="alternate" hreflang={lang} href={href} />;
+})}
 
 {/* Facebook Meta Tags */}
 <meta

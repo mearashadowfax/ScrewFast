@@ -18,13 +18,9 @@ interface Props {
 }
 ---
 
-<section
-  class="relative mx-auto max-w-[85rem] px-4 pt-10 pb-24 sm:px-6 lg:px-8"
->
+<section class="relative mx-auto max-w-[85rem] px-4 pt-10 pb-24 sm:px-6 lg:px-8">
   {/* Decorating SVG elements */}
-  <div
-    class="absolute top-[55%] left-0 scale-90 md:top-[20%] xl:top-[25%] xl:left-[10%]"
-  >
+  <div class="absolute top-[55%] left-0 scale-90 md:top-[20%] xl:top-[25%] xl:left-[10%]">
     <svg
       width="64"
       height="64"
@@ -74,12 +70,14 @@ interface Props {
         stroke="#fbbf24"
         stroke-linecap="round"
         stroke-linejoin="round"
-        d="M5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+        d="M5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+      ></path>
       <path
         stroke="#fbbf24"
         stroke-linecap="round"
         stroke-linejoin="round"
-        d="M5 10.5V9M5 15v-1.5"></path>
+        d="M5 10.5V9M5 15v-1.5"
+      ></path>
       <path
         fill="#fbbf24"
         stroke="#fbbf24"
@@ -91,12 +89,11 @@ interface Props {
         stroke="#fbbf24"
         stroke-linecap="round"
         stroke-linejoin="round"
-        d="M10.5 19H9M15 19h-1.5"></path>
+        d="M10.5 19H9M15 19h-1.5"
+      ></path>
     </svg>
   </div>
-  <div
-    class="absolute bottom-[5%] left-[60%] scale-[.6] xl:bottom-[15%] xl:left-[35%]"
-  >
+  <div class="absolute bottom-[5%] left-[60%] scale-[.6] xl:bottom-[15%] xl:left-[35%]">
     <svg
       width="64"
       height="64"
@@ -121,28 +118,22 @@ interface Props {
   </div>
   {/* Hero Section Heading */}
   <div class="mx-auto mt-5 max-w-xl text-center">
-    <h2
-      class="block text-4xl leading-tight font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
-    >
+    <h2 class="block text-4xl leading-tight font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200">
       {title}
     </h2>
   </div>
   {/* Hero Section Sub-heading */}
   <div class="mx-auto mt-5 max-w-3xl text-center">
-    {
-      subTitle && (
-        <p class="text-lg text-pretty text-neutral-600 dark:text-neutral-400">
-          {subTitle}
-        </p>
-      )
-    }
+    {subTitle && (
+      <p class="text-lg text-pretty text-neutral-600 dark:text-neutral-400">
+        {subTitle}
+      </p>
+    )}
   </div>
   {/* Github Button */}
-  {
-    url && (
-      <div class="mt-8 flex justify-center gap-3">
-        <GithubBtn url={url} title={btnTitle} />
-      </div>
-    )
-  }
+  {url && (
+    <div class="mt-8 flex justify-center gap-3">
+      <GithubBtn url={url} title={btnTitle} />
+    </div>
+  )}
 </section>
