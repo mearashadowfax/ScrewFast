@@ -19,8 +19,8 @@ function initDemoForms() {
         const status =
           form.querySelector < HTMLElement > '[data-demo-status]' ??
           form.parentElement?.querySelector <
-          HTMLElement >
-          '[data-demo-status]';
+            HTMLElement >
+            '[data-demo-status]';
         const message =
           form.dataset.demoMessage ||
           status?.dataset.successMessage ||

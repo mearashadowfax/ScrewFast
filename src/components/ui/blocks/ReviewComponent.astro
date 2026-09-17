@@ -19,38 +19,31 @@ interface Props {
       <div class="shrink-0 pb-5 sm:flex sm:pe-5 sm:pb-0">
         {/* Avatar Group */}
         <div class="flex h-8 justify-center -space-x-3">
-          {
-            avatars?.map((src, index) => (
-              <Avatar
-                src={src}
-                alt={`Customer review avatar ${index + 1}`}
-                loading="eager"
-              />
-            ))
-          }
-          <span
-            class="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800"
-          >
-            <span class="text-xs leading-none font-medium text-white uppercase"
-              >7k+</span
-            >
+          {avatars?.map((src, index) => (
+            <Avatar
+              src={src}
+              alt={`Customer review avatar ${index + 1}`}
+              loading="eager"
+            />
+          ))}
+          <span class="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800">
+            <span class="text-xs leading-none font-medium text-white uppercase">
+              7k+
+            </span>
           </span>
         </div>
       </div>
-      <div
-        class="mx-auto h-px w-32 border-t border-neutral-400 sm:mx-0 sm:h-8 sm:w-auto sm:border-s sm:border-t-0 dark:border-neutral-500"
-      >
-      </div>
+      <div class="mx-auto h-px w-32 border-t border-neutral-400 sm:mx-0 sm:h-8 sm:w-auto sm:border-s sm:border-t-0 dark:border-neutral-500"></div>
       {/* Review Ratings */}
       <div class="flex flex-col items-center sm:items-start">
         <div class="flex items-baseline space-x-1 pt-5 sm:ps-5 sm:pt-0">
           <div class="flex space-x-1">
             {/* Your star ratings */}
-            {
-              Array(starCount)
-                .fill(0)
-                .map((_, i) => <FullStar key={i} />)
-            }
+            {Array(starCount)
+              .fill(0)
+              .map((_, i) => (
+                <FullStar key={i} />
+              ))}
             {/* Adding additional half-star */}
             <HalfStar />
           </div>

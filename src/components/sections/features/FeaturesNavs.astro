@@ -25,62 +25,46 @@ interface Props {
 }
 ---
 
-<section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
->
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
   <div class="relative p-6 md:p-16">
-    <div
-      class="relative z-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-16"
-    >
+    <div class="relative z-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-16">
       {/* Section's heading and tab navigation */}
       <div class="mb-10 lg:order-2 lg:col-span-6 lg:col-start-8 lg:mb-0">
-        <h2
-          class="text-2xl font-bold text-neutral-800 sm:text-3xl dark:text-neutral-200"
-        >
-          {
-            /* About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments */
-          }
+        <h2 class="text-2xl font-bold text-neutral-800 sm:text-3xl dark:text-neutral-200">
+          {/* About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments */}
           <Fragment set:html={title} />
         </h2>
-        {
-          /* Tab navigation - use the attribute 'first' in the first TabNav for the component to work */
-        }
+        {/* Tab navigation - use the attribute 'first' in the first TabNav for the component to work */}
         <nav class="mt-5 grid gap-4 md:mt-10" aria-label="Tabs" role="tablist">
-          {
-            tabs.map((tab, index) => (
-              <TabNav
-                id={`tabs-with-card-item-${index + 1}`}
-                dataTab={`#tabs-with-card-${index + 1}`}
-                aria={`tabs-with-card-${index + 1}`}
-                heading={tab.heading}
-                content={tab.content}
-                first={tab.first}
-              >
-                <Icon name={tab.svg} />
-              </TabNav>
-            ))
-          }
+          {tabs.map((tab, index) => (
+            <TabNav
+              id={`tabs-with-card-item-${index + 1}`}
+              dataTab={`#tabs-with-card-${index + 1}`}
+              aria={`tabs-with-card-${index + 1}`}
+              heading={tab.heading}
+              content={tab.content}
+              first={tab.first}
+            >
+              <Icon name={tab.svg} />
+            </TabNav>
+          ))}
         </nav>
       </div>
 
-      {
-        /* Contents for each tab - the 'first' attribute should be used in the first tab for that tab to be initially visible, 'second' changes the styles */
-      }
+      {/* Contents for each tab - the 'first' attribute should be used in the first tab for that tab to be initially visible, 'second' changes the styles */}
       <div class="lg:col-span-6">
         <div class="relative">
           <div>
-            {
-              tabs.map((tab, index) => (
-                <TabContent
-                  id={`tabs-with-card-${index + 1}`}
-                  aria={`tabs-with-card-item-${index + 1}`}
-                  src={tab.src}
-                  alt={tab.alt}
-                  first={tab.first}
-                  second={tab.second}
-                />
-              ))
-            }
+            {tabs.map((tab, index) => (
+              <TabContent
+                id={`tabs-with-card-${index + 1}`}
+                aria={`tabs-with-card-item-${index + 1}`}
+                src={tab.src}
+                alt={tab.alt}
+                first={tab.first}
+                second={tab.second}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -88,10 +72,7 @@ interface Props {
 
     <div class="absolute inset-0 grid h-full w-full grid-cols-12">
       {/* Decorative background and sizing */}
-      <div
-        class="col-span-full h-5/6 w-full rounded-xl bg-neutral-100 sm:h-3/4 lg:col-span-7 lg:col-start-6 lg:h-full dark:bg-white/[.075]"
-      >
-      </div>
+      <div class="col-span-full h-5/6 w-full rounded-xl bg-neutral-100 sm:h-3/4 lg:col-span-7 lg:col-start-6 lg:h-full dark:bg-white/[.075]"></div>
     </div>
   </div>
 </section>

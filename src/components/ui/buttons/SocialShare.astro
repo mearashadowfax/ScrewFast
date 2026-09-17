@@ -1,10 +1,7 @@
 ---
 import Icon from '@components/ui/icons/Icon.astro';
 // Destructure the properties from Astro.props
-const {
-  pageTitle,
-  title = 'Share',
-} = Astro.props;
+const { pageTitle, title = 'Share' } = Astro.props;
 
 // Define TypeScript interface for the properties
 interface Props {
@@ -39,9 +36,7 @@ const socialPlatforms: SocialPlatform[] = [
 ];
 ---
 
-<div
-  class="hs-dropdown relative inline-flex [--auto-close:inside] [--placement:top-left]"
->
+<div class="hs-dropdown relative inline-flex [--auto-close:inside] [--placement:top-left]">
   <button
     id="hs-dropup"
     type="button"
@@ -57,20 +52,18 @@ const socialPlatforms: SocialPlatform[] = [
     aria-labelledby="hs-dropup"
   >
     <div class="py-2 first:pt-0 last:pb-0">
-      {
-        socialPlatforms.map(platform => (
-          <a
-            class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-            href={platform.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Share on ${platform.name}`}
-          >
-            <Icon name={platform.svg} />
-            Share on {platform.name}
-          </a>
-        ))
-      }
+      {socialPlatforms.map(platform => (
+        <a
+          class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+          href={platform.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Share on ${platform.name}`}
+        >
+          <Icon name={platform.svg} />
+          Share on {platform.name}
+        </a>
+      ))}
     </div>
     <div class="py-2 first:pt-0 last:pb-0">
       <button
@@ -90,9 +83,7 @@ const socialPlatforms: SocialPlatform[] = [
           stroke-linejoin="round"
         >
           <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
-          <path
-            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-          ></path>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
         </svg>
 
         <svg

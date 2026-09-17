@@ -35,9 +35,7 @@ const copy = {
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
-      <h1
-        class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
-      >
+      <h1 class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200">
         {copy.title}
       </h1>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
@@ -47,9 +45,7 @@ const copy = {
 
     <div class="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
       <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
-        <h2
-          class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300"
-        >
+        <h2 class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300">
           {copy.formTitle}
         </h2>
         <form data-demo-form data-demo-message={copy.demoMessage}>
@@ -87,8 +83,7 @@ const copy = {
               class="mt-2 hidden text-sm text-orange-500 dark:text-orange-400"
               data-demo-status
               aria-live="polite"
-            >
-            </p>
+            ></p>
           </div>
         </form>
       </div>
@@ -101,7 +96,8 @@ const copy = {
           linkTitle={copy.knowledgeLink}
           linkURL="#"
           isArrowVisible={true}
-          ><Icon name="question" />
+        >
+          <Icon name="question" />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -111,7 +107,8 @@ const copy = {
           linkTitle={copy.faqLink}
           linkURL="#"
           isArrowVisible={true}
-          ><Icon name="chatBubble" />
+        >
+          <Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -119,7 +116,8 @@ const copy = {
           content={copy.officeContent}
           isAddressVisible={true}
           addressContent="72 Union Terrace, E10 4PE London"
-          ><Icon name="mapPin" />
+        >
+          <Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -128,7 +126,8 @@ const copy = {
           isLinkVisible={true}
           linkTitle="support@screwfast.uk"
           linkURL="mailto:support@screwfast.uk"
-          ><Icon name="envelopeOpen" />
+        >
+          <Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>
     </div>

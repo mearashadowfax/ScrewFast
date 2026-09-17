@@ -1,8 +1,5 @@
 ---
-const {
-  label = 'Phone Number',
-  id,
-} = Astro.props;
+const { label = 'Phone Number', id } = Astro.props;
 
 interface Props {
   label?: string;
@@ -11,7 +8,9 @@ interface Props {
 ---
 
 <div>
-  <label for={id} class="sr-only">{label}</label>
+  <label for={id} class="sr-only">
+    {label}
+  </label>
   <input
     type="tel"
     name="hs-phone-number"

@@ -16,11 +16,11 @@ const successMessage =
   'Thanks! (Demo only – wire an email service to collect real subscribers.)';
 ---
 
-<div
-  class="mt-4 flex flex-col items-center gap-2 rounded-lg bg-neutral-200 p-2 sm:flex-row sm:gap-3 dark:bg-neutral-800"
->
+<div class="mt-4 flex flex-col items-center gap-2 rounded-lg bg-neutral-200 p-2 sm:flex-row sm:gap-3 dark:bg-neutral-800">
   <div class="w-full">
-    <label for={id} class="sr-only">{label}</label>
+    <label for={id} class="sr-only">
+      {label}
+    </label>
     <input
       type="email"
       id={id}
@@ -43,5 +43,4 @@ const successMessage =
   data-demo-status
   aria-live="polite"
   data-success-message={successMessage}
->
-</p>
+></p>

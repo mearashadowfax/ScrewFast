@@ -4,11 +4,7 @@ import { Image } from 'astro:assets';
 import Icon from '@components/ui/icons/Icon.astro';
 import type { CollectionEntry } from 'astro:content';
 
-const {
-  insightEntry,
-  insightLocale,
-  label = 'Read more',
-} = Astro.props;
+const { insightEntry, insightLocale, label = 'Read more' } = Astro.props;
 
 interface Props {
   insightEntry: CollectionEntry<'insights'>;
@@ -17,14 +13,14 @@ interface Props {
 }
 ---
 
-{
-  /* The anchor tag is the root container for the "Insight" card. It links to the insight detail page. */
-}
+{/* The anchor tag is the root container for the "Insight" card. It links to the insight detail page. */}
 <a
   class="group rounded-xl ring-zinc-500 outline-hidden transition duration-300 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
-  href={insightLocale && insightLocale !== 'en'
-    ? `/${insightLocale}/insights/${insightEntry.id.replace(/^fr\//, '')}/`
-    : `/insights/${insightEntry.id.replace(/^en\//, '')}/`}
+  href={
+    insightLocale && insightLocale !== 'en'
+      ? `/${insightLocale}/insights/${insightEntry.id.replace(/^fr\//, '')}/`
+      : `/insights/${insightEntry.id.replace(/^en\//, '')}/`
+  }
 >
   {/* This is the container for the insight's cover image. */}
   <div class="relative overflow-hidden rounded-xl pt-[50%] sm:pt-[70%]">
@@ -39,21 +35,15 @@ interface Props {
   {/* This is the container for the insight's title and description. */}
   <div class="mt-7">
     {/* The title of the insight */}
-    <h3
-      class="text-xl font-bold text-neutral-800 group-hover:text-neutral-600 dark:text-neutral-200 dark:group-hover:text-neutral-400"
-    >
+    <h3 class="text-xl font-bold text-neutral-800 group-hover:text-neutral-600 dark:text-neutral-200 dark:group-hover:text-neutral-400">
       {insightEntry.data.title}
     </h3>
     {/* The description of the insight */}
     <p class="mt-3 text-neutral-600 dark:text-neutral-400">
       {insightEntry.data.description}
     </p>
-    {
-      /* The "Read More" hyperlink going to the full insight. With an arrow icon */
-    }
-    <p
-      class="mt-5 inline-flex items-center gap-x-1 font-medium text-orange-400 decoration-2 group-hover:underline dark:text-orange-300"
-    >
+    {/* The "Read More" hyperlink going to the full insight. With an arrow icon */}
+    <p class="mt-5 inline-flex items-center gap-x-1 font-medium text-orange-400 decoration-2 group-hover:underline dark:text-orange-300">
       {label}
       <Icon name="arrowRightStatic" />
     </p>
