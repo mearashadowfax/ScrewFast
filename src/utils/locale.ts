@@ -18,6 +18,11 @@ export type MarketingLocale = (typeof MARKETING_LOCALES)[number];
 
 export const DEFAULT_LOCALE: MarketingLocale = 'en';
 
+/** Locales that carry a URL prefix (every locale except the default). */
+const PREFIXED_LOCALES: readonly MarketingLocale[] = MARKETING_LOCALES.filter(
+  locale => locale !== DEFAULT_LOCALE
+);
+
 /** Per-locale constants: display label, language tags and Intl tag. */
 export const LOCALE_INFO: Record<
   MarketingLocale,
@@ -70,11 +75,11 @@ export function splitLocale(pathname: string): {
   path: string;
 } {
   const normalized = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  for (const locale of MARKETING_LOCALES) {
-    if (locale === DEFAULT_LOCALE) continue;
-    if (normalized === `/${locale}`) return { locale, path: '/' };
-    if (normalized.startsWith(`/${locale}/`)) {
-      return { locale, path: normalized.slice(locale.length + 1) };
+  for (const locale of PREFIXED_LOCALES) {
+    const prefix = `/${locale}`;
+    if (normalized === prefix) return { locale, path: '/' };
+    if (normalized.startsWith(`${prefix}/`)) {
+      return { locale, path: normalized.slice(prefix.length) };
     }
   }
   return { locale: DEFAULT_LOCALE, path: normalized };
