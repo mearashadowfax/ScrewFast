@@ -1,9 +1,12 @@
 /**
  * Marketing-site locale module.
  *
- * Owns everything the marketing pages (`src/pages/` and `src/pages/fr/`)
- * need to know about locales: which ones exist, how to resolve the current
- * one from a request, how to localise a path, and how to find the same page
+ * This branch ships one marketing locale (`en`). To add another, extend
+ * `MARKETING_LOCALES` and `LOCALE_INFO`, add `src/copy/<locale>.ts`,
+ * `src/pages/<locale>/` shells and `src/content/<collection>/<locale>/`.
+ *
+ * Owns everything the marketing pages need to know about locales: which
+ * ones exist, how to resolve the current one from a request, how to localise a path, and how to find the same page
  * in another locale. Nothing else in the codebase should parse `/fr` out of
  * a pathname or hard-code a locale prefix.
  *
@@ -13,10 +16,15 @@
  * Every function here is pure so it can be unit-tested without Astro.
  */
 
-export const MARKETING_LOCALES = ['en', 'fr'] as const;
+export const MARKETING_LOCALES = ['en'] as const;
 export type MarketingLocale = (typeof MARKETING_LOCALES)[number];
 
 export const DEFAULT_LOCALE: MarketingLocale = 'en';
+
+/** Locales that carry a URL prefix (every locale except the default). */
+const PREFIXED_LOCALES: readonly MarketingLocale[] = MARKETING_LOCALES.filter(
+  locale => locale !== DEFAULT_LOCALE
+);
 
 /** Per-locale constants: display label, language tags and Intl tag. */
 export const LOCALE_INFO: Record<
@@ -41,13 +49,6 @@ export const LOCALE_INFO: Record<
     inLanguage: 'en-US',
     intl: 'en-US',
   },
-  fr: {
-    label: 'Français',
-    lang: 'fr',
-    ogLocale: 'fr_FR',
-    inLanguage: 'fr',
-    intl: 'fr-FR',
-  },
 };
 
 export function isMarketingLocale(value: unknown): value is MarketingLocale {
@@ -70,11 +71,11 @@ export function splitLocale(pathname: string): {
   path: string;
 } {
   const normalized = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  for (const locale of MARKETING_LOCALES) {
-    if (locale === DEFAULT_LOCALE) continue;
-    if (normalized === `/${locale}`) return { locale, path: '/' };
-    if (normalized.startsWith(`/${locale}/`)) {
-      return { locale, path: normalized.slice(locale.length + 1) };
+  for (const locale of PREFIXED_LOCALES) {
+    const prefix = `/${locale}`;
+    if (normalized === prefix) return { locale, path: '/' };
+    if (normalized.startsWith(`${prefix}/`)) {
+      return { locale, path: normalized.slice(prefix.length) };
     }
   }
   return { locale: DEFAULT_LOCALE, path: normalized };

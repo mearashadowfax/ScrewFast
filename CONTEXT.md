@@ -4,15 +4,15 @@ Names for the concepts this codebase is built around. Use these terms in code, d
 
 ## Marketing site
 
-The Astro pages under `src/pages/` (landing, services, contact, blog, products, insights) plus their French twins under `src/pages/fr/`. Distinct from the **Docs**, which are Starlight pages under `src/content/docs/` with their own locale handling.
+The Astro pages under `src/pages/` (landing, services, contact, blog, products, insights). This branch ships them in English only; `main` adds French twins under `src/pages/fr/`. Distinct from the **Docs**, which are Starlight pages under `src/content/docs/` with their own locale handling.
 
 ## Marketing Locale
 
-One of the languages the marketing site is published in: `en` (default, no URL prefix) or `fr` (`/fr/…`). Owned by `src/utils/locale.ts`, which is the only place that knows the locale list, how to resolve a locale from a request, how to localise a path, and how to find the same page in another locale. Exposed per request as `Astro.locals.locale`.
+One of the languages the marketing site is published in: only `en` (default, no URL prefix) on this branch; `main` adds `fr` (`/fr/…`). Owned by `src/utils/locale.ts`, which is the only place that knows the locale list, how to resolve a locale from a request, how to localise a path, and how to find the same page in another locale. Exposed per request as `Astro.locals.locale`.
 
 ## Copy Table
 
-The typed table of every user-facing string for one Marketing Locale (`src/copy/en.ts`, `src/copy/fr.ts`). The English table defines the shape (`Copy`); other locales must satisfy it, so a missing translation is a type error. Exposed per request as `Astro.locals.copy`. Logic keys on stable ids in the table (e.g. `badge: 'hiring'`), never on translated labels.
+The typed table of every user-facing string for one Marketing Locale (`src/copy/en.ts`). The English table defines the shape (`Copy`); other locales must satisfy it, so a missing translation is a type error. Exposed per request as `Astro.locals.copy`. Logic keys on stable ids in the table (e.g. `badge: 'hiring'`), never on translated labels.
 
 ## View
 

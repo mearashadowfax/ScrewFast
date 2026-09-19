@@ -5,7 +5,6 @@ import NavLink from '@components/ui/links/NavLink.astro';
 import MegaMenuLink from '@components/ui/links/MegaMenuLink.astro';
 import Authentication from '../misc/Authentication.astro';
 import BrandLogo from '@components/BrandLogo.astro';
-import LanguagePicker from '@components/ui/LanguagePicker.astro';
 import NavbarToggle from '@components/ui/buttons/NavbarToggle.astro';
 import { navLinks } from '@data/navigation';
 import { localePath } from '@utils/locale';
@@ -59,7 +58,6 @@ const { locale, copy: t } = Astro.locals;
         )}
 
         <Authentication />
-        <LanguagePicker />
         {/* ThemeIcon component specifically for larger screens */}
         <span class="hidden md:inline-block">
           <ThemeIcon />

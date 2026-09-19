@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { extname, isAbsolute, relative, resolve } from 'node:path';
 
 const DIST = resolve(new URL('../dist/', import.meta.url).pathname);
-// Marketing routes exist once per locale (src/pages/ vs src/pages/fr/).
-const LOCALE_PREFIXES = ['', '/fr'];
+// One marketing locale on this branch; add a prefix here when adding one.
+const LOCALE_PREFIXES = [''];
 const MARKETING_ROUTES = [
   '/',
   '/products/',
@@ -20,22 +20,13 @@ const ROUTES = [
     MARKETING_ROUTES.map(route => `${prefix}${route}`)
   ),
   '/404',
-  '/fr/404/',
 ];
 
 // Cheap content assertions on top of the status check.
 const EXPECTATIONS = {
-  '/fr/': [
-    '<html lang="fr"',
-    '<meta property="og:locale" content="fr_FR"',
-    'hreflang="en" href="https://screwfast.uk"',
-  ],
-  '/': ['<html lang="en"', 'hreflang="fr" href="https://screwfast.uk/fr"'],
-  '/fr/404/': ['<html lang="fr"'],
+  '/': ['<html lang="en"', 'hreflang="en" href="https://screwfast.uk"'],
   '/contact/': ['data-demo-form', 'data-demo-status'],
-  '/fr/contact/': ['data-demo-form', 'data-demo-status'],
   '/blog/post-1/': ['"@type":"BlogPosting"'],
-  '/fr/blog/post-1/': ['"inLanguage":"fr"'],
 };
 
 const MIME = {

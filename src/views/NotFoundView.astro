@@ -4,11 +4,7 @@ import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
 import { getCopy } from '@/copy';
 import { localePath, type MarketingLocale } from '@utils/locale';
 
-/**
- * The 404 page in one locale. Static output can only serve one `404.html`
- * (the English one); `/fr/404/` is built as well so the host can rewrite
- * missing `/fr/…` paths to it (see `vercel.json` and the README).
- */
+/** The 404 page, built once at `/404` (static output serves one `404.html`). */
 interface Props {
   locale: MarketingLocale;
 }
