@@ -1,12 +1,10 @@
 ---
 import Icon from '@components/ui/icons/Icon.astro';
-// Destructure the properties from Astro.props
-const {
-  pageTitle,
-  title = Astro.currentLocale === 'fr' ? 'Partager' : 'Share',
-} = Astro.props;
+import type { IconName } from '@components/ui/icons/icons';
 
-// Define TypeScript interface for the properties
+const { copy: t } = Astro.locals;
+const { pageTitle, title = t.share.share } = Astro.props;
+
 interface Props {
   pageTitle: string;
   title?: string;
@@ -15,26 +13,27 @@ interface Props {
 type SocialPlatform = {
   name: string;
   url: string;
-  svg: string;
+  icon: IconName;
 };
 
-const encoded_url = encodeURIComponent(Astro.url.href);
+const encodedUrl = encodeURIComponent(Astro.url.href);
+const encodedTitle = encodeURIComponent(pageTitle);
 
 const socialPlatforms: SocialPlatform[] = [
   {
     name: 'Facebook',
-    url: `https://www.facebook.com/sharer/sharer.php?u=${encoded_url}`,
-    svg: 'facebook',
+    url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    icon: 'facebook',
   },
   {
     name: 'X',
-    url: `https://twitter.com/intent/tweet?url=${encoded_url}&text=${pageTitle}`,
-    svg: 'x',
+    url: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+    icon: 'x',
   },
   {
     name: 'LinkedIn',
-    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encoded_url}&title=${pageTitle}`,
-    svg: 'linkedIn',
+    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}&title=${encodedTitle}`,
+    icon: 'linkedIn',
   },
 ];
 ---
@@ -45,7 +44,7 @@ const socialPlatforms: SocialPlatform[] = [
     type="button"
     class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-neutral-600 ring-zinc-500 outline-hidden transition duration-300 hover:bg-neutral-100 hover:text-neutral-700 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:outline-hidden"
   >
-    <Icon name="share" />
+    <Icon name="share" class="h-4 w-4 group-hover:text-neutral-700" />
 
     {title}
   </button>
@@ -61,10 +60,10 @@ const socialPlatforms: SocialPlatform[] = [
           href={platform.url}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Share on ${platform.name}`}
+          aria-label={t.share.shareOn(platform.name)}
         >
-          <Icon name={platform.svg} />
-          Share on {platform.name}
+          <Icon name={platform.icon} class="size-4 shrink-0" />
+          {t.share.shareOn(platform.name)}
         </a>
       ))}
     </div>
@@ -72,37 +71,17 @@ const socialPlatforms: SocialPlatform[] = [
       <button
         type="button"
         class="js-clipboard hover:text-dark focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden focus-visible:ring-1 focus-visible:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-        data-clipboard-success-text="Copied"
+        data-clipboard-success-text={t.share.copied}
       >
-        <svg
+        <Icon
+          name="clipboard"
           class="js-clipboard-default h-4 w-4 transition group-hover:rotate-6"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
-          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        </svg>
-
-        <svg
+        />
+        <Icon
+          name="check"
           class="js-clipboard-success hidden h-4 w-4 text-neutral-700 dark:text-neutral-300"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-        <span class="js-clipboard-success-text">Copy link</span>
+        />
+        <span class="js-clipboard-success-text">{t.share.copyLink}</span>
       </button>
     </div>
   </div>

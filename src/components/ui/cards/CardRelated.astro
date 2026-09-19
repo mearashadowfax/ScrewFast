@@ -2,23 +2,19 @@
 // Import necessary modules and utilities
 import { Image } from 'astro:assets';
 import { formatDate } from '@utils/utils';
+import { localeOf, pathFor } from '@utils/content';
 import type { CollectionEntry } from 'astro:content';
 
-const { blogEntry, recentBlogLocale = '' } = Astro.props;
+const { blogEntry } = Astro.props;
 
 interface Props {
   blogEntry: CollectionEntry<'blog'>;
-  recentBlogLocale?: string;
 }
 ---
 
 <a
   class="group block rounded-xl ring-zinc-500 outline-hidden transition duration-300 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
-  href={
-    recentBlogLocale && recentBlogLocale !== 'en'
-      ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
-      : `/blog/${blogEntry.id.replace(/^en\//, '')}/`
-  }
+  href={pathFor(blogEntry)}
   data-astro-prefetch
 >
   <div>
@@ -35,7 +31,7 @@ interface Props {
     </h3>
     {/* The formatted publication date of the blog post */}
     <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-      {formatDate(blogEntry.data.pubDate)}
+      {formatDate(blogEntry.data.pubDate, localeOf(blogEntry))}
     </p>
   </div>
 </a>

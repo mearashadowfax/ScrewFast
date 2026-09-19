@@ -4,12 +4,13 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import AvatarBlogLarge from '@components/ui/avatars/AvatarBlogLarge.astro';
 import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import { pathFor } from '@utils/content';
 
-const { blogEntry, recentBlogLocale = '' } = Astro.props;
+const { blogEntry } = Astro.props;
+const { copy: t } = Astro.locals;
 
 interface Props {
   blogEntry: CollectionEntry<'blog'>;
-  recentBlogLocale?: string;
 }
 ---
 
@@ -34,11 +35,7 @@ interface Props {
     <h2 class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight dark:text-neutral-200">
       <a
         class="ring-zinc-500 outline-hidden transition duration-300 hover:text-orange-400 focus-visible:ring-3 dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-hidden"
-        href={
-          recentBlogLocale && recentBlogLocale !== 'en'
-            ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
-            : `/blog/${blogEntry.id.replace(/^en\//, '')}/`
-        }
+        href={pathFor(blogEntry)}
       >
         {blogEntry.data.description}
       </a>
@@ -57,12 +54,8 @@ interface Props {
     {/* Read More button which is a link to the blog post detailed page */}
     <div class="mt-5">
       <PrimaryCTA
-        url={
-          recentBlogLocale && recentBlogLocale !== 'en'
-            ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
-            : `/blog/${blogEntry.id.replace(/^en\//, '')}/`
-        }
-        title="Read More"
+        url={pathFor(blogEntry)}
+        title={t.blog.readMore}
         data-astro-prefetch
       />
     </div>

@@ -1,0 +1,77 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import CardProduct from '@components/ui/cards/CardProduct.astro';
+import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
+import TestimonialsSectionAlt from '@components/sections/testimonials/TestimonialsSectionAlt.astro';
+import { entriesFor } from '@utils/content';
+import { getCopy } from '@/copy';
+import type { MarketingLocale } from '@utils/locale';
+
+/** The products index in one locale. */
+interface Props {
+  locale: MarketingLocale;
+}
+
+const { locale } = Astro.props;
+const copy = getCopy(locale).productsIndex;
+
+const products = await entriesFor('products', locale);
+
+const avatarSrcs = [
+  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+  'https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+];
+
+const testimonials = copy.testimonials.quotes.map((quote, index) => ({
+  ...quote,
+  avatarSrc: avatarSrcs[index],
+}));
+---
+
+<MainLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  ogTitle={copy.ogTitle}
+>
+  <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1 class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200">
+          {copy.heading}
+        </h1>
+        {copy.subTitle && (
+          <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
+            {copy.subTitle}
+          </p>
+        )}
+      </div>
+      <PrimaryCTA
+        title={copy.customerStories}
+        url="#testimonials"
+        noArrow={true}
+      />
+    </div>
+    {/* Products alternate small / wide / wide / small so every row fills the 3-column grid. */}
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {products.map((product, index) => (
+        <CardProduct
+          product={product}
+          wide={index % 4 === 1 || index % 4 === 2}
+        />
+      ))}
+    </section>
+  </div>
+  {/* Features statistics section */}
+  <FeaturesStatsAlt
+    title={copy.stats.title}
+    subTitle={copy.stats.subTitle}
+    benefits={copy.stats.benefits}
+  />
+  {/* Testimonials section */}
+  <TestimonialsSectionAlt
+    title={copy.testimonials.title}
+    testimonials={testimonials}
+  />
+</MainLayout>

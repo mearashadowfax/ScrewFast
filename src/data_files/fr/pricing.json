@@ -8,7 +8,7 @@
   "starterKit": {
     "name": "Kit de Démarrage",
     "description": "Meilleure option pour les projets de bricolage",
-    "price": "$49",
+    "price": "49",
     "cents": ".00",
     "billingFrequency": "USD / mensuel",
     "features": [
@@ -23,7 +23,7 @@
   "professionalToolbox": {
     "name": "Boîte à Outils Professionnelle",
     "description": "Idéale pour les utilisations à grande échelle",
-    "price": "$89",
+    "price": "89",
     "cents": ".00",
     "billingFrequency": "USD / mensuel",
     "features": [

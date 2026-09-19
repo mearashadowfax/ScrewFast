@@ -37,5 +37,11 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/fr/:path*",
+      "destination": "/fr/404"
+    }
   ]
 }

@@ -7,7 +7,7 @@ ScrewFast is an open-source website template built with [Astro](https://astro.bu
 Live demo: [screwfast.uk](https://screwfast.uk)
 
 - **Four site types in one.** Landing page, blog, product catalog, and [Starlight](https://starlight.astro.build/) docs, all sharing one layout, navbar, and footer.
-- **79 ready-made components.** 19 page sections (hero, features, pricing, testimonials, FAQ, mega menu) and 57 UI pieces (cards, forms, modals, buttons, icons).
+- **Ready-made components.** Page sections (hero, features, pricing, testimonials, FAQ, mega menu) and UI pieces (cards, forms, modals, buttons, icons).
 - **Multilingual out of the box.** English and French marketing pages; docs in 7 languages (en, de, es, fa, fr, ja, zh-CN) with RTL support.
 - **SEO handled.** Centralized title/description/Open Graph config, JSON-LD structured data, generated sitemap and `robots.txt`.
 - **Production-hardened.** Content Security Policy and other security headers via `vercel.json`, post-build HTML minification, and a CI pipeline that type-checks, builds, and smoke-tests every push.
@@ -54,6 +54,7 @@ import HeroSection from '@components/sections/landing/HeroSection.astro';
   - [Animations (GSAP)](#animations-gsap)
   - [Hidden scrollbar](#hidden-scrollbar)
   - [SEO and structured data](#seo-and-structured-data)
+  - [Forms](#forms)
   - [robots.txt and sitemap](#robotstxt-and-sitemap)
   - [Markdown, MDX, and image pasting](#markdown-mdx-and-image-pasting)
   - [HTML minification](#html-minification)
@@ -117,40 +118,42 @@ export const SITE = {
   author: 'Emil Gulamov',
 };
 
-export const SEO = { title: SITE.title, description: SITE.description, structuredData: { ... } };
-export const OG = { locale: 'en_US', type: 'website', title: `${SITE.title}: ...`, image: ogImageSrc, ... };
+export const OG = { image: ogImageSrc };
 ```
 
-Change `SITE`, and the `<Meta>` component picks it up on every page. Also update `site` in [`astro.config.mjs`](astro.config.mjs) so the sitemap and `robots.txt` point at your domain.
+Per-locale text (site description, Open Graph title/description) lives in the copy tables under [`src/copy/`](src/copy/). Change `SITE`, and every page's `<head>` picks it up. Also update `site` in [`astro.config.mjs`](astro.config.mjs) so the sitemap and `robots.txt` point at your domain.
 
 ### Navigation and footer
 
-Edit [`src/utils/navigation.ts`](src/utils/navigation.ts) (and [`src/utils/fr/navigation.ts`](src/utils/fr/navigation.ts) for French):
+Link structure (ids, unlocalised paths, social URLs) lives once in [`src/data_files/navigation.ts`](src/data_files/navigation.ts); the label for each id lives in the `nav` block of each copy table, [`src/copy/en.ts`](src/copy/en.ts) and [`src/copy/fr.ts`](src/copy/fr.ts). The Navbar and Footer prefix paths for the current locale:
 
 ```ts
-const navBarLinks = [
-  { name: 'Home', url: '/' },
-  { name: 'Products', url: '/products' },
-  { name: 'Blog', url: '/blog' },
+// src/data_files/navigation.ts
+export const navLinks = [
+  { id: 'home', path: '/' },
+  { id: 'products', path: '/products' },
+  { id: 'blog', path: '/blog' },
+];
+export const footerSections = [
+  { id: 'company', links: [{ id: 'careers', path: '#', badge: 'hiring' }] },
 ];
 
-const footerLinks = [
-  { section: 'Ecosystem', links: [{ name: 'Documentation', url: '/welcome-to-docs/' }] },
-  { section: 'Company', links: [{ name: 'About us', url: '#' }] },
-];
-
-const socialLinks = { facebook: '#', x: '#', github: '#', ... };
+// src/copy/en.ts
+nav: {
+  labels: { home: 'Home', products: 'Products', blog: 'Blog' },
+  footer: { sectionTitles: { company: 'Company' }, links: { careers: 'Careers' } },
+},
 ```
 
-Two navbars are included in `src/components/sections/navbar&footer/`: `Navbar.astro` (standard) and `NavbarMegaMenu.astro` (mega menu, links in `src/data_files/mega_link.ts`). Swap them in [`src/layouts/MainLayout.astro`](src/layouts/MainLayout.astro).
+Two navbars are included in `src/components/sections/navbar&footer/`: `Navbar.astro` (standard) and `NavbarMegaMenu.astro` (mega menu on the Services link, links in `src/data_files/mega_link.ts`). Swap them in [`src/layouts/MainLayout.astro`](src/layouts/MainLayout.astro).
 
 ![ScrewFast mega menu](https://github.com/user-attachments/assets/690482af-f1a4-4ebf-be58-eca0b5862973)
 
 ### Pages and sections
 
-Pages in `src/pages/` compose sections from `src/components/sections/` and pass content as props, exactly like the example above. Open [`src/pages/index.astro`](src/pages/index.astro) to see the full homepage, then edit the props or remove sections you don't need.
+Each route has one view in `src/views/` (for example [`HomeView.astro`](src/views/HomeView.astro)) that composes sections from `src/components/sections/` and passes content as props. The files in `src/pages/` and `src/pages/fr/` are one-line shells that render the view for their locale, so a page is edited once for every language.
 
-Sections take all their copy as props, so page files are the single place to edit text. Reusable data such as FAQs, features, and pricing tiers lives as JSON in `src/data_files/` and is passed in the same way.
+Views read their text from the copy tables in [`src/copy/`](src/copy/) (`home`, `services`, `contact`, …); edit those to change what a page says. Reusable data such as FAQs, features, and pricing tiers lives as JSON in `src/data_files/` and is exposed through the same tables as `data`.
 
 ### Blog, products, and insights
 
@@ -182,17 +185,19 @@ Docs live in `src/content/docs/` and are served by [Starlight](https://starlight
 
 ### Languages
 
-Marketing pages are file-based: `src/pages/` for English, `src/pages/fr/` for French. A `LanguagePicker` component switches between them. Use `getMarketingLocale()` from [`src/utils/locale.ts`](src/utils/locale.ts) when you need the current locale in a component. Docs locales are configured in Starlight; guides and the welcome page are translated, other docs sections fall back to English.
+Marketing pages are file-based: `src/pages/` for English, `src/pages/fr/` for French, each rendering a shared view from `src/views/`. A `LanguagePicker` component switches between them. Everything locale-related lives in [`src/utils/locale.ts`](src/utils/locale.ts) (the locale list, `resolveLocale()`, `localePath()`, `alternatePaths()`); a middleware resolves the locale once per request and exposes it as `Astro.locals.locale`, with the matching copy table as `Astro.locals.copy`. UI strings live in [`src/copy/en.ts`](src/copy/en.ts) and [`src/copy/fr.ts`](src/copy/fr.ts); the French table is typed against the English one, so a missing translation fails `astro check`. Docs locales are configured in Starlight; guides and the welcome page are translated, other docs sections fall back to English.
+
+A static build can only have one `404.html` (English). A French 404 is also built at `/fr/404/`; the `rewrites` entry in [`vercel.json`](vercel.json) sends missing `/fr/…` paths to it (Vercel serves rewrites with a 200 status). On Netlify use a `_redirects` line instead: `/fr/* /fr/404/index.html 404`.
 
 ### Icons
 
-SVG icons are centralized in [`src/components/ui/icons/icons.ts`](src/components/ui/icons/icons.ts) (38 included). Render one with:
+SVG icons are centralized in [`src/components/ui/icons/icons.ts`](src/components/ui/icons/icons.ts) (45 included). Render one with:
 
 ```astro
-<Icon name="tools" />
+<Icon name="tools" class="h-6 w-6 text-orange-400" />
 ```
 
-Add an entry to `icons.ts` to register a new icon.
+Entries hold geometry only; size and colour come from the `class` you pass (every icon is coloured with `text-*` classes). `name` is typed, so a typo fails `astro check`. Add an entry to `icons.ts` to register a new icon.
 
 ---
 
@@ -210,35 +215,38 @@ Add an entry to `icons.ts` to register a new icon.
 ```
 src/
 ├── assets/
-│   ├── scripts/            # Lenis smooth scroll, demo form handlers
+│   ├── scripts/            # Lenis smooth scroll, demo form behaviour
 │   └── styles/             # global.css, lenis.css, Starlight overrides
 ├── components/
-│   ├── Meta.astro          # SEO, Open Graph, JSON-LD
+│   ├── Meta.astro          # Renders the <head> from utils/metadata.ts
 │   ├── ThemeIcon.astro     # Light/dark toggle
 │   ├── sections/           # Page sections: landing, features, pricing, navbar&footer, ...
 │   └── ui/                 # Buttons, cards, forms, icons, banners, ...
 ├── content/
 │   ├── blog/  products/  insights/   # en/ and fr/ subfolders
 │   └── docs/                          # Starlight docs + translated locales
-├── data_files/             # constants.ts (SITE/SEO/OG), faqs.json, features.json, pricing.json
+├── copy/                   # en.ts / fr.ts: every UI and page string, typed
+├── data_files/             # constants.ts (SITE/OG), navigation.ts, mega_link.ts, faqs/features/pricing JSON
 ├── images/                 # Imported and optimized by Astro
 ├── layouts/
 │   └── MainLayout.astro    # Navbar + slot + footer, Meta, Lenis, Preline
-├── pages/                  # File-based routes; fr/ for French
+├── middleware.ts           # Sets Astro.locals.locale / .copy per request
+├── pages/                  # File-based routes; fr/ mirrors them, each a one-line shell
 │   ├── index.astro  blog/  products/  insights/  contact.astro  services.astro
-│   ├── 404.astro
+│   ├── 404.astro           # also built at fr/404/
 │   └── robots.txt.ts  manifest.json.ts  favicon.ico.ts
-├── utils/                  # navigation.ts, locale.ts, helpers
+├── views/                  # One view per route; the locale is a prop
+├── utils/                  # locale.ts, content.ts, metadata.ts, helpers
 └── content.config.ts       # Content collection schemas
 
 public/                     # Served as-is
 process-html.mjs            # Post-build HTML minifier
-scripts/smoke.mjs           # Serves dist/ and checks key routes
+scripts/smoke.mjs           # Serves dist/ and checks every marketing route in both locales
 vercel.json                 # Security headers and caching
 AI_GUIDE.md                 # Conventions for AI coding assistants
 ```
 
-Path aliases (`@components/*`, `@data/*`, `@images/*`, `@scripts/*`, `@styles/*`, `@utils/*`, `@/*`) are defined in [`tsconfig.json`](tsconfig.json).
+Path aliases (`@components/*`, `@content/*`, `@data/*`, `@images/*`, `@scripts/*`, `@styles/*`, `@utils/*`, `@views/*`, `@/*`) are defined in [`tsconfig.json`](tsconfig.json).
 
 ---
 
@@ -266,27 +274,24 @@ The scrollbar is hidden for a cleaner look. This can hurt usability for some use
 
 ### SEO and structured data
 
-`MainLayout` passes `title`, `meta`, `structuredData`, `customDescription`, and `customOgTitle` to [`Meta.astro`](src/components/Meta.astro), falling back to `constants.ts` when a page doesn't override them:
+A page tells `MainLayout` what it is (`title`, `description`, `section`, `kind`); [`src/utils/metadata.ts`](src/utils/metadata.ts) turns that into the full `<head>`: title with site suffix, description, Open Graph and Twitter tags (`title | section | site`), canonical, `hreflang` alternates, and schema.org JSON-LD with the site boilerplate filled in. The locale comes from the URL via the middleware, so pages never pass it, and they never write schema.org objects by hand:
 
 ```astro
----
-import { SITE } from '@data/constants';
----
-
 <MainLayout
-  title={`Example Page | ${SITE.title}`}
-  structuredData={{
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Example Page',
-    url: `${SITE.url}/example`,
-  }}
+  title="Example Page"
+  description="What this page is about."
+  section="Insights"
+  kind={{ type: 'Article', image: post.data.cardImage.src }}
 >
   ...
 </MainLayout>
 ```
 
-Add more tags to `Meta.astro` (article dates, Twitter-specific fields) if you need them, or swap in an integration like [astro-seo](https://github.com/jonasmerlin/astro-seo).
+`kind` is `WebPage` (default), `BlogPosting`, `Article` or `Product`. Add a new kind in `metadata.ts`, or extra tags in [`Meta.astro`](src/components/Meta.astro).
+
+### Forms
+
+The contact, newsletter and sign-in/up/recover forms are placeholders wrapped in [`DemoForm.astro`](src/components/ui/forms/DemoForm.astro), which intercepts submit, validates, shows a per-locale success message and resets. To wire a real backend, replace the `<DemoForm>` wrapper with a `<form action=…>` (or your provider's snippet) and drop the `successMessage`; the inputs inside are plain HTML fields.
 
 ### robots.txt and sitemap
 

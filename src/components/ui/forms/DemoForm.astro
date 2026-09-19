@@ -1,0 +1,34 @@
+---
+/**
+ * Demo-form shell for the template's placeholder forms (contact, newsletter,
+ * auth). Owns the markup ⇄ script protocol: the data attributes, the status
+ * element and the submit handling live here, so callers only supply fields
+ * and a success message.
+ */
+interface Props {
+  /** Shown in the status element after a valid submit. */
+  successMessage?: string;
+  class?: string;
+  /** Classes for the status paragraph (it is hidden until a submit). */
+  statusClass?: string;
+}
+
+const {
+  successMessage = Astro.locals.copy.forms.demoFallbackMessage,
+  class: className,
+  statusClass = 'mt-2 text-sm text-neutral-600 dark:text-neutral-400',
+} = Astro.props;
+---
+
+<form data-demo-form data-demo-message={successMessage} class={className}>
+  <slot />
+  <p
+    class:list={['hidden', statusClass]}
+    data-demo-status
+    aria-live="polite"
+  ></p>
+</form>
+
+<script>
+  import '@scripts/demoForms';
+</script>

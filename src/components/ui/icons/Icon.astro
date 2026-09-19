@@ -1,37 +1,39 @@
 ---
-import { Icons } from './icons.ts';
+import { Icons, type IconDefinition, type IconName } from './icons';
 
-interface Path {
-  d: string;
+/**
+ * Renders one glyph from `icons.ts`. `name` is typed, so a typo fails
+ * `astro check`; `class` and `title` come from the call site, where the
+ * surrounding layout is known.
+ */
+interface Props {
+  name: IconName;
   class?: string;
+  /** Accessible name; omit for purely decorative icons. */
+  title?: string;
 }
 
-const { name } = Astro.props;
+const { name, class: className, title } = Astro.props;
 
-let icon = (Icons as any)[name] || {};
-
-let paths: Path[] = icon.paths || [];
+const icon: IconDefinition = Icons[name];
 ---
 
-{icon ? (
-  <svg
-    class={icon.class}
-    height={icon.height}
-    viewBox={icon.viewBox}
-    width={icon.width}
-    fill={icon.fill}
-    clip-rule={icon.clipRule}
-    fill-rule={icon.fillRule}
-    stroke={icon.stroke}
-    stroke-width={icon.strokeWidth}
-    stroke-linecap={icon.strokeLinecap}
-    stroke-linejoin={icon.strokeLinejoin}
-  >
-    <title>{icon.title}</title>
-    {paths.map((path: Path) => (
-      <path d={path.d} class={path.class || ''} />
-    ))}
-  </svg>
-) : (
-  'Icon not found'
-)}
+<svg
+  class={className}
+  width={icon.width}
+  height={icon.height}
+  viewBox={icon.viewBox}
+  fill={icon.fill}
+  fill-rule={icon.fillRule}
+  clip-rule={icon.clipRule}
+  stroke={icon.stroke}
+  stroke-width={icon.strokeWidth}
+  stroke-linecap={icon.strokeLinecap}
+  stroke-linejoin={icon.strokeLinejoin}
+  aria-hidden={title ? undefined : 'true'}
+>
+  {title && <title>{title}</title>}
+  {icon.paths.map(path => (
+    <path d={path.d} class={path.class} />
+  ))}
+</svg>

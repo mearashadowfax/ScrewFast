@@ -12,7 +12,12 @@ interface Props {
 
 <li class="-m-0.5 flex flex-col p-4 sm:p-8">
   <div class="mb-2 flex items-end gap-x-2 text-3xl font-bold text-neutral-800 sm:text-5xl dark:text-neutral-200">
-    {index === 1 || index === 2 ? <Icon name="arrowUp" /> : null}
+    {index === 1 || index === 2 ? (
+      <Icon
+        name="arrowUp"
+        class="h-5 w-5 shrink-0 text-orange-400 dark:text-orange-300"
+      />
+    ) : null}
     {count}
   </div>
   <p class="text-sm text-neutral-600 sm:text-base dark:text-neutral-400">

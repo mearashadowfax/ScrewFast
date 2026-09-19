@@ -1,45 +1,55 @@
 ---
-// Importing necessary components
 import Meta from '@components/Meta.astro';
 import Navbar from '@components/sections/navbar&footer/Navbar.astro';
 import FooterSection from '@components/sections/navbar&footer/FooterSection.astro';
-import { SITE } from '@data/constants';
+import { buildPageMetadata, type PageKind } from '@utils/metadata';
 import '@styles/global.css';
 
-// Setting expected props
-const {
-  title = SITE.title,
-  meta,
-  structuredData,
-  lang = 'en',
-  customDescription = null,
-  customOgTitle = null,
-  hideFooter = false,
-} = Astro.props;
-
-// Interface to type-check the properties
+/**
+ * Marketing-page layout. A page tells it what the page *is* (title,
+ * description, section, kind); the layout derives the whole `<head>` from
+ * that via `buildPageMetadata()` and wraps the content in Navbar +
+ * FooterSection. The locale is the one resolved from the URL by the
+ * middleware (`Astro.locals.locale`), the single source for the whole tree.
+ */
 interface Props {
+  /** Page title without the site suffix. Omit on the home page. */
   title?: string;
-  meta?: string;
-  structuredData?: object;
-  lang?: string;
-  customDescription?: string | null;
-  customOgTitle?: string | null;
+  description?: string;
+  ogTitle?: string;
+  /** Site section for the OG title, e.g. `copy.blog.ogSection`. */
+  section?: string;
+  kind?: PageKind;
   hideFooter?: boolean;
 }
+
+const {
+  title,
+  description,
+  ogTitle,
+  section,
+  kind,
+  hideFooter = false,
+} = Astro.props;
+const { locale, copy: t } = Astro.locals;
+
+const metadata = buildPageMetadata({
+  locale,
+  pathname: Astro.url.pathname,
+  title,
+  description,
+  ogTitle,
+  section,
+  kind,
+});
 ---
 
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html
+  lang={metadata.lang}
+  class="scrollbar-hide lenis lenis-smooth scroll-pt-16"
+>
   <head>
-    {/* Adding metadata to the HTML document */}
-    <Meta
-      meta={meta}
-      structuredData={structuredData}
-      customDescription={customDescription}
-      customOgTitle={customOgTitle}
-    />
-    {/* Define the title of the page */}
-    <title>{title}</title>
+    <Meta metadata={metadata} />
     <script is:inline>
       // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
       if (
@@ -54,7 +64,6 @@ interface Props {
     </script>
     <script>
       import '@scripts/lenisSmoothScroll.js';
-      import '@scripts/demoForms.js';
     </script>
   </head>
   <body class="flex min-h-screen flex-col bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
@@ -62,7 +71,7 @@ interface Props {
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-yellow-400 focus:px-4 focus:py-2 focus:text-neutral-800"
     >
-      Skip to content
+      {t.layout.skipToContent}
     </a>
     {/*
     Setting up the main structure of the page.

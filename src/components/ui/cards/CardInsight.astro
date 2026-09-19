@@ -3,16 +3,13 @@
 import { Image } from 'astro:assets';
 import Icon from '@components/ui/icons/Icon.astro';
 import type { CollectionEntry } from 'astro:content';
+import { pathFor } from '@utils/content';
 
-const {
-  insightEntry,
-  insightLocale,
-  label = Astro.currentLocale === 'fr' ? 'Lire plus' : 'Read more',
-} = Astro.props;
+const { insightEntry, label = Astro.locals.copy.insights.readMore } =
+  Astro.props;
 
 interface Props {
   insightEntry: CollectionEntry<'insights'>;
-  insightLocale?: string;
   label?: string;
 }
 ---
@@ -20,11 +17,7 @@ interface Props {
 {/* The anchor tag is the root container for the "Insight" card. It links to the insight detail page. */}
 <a
   class="group rounded-xl ring-zinc-500 outline-hidden transition duration-300 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
-  href={
-    insightLocale && insightLocale !== 'en'
-      ? `/${insightLocale}/insights/${insightEntry.id.replace(/^fr\//, '')}/`
-      : `/insights/${insightEntry.id.replace(/^en\//, '')}/`
-  }
+  href={pathFor(insightEntry)}
 >
   {/* This is the container for the insight's cover image. */}
   <div class="relative overflow-hidden rounded-xl pt-[50%] sm:pt-[70%]">
@@ -49,7 +42,7 @@ interface Props {
     {/* The "Read More" hyperlink going to the full insight. With an arrow icon */}
     <p class="mt-5 inline-flex items-center gap-x-1 font-medium text-orange-400 decoration-2 group-hover:underline dark:text-orange-300">
       {label}
-      <Icon name="arrowRightStatic" />
+      <Icon name="arrowRight" class="size-4 shrink-0" />
     </p>
   </div>
 </a>

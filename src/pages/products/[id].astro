@@ -1,45 +1,10 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro';
-import ProductDetail from '@components/sections/products/ProductDetail.astro';
-import { getCollection } from 'astro:content';
-import { SITE } from '@data/constants';
+import ProductView from '@views/ProductView.astro';
+import { staticPathsFor } from '@utils/content';
 
-export async function getStaticPaths() {
-  const productEntries = await getCollection('products', ({ id }) =>
-    id.startsWith('en/')
-  );
-  return productEntries.map(product => {
-    const idWithoutLang = product.id.replace(/^en\//, '');
-    return {
-      params: { id: idWithoutLang },
-      props: { product },
-    };
-  });
-}
+export const getStaticPaths = () => staticPathsFor('products', 'en');
 
-const { product } = Astro.props;
-
-const pageTitle: string = `${product.data.title} | ${SITE.title}`;
-const metaDescription = product.data.description;
-const ogTitle = `${product.data.title} | Hardware Tools | ScrewFast`;
-const productSlug = product.data.title.toLowerCase().replace(/\s+/g, '-');
+const { entry } = Astro.props;
 ---
 
-<MainLayout
-  title={pageTitle}
-  customDescription={metaDescription}
-  customOgTitle={ogTitle}
-  structuredData={{
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${SITE.url}/products/${productSlug}`,
-    name: product.data.title,
-    description: product.data.description,
-    brand: {
-      '@type': 'Brand',
-      name: 'ScrewFast',
-    },
-  }}
->
-  <ProductDetail product={product} />
-</MainLayout>
+<ProductView product={entry} />

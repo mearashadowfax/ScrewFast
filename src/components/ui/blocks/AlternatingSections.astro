@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+
+/**
+ * A list of articles laid out in alternating text/image order: even entries
+ * put the text on the left and one or two images on the right, odd entries
+ * put a single image on the left. Callers only describe the articles.
+ */
+export interface Article {
+  title: string;
+  subTitle: string;
+  /** One or two images. Odd (image-left) entries use only the first. */
+  images: { src: ImageMetadata; alt: string }[];
+  cta?: { title: string; url: string };
+}
+
+interface Props {
+  articles: Article[];
+}
+
+const { articles } = Astro.props;
+---
+
+{articles.map((article, index) => {
+  const textFirst = index % 2 === 0;
+  const [first, second] = article.images;
+  const copy = (
+    <div class={textFirst ? '' : 'mt-4 md:mt-0'}>
+      <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-balance text-neutral-800 dark:text-neutral-200">
+        {article.title}
+      </h2>
+      <p class="mb-4 max-w-prose font-normal text-pretty text-neutral-600 sm:text-lg dark:text-neutral-400">
+        {article.subTitle}
+      </p>
+      {article.cta ? (
+        <PrimaryCTA title={article.cta.title} url={article.cta.url} />
+      ) : null}
+    </div>
+  );
+
+  return textFirst ? (
+    <section class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full">
+      {copy}
+      {second ? (
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          <Image
+            class="w-full rounded-xl"
+            src={first.src}
+            alt={first.alt}
+            draggable={'false'}
+            format={'avif'}
+          />
+          <Image
+            class="mt-4 w-full rounded-xl lg:mt-10"
+            src={second.src}
+            alt={second.alt}
+            draggable={'false'}
+            format={'avif'}
+          />
+        </div>
+      ) : (
+        <div class="mt-8">
+          <Image
+            class="w-full rounded-lg"
+            src={first.src}
+            alt={first.alt}
+            format={'avif'}
+          />
+        </div>
+      )}
+    </section>
+  ) : (
+    <section class="mx-auto max-w-[85rem] items-center gap-8 px-4 py-10 sm:px-6 sm:py-16 md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 xl:gap-16 2xl:max-w-full">
+      <Image
+        class="w-full rounded-xl"
+        src={first.src}
+        alt={first.alt}
+        draggable={'false'}
+        format={'avif'}
+      />
+      {copy}
+    </section>
+  );
+})}

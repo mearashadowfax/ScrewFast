@@ -1,11 +1,8 @@
 ---
-import { getMarketingLocale } from '@utils/locale';
-
-const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
-
+const { copy: t } = Astro.locals;
 const {
-  label = locale === 'fr' ? 'E-mail' : 'Email',
-  title = locale === 'fr' ? "S'abonner" : 'Subscribe',
+  label = t.forms.email,
+  title = t.forms.subscribe,
   id = 'footer-input',
 } = Astro.props;
 
@@ -14,12 +11,6 @@ interface Props {
   title?: string;
   id?: string;
 }
-
-const placeholder = locale === 'fr' ? 'Entrez votre email' : 'Enter your email';
-const successMessage =
-  locale === 'fr'
-    ? 'Merci ! (démo — branchez un service e-mail pour collecter de vrais abonnés.)'
-    : 'Thanks! (Demo only — wire an email service to collect real subscribers.)';
 ---
 
 <div class="mt-4 flex flex-col items-center gap-2 rounded-lg bg-neutral-200 p-2 sm:flex-row sm:gap-3 dark:bg-neutral-800">
@@ -34,7 +25,7 @@ const successMessage =
       required
       autocomplete="email"
       class="block w-full rounded-lg border-transparent bg-neutral-100 px-4 py-3 text-sm text-neutral-600 caret-orange-400 focus:border-orange-400 focus:ring-orange-400 disabled:pointer-events-none disabled:opacity-50 dark:border-transparent dark:bg-neutral-700 dark:text-gray-300 dark:placeholder:text-neutral-300"
-      placeholder={placeholder}
+      placeholder={t.forms.emailPlaceholder}
     />
   </div>
   <button
@@ -44,9 +35,3 @@ const successMessage =
     {title}
   </button>
 </div>
-<p
-  class="mt-2 hidden text-sm text-neutral-600 dark:text-neutral-400"
-  data-demo-status
-  aria-live="polite"
-  data-success-message={successMessage}
-></p>

@@ -1,0 +1,66 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import { getCopy } from '@/copy';
+import { localePath, type MarketingLocale } from '@utils/locale';
+
+/**
+ * The 404 page in one locale. Static output can only serve one `404.html`
+ * (the English one); `/fr/404/` is built as well so the host can rewrite
+ * missing `/fr/…` paths to it (see `vercel.json` and the README).
+ */
+interface Props {
+  locale: MarketingLocale;
+}
+
+const { locale } = Astro.props;
+const copy = getCopy(locale).notFound;
+---
+
+<MainLayout title={copy.title} hideFooter>
+  <section class="min-h-[calc(100svh-5.5rem)]" aria-labelledby="subtitle">
+    <div class="pointer-events-none fixed inset-0 z-10 grid place-content-center px-4">
+      <div class="pointer-events-auto mx-auto max-w-(--breakpoint-sm) text-center">
+        <h1 class="text-dark mb-4 text-7xl font-extrabold text-yellow-500 lg:text-9xl dark:text-yellow-400">
+          404
+        </h1>
+        <p
+          id="subtitle"
+          class="mb-4 text-3xl font-bold tracking-tight text-balance text-neutral-700 md:text-4xl dark:text-neutral-300"
+        >
+          {copy.subTitle}
+        </p>
+        <p
+          id="content"
+          class="mb-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
+        >
+          {copy.content}
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <PrimaryCTA
+            title={copy.goHome}
+            url={localePath(locale)}
+            variant="yellow"
+            noArrow
+          />
+          <PrimaryCTA
+            title={copy.goBack}
+            id="go-back"
+            data-home={localePath(locale)}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  const goBackButton = document.getElementById('go-back');
+  goBackButton?.addEventListener('click', () => {
+    if (window.history.length > 1) {
+      history.back();
+    } else {
+      window.location.href = goBackButton.dataset.home ?? '/';
+    }
+  });
+</script>

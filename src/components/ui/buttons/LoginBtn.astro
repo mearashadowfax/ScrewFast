@@ -1,5 +1,7 @@
 ---
-const { title = 'Log in' } = Astro.props;
+import Icon from '@components/ui/icons/Icon.astro';
+
+const { title = Astro.locals.copy.auth.logIn } = Astro.props;
 
 interface Props {
   title?: string;
@@ -12,20 +14,6 @@ const darkClasses =
   'dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:focus:outline-hidden';
 const mdClasses = 'md:my-6 md:border-s md:border-neutral-300 md:ps-6';
 const txtSizeClasses = '2xl:text-base';
-const userSVG = `<svg
-      class="h-4 w-4 shrink-0"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-  >
-    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-    <circle cx="12" cy="7" r="4"></circle>
-  </svg>`;
 ---
 
 <button
@@ -33,8 +21,6 @@ const userSVG = `<svg
   class={`${baseClasses} ${hoverClasses} ${darkClasses} ${mdClasses} ${txtSizeClasses}`}
   data-hs-overlay="#hs-toggle-between-modals-login-modal"
 >
-  {/* About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments */}
-
-  <Fragment set:html={userSVG} />
+  <Icon name="user" class="h-4 w-4 shrink-0" />
   {title}
 </button>

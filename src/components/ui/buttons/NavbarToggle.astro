@@ -1,0 +1,31 @@
+---
+import Icon from '@components/ui/icons/Icon.astro';
+
+/** Hamburger / close button that collapses the navbar on small screens. */
+interface Props {
+  /** id of the `.hs-collapse` element it toggles. */
+  target: string;
+}
+
+const { target } = Astro.props;
+const { copy: t } = Astro.locals;
+---
+
+<div class="mr-5 ml-auto md:hidden">
+  <button
+    type="button"
+    class="hs-collapse-toggle flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:outline-hidden"
+    data-hs-collapse={`#${target}`}
+    aria-controls={target}
+    aria-label={t.layout.toggleNavigation}
+  >
+    <Icon
+      name="menu"
+      class="hs-collapse-open:hidden h-[1.25rem] w-[1.25rem] shrink-0"
+    />
+    <Icon
+      name="close"
+      class="hs-collapse-open:block hidden h-[1.25rem] w-[1.25rem] shrink-0"
+    />
+  </button>
+</div>

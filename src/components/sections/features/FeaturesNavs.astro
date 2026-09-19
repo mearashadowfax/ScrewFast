@@ -3,6 +3,7 @@
 import TabNav from '@components/ui/blocks/TabNav.astro';
 import TabContent from '@components/ui/blocks/TabContent.astro';
 import Icon from '@components/ui/icons/Icon.astro';
+import type { IconName } from '@components/ui/icons/icons';
 
 // Define props from Astro
 const { title, tabs } = Astro.props;
@@ -11,7 +12,7 @@ const { title, tabs } = Astro.props;
 interface Tab {
   heading: string;
   content: string;
-  svg: string;
+  svg: IconName;
   src: any;
   alt: string;
   first?: boolean;
@@ -45,7 +46,10 @@ interface Props {
               content={tab.content}
               first={tab.first}
             >
-              <Icon name={tab.svg} />
+              <Icon
+                name={tab.svg}
+                class="mt-2 h-6 w-6 shrink-0 text-neutral-700 hs-tab-active:text-orange-400 md:h-7 md:w-7 dark:text-neutral-300 dark:hs-tab-active:text-orange-300"
+              />
             </TabNav>
           ))}
         </nav>

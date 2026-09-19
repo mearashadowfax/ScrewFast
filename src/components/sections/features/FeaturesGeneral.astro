@@ -3,10 +3,12 @@
 import { Image } from 'astro:assets';
 import IconBlock from '@components/ui/blocks/IconBlock.astro';
 import Icon from '@components/ui/icons/Icon.astro';
+import { assertIconName } from '@components/ui/icons/icons';
 
 interface Feature {
   heading: string;
   content: string;
+  /** An `IconName`; JSON data cannot carry the type, so it is checked at render. */
   svg: string;
 }
 
@@ -59,7 +61,10 @@ const { title, subTitle, src, alt, features } = Astro.props;
         {features &&
           features.map(feature => (
             <IconBlock heading={feature.heading} content={feature.content}>
-              <Icon name={feature.svg} />
+              <Icon
+                name={assertIconName(feature.svg)}
+                class="mt-1 h-8 w-8 shrink-0 text-orange-400 dark:text-orange-300"
+              />
             </IconBlock>
           ))}
       </div>

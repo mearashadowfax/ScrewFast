@@ -1,0 +1,22 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import ContactSection from '@components/sections/misc/ContactSection.astro';
+import { getCopy } from '@/copy';
+import type { MarketingLocale } from '@utils/locale';
+
+/** The contact page in one locale. */
+interface Props {
+  locale: MarketingLocale;
+}
+
+const { locale } = Astro.props;
+const copy = getCopy(locale).contact;
+---
+
+<MainLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  ogTitle={copy.ogTitle}
+>
+  <ContactSection />
+</MainLayout>

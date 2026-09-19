@@ -1,74 +1,23 @@
 ---
 import AuthBtn from '@components/ui/buttons/AuthBtn.astro';
 import ContactIconBlock from '@components/ui/blocks/ContactIconBlock.astro';
+import DemoForm from '@components/ui/forms/DemoForm.astro';
 import TextInput from '@components/ui/forms/input/TextInput.astro';
 import EmailContactInput from '@components/ui/forms/input/EmailContactInput.astro';
 import PhoneInput from '@components/ui/forms/input/PhoneInput.astro';
 import TextAreaInput from '@components/ui/forms/input/TextAreaInput.astro';
 import Icon from '@components/ui/icons/Icon.astro';
-import { getMarketingLocale } from '@utils/locale';
 
-const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
-
-const copy =
-  locale === 'fr'
-    ? {
-        title: 'Contactez-nous',
-        subTitle:
-          "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.",
-        formTitle: 'Remplissez le formulaire ci-dessous',
-        formSubTitle:
-          'Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.',
-        firstName: 'Prénom',
-        lastName: 'Nom',
-        details: 'Détails',
-        send: 'Envoyer un message',
-        demoMessage:
-          'Merci ! (Démo — branchez un endpoint pour recevoir de vrais messages.)',
-        knowledgeHeading: 'Base de connaissances',
-        knowledgeContent:
-          'Parcourez tous nos articles de base de connaissances.',
-        knowledgeLink: 'Visiter les guides et tutoriels',
-        faqHeading: 'FAQ',
-        faqContent:
-          'Explorez notre FAQ pour des réponses rapides et claires aux questions courantes.',
-        faqLink: 'Visiter la FAQ',
-        officeHeading: 'Visitez notre bureau',
-        officeContent: 'ScrewFast UK',
-        emailHeading: 'Contactez-nous par e-mail',
-        emailContent: 'Préférez-vous le texte écrit ? Envoyez-nous un e-mail à',
-      }
-    : {
-        title: 'Contact us',
-        subTitle:
-          "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
-        formTitle: 'Fill in the form below',
-        formSubTitle: "We'll get back to you in 1-2 business days.",
-        firstName: 'First Name',
-        lastName: 'Last Name',
-        details: 'Details',
-        send: 'Send Message',
-        demoMessage:
-          'Thanks! (Demo only — wire a form endpoint to receive real messages.)',
-        knowledgeHeading: 'Knowledgebase',
-        knowledgeContent: 'Browse through all of our knowledgebase articles.',
-        knowledgeLink: 'Visit guides & tutorials',
-        faqHeading: 'FAQ',
-        faqContent:
-          'Explore our FAQ for quick, clear answers to common queries.',
-        faqLink: 'Visit FAQ',
-        officeHeading: 'Visit our office',
-        officeContent: 'UK ScrewFast',
-        emailHeading: 'Contact us by email',
-        emailContent: 'Prefer the written word? Drop us an email at',
-      };
+const copy = Astro.locals.copy.contact;
+const blockIconClass =
+  'mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400';
 ---
 
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
       <h1 class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200">
-        {copy.title}
+        {copy.heading}
       </h1>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
         {copy.subTitle}
@@ -80,7 +29,10 @@ const copy =
         <h2 class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300">
           {copy.formTitle}
         </h2>
-        <form data-demo-form data-demo-message={copy.demoMessage}>
+        <DemoForm
+          successMessage={copy.demoMessage}
+          statusClass="mt-2 text-center text-sm text-orange-500 dark:text-orange-400"
+        >
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
@@ -111,13 +63,8 @@ const copy =
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
               {copy.formSubTitle}
             </p>
-            <p
-              class="mt-2 hidden text-sm text-orange-500 dark:text-orange-400"
-              data-demo-status
-              aria-live="polite"
-            ></p>
           </div>
-        </form>
+        </DemoForm>
       </div>
 
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
@@ -129,7 +76,7 @@ const copy =
           linkURL="#"
           isArrowVisible={true}
         >
-          <Icon name="question" />
+          <Icon name="question" class={blockIconClass} />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -140,7 +87,7 @@ const copy =
           linkURL="#"
           isArrowVisible={true}
         >
-          <Icon name="chatBubble" />
+          <Icon name="chatBubble" class={blockIconClass} />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -149,7 +96,7 @@ const copy =
           isAddressVisible={true}
           addressContent="72 Union Terrace, E10 4PE London"
         >
-          <Icon name="mapPin" />
+          <Icon name="mapPin" class={blockIconClass} />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -159,7 +106,7 @@ const copy =
           linkTitle="support@screwfast.uk"
           linkURL="mailto:support@screwfast.uk"
         >
-          <Icon name="envelopeOpen" />
+          <Icon name="envelopeOpen" class={blockIconClass} />
         </ContactIconBlock>
       </div>
     </div>

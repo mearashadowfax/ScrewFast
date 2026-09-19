@@ -1,0 +1,25 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import ProductDetail from '@components/sections/products/ProductDetail.astro';
+import type { CollectionEntry } from 'astro:content';
+import { localeOf } from '@utils/content';
+import { getCopy } from '@/copy';
+
+/** One product page. The locale is the entry's own. */
+interface Props {
+  product: CollectionEntry<'products'>;
+}
+
+const { product } = Astro.props;
+const locale = localeOf(product);
+const t = getCopy(locale);
+---
+
+<MainLayout
+  title={product.data.title}
+  description={product.data.description}
+  section={t.products.ogSection}
+  kind={{ type: 'Product' }}
+>
+  <ProductDetail product={product} />
+</MainLayout>

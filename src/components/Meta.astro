@@ -1,72 +1,29 @@
 ---
 import { getImage } from 'astro:assets';
-import { OG, SEO, SITE } from '@data/constants';
+import { OG, SITE } from '@data/constants';
 import faviconSvgSrc from '@images/icon.svg';
 import faviconSrc from '@images/icon.png';
+import type { PageMetadata } from '@utils/metadata';
 
-// Default properties for the Meta component. These values are used if props are not provided.
-// 'meta' sets a default description meta tag to describe the page content.
-// 'structuredData' defines default structured data in JSON-LD format to enhance search engine understanding of the page (for SEO purposes).
-const defaultProps = {
-  meta: SITE.description,
-  structuredData: SEO.structuredData,
-  customDescription: null,
-  customOgTitle: null,
-};
+/**
+ * Emits the `<head>` tags for a page. All page-specific values come from
+ * `buildPageMetadata()` (see `@utils/metadata`); this file only renders them
+ * plus the site-wide head chrome (favicons, manifest, theme colour).
+ */
+interface Props {
+  metadata: PageMetadata;
+}
 
-// Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
-// For example:
-// <MainLayout title="Custom Title" meta="Custom description." />
-const {
-  meta = defaultProps.meta,
-  structuredData = defaultProps.structuredData,
-  customDescription = defaultProps.customDescription,
-  customOgTitle = defaultProps.customOgTitle,
-} = Astro.props;
+const { metadata } = Astro.props;
 
-// Use custom description if provided, otherwise use default meta
-const description = customDescription || meta;
-// Use custom OG title if provided, otherwise use default OG title
-const ogTitle = customOgTitle || OG.title;
-const ogDescription = customDescription || OG.description;
-
-// Define the metadata for your website and individual pages
-const siteURL = `${Astro.site}`; // Set the website URL in astro.config.mjs
-const author = SITE.author;
-const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
-  .href;
-const basePath = Astro.url.pathname;
 const socialImageRes = await getImage({
   src: OG.image,
   width: 1200,
   height: 600,
 });
-const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+const socialImage = Astro.url.origin + socialImageRes.src;
 
-const languages: { [key: string]: string } = {
-  en: '',
-  fr: 'fr',
-};
-
-function createHref(_lang: string, prefix: string, path: string): string {
-  // Remove any existing language prefix
-  const cleanPath = path.replace(/^\/(fr|en)\//, '/');
-
-  // Add the correct language prefix if needed
-  const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
-  const normalizedBasePath = basePath.replace(/\/\/+/g, '/');
-
-  return `${siteURL.slice(0, -1)}${normalizedBasePath}`;
-}
-
-const fullPath: string = Astro.url.pathname;
-
-// Generate and optimize the favicon images
-const faviconSvg = await getImage({
-  src: faviconSvgSrc,
-  format: 'svg',
-});
-
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
 const appleTouchIcon = await getImage({
   src: faviconSrc,
   width: 180,
@@ -75,37 +32,29 @@ const appleTouchIcon = await getImage({
 });
 ---
 
-{/*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
-     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */}
-{structuredData && (
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(structuredData)}
-  ></script>
-)}
-{/* Define the character set, description, author, and viewport settings */}
+<title>{metadata.title}</title>
+{/* JSON-LD structured data: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data */}
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(metadata.jsonLd)}
+></script>
 <meta charset="utf-8" />
-<meta content={description} name="description" />
-<meta name="web_author" content={author} />
+<meta content={metadata.description} name="description" />
+<meta name="web_author" content={SITE.author} />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<link rel="canonical" href={canonical} />
-{Object.entries(languages).map(([lang, prefix]) => {
-  const cleanPath = fullPath.replace(/^\/(fr|en)\//, '/');
-  const href = createHref(lang, prefix, cleanPath);
-  return <link rel="alternate" hreflang={lang} href={href} />;
-})}
+<link rel="canonical" href={metadata.canonical} />
+{metadata.alternates.map(alt => (
+  <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+))}
 
 {/* Facebook Meta Tags */}
-<meta
-  property="og:locale"
-  content={basePath.startsWith('/fr') ? 'fr_FR' : 'en_US'}
-/>
-<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={metadata.ogLocale} />
+<meta property="og:url" content={metadata.canonical} />
 <meta property="og:type" content="website" />
-<meta property="og:title" content={ogTitle} />
+<meta property="og:title" content={metadata.ogTitle} />
 <meta property="og:site_name" content={SITE.title} />
-<meta property="og:description" content={ogDescription} />
+<meta property="og:description" content={metadata.ogDescription} />
 <meta property="og:image" content={socialImage} />
 <meta content="1200" property="og:image:width" />
 <meta content="600" property="og:image:height" />
@@ -117,21 +66,17 @@ const appleTouchIcon = await getImage({
   property="twitter:domain"
   content={Astro.site?.hostname ?? 'screwfast.uk'}
 />
-<meta property="twitter:url" content={canonical} />
-<meta name="twitter:title" content={ogTitle} />
-<meta name="twitter:description" content={ogDescription} />
+<meta property="twitter:url" content={metadata.canonical} />
+<meta name="twitter:title" content={metadata.ogTitle} />
+<meta name="twitter:description" content={metadata.ogDescription} />
 <meta name="twitter:image" content={socialImage} />
 
-{/* Links to the webmanifest and sitemap */}
+{/* Site-wide head chrome: manifest, sitemap, favicons, theme colour */}
 <link rel="manifest" href="/manifest.json" />
-{/* https://docs.astro.build/en/guides/integrations-guide/sitemap/ */}
 <link rel="sitemap" href="/sitemap-index.xml" />
-
-{/* Links for favicons */}
 <link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
 <link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
 <meta name="mobile-web-app-capable" content="yes" />
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />
-{/* Set theme color */}
 <meta name="theme-color" content="#facc15" />

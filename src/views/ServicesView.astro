@@ -1,0 +1,86 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import MainSection from '@components/ui/blocks/MainSection.astro';
+import AlternatingSections, {
+  type Article,
+} from '@components/ui/blocks/AlternatingSections.astro';
+import FeaturesStats from '@components/sections/features/FeaturesStats.astro';
+import blueprints from '@images/blueprints-image.avif';
+import personWorking from '@images/person-working.avif';
+import beforeAfter from '@images/before-after.avif';
+import constructionWorkers from '@images/construction-workers.avif';
+import aerialView from '@images/aerial-view.avif';
+import usingTools from '@images/using-tools.avif';
+import progressBuilding from '@images/progress-building.avif';
+import underConstruction from '@images/under-construction.avif';
+import { getCopy } from '@/copy';
+import type { MarketingLocale } from '@utils/locale';
+
+/** The services page in one locale. */
+interface Props {
+  locale: MarketingLocale;
+}
+
+const { locale } = Astro.props;
+const copy = getCopy(locale).services;
+const articleCopy = copy.articles;
+
+const articles: Article[] = [
+  {
+    title: articleCopy.guidance.title,
+    subTitle: articleCopy.guidance.subTitle,
+    images: [
+      { src: blueprints, alt: articleCopy.guidance.imageAlts[0] },
+      { src: personWorking, alt: articleCopy.guidance.imageAlts[1] },
+    ],
+  },
+  {
+    title: articleCopy.craftsmanship.title,
+    subTitle: articleCopy.craftsmanship.subTitle,
+    images: [{ src: beforeAfter, alt: articleCopy.craftsmanship.imageAlts[0] }],
+    cta: { title: articleCopy.craftsmanship.cta, url: '#' },
+  },
+  {
+    title: articleCopy.oversight.title,
+    subTitle: articleCopy.oversight.subTitle,
+    images: [
+      { src: constructionWorkers, alt: articleCopy.oversight.imageAlts[0] },
+      { src: aerialView, alt: articleCopy.oversight.imageAlts[1] },
+    ],
+  },
+  {
+    title: articleCopy.maintenance.title,
+    subTitle: articleCopy.maintenance.subTitle,
+    images: [{ src: usingTools, alt: articleCopy.maintenance.imageAlts[0] }],
+  },
+  {
+    title: articleCopy.bespoke.title,
+    subTitle: articleCopy.bespoke.subTitle,
+    images: [
+      { src: progressBuilding, alt: articleCopy.bespoke.imageAlts[0] },
+      { src: underConstruction, alt: articleCopy.bespoke.imageAlts[1] },
+    ],
+    cta: { title: articleCopy.bespoke.cta, url: '#' },
+  },
+];
+---
+
+<MainLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  ogTitle={copy.ogTitle}
+>
+  <MainSection
+    title={copy.intro.title}
+    subTitle={copy.intro.subTitle}
+    cta={{ title: copy.intro.cta, url: '#' }}
+  />
+  <AlternatingSections articles={articles} />
+  <FeaturesStats
+    title={copy.stats.title}
+    subTitle={copy.stats.subTitle}
+    mainStatTitle={copy.stats.mainStatTitle}
+    mainStatSubTitle={copy.stats.mainStatSubTitle}
+    stats={copy.stats.stats}
+  />
+</MainLayout>

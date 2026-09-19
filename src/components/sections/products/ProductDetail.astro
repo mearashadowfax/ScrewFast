@@ -6,10 +6,10 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   product: CollectionEntry<'products'>;
-  lang?: 'en' | 'fr';
 }
 
 const { product } = Astro.props;
+const { copy: t } = Astro.locals;
 ---
 
 <div
@@ -54,7 +54,7 @@ const { product } = Astro.props;
 >
   <nav
     class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
-    aria-label="Tabs"
+    aria-label={t.products.tabs}
     role="tablist"
   >
     {product.data.tabs.map((tab, index) => (

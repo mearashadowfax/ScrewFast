@@ -4,10 +4,10 @@ import { render, type CollectionEntry } from 'astro:content';
 
 interface Props {
   post: CollectionEntry<'insights'>;
-  lang?: 'en' | 'fr';
 }
 
 const { post } = Astro.props;
+const { copy: t } = Astro.locals;
 const { Content } = await render(post);
 ---
 
@@ -35,7 +35,9 @@ const { Content } = await render(post);
               class="h-px w-full bg-linear-to-r from-orange-400/30 to-orange-400"
             ></div>
           </div>
-          <p class="text-sm text-pretty text-neutral-500">Table of Contents:</p>
+          <p class="text-sm text-pretty text-neutral-500">
+            {t.insights.tableOfContents}
+          </p>
           <div id="toc" class="">
             <ul class="space-y-2 text-base text-pretty text-neutral-700 transition duration-300 dark:text-neutral-400"></ul>
           </div>
