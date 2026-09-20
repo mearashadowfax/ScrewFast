@@ -1,6 +1,11 @@
 import type { MarketingLocale } from '@utils/locale';
 import { en } from './en';
 import { fr } from './fr';
+import { de } from './de';
+import { es } from './es';
+import { fa } from './fa';
+import { ja } from './ja';
+import { zhCn } from './zh-cn';
 
 /**
  * Copy module: one typed table of UI strings per marketing locale.
@@ -12,7 +17,15 @@ import { fr } from './fr';
  */
 export type Copy = typeof en;
 
-const tables: Record<MarketingLocale, Copy> = { en, fr };
+const tables: Record<MarketingLocale, Copy> = {
+  en,
+  fr,
+  de,
+  es,
+  fa,
+  ja,
+  'zh-cn': zhCn,
+};
 
 export function getCopy(locale: MarketingLocale): Copy {
   return tables[locale];

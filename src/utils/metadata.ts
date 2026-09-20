@@ -52,6 +52,8 @@ export interface PageMetadataInput {
 
 export interface PageMetadata {
   lang: string;
+  /** `<html dir>`; undefined for left-to-right locales. */
+  dir?: 'rtl';
   title: string;
   description: string;
   ogTitle: string;
@@ -145,6 +147,7 @@ export function buildPageMetadata(input: PageMetadataInput): PageMetadata {
 
   return {
     lang: info.lang,
+    dir: info.dir,
     title,
     description,
     ogTitle,

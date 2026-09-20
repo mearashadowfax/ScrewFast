@@ -1,0 +1,38 @@
+{
+  "title": "Einfache, transparente Preisgestaltung",
+  "subTitle": "Steigern Sie die Effizienz mit ScrewFasts klaren, wertorientierten Plänen.",
+  "badge": "Bestes Angebot",
+  "thirdOption": "Enterprise-Lösungen?",
+  "btnText": "Individuelles Angebot erhalten",
+
+  "starterKit": {
+    "name": "Starter-Kit",
+    "description": "Beste Option für DIY-Projekte",
+    "price": "49",
+    "cents": ",00",
+    "billingFrequency": "EUR / monatlich",
+    "features": [
+      "Wichtige Hardware-Werkzeuge",
+      "Zugang zu Anleitungen & Tutorials",
+      "Standard-Support"
+    ],
+    "purchaseBtnTitle": "Starter-Kit erhalten",
+    "purchaseLink": "#"
+  },
+
+  "professionalToolbox": {
+    "name": "Professional Toolbox",
+    "description": "Am besten für großangelegte Verwendungen",
+    "price": "89",
+    "cents": ",00",
+    "billingFrequency": "EUR / monatlich",
+    "features": [
+      "Premium-Werkzeugauswahl",
+      "Prioritäts-Support",
+      "Exklusive Inhalte & Angebote",
+      "Mengenrabatte"
+    ],
+    "purchaseBtnTitle": "Professional Toolbox erhalten",
+    "purchaseLink": "#"
+  }
+}

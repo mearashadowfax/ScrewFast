@@ -42,6 +42,26 @@
     {
       "source": "/fr/:path*",
       "destination": "/fr/404"
+    },
+    {
+      "source": "/de/:path*",
+      "destination": "/de/404"
+    },
+    {
+      "source": "/es/:path*",
+      "destination": "/es/404"
+    },
+    {
+      "source": "/fa/:path*",
+      "destination": "/fa/404"
+    },
+    {
+      "source": "/ja/:path*",
+      "destination": "/ja/404"
+    },
+    {
+      "source": "/zh-cn/:path*",
+      "destination": "/zh-cn/404"
     }
   ]
 }

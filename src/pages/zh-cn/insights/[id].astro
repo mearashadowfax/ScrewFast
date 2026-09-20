@@ -1,0 +1,10 @@
+---
+import InsightView from '@views/InsightView.astro';
+import { staticPathsFor } from '@utils/content';
+
+export const getStaticPaths = () => staticPathsFor('insights', 'zh-cn');
+
+const { entry } = Astro.props;
+---
+
+<InsightView post={entry} />

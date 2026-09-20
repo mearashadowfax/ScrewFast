@@ -1,7 +1,7 @@
 /**
  * Marketing-site locale module.
  *
- * Owns everything the marketing pages (`src/pages/` and `src/pages/fr/`)
+ * Owns everything the marketing pages (`src/pages/` and `src/pages/<locale>/`)
  * need to know about locales: which ones exist, how to resolve the current
  * one from a request, how to localise a path, and how to find the same page
  * in another locale. Nothing else in the codebase should parse `/fr` out of
@@ -13,7 +13,15 @@
  * Every function here is pure so it can be unit-tested without Astro.
  */
 
-export const MARKETING_LOCALES = ['en', 'fr'] as const;
+export const MARKETING_LOCALES = [
+  'en',
+  'fr',
+  'de',
+  'es',
+  'fa',
+  'ja',
+  'zh-cn',
+] as const;
 export type MarketingLocale = (typeof MARKETING_LOCALES)[number];
 
 export const DEFAULT_LOCALE: MarketingLocale = 'en';
@@ -37,6 +45,8 @@ export const LOCALE_INFO: Record<
     inLanguage: string;
     /** BCP 47 tag for `Intl` formatting. */
     intl: string;
+    /** Text direction; omitted for left-to-right locales. */
+    dir?: 'rtl';
   }
 > = {
   en: {
@@ -52,6 +62,42 @@ export const LOCALE_INFO: Record<
     ogLocale: 'fr_FR',
     inLanguage: 'fr',
     intl: 'fr-FR',
+  },
+  de: {
+    label: 'Deutsch',
+    lang: 'de',
+    ogLocale: 'de_DE',
+    inLanguage: 'de',
+    intl: 'de-DE',
+  },
+  es: {
+    label: 'Español',
+    lang: 'es',
+    ogLocale: 'es_ES',
+    inLanguage: 'es',
+    intl: 'es-ES',
+  },
+  fa: {
+    label: 'فارسی',
+    lang: 'fa',
+    ogLocale: 'fa_IR',
+    inLanguage: 'fa',
+    intl: 'fa-IR',
+    dir: 'rtl',
+  },
+  ja: {
+    label: '日本語',
+    lang: 'ja',
+    ogLocale: 'ja_JP',
+    inLanguage: 'ja',
+    intl: 'ja-JP',
+  },
+  'zh-cn': {
+    label: '简体中文',
+    lang: 'zh-CN',
+    ogLocale: 'zh_CN',
+    inLanguage: 'zh-CN',
+    intl: 'zh-CN',
   },
 };
 

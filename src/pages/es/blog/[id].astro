@@ -1,0 +1,10 @@
+---
+import BlogPostView from '@views/BlogPostView.astro';
+import { staticPathsFor } from '@utils/content';
+
+export const getStaticPaths = () => staticPathsFor('blog', 'es');
+
+const { entry } = Astro.props;
+---
+
+<BlogPostView post={entry} />

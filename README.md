@@ -2,13 +2,13 @@
 
 ![ScrewFast landing page](https://github.com/mearashadowfax/ScrewFast/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
 
-ScrewFast is an open-source website template built with [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/). You get a landing page, blog, product pages, and a full documentation site in one repo, so you can launch a complete web presence by editing content and props instead of building pages from scratch. Unlike single-purpose landing or blog themes, it ships with SEO metadata, i18n, security headers, and CI already wired up.
+ScrewFast is an open-source website template built with [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/). You get a landing page, blog, product pages, and a full documentation site in one repo, so you can launch a complete web presence by editing content and props instead of building pages from scratch. Unlike single-purpose landing or blog themes, it ships with SEO metadata, i18n, security headers, and CI already wired up. This is the **multilingual** branch: the marketing site ships in the same seven languages as the docs, on top of the current `main` architecture. The [`main`](https://github.com/mearashadowfax/ScrewFast) branch ships English and French.
 
 Live demo: [screwfast.uk](https://screwfast.uk)
 
 - **Four site types in one.** Landing page, blog, product catalog, and [Starlight](https://starlight.astro.build/) docs, all sharing one layout, navbar, and footer.
 - **Ready-made components.** Page sections (hero, features, pricing, testimonials, FAQ, mega menu) and UI pieces (cards, forms, modals, buttons, icons).
-- **Multilingual out of the box.** English and French marketing pages; docs in 7 languages (en, de, es, fa, fr, ja, zh-CN) with RTL support. Only need one language? Use the [`monolingual-site`](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site) branch.
+- **Multilingual out of the box.** Marketing pages and docs in 7 languages (en, de, es, fa, fr, ja, zh-CN) with RTL support. Only need one language? Use the [`monolingual-site`](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site) branch.
 - **SEO handled.** Centralized title/description/Open Graph config, JSON-LD structured data, generated sitemap and `robots.txt`.
 - **Production-hardened.** Content Security Policy and other security headers via `vercel.json`, post-build HTML minification, and a CI pipeline that type-checks, builds, and smoke-tests every push.
 - **Current stack.** Astro 7, Tailwind CSS 4, Preline 5, TypeScript 6. Dependabot keeps it that way.
@@ -61,6 +61,7 @@ import HeroSection from '@components/sections/landing/HeroSection.astro';
   - [Security headers](#security-headers)
   - [Formatting](#formatting)
 - [Contributing](#contributing)
+- [Credits](#credits)
 - [License](#license)
 
 ---
@@ -99,7 +100,7 @@ pnpm build
 This runs `astro check` (type-checking), builds the site into `dist/`, and minifies the HTML. Preview the result with `pnpm preview`, or run `pnpm test:smoke` to serve `dist/` and verify the key routes respond.
 
 > [!TIP]
-> Only need one language? The [`monolingual-site`](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site) branch has the French pages and i18n plumbing removed.
+> Three branches, one architecture: [`main`](https://github.com/mearashadowfax/ScrewFast) ships English and French, this **multilingual** branch has the marketing site in all seven docs languages, and [`monolingual-site`](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site) strips it down to English. Pick the one closest to what you need.
 
 ---
 
@@ -151,7 +152,7 @@ Two navbars are included in `src/components/sections/navbar&footer/`: `Navbar.as
 
 ### Pages and sections
 
-Each route has one view in `src/views/` (for example [`HomeView.astro`](src/views/HomeView.astro)) that composes sections from `src/components/sections/` and passes content as props. The files in `src/pages/` and `src/pages/fr/` are one-line shells that render the view for their locale, so a page is edited once for every language.
+Each route has one view in `src/views/` (for example [`HomeView.astro`](src/views/HomeView.astro)) that composes sections from `src/components/sections/` and passes content as props. The files in `src/pages/` and `src/pages/<locale>/` are one-line shells that render the view for their locale, so a page is edited once for every language.
 
 Views read their text from the copy tables in [`src/copy/`](src/copy/) (`home`, `services`, `contact`, …); edit those to change what a page says. Reusable data such as FAQs, features, and pricing tiers lives as JSON in `src/data_files/` and is exposed through the same tables as `data`.
 
@@ -185,9 +186,11 @@ Docs live in `src/content/docs/` and are served by [Starlight](https://starlight
 
 ### Languages
 
-Marketing pages are file-based: `src/pages/` for English, `src/pages/fr/` for French, each rendering a shared view from `src/views/`. A `LanguagePicker` component switches between them. Everything locale-related lives in [`src/utils/locale.ts`](src/utils/locale.ts) (the locale list, `resolveLocale()`, `localePath()`, `alternatePaths()`); a middleware resolves the locale once per request and exposes it as `Astro.locals.locale`, with the matching copy table as `Astro.locals.copy`. UI strings live in [`src/copy/en.ts`](src/copy/en.ts) and [`src/copy/fr.ts`](src/copy/fr.ts); the French table is typed against the English one, so a missing translation fails `astro check`. Docs locales are configured in Starlight; guides and the welcome page are translated, other docs sections fall back to English.
+Marketing pages are file-based: `src/pages/` for English and `src/pages/<locale>/` for every other language (`fr/`, `de/`, `es/`, `fa/`, `ja/`, `zh-cn/`), each rendering a shared view from `src/views/`. A `LanguagePicker` component switches between them. Everything locale-related lives in [`src/utils/locale.ts`](src/utils/locale.ts) (the locale list, `resolveLocale()`, `localePath()`, `alternatePaths()`); a middleware resolves the locale once per request and exposes it as `Astro.locals.locale`, with the matching copy table as `Astro.locals.copy`. UI strings live in one table per locale under [`src/copy/`](src/copy/); every table is typed against [`en.ts`](src/copy/en.ts), so a missing translation fails `astro check`. Docs locales are configured in Starlight; guides and the welcome page are translated, other docs sections fall back to English.
 
-A static build can only have one `404.html` (English). A French 404 is also built at `/fr/404/`; the `rewrites` entry in [`vercel.json`](vercel.json) sends missing `/fr/…` paths to it (Vercel serves rewrites with a 200 status). On Netlify use a `_redirects` line instead: `/fr/* /fr/404/index.html 404`.
+To add a language: extend `MARKETING_LOCALES` and `LOCALE_INFO` in `locale.ts`, add `src/copy/<locale>.ts` and register it in [`src/copy/index.ts`](src/copy/index.ts), copy `src/pages/fr/` to `src/pages/<locale>/` and change the locale prop, add `src/content/{blog,products,insights}/<locale>/` and `src/data_files/<locale>/{faqs,features,pricing}.json`, then add the locale to the sitemap block in `astro.config.mjs`, a `rewrites` entry in `vercel.json` and the prefix list in `scripts/smoke.mjs`. The language picker, `hreflang` links and Open Graph tags pick it up automatically. A right-to-left locale sets `dir: 'rtl'` in `LOCALE_INFO`, which `MainLayout` puts on `<html>`; Tailwind's logical utilities (`ms-`, `pe-`, `start-`, …) then mirror the layout.
+
+A static build can only have one `404.html` (English). Every other locale also gets a 404 at `/<locale>/404/`; the `rewrites` entries in [`vercel.json`](vercel.json) send missing `/<locale>/…` paths to it (Vercel serves rewrites with a 200 status). On Netlify use `_redirects` lines instead, one per locale: `/fr/* /fr/404/index.html 404`.
 
 ### Icons
 
@@ -205,8 +208,8 @@ Entries hold geometry only; size and colour come from the `class` you pass (ever
 
 `pnpm build` produces a static site in `dist/` that any static host can serve.
 
-- **Vercel:** [Deploy with Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast). The included [`vercel.json`](vercel.json) adds security headers and caching rules.
-- **Netlify:** [Deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/mearashadowfax/ScrewFast).
+- **Vercel:** [Deploy with Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast&branch=multilingual-site). The included [`vercel.json`](vercel.json) adds security headers and caching rules.
+- **Netlify:** [Deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/mearashadowfax/ScrewFast&branch=multilingual-site).
 
 ---
 
@@ -223,17 +226,17 @@ src/
 │   ├── sections/           # Page sections: landing, features, pricing, navbar&footer, ...
 │   └── ui/                 # Buttons, cards, forms, icons, banners, ...
 ├── content/
-│   ├── blog/  products/  insights/   # en/ and fr/ subfolders
+│   ├── blog/  products/  insights/   # one subfolder per locale: en/ fr/ de/ … zh-cn/
 │   └── docs/                          # Starlight docs + translated locales
-├── copy/                   # en.ts / fr.ts: every UI and page string, typed
-├── data_files/             # constants.ts (SITE/OG), navigation.ts, mega_link.ts, faqs/features/pricing JSON
+├── copy/                   # one <locale>.ts per language: every UI and page string, typed
+├── data_files/             # constants.ts (SITE/OG), navigation.ts, mega_link.ts, faqs/features/pricing JSON (+ <locale>/ copies)
 ├── images/                 # Imported and optimized by Astro
 ├── layouts/
 │   └── MainLayout.astro    # Navbar + slot + footer, Meta, Lenis, Preline
 ├── middleware.ts           # Sets Astro.locals.locale / .copy per request
-├── pages/                  # File-based routes; fr/ mirrors them, each a one-line shell
+├── pages/                  # File-based routes; fr/ de/ … mirror them, each a one-line shell
 │   ├── index.astro  blog/  products/  insights/  contact.astro  services.astro
-│   ├── 404.astro           # also built at fr/404/
+│   ├── 404.astro           # also built at <locale>/404/
 │   └── robots.txt.ts  manifest.json.ts  favicon.ico.ts
 ├── views/                  # One view per route; the locale is a prop
 ├── utils/                  # locale.ts, content.ts, metadata.ts, helpers
@@ -321,6 +324,10 @@ Prettier with `prettier-plugin-astro` and `prettier-plugin-tailwindcss` (class s
 - **Pull requests:** welcome. Run `pnpm format:fix` and `pnpm build` before submitting.
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
+## Credits
+
+The translations on this branch started from the archived `i18n-prototype` branch, originally contributed by [@michaelgiraldo](https://github.com/michaelgiraldo) in [PR #454](https://github.com/mearashadowfax/ScrewFast/pull/454). That prototype used Astro's built-in i18n routing with a prefixed `/en/`; this branch re-implements it on the `main` architecture (views, locale module, typed copy tables) and keeps the English URLs unprefixed. The translated copy is machine-assisted and has not been reviewed by native speakers; treat it as a starting point.
 
 ## License
 

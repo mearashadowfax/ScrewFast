@@ -6,8 +6,8 @@ import { localePath, type MarketingLocale } from '@utils/locale';
 
 /**
  * The 404 page in one locale. Static output can only serve one `404.html`
- * (the English one); `/fr/404/` is built as well so the host can rewrite
- * missing `/fr/…` paths to it (see `vercel.json` and the README).
+ * (the English one); `/<locale>/404/` is built for every other locale so the host can rewrite
+ * missing `/<locale>/…` paths to it (see `vercel.json` and the README).
  */
 interface Props {
   locale: MarketingLocale;

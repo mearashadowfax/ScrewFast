@@ -1,0 +1,29 @@
+{
+  "subTitle": "Fragen Sie uns alles über unsere Marke und Produkte und erhalten Sie sachliche Antworten.",
+  "faqs": [
+    {
+      "question": "Welche Arten von Werkzeugen sind im Starter-Kit enthalten?",
+      "answer": "Das Starter-Kit enthält wichtige Hand- und Elektrowerkzeuge für verschiedene DIY-Projekte, einschließlich Hämmer, Bohrer, Schraubendreher und verschiedene Befestigungselemente. Es ist eine kuratierte Auswahl, um Anfängern und erfahrenen Heimwerkern bei den meisten Heimverbesserungsaufgaben zu helfen."
+    },
+    {
+      "question": "Kann ich vom Starter-Kit zur Professional Toolbox upgraden?",
+      "answer": "Absolut! Sie können jederzeit zur Professional Toolbox upgraden, um Zugang zu einer breiteren Palette hochwertiger Werkzeuge zu erhalten, prioritären Kundensupport zu genießen und exklusive Inhalte zu erhalten. Kontaktieren Sie unser Support-Team für einen nahtlosen Übergang."
+    },
+    {
+      "question": "Welche Rabatte gibt es für Großbestellungen über den Professional Toolbox-Plan?",
+      "answer": "Professional Toolbox-Mitglieder haben Anspruch auf exklusive Rabatte bei Großbestellungen, deren Prozentsatz je nach Bestellvolumen variieren kann. Setzen Sie sich mit uns in Verbindung, um Ihre Bedürfnisse zu besprechen, und wir werden eine maßgeschneiderte Rabattstruktur anbieten."
+    },
+    {
+      "question": "Welche Art von Kundensupport kann ich erwarten?",
+      "answer": "Alle unsere Kunden erhalten dedizierten E-Mail-Support. Mit dem Starter-Kit erhalten Sie unseren Standard-Support, während der Professional Toolbox-Plan Sie auf prioritären Support upgradet, was schnellere Antwortzeiten und spezialisierte Unterstützung bedeutet."
+    },
+    {
+      "question": "Wie aktuell sind die Online-Ressourcen und Tutorials?",
+      "answer": "Wir aktualisieren regelmäßig unsere Online-Ressourcen und Tutorials, um die neuesten Trends im DIY- und Baubereich sowie Einführungen in neue Werkzeuge und Techniken widerzuspiegeln. Unser Material zielt darauf ab, umfassend und benutzerfreundlich für alle Fähigkeitsstufen zu sein."
+    },
+    {
+      "question": "Bietet ScrewFast Dienstleistungen für große Bauprojekte an?",
+      "answer": "Ja, unsere Enterprise Solutions sind für größere Unternehmen konzipiert, die umfassende Dienstleistungen benötigen. Wir bieten Beratung, Planung und Lieferung hochwertiger Werkzeuge und Materialien sowie Personallösungen für umfangreiche Baubedürfnisse. Kontaktieren Sie uns für ein individuelles Angebot."
+    }
+  ]
+}

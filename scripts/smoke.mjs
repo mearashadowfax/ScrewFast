@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { extname, isAbsolute, relative, resolve } from 'node:path';
 
 const DIST = resolve(new URL('../dist/', import.meta.url).pathname);
-// Marketing routes exist once per locale (src/pages/ vs src/pages/fr/).
-const LOCALE_PREFIXES = ['', '/fr'];
+// Marketing routes exist once per locale (src/pages/ vs src/pages/<locale>/).
+const LOCALE_PREFIXES = ['', '/fr', '/de', '/es', '/fa', '/ja', '/zh-cn'];
 const MARKETING_ROUTES = [
   '/',
   '/products/',
@@ -21,6 +21,11 @@ const ROUTES = [
   ),
   '/404',
   '/fr/404/',
+  '/de/404/',
+  '/es/404/',
+  '/fa/404/',
+  '/ja/404/',
+  '/zh-cn/404/',
 ];
 
 // Cheap content assertions on top of the status check.
@@ -30,12 +35,55 @@ const EXPECTATIONS = {
     '<meta property="og:locale" content="fr_FR"',
     'hreflang="en" href="https://screwfast.uk"',
   ],
-  '/': ['<html lang="en"', 'hreflang="fr" href="https://screwfast.uk/fr"'],
+  '/zh-cn/': [
+    '<html lang="zh-CN"',
+    '<meta property="og:locale" content="zh_CN"',
+    'hreflang="en" href="https://screwfast.uk"',
+  ],
+  '/ja/': [
+    '<html lang="ja"',
+    '<meta property="og:locale" content="ja_JP"',
+    'hreflang="en" href="https://screwfast.uk"',
+  ],
+  '/fa/': [
+    '<html lang="fa" dir="rtl"',
+    '<meta property="og:locale" content="fa_IR"',
+    'hreflang="en" href="https://screwfast.uk"',
+  ],
+  '/es/': [
+    '<html lang="es"',
+    '<meta property="og:locale" content="es_ES"',
+    'hreflang="en" href="https://screwfast.uk"',
+  ],
+  '/de/': [
+    '<html lang="de"',
+    '<meta property="og:locale" content="de_DE"',
+    'hreflang="en" href="https://screwfast.uk"',
+  ],
+  '/': [
+    '<html lang="en"',
+    'hreflang="fr" href="https://screwfast.uk/fr"',
+    'hreflang="de" href="https://screwfast.uk/de"',
+    'hreflang="es" href="https://screwfast.uk/es"',
+    'hreflang="fa" href="https://screwfast.uk/fa"',
+    'hreflang="ja" href="https://screwfast.uk/ja"',
+    'hreflang="zh-CN" href="https://screwfast.uk/zh-cn"',
+  ],
   '/fr/404/': ['<html lang="fr"'],
+  '/de/404/': ['<html lang="de"'],
+  '/es/404/': ['<html lang="es"'],
+  '/fa/404/': ['<html lang="fa" dir="rtl"'],
+  '/ja/404/': ['<html lang="ja"'],
+  '/zh-cn/404/': ['<html lang="zh-CN"'],
   '/contact/': ['data-demo-form', 'data-demo-status'],
   '/fr/contact/': ['data-demo-form', 'data-demo-status'],
   '/blog/post-1/': ['"@type":"BlogPosting"'],
   '/fr/blog/post-1/': ['"inLanguage":"fr"'],
+  '/de/blog/post-1/': ['"inLanguage":"de"'],
+  '/es/blog/post-1/': ['"inLanguage":"es"'],
+  '/fa/blog/post-1/': ['"inLanguage":"fa"'],
+  '/ja/blog/post-1/': ['"inLanguage":"ja"'],
+  '/zh-cn/blog/post-1/': ['"inLanguage":"zh-CN"'],
 };
 
 const MIME = {
