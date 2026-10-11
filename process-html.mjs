@@ -1,5 +1,4 @@
 import fs from 'node:fs/promises';
-import { globby } from 'globby';
 import { minify } from 'html-minifier-terser';
 
 // Prefer Vercel adapter output when present; otherwise minify Astro's default `dist/`.
@@ -24,7 +23,7 @@ if (!path) {
   process.exit(0);
 }
 
-const files = await globby(`${path}/**/*.html`);
+const files = await Array.fromAsync(fs.glob(`${path}/**/*.html`));
 if (files.length === 0) {
   console.log(`No HTML files found under ${path}.`);
   process.exit(0);
