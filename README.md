@@ -60,6 +60,7 @@ import HeroSection from '@components/sections/landing/HeroSection.astro';
   - [HTML minification](#html-minification)
   - [Security headers](#security-headers)
   - [Formatting](#formatting)
+- [More from the Author](#more-from-the-author)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -314,6 +315,15 @@ The contact, newsletter and sign-in/up/recover forms are placeholders wrapped in
 Prettier with `prettier-plugin-astro` and `prettier-plugin-tailwindcss` (class sorting) is configured in [`.prettierrc`](.prettierrc). Run `pnpm format:fix` locally; CI runs `pnpm format:check`.
 
 ---
+
+## More from the Author
+
+Other things I've built with Astro:
+
+- **[Stukko](https://stukko.app/)**: free renovation calculators for tile, paint, wallpaper, flooring, plaster, and concrete.
+- **[OpenStove](https://openstove.org/)**: a community recipe platform with no ads, contributed through GitHub.
+- **[DataNova](https://data-nova.vercel.app/)**: a follow-up to ScrewFast with Keystatic CMS and database support.
+- **[Domus Picturae](https://domus-picturae.vercel.app/)**: a multilingual template for art galleries.
 
 ## Contributing
 
