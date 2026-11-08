@@ -48,15 +48,15 @@ importers:
         specifier: ^0.1.5
         version: 0.1.5(@types/node@24.13.5)
       tailwindcss:
-        specifier: ^4.3.3
-        version: 4.3.3
+        specifier: ^4.3.4
+        version: 4.3.4
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.11
-        version: 0.5.11(tailwindcss@4.3.3)
+        version: 0.5.11(tailwindcss@4.3.4)
       '@tailwindcss/typography':
         specifier: ^0.5.20
-        version: 0.5.20(tailwindcss@4.3.3)
+        version: 0.5.20(tailwindcss@4.3.4)
       astro-vtbot:
         specifier: ^3.1.0
         version: 3.1.0
@@ -2239,6 +2239,9 @@ packages:
   tailwindcss@4.3.3:
     resolution: {integrity: sha512-gOhV3P7ufE62QDGg1zVaTgCR+EtPv92k2nIhVcVKcLmxT1sUBsQGhnZj175j+MqRt4zLF7ic+sCYjfhxMxj7YQ==}
 
+  tailwindcss@4.3.4:
+    resolution: {integrity: sha512-PCJZTFFdG+sL3gvnP1Do9o6GbkvH2q0p04xSs3f7cSvmAeK+sttG+/7ncK1fdRwKFfC7n+wDDJaOMBSefkI9ow==}
+
   tapable@2.3.3:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
     engines: {node: '>=6'}
@@ -3327,10 +3330,10 @@ snapshots:
     dependencies:
       '@svgdotjs/svg.js': 3.2.8
 
-  '@tailwindcss/forms@0.5.11(tailwindcss@4.3.3)':
+  '@tailwindcss/forms@0.5.11(tailwindcss@4.3.4)':
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 4.3.3
+      tailwindcss: 4.3.4
 
   '@tailwindcss/node@4.3.3':
     dependencies:
@@ -3393,10 +3396,10 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.3.3
       '@tailwindcss/oxide-win32-x64-msvc': 4.3.3
 
-  '@tailwindcss/typography@0.5.20(tailwindcss@4.3.3)':
+  '@tailwindcss/typography@0.5.20(tailwindcss@4.3.4)':
     dependencies:
       postcss-selector-parser: 6.0.10
-      tailwindcss: 4.3.3
+      tailwindcss: 4.3.4
 
   '@tailwindcss/vite@4.3.3(vite@8.3.5(@types/node@24.13.5)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))':
     dependencies:
@@ -4829,6 +4832,8 @@ snapshots:
       sax: 1.6.1
 
   tailwindcss@4.3.3: {}
+
+  tailwindcss@4.3.4: {}
 
   tapable@2.3.3: {}
 
