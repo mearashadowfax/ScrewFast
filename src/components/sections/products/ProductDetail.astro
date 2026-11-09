@@ -12,37 +12,48 @@ const { product } = Astro.props;
 const { copy: t } = Astro.locals;
 ---
 
-<div
-  id="overlay"
-  class="pointer-events-none fixed inset-0 bg-neutral-200 dark:bg-neutral-800"
-></div>
+<script is:inline>
+  // Hide reveal targets before first paint; the module script below takes over.
+  // If it never runs, the fallback timer shows the content anyway.
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('pd-motion');
+    window.setTimeout(function () {
+      document.documentElement.classList.remove('pd-motion');
+    }, 4000);
+  }
+</script>
 
-<section class="mx-auto flex max-w-[85rem] flex-col px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
-  <div>
-    <p
-      id="fadeText"
-      class="mb-8 max-w-prose font-light text-pretty text-neutral-700 sm:text-xl dark:text-neutral-300"
-    >
-      {product.data.main.content}
-    </p>
-  </div>
-  <div class="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
-    <div id="fadeInUp">
-      <h1 class="block text-4xl font-bold tracking-tighter text-neutral-800 sm:text-5xl md:text-6xl lg:text-7xl dark:text-neutral-200">
-        {product.data.title}
+<section class="mx-auto max-w-[85rem] px-4 pt-10 pb-4 sm:px-6 lg:px-8 lg:pt-16">
+  <div class="grid items-center gap-y-10 lg:grid-cols-12 lg:gap-x-10">
+    <div class="lg:col-span-5">
+      <h1 class="overflow-hidden pb-[0.08em] text-5xl leading-[1.02] font-bold tracking-tighter text-neutral-800 sm:text-6xl lg:text-7xl dark:text-neutral-200">
+        <span data-pd="title" class="block">
+          {product.data.title}
+        </span>
       </h1>
-      <p class="text-lg text-neutral-600 dark:text-neutral-400">
+      <p
+        data-pd="meta"
+        class="mt-2 text-lg font-medium text-orange-400 dark:text-orange-300"
+      >
         {product.data.description}
       </p>
+      <p
+        data-pd="meta"
+        class="mt-6 max-w-prose font-light text-pretty text-neutral-700 sm:text-xl dark:text-neutral-300"
+      >
+        {product.data.main.content}
+      </p>
     </div>
-    <div class="overflow-hidden">
+    <div data-pd="media" class="lg:col-span-7">
       <Image
-        id="fadeInMoveRight"
         src={product.data.main.imgMain}
-        class="w-[600px] will-change-transform"
+        class="h-auto w-full"
         alt={product.data.main.imgAlt}
+        widths={[480, 800, 1200, 1600]}
+        sizes="(min-width: 1360px) 790px, (min-width: 1024px) 58vw, 100vw"
         format={'avif'}
         loading={'eager'}
+        fetchpriority="high"
       />
     </div>
   </div>
@@ -53,6 +64,7 @@ const { copy: t } = Astro.locals;
   class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14"
 >
   <nav
+    data-pd="tabs"
     class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
     aria-label={t.products.tabs}
     role="tablist"
@@ -69,9 +81,9 @@ const { copy: t } = Astro.locals;
 
   <div class="relative mt-12 md:mt-16">
     <div id="tabs-with-card-1" class="product-tab-panel" role="tabpanel">
-      <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+      <div class="pb-10 lg:pb-14">
         <div class="grid gap-12 md:grid-cols-2">
-          <div class="lg:w-3/4">
+          <div data-pd-item class="lg:w-3/4">
             <h2 class="text-3xl font-bold tracking-tight text-balance text-neutral-800 md:leading-tight lg:text-4xl dark:text-neutral-200">
               {product.data.longDescription.title}
             </h2>
@@ -88,7 +100,7 @@ const { copy: t } = Astro.locals;
 
           <div class="space-y-6 lg:space-y-10">
             {product.data.descriptionList.map(list => (
-              <div class="flex">
+              <div data-pd-item class="flex">
                 <div>
                   <h3 class="text-base font-bold text-neutral-800 sm:text-lg dark:text-neutral-200">
                     {list.title}
@@ -105,11 +117,11 @@ const { copy: t } = Astro.locals;
     </div>
 
     <div id="tabs-with-card-2" class="product-tab-panel hidden" role="tabpanel">
-      <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+      <div class="pb-10 lg:pb-14">
         <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
           <div class="max-w-md space-y-6">
             {product.data.specificationsLeft.map(spec => (
-              <div>
+              <div data-pd-item>
                 <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                   {spec.title}
                 </h3>
@@ -122,7 +134,7 @@ const { copy: t } = Astro.locals;
           {product.data.specificationsRight ? (
             <div class="mt-6 max-w-md space-y-6 md:mt-0 md:ml-auto">
               {product.data.specificationsRight?.map(spec => (
-                <div>
+                <div data-pd-item>
                   <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                     {spec.title}
                   </h3>
@@ -133,7 +145,7 @@ const { copy: t } = Astro.locals;
               ))}
             </div>
           ) : product.data.tableData ? (
-            <div class="mt-6 space-y-6 md:mt-0 md:ml-auto">
+            <div data-pd-item class="mt-6 space-y-6 md:mt-0 md:ml-auto">
               <div class="flex flex-col">
                 <div class="-m-1.5 overflow-x-auto">
                   <div class="inline-block min-w-full p-1.5 align-middle">
@@ -182,7 +194,10 @@ const { copy: t } = Astro.locals;
 
     <div id="tabs-with-card-3" class="product-tab-panel hidden" role="tabpanel">
       <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
-        <div class="relative top-12 left-12 z-10 overflow-hidden rounded-xl shadow-lg md:top-16 md:left-12 md:-ml-12 lg:ml-0">
+        <div
+          data-pd-item
+          class="relative top-12 left-12 z-10 overflow-hidden rounded-xl shadow-lg md:top-16 md:left-12 md:-ml-12 lg:ml-0"
+        >
           {product.data.blueprints.first && (
             <Image
               src={product.data.blueprints.first}
@@ -193,7 +208,10 @@ const { copy: t } = Astro.locals;
           )}
         </div>
 
-        <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
+        <div
+          data-pd-item
+          class="relative right-12 overflow-hidden rounded-xl shadow-xl"
+        >
           {product.data.blueprints.second && (
             <Image
               src={product.data.blueprints.second}
@@ -208,6 +226,14 @@ const { copy: t } = Astro.locals;
   </div>
 </div>
 
+<style is:global>
+  /* Pre-paint hidden state; removed as soon as GSAP owns the elements. */
+  html.pd-motion [data-pd],
+  html.pd-motion #tabs-with-card-1 [data-pd-item] {
+    opacity: 0;
+  }
+</style>
+
 <script>
   import { gsap } from 'gsap';
 
@@ -215,82 +241,74 @@ const { copy: t } = Astro.locals;
     '(prefers-reduced-motion: reduce)'
   ).matches;
 
-  if (prefersReducedMotion) {
-    gsap.set(
-      ['#fadeText', '#fadeInUp', '#fadeInMoveRight', '#product-detail-body'],
-      { clearProps: 'all' }
+  const EASE_OUT = 'power3.out';
+
+  const panelItems = (panel: Element | null) =>
+    panel ? Array.from(panel.querySelectorAll('[data-pd-item]')) : [];
+
+  if (!prefersReducedMotion) {
+    const root = document.documentElement;
+    const title = document.querySelector('[data-pd="title"]');
+    const meta = document.querySelectorAll('[data-pd="meta"]');
+    const media = document.querySelector<HTMLElement>('[data-pd="media"]');
+    const img = media?.querySelector('img');
+    const tabs = document.querySelector('[data-pd="tabs"]');
+    const body = document.querySelector('#product-detail-body');
+    const firstItems = panelItems(
+      document.querySelector('.product-tab-panel:not(.hidden)')
     );
-    gsap.set('#overlay', { autoAlpha: 0, display: 'none' });
-  } else {
-    gsap.set('#fadeText', { autoAlpha: 0, y: 20 });
-    gsap.set('#fadeInUp', { autoAlpha: 0, y: 28 });
-    gsap.set('#fadeInMoveRight', { autoAlpha: 0, x: 56, scale: 0.97 });
-    gsap.set('#product-detail-body', { autoAlpha: 0, y: 24 });
 
-    const revealContent = () => {
-      gsap.set(
-        ['#fadeText', '#fadeInUp', '#fadeInMoveRight', '#product-detail-body'],
-        { autoAlpha: 1, x: 0, y: 0, scale: 1 }
-      );
-      gsap.set('#overlay', { autoAlpha: 0, display: 'none' });
-    };
+    // Take over the hidden state from CSS with inline styles GSAP can tween.
+    gsap.set(title, { yPercent: 105, autoAlpha: 1 });
+    gsap.set(meta, { autoAlpha: 0, y: 16 });
+    gsap.set(media, { autoAlpha: 0, y: 40, scale: 0.96 });
+    gsap.set([tabs, ...firstItems], { autoAlpha: 0, y: 20 });
+    root.classList.remove('pd-motion');
 
-    const safetyId = window.setTimeout(revealContent, 2200);
-
+    // Hero: title rises out of its mask, supporting copy follows.
     gsap
-      .timeline({
-        defaults: { ease: 'power3.out' },
-        onComplete: () => {
-          window.clearTimeout(safetyId);
-          gsap.set('#overlay', { display: 'none' });
+      .timeline({ defaults: { ease: EASE_OUT } })
+      .to(title, { yPercent: 0, duration: 1, ease: 'expo.out' }, 0.05)
+      .to(meta, { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.08 }, 0.3);
+
+    // Image waits for decode (capped) so it never animates in as an empty box.
+    const decoded = img?.decode ? img.decode().catch(() => {}) : null;
+    Promise.race([
+      decoded,
+      new Promise(resolve => window.setTimeout(resolve, 600)),
+    ]).then(() => {
+      gsap.to(media, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        delay: 0.15,
+        ease: 'expo.out',
+        clearProps: 'transform',
+      });
+    });
+
+    // Details: reveal once, when the tabs scroll into view.
+    const revealBody = () =>
+      gsap
+        .timeline({ defaults: { ease: EASE_OUT, duration: 0.7 }, delay: 0.2 })
+        .to(tabs, { autoAlpha: 1, y: 0 })
+        .to(firstItems, { autoAlpha: 1, y: 0, stagger: 0.07 }, 0.12);
+
+    if (body && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        entries => {
+          if (entries.some(entry => entry.isIntersecting)) {
+            io.disconnect();
+            revealBody();
+          }
         },
-      })
-      .to(
-        '#overlay',
-        {
-          autoAlpha: 0,
-          duration: 0.65,
-          ease: 'power2.inOut',
-        },
-        0.08
-      )
-      .to(
-        '#fadeText',
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.85,
-        },
-        0.12
-      )
-      .to(
-        '#fadeInUp',
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.95,
-        },
-        0.22
-      )
-      .to(
-        '#fadeInMoveRight',
-        {
-          autoAlpha: 1,
-          x: 0,
-          scale: 1,
-          duration: 1.05,
-        },
-        0.18
-      )
-      .to(
-        '#product-detail-body',
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.8,
-        },
-        0.42
+        { rootMargin: '0px 0px -10% 0px' }
       );
+      io.observe(body);
+    } else {
+      revealBody();
+    }
   }
 
   function changeHeadingStyle(
@@ -342,51 +360,48 @@ const { copy: t } = Astro.locals;
   ) as HTMLElement | null;
   let isSwitching = false;
 
-  function clearPanelMotion(panel: HTMLElement) {
-    panel.style.transition = '';
-    panel.style.opacity = '';
-    panel.style.transform = '';
-  }
-
   function switchPanel(nextPanel: HTMLElement) {
     if (!nextPanel || nextPanel === activePanel || isSwitching) return;
 
     if (prefersReducedMotion || !activePanel) {
       activePanel?.classList.add('hidden');
       nextPanel.classList.remove('hidden');
-      clearPanelMotion(nextPanel);
       activePanel = nextPanel;
       return;
     }
 
     isSwitching = true;
     const previousPanel = activePanel;
+    activePanel = nextPanel;
 
-    previousPanel.style.transition =
-      'opacity 220ms cubic-bezier(0.4, 0, 1, 1), transform 220ms cubic-bezier(0.4, 0, 1, 1)';
-    previousPanel.style.opacity = '0';
-    previousPanel.style.transform = 'translateY(10px)';
+    gsap.to(previousPanel, {
+      autoAlpha: 0,
+      y: 8,
+      duration: 0.18,
+      ease: 'power2.in',
+      onComplete: () => {
+        previousPanel.classList.add('hidden');
+        gsap.set(previousPanel, { clearProps: 'all' });
+        nextPanel.classList.remove('hidden');
 
-    window.setTimeout(() => {
-      previousPanel.classList.add('hidden');
-      clearPanelMotion(previousPanel);
-
-      nextPanel.classList.remove('hidden');
-      nextPanel.style.opacity = '0';
-      nextPanel.style.transform = 'translateY(16px)';
-      void nextPanel.offsetWidth;
-
-      nextPanel.style.transition =
-        'opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1)';
-      nextPanel.style.opacity = '1';
-      nextPanel.style.transform = 'translateY(0)';
-
-      window.setTimeout(() => {
-        clearPanelMotion(nextPanel);
-        activePanel = nextPanel;
-        isSwitching = false;
-      }, 420);
-    }, 230);
+        const items = panelItems(nextPanel);
+        gsap.fromTo(
+          items.length ? items : nextPanel,
+          { autoAlpha: 0, y: 14 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.45,
+            stagger: 0.05,
+            ease: EASE_OUT,
+            clearProps: 'all',
+            onComplete: () => {
+              isSwitching = false;
+            },
+          }
+        );
+      },
+    });
   }
 
   const tabButtons = document.querySelectorAll('[data-target]');
