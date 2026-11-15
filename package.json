@@ -19,7 +19,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/starlight": "^0.42.11",
     "@tailwindcss/vite": "^4.3.4",
-    "astro": "^7.4.7",
+    "astro": "^7.4.11",
     "clipboard": "^2.0.11",
     "gsap": "^3.15.1",
     "html-minifier-terser": "^7.2.0",
@@ -30,6 +30,7 @@
     "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
+    "@emnapi/runtime": "^1.11.3",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/typography": "^0.5.20",
     "astro-vtbot": "^3.1.0",
