@@ -12,7 +12,26 @@ updates:
     groups:
       # Prettier bumps often change formatting across the repo; keep them together
       # so one format pass (via dependabot-format.yml) covers the whole change.
+      # Listed first: a dependency joins the first group it matches.
       prettier:
         patterns:
           - 'prettier'
           - 'prettier-*'
+      # One PR for safe bumps; majors still arrive one per PR so each
+      # changelog gets read and a breaking release can't block the rest.
+      dependencies:
+        patterns: ['*']
+        update-types: ['minor', 'patch']
+    ignore:
+      # `astro check` (@astrojs/check) only supports TypeScript ^5 || ^6.
+      # Drop this once https://github.com/withastro/roadmap/discussions/1321 lands.
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      actions:
+        patterns: ['*']
